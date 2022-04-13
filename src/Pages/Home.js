@@ -1,3 +1,4 @@
+import Banner from "../Components/Banner";
 import Header from "../Components/Header";
 import Nav from "../Components/Nav";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div style={{ width: "100%" }}>
       <Nav />
       <Header />
+      <Banner />
     </div>
   );
 }
