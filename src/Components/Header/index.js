@@ -14,6 +14,22 @@ function Header() {
         <Link to="/">wc</Link>
         <Link to="/">vission</Link>
       </div>
+      <div>
+        <Link to="/">
+          <img
+            src="/images/forum.png"
+            alt="form button"
+            width="15"
+            height="15"
+          />
+          Forum
+        </Link>
+        <Link to="/">Register</Link>
+        <input type="text" placeholder="Enter" />
+        <button>
+          <img src="/images/search.png" alt="search" />
+        </button>
+      </div>
     </S.HeaderContainer>
   );
 }
