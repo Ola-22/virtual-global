@@ -16,4 +16,8 @@ export const SocialContainer = styled.div`
       object-fit: contain;
     }
   }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
