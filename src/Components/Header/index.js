@@ -1,19 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import * as S from "./style";
 
 function Header() {
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
   return (
     <S.HeaderContainer>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/">who we are</Link>
-        <Link to="/">q&a</Link>
-        <Link to="/">vgs</Link>
-        <Link to="/">bmi</Link>
-        <Link to="/">ml</Link>
-        <Link to="/">wc</Link>
-        <Link to="/">vission</Link>
+      <div onMouseLeave={() => setDropdown(!dropdown)}>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/who-we-are">who we are</NavLink>
+        <NavLink to="/q&a">q&a</NavLink>
+
+        <NavLink to="/vgs" onMouseEnter={() => setDropdown(!dropdown)}>
+          vgs
+        </NavLink>
+        {dropdown && (
+          <S.hoverVGS>
+            <Link to="/abstract">Abstract</Link>
+            <Link to="/">Implementation</Link>
+            <Link to="/">Project</Link>
+            <Link to="/">SMW</Link>
+            <Link to="/">List</Link>
+          </S.hoverVGS>
+        )}
+
+        <NavLink to="/bmi">bmi</NavLink>
+        <NavLink to="/ml">ml</NavLink>
+        <NavLink to="/wc">wc</NavLink>
+        <NavLink to="/vission">vission</NavLink>
       </div>
+
+      <div className="menu-icon" onClick={() => setClick(!click)}>
+        {click ? (
+          <img src="/images/bars.svg" alt="" />
+        ) : (
+          <img src="/images/times.svg" alt="" />
+        )}
+      </div>
+
       <div>
         <Link to="/">
           <img

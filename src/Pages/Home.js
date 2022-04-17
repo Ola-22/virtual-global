@@ -1,7 +1,9 @@
 import AboutVGS from "../Components/AboutVGS";
 import Banner from "../Components/Banner";
+import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Nav from "../Components/Nav";
+import PopularDiscussions from "../Components/PopularDiscussions";
 import VirtualState from "../Components/VirtualState";
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       <Banner />
       <VirtualState />
       <AboutVGS />
+      <PopularDiscussions />
+      <Footer />
     </div>
   );
 }
