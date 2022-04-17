@@ -1,5 +1,31 @@
 import styled from "styled-components";
 
+export const hoverVGS = styled.div`
+  position: absolute;
+  left: 44.5%;
+  top: 100%;
+  width: 177px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 269px;
+  justify-content: space-around;
+  color: #fff;
+  background: #fff;
+  z-index: 99;
+  & > a {
+    font-size: 14px;
+    color: #000000;
+  }
+`;
+export const MainVGS = styled.div`
+  &:hover {
+    ${hoverVGS} {
+      display: flex;
+    }
+  }
+`;
+
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -7,6 +33,7 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   background-color: #2d98da;
   height: 71px;
+  position: relative;
   & > div:first-of-type {
     display: flex;
     justify-content: space-around;
@@ -14,7 +41,8 @@ export const HeaderContainer = styled.div`
     height: 100%;
     position: relative;
 
-    & > a {
+    & > a,
+    & .vgs {
       font-size: 14px;
       text-decoration: none;
       text-transform: uppercase;
