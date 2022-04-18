@@ -1,4 +1,5 @@
 import AboutVGS from "../Components/AboutVGS";
+import AnswerQuestions from "../Components/Answer&Questions";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -15,6 +16,7 @@ export default function Home() {
       <VirtualState />
       <AboutVGS />
       <PopularDiscussions />
+      <AnswerQuestions />
       <Footer />
     </div>
   );

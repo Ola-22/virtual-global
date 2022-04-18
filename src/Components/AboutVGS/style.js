@@ -37,6 +37,7 @@ export const AboutContainer = styled.div`
       font-size: 14px;
       color: #ffffff;
       margin-top: 36px;
+      margin-bottom: 89px;
     }
   }
 
