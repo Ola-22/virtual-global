@@ -19,3 +19,12 @@ a{
 input{
   outline: none;
 }
+
+
+.active{
+  display: block;
+}
+
+.inActive{
+  display: none;
+}
