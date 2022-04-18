@@ -7,6 +7,7 @@ export const BannerContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
+  padding-bottom: 22px;
   background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
