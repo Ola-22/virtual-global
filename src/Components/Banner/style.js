@@ -37,6 +37,7 @@ export const BannerContainer = styled.div`
   & > div:last-of-type {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
 
     & p {

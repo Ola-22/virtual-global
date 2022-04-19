@@ -5,16 +5,19 @@ export const CardContainer = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: 121px;
+  /* width: 90%; */
 
   & .card-box {
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
+
     padding: 42px;
-    width: 565px;
+    max-width: 565px;
+    width: 90%;
     & p {
-      width: 488px;
       font-size: 16px;
       margin-top: 23px;
     }
