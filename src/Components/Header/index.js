@@ -50,7 +50,7 @@ function Header() {
           />
           Forum
         </Link>
-        <Link to="/">Register</Link>
+        <Link to="/register">Register</Link>
         <input type="text" placeholder="Enter" />
         <button>
           <img src="/images/search.png" alt="search" />

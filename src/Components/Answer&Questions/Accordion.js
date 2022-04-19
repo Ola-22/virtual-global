@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as S from "./style";
 
 const data = [
   {
@@ -39,17 +40,23 @@ function Accordion() {
     <div>
       {data.map((item, index) => (
         <div key={index} onClick={() => handleToggle(index)}>
-          <div className="accordion_faq">
-            <h3 className={show === index ? "active" : ""}>{item.questions}</h3>
-          </div>
-          <div>
-            <img src="/images/Accordion.png" alt="Accordion" />
-          </div>
+          <S.AccordianContainer>
+            <div className="accordion_faq">
+              <h3 className={show === index ? "active" : ""}>
+                {item.questions}
+              </h3>
+            </div>
+            <div>
+              <img src="/images/Accordion.png" alt="Accordion" />
+            </div>
+          </S.AccordianContainer>
 
           <div>
-            <p className={show === index ? "active" : "inActive"}>
+            <S.AccordianAnswer
+              className={show === index ? "active" : "inActive"}
+            >
               {item.answer}
-            </p>
+            </S.AccordianAnswer>
           </div>
         </div>
       ))}
