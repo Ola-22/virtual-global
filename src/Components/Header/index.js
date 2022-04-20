@@ -1,46 +1,25 @@
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import * as S from "./style";
+import Menu from "./Menu";
+import styled from "styled-components";
 
-function Header() {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+const Nav = styled.nav`
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  .logo {
+    padding: 15px 0;
+  }
+`;
 
+function Header({ open }) {
   return (
     <S.HeaderContainer>
-      <div onMouseLeave={() => setDropdown(!dropdown)}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/who-we-are">who we are</NavLink>
-        <NavLink to="/q&a">q&a</NavLink>
+      <Nav>
+        <Menu />
+      </Nav>
 
-        <NavLink to="/vgs" onMouseEnter={() => setDropdown(!dropdown)}>
-          vgs
-        </NavLink>
-        {dropdown && (
-          <S.hoverVGS>
-            <Link to="/abstract">Abstract</Link>
-            <Link to="/">Implementation</Link>
-            <Link to="/">Project</Link>
-            <Link to="/">SMW</Link>
-            <Link to="/">List</Link>
-          </S.hoverVGS>
-        )}
-
-        <NavLink to="/bmi">bmi</NavLink>
-        <NavLink to="/ml">ml</NavLink>
-        <NavLink to="/wc">wc</NavLink>
-        <NavLink to="/vission">vission</NavLink>
-      </div>
-
-      <div className="menu-icon" onClick={() => setClick(!click)}>
-        {click ? (
-          <img src="/images/bars.svg" alt="" />
-        ) : (
-          <img src="/images/times.svg" alt="" />
-        )}
-      </div>
-
-      <div>
+      <div className="rightNav">
         <Link to="/">
           <img
             src="/images/forum.png"
