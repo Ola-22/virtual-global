@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const hoverVGS = styled.div`
   position: absolute;
-  left: 44.5%;
+  left: 27.6%;
   top: 100%;
   width: 177px;
   display: flex;
@@ -13,6 +13,7 @@ export const hoverVGS = styled.div`
   color: #fff;
   background: #fff;
   z-index: 99;
+  color: #000000;
   & > a {
     font-size: 14px;
     color: #000000;
@@ -34,7 +35,7 @@ export const HeaderContainer = styled.div`
   background-color: #2d98da;
   height: 71px;
   position: relative;
-  & > div:first-of-type {
+  /* & > div:first-of-type {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -63,9 +64,9 @@ export const HeaderContainer = styled.div`
         margin-left: -19px;
       }
     }
-  }
+  } */
 
-  & > div:last-of-type {
+  & > .rightNav {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -110,6 +111,17 @@ export const HeaderContainer = styled.div`
       border: 1px solid #ffffff;
       border-radius: 8px;
       margin-left: 9px;
+    }
+  }
+
+  & .menu-icon {
+    display: none;
+    & img {
+      width: 15px;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
     }
   }
 `;
