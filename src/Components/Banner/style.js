@@ -45,10 +45,12 @@ export const BannerContainer = styled.div`
       font-size: 30px;
       text-transform: uppercase;
       color: #ffffff;
-      background-color: #000000;
-      height: 200px;
+      color: #2f2f2f;
+      border-radius: 5px;
+      padding: 10px;
+      /* height: 200px; */
       word-break: break-word;
-      margin-top: 3em;
+      margin-top: 5px;
 
       @media (max-width: 900px) {
         font-size: 20px;

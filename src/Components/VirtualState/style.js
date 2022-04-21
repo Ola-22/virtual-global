@@ -7,7 +7,6 @@ export const VirtualState = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  /* flex-wrap: wrap; */
 
   & > div:first-of-type {
     position: relative;
@@ -15,6 +14,11 @@ export const VirtualState = styled.div`
       margin-top: 5%;
       z-index: 22;
       position: relative;
+
+      @media (max-width: 600px) {
+        max-width: 343px;
+        width: 100%;
+      }
     }
     &::after {
       content: "";
@@ -26,18 +30,25 @@ export const VirtualState = styled.div`
       left: 10%;
       top: 20%;
       border-radius: 13px;
+      @media (max-width: 600px) {
+        display: none;
+      }
     }
   }
 
   & > div:last-of-type {
+    @media (max-width: 600px) {
+      padding-bottom: 10px;
+    }
     & h6 {
       font-size: 25px;
       color: #ffffff;
       word-wrap: break-word;
       width: 100%;
       max-width: 622px;
-      @media (max-width: 500px) {
+      @media (max-width: 600px) {
         font-size: 15px;
+        text-align: center;
       }
     }
 
@@ -57,16 +68,11 @@ export const VirtualState = styled.div`
         width: 150px;
         height: 50px;
         margin-bottom: 10px;
-      }
-
-      @media (max-width: 500px) {
         margin: auto;
-        margin-bottom: 10px;
       }
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     flex-direction: column;
-    flex-wrap: wrap;
   }
 `;
