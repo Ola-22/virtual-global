@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const AccordianContainer = styled.div`
   display: flex;
-  /* width: 545px; */
-  max-width: 100%;
+  max-width: 545px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #dfdfdf;
@@ -12,9 +12,11 @@ export const AccordianContainer = styled.div`
   height: 66px;
   margin-top: 10px;
   padding: 0 25px;
+  margin: auto;
+  margin-bottom: 20px;
 
-  @media (min-width: 400px) {
-    width: 545px;
+  @media (max-width: 600px) {
+    width: 90%;
   }
 `;
 
@@ -36,6 +38,7 @@ export const AnswerContainer = styled.div`
   & h1 {
     font-size: 34px;
     margin-left: 18px;
+    margin-left: 11%;
   }
 
   & > div:last-of-type {

@@ -1,6 +1,8 @@
 import * as S from "./style";
 import React, { useState } from "react";
-import { Modal } from "../Components/Modal";
+import { Modal } from "../../Components/Modal";
+import { Link } from "react-router-dom";
+import Button from "../../Components/Button";
 
 export default function Register() {
   const [gender, setGender] = useState();
@@ -28,9 +30,10 @@ export default function Register() {
             <input type="text" placeholder="Enter Here" />
           </div>
         </S.RegisterContent>
-
-        <label>Email</label>
-        <input type="email" placeholder="Enter Here" />
+        <S.wrapperEmail>
+          <label>Email</label>
+          <input type="email" placeholder="Enter Here" />
+        </S.wrapperEmail>
 
         <S.RegisterContent>
           <div>
@@ -119,13 +122,17 @@ export default function Register() {
               <S.AnchorTag onClick={() => setShowTerms(true)}>
                 Terms & Conditions
               </S.AnchorTag>
-              And
+              &nbsp; And
               <S.AnchorTag onClick={() => setShowPrivacyPolicy(true)}>
                 Privacy Policy
               </S.AnchorTag>
             </span>
           </div>
         </S.RegisterGender>
+        <Button title="Register Now" />
+        <S.loginAccount>
+          You already have a citizenship ? <Link to="/login">Enter</Link>
+        </S.loginAccount>
       </S.RegisterBox>
 
       {showTerms ? (

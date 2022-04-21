@@ -22,6 +22,12 @@ export const CardContainer = styled.div`
       margin-top: 23px;
     }
   }
+
+  .two {
+    @media (max-width: 1200px) {
+      margin-top: 10px;
+    }
+  }
 `;
 
 export const LikeCard = styled.div`

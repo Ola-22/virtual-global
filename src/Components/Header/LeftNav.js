@@ -26,12 +26,16 @@ const Ul = styled.ul`
       position: absolute;
       top: 0;
       margin-left: -19px;
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #0d2538;
+    background-color: #2395db;
     position: fixed;
+    align-items: center;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     top: 0;
     right: 0;
@@ -55,7 +59,7 @@ function LeftNav({ open }) {
       <NavLink to="/vgs" onMouseEnter={() => setDropdown(!dropdown)}>
         vgs
       </NavLink>
-      {dropdown && (
+      {/* {dropdown && (
         <S.hoverVGS>
           <Link to="/abstract">Abstract</Link>
           <Link to="/">Implementation</Link>
@@ -63,7 +67,7 @@ function LeftNav({ open }) {
           <Link to="/">SMW</Link>
           <Link to="/">List</Link>
         </S.hoverVGS>
-      )}
+      )} */}
 
       <NavLink to="/bmi">bmi</NavLink>
       <NavLink to="/ml">ml</NavLink>

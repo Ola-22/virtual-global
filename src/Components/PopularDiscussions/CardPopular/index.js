@@ -40,7 +40,7 @@ function CardPolular() {
 
       <div>
         <div
-          className="card-box"
+          className="card-box two"
           style={{ backgroundColor: " #fff", marginBottom: "10px" }}
         >
           <h3>Title</h3>

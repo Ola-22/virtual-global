@@ -16,12 +16,7 @@ function Banner() {
 
         <S.BackGround>
           <span></span>
-          <img
-            src="/images/banner.png"
-            alt="banner virtual global"
-            // width="419"
-            // height="410"
-          />
+          <img src="/images/banner.png" alt="banner virtual global" />
         </S.BackGround>
 
         <Social />
