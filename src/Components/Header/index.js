@@ -1,23 +1,11 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 import Menu from "./Menu";
-import styled from "styled-components";
-
-const Nav = styled.nav`
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  .logo {
-    padding: 15px 0;
-  }
-`;
 
 function Header({ open }) {
   return (
     <S.HeaderContainer>
-      <Nav>
-        <Menu />
-      </Nav>
+      <Menu />
 
       <div className="rightNav">
         <Link to="/">

@@ -4,9 +4,11 @@ import Accordion from "./Accordion";
 function AnswerQuestions() {
   return (
     <S.AnswerContainer>
-      <div>
+      <div style={{ width: "700px" }}>
         <h1>Answer & Questions</h1>
-        <Accordion />
+        <div style={{ cursor: "pointer" }}>
+          <Accordion />
+        </div>
       </div>
       <div>
         <h1>Let's Talk</h1>
