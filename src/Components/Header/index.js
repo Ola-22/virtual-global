@@ -8,7 +8,7 @@ function Header({ open }) {
       <Menu />
 
       <div className="rightNav">
-        <Link to="/">
+        <Link to="/forum">
           <img
             src="/images/forum.png"
             alt="form button"
