@@ -1,6 +1,6 @@
 import * as S from "./style";
 import { Link } from "react-router-dom";
-import Button from "../Components/Button";
+import Button from "../../Components/Button";
 
 function Login() {
   return (
@@ -31,7 +31,7 @@ function Login() {
             <Button title="Login" />
 
             <div>
-              You don't have a citizenship ?<Link to="register">Create</Link>
+              You don't have a citizenship ?<Link to="/register">Create</Link>
             </div>
           </S.FooterLogin>
         </S.LoginBox>
