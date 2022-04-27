@@ -7,7 +7,8 @@ export const NavContainer = styled.div`
   flex-wrap: nowrap;
   height: 85px;
 
-  & > div {
+  & > div,
+  & a > div {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -15,18 +16,18 @@ export const NavContainer = styled.div`
     & h3 {
       font-size: 21px;
       text-transform: uppercase;
+      color: #000000;
     }
 
     & select {
       outline: none;
       border: none;
     }
-
-    &:last-of-type {
-      & img {
-        border-left: 1px solid rgba(128, 128, 128, 0.16);
-        padding-inline-start: 20px;
-      }
+  }
+  & .right {
+    & img {
+      border-left: 1px solid rgba(128, 128, 128, 0.16);
+      padding-inline-start: 20px;
     }
   }
 `;

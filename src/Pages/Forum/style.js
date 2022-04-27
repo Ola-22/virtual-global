@@ -3,14 +3,12 @@ import styled from "styled-components";
 export const ForumContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0.8),
-      rgba(248, 248, 248, 0.9)
-    ),
-    url(/images/background.png);
+  flex-wrap: wrap;
+  width: 100%;
+  background: #f8f8f8;
   min-height: 100vh;
   padding-top: 31px;
+  padding-bottom: 94px;
 
   & .topForum {
     display: flex;
@@ -39,6 +37,27 @@ export const ForumContainer = styled.div`
           text-transform: capitalize;
         }
       }
+
+      &:last-of-type {
+        margin-left: 15px;
+
+        & h2 {
+          font-size: 16px;
+          color: #ff3a3a;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 1300px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  & .box {
+    @media (min-width: 600px) and (max-width: 1300px) {
+      margin-left: 4%;
     }
   }
 `;

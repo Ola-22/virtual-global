@@ -2,7 +2,7 @@ import * as S from "./style";
 
 export default function Social() {
   return (
-    <S.SocialContainer>
+    <S.SocialContainer className="social">
       <a href="https://twitter.com">
         <img src="/images/facebook.png" alt="login to facebook app" />
       </a>

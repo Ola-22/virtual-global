@@ -42,7 +42,10 @@ const Ul = styled.ul`
     height: 100vh;
     width: 100%;
     padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out; */
+    transition: ${({ open }) =>
+      open ? "transform 0.3s ease-in-out" : "translateX(100%)"};
+
     z-index: 22;
   }
 `;

@@ -42,10 +42,10 @@ export const AboutContainer = styled.div`
   }
 
   & > div:last-of-type {
-    background: url(/images/AboutBack.png) no-repeat;
+    /* background: url(/images/AboutBack.png) no-repeat; */
     background-size: contain;
     & img {
-      max-width: 450px;
+      max-width: 550px;
       width: 100%;
     }
   }
