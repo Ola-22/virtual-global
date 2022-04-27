@@ -33,7 +33,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: #2d98da;
-  height: 71px;
+  min-height: 71px;
   position: relative;
   /* & > div:first-of-type {
     display: flex;
@@ -92,16 +92,24 @@ export const HeaderContainer = styled.div`
           margin-right: 8px;
         }
       }
+
+      @media (max-width: 768px) {
+        width: 70px;
+      }
     }
 
     & > input {
-      width: 100px;
+      max-width: 100px;
       height: 40px;
       border-radius: 8px;
       border: none;
       padding: 10px;
       &::placeholder {
         color: #000000;
+      }
+
+      @media (max-width: 768px) {
+        width: 70px;
       }
     }
     & > button {
@@ -111,6 +119,11 @@ export const HeaderContainer = styled.div`
       border: 1px solid #ffffff;
       border-radius: 8px;
       margin-left: 9px;
+      cursor: pointer;
+      @media (max-width: 768px) {
+        border: none;
+        width: 0;
+      }
     }
   }
 
