@@ -7,7 +7,7 @@ export default function AboutVGS() {
   return (
     <S.AboutContainer>
       <div>
-        <h1>About VGS</h1>
+        <h1>who we are</h1>
         <h6>Virtual Global State (VGS) in brief.</h6>
         <p>
           In light of the current situation of wars and human tragedies in the
