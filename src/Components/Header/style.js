@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
+export const MainVGS = styled.div`
+  position: relative;
+`;
+
 export const hoverVGS = styled.div`
   position: absolute;
-  left: 27.6%;
+  left: 27%;
   top: 100%;
   width: 177px;
   display: flex;
@@ -12,18 +16,15 @@ export const hoverVGS = styled.div`
   justify-content: space-around;
   color: #fff;
   background: #fff;
-  z-index: 99;
+  z-index: 999;
   color: #000000;
-  & > a {
+  & a {
     font-size: 14px;
     color: #000000;
   }
-`;
-export const MainVGS = styled.div`
-  &:hover {
-    ${hoverVGS} {
-      display: flex;
-    }
+
+  ${MainVGS}:hover & {
+    display: flex;
   }
 `;
 
@@ -31,46 +32,20 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   background-color: #2d98da;
   min-height: 71px;
   position: relative;
-  /* & > div:first-of-type {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    position: relative;
 
-    & > a,
-    & .vgs {
-      font-size: 14px;
-      text-decoration: none;
-      text-transform: uppercase;
-      color: white;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      margin-inline-end: 19.5px;
-      padding-inline-start: 19.5px;
-      &::after {
-        content: "";
-        width: 1px;
-        height: 71px;
-        background-color: rgba(255, 255, 255, 0.5);
-        display: flex;
-        position: absolute;
-        top: 0;
-        margin-left: -19px;
-      }
-    }
-  } */
-
+  @media (max-width: 970px) {
+    flex-wrap: wrap;
+  }
   & > .rightNav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    padding-right: 5px;
 
     & > a {
       display: flex;

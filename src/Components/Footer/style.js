@@ -28,6 +28,9 @@ export const FooterContainer = styled.div`
       width: 100%;
       margin-top: 23px;
       line-height: 1.5;
+      @media (max-width: 400px) {
+        width: 90%;
+      }
     }
     & > div:nth-of-type(2) {
       display: flex;
@@ -71,13 +74,12 @@ export const FooterSocial = styled.div`
   flex-wrap: wrap;
   &::after {
     content: "";
-    max-width: 1140px;
     width: 100%;
     height: 1px;
     background: rgba(101, 101, 101, 0.46);
     border-radius: 25px;
     position: absolute;
-    bottom: -36px;
+    bottom: -16%;
   }
   & .social {
     flex-direction: row;

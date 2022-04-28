@@ -3,9 +3,13 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-bottom: 121px;
   /* width: 90%; */
+
+  @media (max-width: 970px) {
+    flex-wrap: wrap;
+  }
 
   & .card-box {
     background-color: #fff;
@@ -16,10 +20,15 @@ export const CardContainer = styled.div`
 
     padding: 42px;
     max-width: 565px;
-    width: 90%;
+    width: 100%;
     & p {
       font-size: 16px;
       margin-top: 23px;
+    }
+
+    @media (max-width: 1200px) {
+      padding: 20px;
+      max-width: 470px;
     }
   }
 

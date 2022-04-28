@@ -53,7 +53,7 @@ export const CardForum = styled.div`
     }
   }
 
-  /* @media (min-width: 400px) and (max-width: 1300px) {
+  @media (min-width: 400px) and (max-width: 1300px) {
     width: 90%;
-  } */
+  }
 `;

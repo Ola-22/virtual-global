@@ -26,7 +26,7 @@ const Ul = styled.ul`
       position: absolute;
       top: 0;
       margin-left: -19px;
-      @media (max-width: 768px) {
+      @media (max-width: 970px) {
         display: none;
       }
     }

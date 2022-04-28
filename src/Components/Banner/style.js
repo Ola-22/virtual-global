@@ -21,7 +21,8 @@ export const BannerContainer = styled.div`
     align-items: center;
     align-self: flex-end;
     flex-direction: column;
-    width: 212px;
+    max-width: 212px;
+    width: 100%;
     height: 71px;
     background-color: #ffffff;
     border-radius: 7px;
@@ -41,22 +42,24 @@ export const BannerContainer = styled.div`
     flex-wrap: wrap;
 
     & p {
-      width: 350px;
       font-size: 30px;
       text-transform: uppercase;
       color: #ffffff;
-      color: #2f2f2f;
+      background-color: #2f2f2f;
+      width: max-content;
       border-radius: 5px;
       padding: 10px;
-      /* height: 200px; */
       word-break: break-word;
       margin-top: 5px;
 
       @media (max-width: 900px) {
         font-size: 20px;
-        height: 100px;
-        color: black;
-        background-color: #ffffff;
+      }
+
+      @media (max-width: 400px) {
+        width: 90%;
+        margin: auto;
+        margin-top: 10px;
       }
     }
 
@@ -82,11 +85,19 @@ export const BackGround = styled.div`
     border-radius: 20px;
     background-color: #4bb1f1;
     transform: rotate(-5deg);
+
+    @media (max-width: 420px) {
+      display: none;
+    }
   }
 
   & > img {
     position: sticky;
     max-width: 100%;
     height: auto;
+  }
+
+  @media (max-width: 420px) {
+    width: 90%;
   }
 `;

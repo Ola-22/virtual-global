@@ -46,7 +46,7 @@ export const VirtualState = styled.div`
       word-wrap: break-word;
       width: 100%;
       max-width: 622px;
-      @media (max-width: 600px) {
+      @media (max-width: 700px) {
         font-size: 15px;
         text-align: center;
       }
