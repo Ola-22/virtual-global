@@ -80,12 +80,12 @@ function ML() {
               <div>missing link: (Incentive)</div>
               <div>comprehensive application</div>
             </span>
-            <div class="arrow">
-              <div class="arrow"></div>
+            <div className="arrow">
+              <div className="arrow"></div>
             </div>
-            <p className="box-bt">
-              <h2>mpap</h2>
-            </p>
+            <div className="box-bt">
+              <p>mpap</p>
+            </div>
           </S.BoxContent>
         </div>
       </S.MLContainer>

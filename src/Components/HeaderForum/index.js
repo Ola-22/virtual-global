@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as S from "./style";
 
 function HeaderForum() {
@@ -8,7 +9,9 @@ function HeaderForum() {
         <input type="text" placeholder="search here" />
       </div>
       <div>
-        <img src="/images/user.png" alt="user profile" />
+        <Link to="/profile">
+          <img src="/images/user.png" alt="user profile" />
+        </Link>
         <div>
           <p>welocome</p>
           <h6>Marwan</h6>

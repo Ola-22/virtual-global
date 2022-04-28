@@ -4,7 +4,7 @@ import Accordion from "./Accordion";
 function AnswerQuestions() {
   return (
     <S.AnswerContainer>
-      <div style={{ width: "700px" }}>
+      <div style={{ maxWidth: "700px", width: "100%" }}>
         <h1>Answer & Questions</h1>
         <div style={{ cursor: "pointer" }}>
           <Accordion />

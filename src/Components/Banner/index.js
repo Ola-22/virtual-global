@@ -9,11 +9,13 @@ function Banner() {
         <h2>1,115,887</h2>
       </div>
       <div>
-        <p>
-          Do you suffer when witnessing killings and massacres due to wars? Do
-          you feel the danger of
-        </p>
+        <div>
+          <p>Do you suffer when witnessing</p>
+          <p>killings and massacres due to</p>
+          <p> wars? Do you feel the danger of</p>
+        </div>
 
+        {/* #2F2F2F */}
         <S.BackGround>
           <span></span>
           <img src="/images/banner.png" alt="banner virtual global" />
