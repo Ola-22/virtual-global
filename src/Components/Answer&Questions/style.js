@@ -22,19 +22,27 @@ export const AccordianContainer = styled.div`
 
 export const AccordianAnswer = styled.p`
   font-size: 16px;
-  width: 483px;
-  padding: 9px 0 0 25px;
+  max-width: 483px;
+  width: 100%;
+  margin: auto;
   opacity: 0.5;
   line-height: 1.4;
+
+  @media (max-width: 550px) {
+    width: 90%;
+  }
 `;
 
 export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-top: 110px;
   margin-bottom: 125px;
 
+  @media (max-width: 970px) {
+    flex-wrap: wrap;
+  }
   & h1 {
     font-size: 34px;
     margin-left: 18px;
@@ -63,6 +71,7 @@ export const AnswerContainer = styled.div`
 
       & input,
       textarea {
+        width: 100%;
         border: none;
         border-bottom: 1px solid rgba(112, 112, 112, 0.5);
         padding-bottom: 18px;
@@ -74,6 +83,7 @@ export const AnswerContainer = styled.div`
       & div {
         margin-top: 30px;
         margin-bottom: 14px;
+        display: flex;
       }
       & textarea {
         resize: none;
@@ -102,6 +112,13 @@ export const AnswerContainer = styled.div`
 
     @media (min-width: 400px) {
       width: 545px;
+    }
+    @media (max-width: 1200px) {
+      margin-right: 40px;
+    }
+
+    @media (max-width: 970px) {
+      margin: 0;
     }
   }
 `;

@@ -82,6 +82,11 @@ export const BoxContent = styled.div`
       background: #f8f8f8;
       text-transform: capitalize;
       margin-left: 2px;
+
+      @media (max-width: 500px) {
+        max-width: 140px;
+        height: 70px;
+      }
     }
   }
 
@@ -100,7 +105,7 @@ export const BoxContent = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    & h2 {
+    & p {
       transform: rotate(180deg);
       text-transform: uppercase;
       font-size: 20px;
@@ -115,7 +120,12 @@ export const BoxContent = styled.div`
   .arrow {
     transform: rotate(135deg);
     margin-top: 2%;
-    margin-bottom: -1%;
+    margin-bottom: -2%;
+
+    @media (max-width: 500px) {
+      margin-top: 5%;
+      margin-bottom: 1%;
+    }
   }
 
   .arrow .arrow {
