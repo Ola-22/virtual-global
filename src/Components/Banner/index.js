@@ -15,7 +15,6 @@ function Banner() {
           <p> wars? Do you feel the danger of</p>
         </div>
 
-        {/* #2F2F2F */}
         <S.BackGround>
           <span></span>
           <img src="/images/banner.png" alt="banner virtual global" />

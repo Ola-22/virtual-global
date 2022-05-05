@@ -19,7 +19,9 @@ export default function Register() {
   return (
     <S.RegisterContainer>
       <S.RegisterBox>
-        <h2>virtual citizenship registration</h2>
+        <Link to="/">
+          <h2>virtual citizenship registration</h2>
+        </Link>
         <S.RegisterContent>
           <div>
             <label>First Name</label>
