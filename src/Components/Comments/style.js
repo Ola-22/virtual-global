@@ -11,12 +11,14 @@ export const commentContainer = styled.div`
     & .user {
       display: flex;
       flex-direction: column;
+      margin-inline-start: 12px;
     }
   }
 
   & .paragraph {
     background-color: #f9f9f9;
     max-width: 689px;
+    width: 100%;
     min-height: 94px;
     border-radius: 10px;
     display: flex;
@@ -28,5 +30,31 @@ export const commentContainer = styled.div`
       max-width: 633px;
       align-self: center;
     }
+  }
+
+  & .likeComment {
+    display: flex;
+    align-items: center;
+    & > div:last-of-type {
+      margin-left: 71px;
+    }
+    & span {
+      margin-left: 14.6px;
+    }
+    & img {
+      cursor: pointer;
+    }
+  }
+`;
+
+export const replyComments = styled.div`
+  padding-inline-start: 52.5px;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid rgba(45, 152, 218, 10%);
+
+  & p {
+    width: 92%;
   }
 `;

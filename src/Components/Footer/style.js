@@ -22,6 +22,11 @@ export const FooterContainer = styled.div`
     justify-content: space-around;
     flex-wrap: wrap;
 
+    @media (max-width: 760px) {
+      justify-content: flex-start;
+      padding: 10px;
+    }
+
     & p {
       font-size: 14px;
       max-width: 356px;

@@ -98,9 +98,6 @@ export const ProfileContainer = styled.div`
           width: 90%;
         }
       }
-      @media (max-width: 600px) {
-        width: 90%;
-      }
     }
 
     & h2 {

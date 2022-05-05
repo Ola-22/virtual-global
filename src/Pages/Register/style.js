@@ -31,6 +31,7 @@ export const RegisterBox = styled.div`
     text-transform: uppercase;
     font-size: 24px;
     padding-top: 24px;
+    color: #000000;
     @media (max-width: 500px) {
       font-size: 14px;
     }

@@ -64,6 +64,6 @@ export const MainTab = styled.div`
   } */
 
   @media (min-width: 400px) and (max-width: 1300px) {
-    /* margin-left: 20px; */
+    margin-left: 2%;
   }
 `;
