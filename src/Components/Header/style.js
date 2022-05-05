@@ -6,7 +6,7 @@ export const MainVGS = styled.div`
 
 export const hoverVGS = styled.div`
   position: absolute;
-  left: 27%;
+  left: 25%;
   top: 100%;
   width: 177px;
   display: flex;
@@ -44,7 +44,6 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* flex-wrap: wrap; */
     padding-right: 5px;
 
     & > a {

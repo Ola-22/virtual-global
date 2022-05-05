@@ -8,9 +8,11 @@ export const CardForum = styled.div`
   max-width: 367px;
   width: 100%;
   border-radius: 10px;
-
-  /* width: 90%; */
-  /* height: 367px; */
+  max-height: 549px;
+  height: 100%;
+  &:last-child {
+    padding-bottom: 34.5px;
+  }
 
   & h3 {
     font-size: 22px;
@@ -51,9 +53,5 @@ export const CardForum = styled.div`
       display: flex;
       align-items: center;
     }
-  }
-
-  @media (min-width: 400px) and (max-width: 1300px) {
-    width: 90%;
   }
 `;

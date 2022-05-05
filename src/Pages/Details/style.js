@@ -6,6 +6,7 @@ export const DetailsContainer = styled.div`
   flex-wrap: wrap;
   background: #f8f8f8;
   padding-top: 31px;
+  padding-bottom: 46px;
 `;
 
 export const DetailsBox = styled.div`
@@ -20,6 +21,7 @@ export const DetailsBox = styled.div`
   border-radius: 10px;
   padding: 0 42px;
   margin-bottom: 15px;
+  padding-top: 29px;
   & h6 {
     font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
@@ -76,6 +78,42 @@ export const DetailsBox = styled.div`
         bottom: -15px;
         /* top: 100%; */
         left: 0;
+      }
+    }
+
+    .add-comment {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-bottom: 39px;
+
+      &::before {
+        content: "";
+        display: flex;
+        max-width: 100%;
+        width: 100%;
+        height: 1px;
+        background-color: #e8e8e8;
+        margin: 36.5px 0 38px;
+      }
+
+      & input {
+        max-width: 461px;
+        width: 100%;
+        max-height: 50px;
+        height: 100%;
+        border: 1px solid #e6e6e6;
+        border-radius: 25px;
+
+        &:placeholder-shown {
+          padding-inline-start: 25px;
+          text-transform: capitalize;
+        }
+      }
+
+      & button {
+        max-width: 149px;
       }
     }
   }

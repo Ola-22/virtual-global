@@ -12,7 +12,7 @@ function CardForum({ title, paragraph, totalLikes, totalComments }) {
       <CardBox
         title="hot discussions"
         paragraph="In light of the current situation of wars and human tragedies in the World and "
-      />{" "}
+      />
       <CardBox
         title="hot discussions"
         paragraph="In light of the current situation of wars and human tragedies in the World and "

@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
   /* flex-wrap: wrap; */
   margin-top: 84px;
 
-  @media (max-width: 970px) {
+  @media (max-width: 800px) {
     flex-wrap: wrap;
   }
 

@@ -5,7 +5,8 @@ export const SocialContainer = styled.div`
   flex-direction: column;
   & > a {
     background-color: #ffffff;
-    width: 47px;
+    max-width: 47px;
+    width: 100%;
     height: 48px;
     border-radius: 50%;
     display: flex;
@@ -18,6 +19,6 @@ export const SocialContainer = styled.div`
   }
 
   @media (max-width: 900px) {
-    display: none;
+    /* display: none; */
   }
 `;

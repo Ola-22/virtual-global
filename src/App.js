@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
@@ -7,6 +6,7 @@ import Details from "./Pages/Details";
 import ML from "./Pages/ML";
 import Forum from "./Pages/Forum";
 import Profile from "./Pages/Profile";
+import About from "./Pages/About";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/forum/1" element={<Details />} />
           <Route path="/ml" element={<ML />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/who-we-are" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>

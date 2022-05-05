@@ -68,13 +68,17 @@ export const BannerContainer = styled.div`
     }
 
     @media (max-width: 900px) {
-      flex-direction: column-reverse;
+      /* flex-direction: column-reverse; */
     }
   }
 `;
 
 export const BackGround = styled.div`
   margin-top: 2em;
+  @media (max-width: 500px) {
+    max-width: 90%;
+    margin: auto;
+  }
   & > span {
     position: absolute;
     width: 419px;
@@ -86,7 +90,7 @@ export const BackGround = styled.div`
     background-color: #4bb1f1;
     transform: rotate(-5deg);
 
-    @media (max-width: 420px) {
+    @media (max-width: 500px) {
       display: none;
     }
   }
@@ -98,6 +102,6 @@ export const BackGround = styled.div`
   }
 
   @media (max-width: 420px) {
-    width: 90%;
+    /* width: 90%; */
   }
 `;

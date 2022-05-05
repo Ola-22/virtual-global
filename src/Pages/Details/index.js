@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer";
 import CardTabs from "../../Components/CardTabs";
 import * as S from "./style";
 import Comments from "../../Components/Comments";
+import Button from "../../Components/Button";
 
 function Details() {
   return (
@@ -50,6 +51,11 @@ function Details() {
             <h5 className="number-comments">195 comments</h5>
             <Comments replyComment />
             <Comments />
+            <div className="add-comment">
+              <img src="/images/user.png" alt="" />
+              <input type="text" placeholder="write here" />
+              <Button title="comment" />
+            </div>
           </div>
         </S.DetailsBox>
       </S.DetailsContainer>

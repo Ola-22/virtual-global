@@ -57,7 +57,7 @@ export const ForumContainer = styled.div`
 
   & .box {
     @media (min-width: 600px) and (max-width: 1300px) {
-      /* margin-left: 4%; */
+      margin-left: 2%;
     }
   }
 `;
