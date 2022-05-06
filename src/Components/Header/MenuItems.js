@@ -20,3 +20,18 @@ export const MenuItems = [
     path: "/list",
   },
 ];
+
+export const MenuItemsVission = [
+  {
+    title: "Introduction",
+    path: "/introduction",
+  },
+  {
+    title: "GIV",
+    path: "/giv",
+  },
+  {
+    title: "WTL",
+    path: "/wtl",
+  },
+];

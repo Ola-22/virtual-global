@@ -35,12 +35,12 @@ const Ul = styled.ul`
     &.active {
       background: rgba(0, 0, 0, 20%);
 
-      @media (max-width: 768px) {
+      @media (max-width: 960px) {
         background: inherit;
       }
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     flex-flow: column nowrap;
     background-color: #2395db;
     position: fixed;
@@ -54,12 +54,13 @@ const Ul = styled.ul`
     transition: ${({ open }) =>
       open ? "transform 0.3s ease-in-out" : "translateX(100%)"};
 
-    z-index: 22;
+    z-index: 222;
   }
 `;
 
 function LeftNav({ open }) {
   const [dropdown, setDropdown] = useState(false);
+  const [dropdownVission, setDropdownVission] = useState(false);
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -69,8 +70,22 @@ function LeftNav({ open }) {
     }
   };
 
+  const onMouseEnterVission = () => {
+    if (window.innerWidth < 960) {
+      setDropdownVission(false);
+    } else {
+      setDropdownVission(true);
+    }
+  };
+
   return (
-    <Ul open={open} onMouseLeave={() => setDropdown(!dropdown)}>
+    <Ul
+      open={open}
+      onMouseLeave={() => {
+        setDropdown(false);
+        setDropdownVission(false);
+      }}
+    >
       <NavLink to="/" className="dropdown-link">
         Home
       </NavLink>
@@ -88,8 +103,13 @@ function LeftNav({ open }) {
           className="dropdown-link"
         >
           vgs
+          <img
+            style={{ marginLeft: "12px" }}
+            src="/images/view.png"
+            alt="view dropdown menu"
+          />
         </NavLink>
-        {dropdown && <Dropdown />}
+        {dropdown && <Dropdown VGS />}
       </div>
       <NavLink to="/bmi" className="dropdown-link">
         bmi
@@ -100,9 +120,22 @@ function LeftNav({ open }) {
       <NavLink to="/wc" className="dropdown-link">
         wc
       </NavLink>
-      <NavLink to="/vission" className="dropdown-link">
-        vission
-      </NavLink>
+      <div>
+        <NavLink
+          to="/vission"
+          onMouseEnter={onMouseEnterVission}
+          className="dropdown-link"
+        >
+          vission
+          <img
+            style={{ marginLeft: "12px" }}
+            src="/images/view.png"
+            alt="view dropdown menu"
+          />
+        </NavLink>
+        {dropdownVission && <Dropdown Vission />}
+      </div>
+
       <NavLink to="/vission" className="dropdown-link">
         goals
       </NavLink>

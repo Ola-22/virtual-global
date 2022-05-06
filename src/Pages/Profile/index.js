@@ -5,6 +5,7 @@ import * as S from "./style";
 import { useState } from "react";
 import CardTabs from "../../Components/CardTabs";
 import LikeTopic from "../../Components/LikeTopic";
+import IDCard from "../../Components/IDCard";
 
 function Profile() {
   const [email, setEmail] = useState("");
@@ -16,14 +17,11 @@ function Profile() {
       <S.ProfileContainer>
         <div className="profile-main">
           <div className="box">
-            <div>
+            <div className="virtual-id">
               <h3>virtual national id card</h3>
-              <img
-                src="/images/virtual-id.png"
-                alt="virtual national id card"
-              />
+              <IDCard />
             </div>
-            <div>
+            <div className="profile-information">
               <>
                 <h2>profile information's</h2>
                 <img
@@ -49,7 +47,7 @@ function Profile() {
               <button>change password</button>
             </div>
           </div>
-          <h2>last activities</h2>
+          {/* <h2>last activities</h2> */}
           <LikeTopic
             date="June 18, 2020"
             paragraph="In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where "

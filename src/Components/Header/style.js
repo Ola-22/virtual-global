@@ -1,33 +1,5 @@
 import styled from "styled-components";
 
-export const MainVGS = styled.div`
-  position: relative;
-`;
-
-export const hoverVGS = styled.div`
-  position: absolute;
-  left: 25%;
-  top: 100%;
-  width: 177px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 269px;
-  justify-content: space-around;
-  color: #fff;
-  background: #fff;
-  z-index: 999;
-  color: #000000;
-  & a {
-    font-size: 14px;
-    color: #000000;
-  }
-
-  ${MainVGS}:hover & {
-    display: flex;
-  }
-`;
-
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;

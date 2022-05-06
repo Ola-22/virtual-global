@@ -1,4 +1,4 @@
-import { MenuItems } from "./MenuItems";
+import { MenuItems, MenuItemsVission } from "./MenuItems";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,7 +10,8 @@ const Ul = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 269px;
+  min-height: ${(props) => (props.primary ? "269px" : "162px")};
+
   height: 100%;
   justify-content: space-around;
   color: #fff;
@@ -49,18 +50,29 @@ const Ul = styled.ul`
     }
   }
 `;
-function Dropdown() {
+function Dropdown({ VGS, Vission }) {
   return (
     <>
-      <Ul>
-        {MenuItems.map((item, index) => {
-          return (
+      {VGS && (
+        <Ul primary>
+          {MenuItems.map((item, index) => {
+            return (
+              <li key={index}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            );
+          })}
+        </Ul>
+      )}
+      {Vission && (
+        <Ul>
+          {MenuItemsVission.map((item, index) => (
             <li key={index}>
               <Link to={item.path}>{item.title}</Link>
             </li>
-          );
-        })}
-      </Ul>
+          ))}
+        </Ul>
+      )}
     </>
   );
 }
