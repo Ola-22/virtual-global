@@ -6,7 +6,7 @@ function IDCard() {
       <S.IDCardBox>
         <img width="76" height="44" src="/images/LogoImg.png" alt="" />
         <h1>VIRTUAL GLOBAL STATE / PAYS GLOBAL VIRTUEL</h1>
-        <img width="76" height="44" src="/images/Union.png" alt="" />
+        <img width="66" height="40" src="/images/Union.png" alt="" />
       </S.IDCardBox>
 
       <S.VirtualID>
@@ -14,8 +14,8 @@ function IDCard() {
         <div className="virtual-box">
           <div>
             <img
-              width="150"
-              height="150"
+              width="120"
+              height="120"
               src="/images/user-img.png"
               alt="img of the user profile"
             />
@@ -66,6 +66,14 @@ function IDCard() {
               <h3>01/03/2032</h3>
             </div>
           </S.boxCard>
+          <div style={{ alignSelf: "flex-end" }}>
+            <img
+              width="50"
+              height="50"
+              src="/images/QR-Code.png"
+              alt="QR code of the user"
+            />
+          </div>
         </div>
       </S.VirtualID>
     </S.IDCardContainer>
