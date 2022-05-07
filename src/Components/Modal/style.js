@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ModalWrapper = styled.div`
   background: #fff;
   width: 80%;
-  max-width: 1140px;
+  /* max-width: 1140px; */
   max-height: 608px;
   height: 90%;
   position: absolute;

@@ -36,8 +36,14 @@ input, select{
   position: fixed;
   transition: all 1.3s;
   width: 100%;
+  left: 0;
+  top: 0;
 }
 
 li{
   list-style: none;
+}
+
+button{
+  cursor: pointer;
 }

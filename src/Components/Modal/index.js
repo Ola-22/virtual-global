@@ -8,6 +8,7 @@ export const Modal = ({ show, content }) => {
         transform: show ? "translateY(0vh)" : "translateY(-100vh)",
         opacity: show ? "1" : "0",
       }}
+      className="modal-wrapper"
     >
       {content}
     </S.ModalWrapper>

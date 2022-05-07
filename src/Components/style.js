@@ -8,7 +8,8 @@ export const IDCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   /* padding: 17px 42px; */
-  width: 90%;
+  max-width: 525px;
+  width: 100%;
   justify-content: space-around;
   max-height: 500px;
   height: 90%;
@@ -68,7 +69,12 @@ export const boxCard = styled.div`
 
   & h4,
   & h3 {
-    /* color: rgba(0, 0, 0, 0.7); */
     font-weight: normal;
+    font-size: 14px;
+  }
+
+  & h4 {
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 5px;
   }
 `;

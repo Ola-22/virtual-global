@@ -9,12 +9,15 @@ export default function Register() {
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showVirtualConstitution, setShowVirtualConstitution] = useState(false);
+  const [showCouncil, setShowCouncil] = useState(false);
 
   const closeModalTerms = () => setShowTerms(false);
 
   const closeModalPrivacy = () => setShowPrivacyPolicy(false);
 
   const closeModalVirtual = () => setShowVirtualConstitution(false);
+
+  const closeModalCouncil = () => setShowCouncil(false);
 
   return (
     <S.RegisterContainer>
@@ -131,7 +134,48 @@ export default function Register() {
             </span>
           </div>
         </S.RegisterGender>
-        <Button title="Register Now" />
+        <Button onClick={() => setShowCouncil(true)} title="Register Now" />
+
+        {showCouncil ? (
+          <div onClick={closeModalCouncil} className="back-drop"></div>
+        ) : null}
+
+        <Modal
+          content={
+            <>
+              <div className="modal-header close">
+                <span onClick={closeModalCouncil} className="close-modal-btn">
+                  <img src="/images/close.png" alt="close the Modal" />
+                </span>
+              </div>
+
+              <div className="modal-body council">
+                <img width="112" src="/images/council.png" alt="council" />
+                <p>
+                  Do you nominate yourself to be a candidate member of the
+                  Council of the Wise of the VGS? Why?
+                </p>
+                <div className="container">
+                  <button>Yes</button>
+                  <button>No</button>
+                </div>
+                <div className="answer">
+                  <label htmlFor="answer">Why?</label>
+
+                  <textarea
+                    id="w3review"
+                    name="answer"
+                    defaultValue="Write here"
+                  />
+                </div>
+                <Button title="send" img />
+              </div>
+            </>
+          }
+          show={showCouncil}
+          close={closeModalCouncil}
+        />
+
         <S.loginAccount>
           You already have a citizenship ? <Link to="/login">Enter</Link>
         </S.loginAccount>
