@@ -9,4 +9,12 @@ export const ButtonContainer = styled.button`
   border-radius: 88px;
   font-size: 14px;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & img {
+    margin-left: 46px;
+  }
 `;

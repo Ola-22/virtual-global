@@ -14,6 +14,73 @@ export const RegisterContainer = styled.div`
     url(/images/background.png);
   width: 100%;
   height: 100vh;
+
+  & .modal-wrapper {
+    max-width: 930px;
+
+    & .close {
+      justify-content: flex-end;
+    }
+
+    & .council {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      & p {
+        min-height: 62px !important;
+        height: 100%;
+        max-width: 530px;
+        text-align: center;
+        overflow-y: hidden !important;
+      }
+
+      & .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        & button {
+          max-width: 112px;
+          width: 100%;
+          min-height: 50px;
+          height: 100%;
+          background-color: rgba(35, 149, 219, 0.15);
+          border-radius: 28px;
+          border: none;
+          cursor: pointer;
+          color: #2d98da;
+          font-size: 14px;
+        }
+      }
+
+      & .answer {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+        & label {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        & textarea {
+          border: 1px solid #dfdfdf;
+          border-radius: 10px;
+          max-width: 797px;
+          width: 100%;
+          min-height: 94px;
+          resize: none;
+          padding: 10px;
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      & button {
+        max-width: 201px;
+      }
+    }
+  }
 `;
 
 export const RegisterBox = styled.div`

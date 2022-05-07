@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const topicContainer = styled.div`
-  max-width: 1153px;
-  width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   min-height: 351px;
