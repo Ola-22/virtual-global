@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const BannerContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
   padding-bottom: 22px;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
       rgba(248, 248, 248, 0.9)
     ),
     url(/images/background.png);
+  background-size: 100%; */
 
   & > div:first-of-type {
     display: flex;
@@ -104,4 +105,16 @@ export const BackGround = styled.div`
   @media (max-width: 420px) {
     /* width: 90%; */
   }
+`;
+
+export const sliderMain = styled.div`
+  background: linear-gradient(
+      to right,
+      rgba(248, 248, 248, 0.8),
+      rgba(248, 248, 248, 0.9)
+    ),
+    url(/images/background.png);
+  background-size: cover;
+  max-height: 900px;
+  height: 100%;
 `;
