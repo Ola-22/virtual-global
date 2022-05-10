@@ -10,7 +10,7 @@ export const ModalWrapper = styled.div`
   transition: all 0.5s ease;
   border-radius: 10px;
 
-  & div:first-of-type {
+  & .modal-header {
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -26,17 +26,6 @@ export const ModalWrapper = styled.div`
 
     & span {
       cursor: pointer;
-    }
-  }
-
-  & div:last-of-type {
-    & p {
-      font-size: 18px;
-      color: rgba(0, 0, 0, 0.7);
-      padding: 0 35px;
-      line-height: 1.3;
-      height: 486px;
-      overflow-y: scroll;
     }
   }
 `;
