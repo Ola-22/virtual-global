@@ -24,16 +24,6 @@ export const AboutContainer = styled.div`
       font-size: 25px;
       margin-top: 18px;
     }
-    & p {
-      font-size: 15px;
-      opacity: 0.5;
-      max-width: 558px;
-      width: 100%;
-      white-space: break-spaces;
-      &:first-of-type {
-        margin-top: 19px;
-      }
-    }
 
     & button {
       background: linear-gradient(to bottom right, #2395db, #5abbf8) #2395db;
@@ -55,6 +45,17 @@ export const AboutContainer = styled.div`
     & img {
       max-width: 550px;
       width: 100%;
+    }
+  }
+
+  & p {
+    font-size: 15px;
+    opacity: 0.5;
+    max-width: 558px;
+    width: 100%;
+    white-space: break-spaces;
+    &:first-of-type {
+      margin-top: 19px;
     }
   }
 `;

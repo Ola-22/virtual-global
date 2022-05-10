@@ -22,6 +22,15 @@ export const RegisterContainer = styled.div`
       justify-content: flex-end;
     }
 
+    & .data {
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.7);
+      padding: 0 35px;
+      line-height: 1.3;
+      height: 486px;
+      overflow-y: scroll;
+    }
+
     & .council {
       display: flex;
       flex-direction: column;

@@ -1,8 +1,14 @@
 import * as S from "./style";
 
-export default function Social() {
+export default function Social({ settingsData }) {
+  console.log(settingsData, "T");
+
+  console.log("social", settingsData?.items?.social_media?.facebook);
   return (
     <S.SocialContainer className="social">
+      {/* {settingsData?.items?.social_media?.map((icon) => (
+        <a href={icon?.link}>{icon?.icon}</a>
+      ))} */}
       <a href="https://twitter.com">
         <img src="/images/facebook.png" alt="login to facebook app" />
       </a>

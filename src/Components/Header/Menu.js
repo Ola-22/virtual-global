@@ -14,7 +14,7 @@ const StyledMenu = styled.div`
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
-    z-index: 55;
+    z-index: 5555;
   }
   div {
     width: 2rem;
