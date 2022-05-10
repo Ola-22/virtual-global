@@ -7,17 +7,17 @@ import Nav from "../Components/Nav";
 import PopularDiscussions from "../Components/PopularDiscussions";
 import VirtualState from "../Components/VirtualState";
 
-export default function Home() {
+export default function Home({ settingsData }) {
   return (
     <div style={{ width: "100%" }}>
-      <Nav />
+      <Nav settingsData={settingsData} />
       <Header />
       <Banner />
       <VirtualState />
       <AboutVGS />
       <PopularDiscussions />
       <AnswerQuestions />
-      <Footer />
+      <Footer settingsData={settingsData} />
     </div>
   );
 }

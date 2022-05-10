@@ -1,21 +1,14 @@
 import * as S from "./style";
 import Social from "../Social";
 
-function Footer() {
+function Footer({ settingsData }) {
   return (
     <>
       <S.FooterContainer>
         <div className="top-footer">
           <div>
             <h6>About</h6>
-            <p>
-              In light of the current situation of wars and human tragedies in
-              the World and the absence of a promising horizon where real peace
-              and constructive cooperation between people prevails, this
-              proposal urges us to think outside the box, looking for creative
-              solutions to try to change this reality. The World is made up of
-              many nations and entities that differ in interests and goals.
-            </p>
+            <p>{settingsData?.items?.describe}</p>
           </div>
 
           <div>
@@ -44,14 +37,17 @@ function Footer() {
                 <img src="/images/phone.png" alt="contact us with phone" />
                 <li>phone</li>
               </div>
-              <li>1800 890 1413, +91 82096 44311</li>
+              <li>
+                {settingsData?.items?.contact_information?.phone},
+                {settingsData?.items?.contact_information?.mobile}
+              </li>
             </div>
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />
                 <li>Email</li>
               </div>
-              <li>info@verland.com</li>
+              <li>{settingsData?.items?.contact_information?.email}</li>
             </div>
           </div>
         </div>
@@ -60,7 +56,7 @@ function Footer() {
             <input type="email" placeholder="Email" />
             <img src="/images/send.png" alt="send email" />
           </div>
-          <Social />
+          <Social settingsData={settingsData} />
         </S.FooterSocial>
         <S.copyRight className="copyRight">
           Copyright © 2020 Verland All Rights Reserved

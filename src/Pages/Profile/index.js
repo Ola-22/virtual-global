@@ -8,7 +8,7 @@ import LikeTopic from "../../Components/LikeTopic";
 import IDCard from "../../Components/IDCard";
 import { Modal } from "../../Components/Modal";
 
-function Profile() {
+function Profile({ settingsData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,7 +32,7 @@ function Profile() {
 
   return (
     <div style={{ width: "100%" }}>
-      <Nav />
+      <Nav settingsData={settingsData} />
       <S.ProfileContainer>
         <div className="profile-main">
           <div className="box">
@@ -143,7 +143,7 @@ function Profile() {
             </S.lastActivity>
           </div>
         </div>
-        <Footer />
+        <Footer settingsData={settingsData} />
       </S.ProfileContainer>
     </div>
   );
