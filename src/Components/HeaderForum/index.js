@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function HeaderForum() {
+function HeaderForum({ settingsData }) {
   return (
     <S.ForumContainer>
       <div>

@@ -1,38 +1,44 @@
 import * as S from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTwitter,
+  faFontAwesome,
+  faInstagram,
+  faLinkedin,
+  faFacebookF,
+  faGoogle,
+  faSkype,
+  faYoutube,
+  faFacebookMessenger,
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(
+  fas,
+  faTwitter,
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faGoogle,
+  faSkype,
+  faYoutube,
+  faFacebookMessenger,
+  faFontAwesome
+);
 
 export default function Social({ settingsData }) {
-  console.log(settingsData, "T");
-
-  console.log("social", settingsData?.items?.social_media?.facebook);
   return (
     <S.SocialContainer className="social">
-      {/* {settingsData?.items?.social_media?.map((icon) => (
-        <a href={icon?.link}>{icon?.icon}</a>
-      ))} */}
-      <a href="https://twitter.com">
-        <img src="/images/facebook.png" alt="login to facebook app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/linkedin.png" alt="login to linkedin app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/instagram.png" alt="login to instagram app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/gmail.png" alt="login to gmail" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/twitter.png" alt="login to twitter app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/skype.png" alt="login to skype app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/messenger.png" alt="login to messenger app" />
-      </a>
-      <a href="https://twitter.com">
-        <img src="/images/youtube.png" alt="login to youtube" />
-      </a>
+      {settingsData?.items?.social_media?.map((icons) => (
+        <a href={icons.link}>
+          {icons.icon === "fa-facebook" ? (
+            <FontAwesomeIcon icon={`fa-brands ${icons.icon}-f`} />
+          ) : (
+            <FontAwesomeIcon icon={`fa-brands ${icons.icon}`} />
+          )}
+        </a>
+      ))}
     </S.SocialContainer>
   );
 }

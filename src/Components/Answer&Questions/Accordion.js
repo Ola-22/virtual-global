@@ -1,30 +1,7 @@
 import { useState } from "react";
 import * as S from "./style";
 
-const data = [
-  {
-    questions: "Question Title",
-    answer:
-      "In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outside the box, looking for creative solutions to try to change this reality. The World is made up of many nations and entities that differ in interests and goals. Therefore, it is difficult to build a unified strategy for a better future for human life on Earth! To overcome this reality, this ambitious – long term- proposal ",
-  },
-  {
-    questions: "Question Title",
-    answer:
-      "In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outside the box, looking for creative solutions to try to change this reality. The World is made up of many nations and entities that differ in interests and goals. Therefore, it is difficult to build a unified strategy for a better future for human life on Earth! To overcome this reality, this ambitious – long term- proposal ",
-  },
-  {
-    questions: "Question Title",
-    answer:
-      "In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outside the box, looking for creative solutions to try to change this reality. The World is made up of many nations and entities that differ in interests and goals. Therefore, it is difficult to build a unified strategy for a better future for human life on Earth! To overcome this reality, this ambitious – long term- proposal ",
-  },
-  {
-    questions: "Question Title",
-    answer:
-      "In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outside the box, looking for creative solutions to try to change this reality. The World is made up of many nations and entities that differ in interests and goals. Therefore, it is difficult to build a unified strategy for a better future for human life on Earth! To overcome this reality, this ambitious – long term- proposal ",
-  },
-];
-
-function Accordion() {
+function Accordion({ homeData }) {
   const [show, setShow] = useState(-1);
 
   function handleToggle(index) {
@@ -38,12 +15,12 @@ function Accordion() {
 
   return (
     <div>
-      {data.map((item, index) => (
+      {homeData?.items?.faqs?.map((item, index) => (
         <div key={index} onClick={() => handleToggle(index)}>
           <S.AccordianContainer>
             <div className="accordion_faq">
               <h3 className={show === index ? "active" : ""}>
-                {item.questions}
+                {item.question}
               </h3>
             </div>
             <div>
@@ -54,9 +31,10 @@ function Accordion() {
           <div>
             <S.AccordianAnswer
               className={show === index ? "active" : "inActive"}
-            >
-              {item.answer}
-            </S.AccordianAnswer>
+              dangerouslySetInnerHTML={{
+                __html: item.answer,
+              }}
+            />
           </div>
         </div>
       ))}

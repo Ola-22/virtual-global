@@ -8,7 +8,7 @@ import Tab from "../../Components/Tabs/Tab";
 import CardTabs from "../../Components/CardTabs";
 import Footer from "../../Components/Footer";
 
-function Forum() {
+function Forum({ settingsData }) {
   const [selected, setSelected] = useState("Recent Topics");
 
   const SelectTab = (tab) => {
@@ -17,8 +17,8 @@ function Forum() {
 
   return (
     <div style={{ width: "100%" }}>
-      <Nav />
-      <HeaderForum />
+      <Nav settingsData={settingsData} />
+      <HeaderForum settingsData={settingsData} />
       <S.ForumContainer>
         <div className="box">
           <div className="topForum">
