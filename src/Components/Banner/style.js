@@ -43,15 +43,16 @@ export const BannerContainer = styled.div`
     flex-wrap: wrap;
 
     & p {
-      font-size: 30px;
+      /* font-size: 30px;
       text-transform: uppercase;
       color: #ffffff;
       background-color: #2f2f2f;
       width: max-content;
+      max-width: 500px;
       border-radius: 5px;
       padding: 10px;
       word-break: break-word;
-      margin-top: 5px;
+      margin-top: 5px; */
 
       @media (max-width: 900px) {
         font-size: 20px;
@@ -117,4 +118,19 @@ export const sliderMain = styled.div`
   background-size: cover;
   max-height: 900px;
   height: 100%;
+`;
+
+export const contentBanner = styled.h1`
+  width: 650px;
+
+  & span {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #2f2f2f;
+    border-radius: 5px;
+    line-height: 65px;
+    padding: 10px;
+    box-decoration-break: clone;
+  }
 `;

@@ -89,11 +89,12 @@ export const FooterSocial = styled.div`
   & .social {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     max-width: 517px;
     width: 100%;
     & > a {
       background-color: rgba(38, 52, 66, 0.2);
+      margin-left: 10px;
 
       & img {
         width: 22px;

@@ -13,4 +13,45 @@ export const AboutContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 29px;
+
+  & .box {
+    background-color: #ffffff;
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 27px;
+    & img {
+      max-width: 400px;
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+    & h1 {
+      font-size: 22px;
+      align-self: flex-start;
+      margin: 55px 0 42px 4%;
+    }
+
+    & > p {
+      font-size: 18px;
+      max-width: 1043px;
+      width: 100%;
+      @media (max-width: 1200px) {
+        width: 90%;
+      }
+      &:not(:first-of-type) {
+        margin-top: 2%;
+      }
+
+      &:last-of-type {
+        margin-bottom: 15%;
+      }
+    }
+    @media (max-width: 1200px) {
+      width: 90%;
+    }
+  }
 `;

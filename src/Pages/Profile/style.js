@@ -217,8 +217,9 @@ export const ProfileContainer = styled.div`
       display: none;
     }
     .label {
-      display: flex;
+      /* display: flex;
       justify-content: center;
+      */
       margin-top: 15%;
     }
     .image-upload {
