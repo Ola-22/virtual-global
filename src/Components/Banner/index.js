@@ -25,7 +25,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function SliderComponent() {
+export default function SliderComponent({ homeData, settingsData }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -66,7 +66,16 @@ export default function SliderComponent() {
   return (
     <S.sliderMain>
       <Slider {...settings}>
-        <div>
+        {homeData?.items?.sliders?.map((data) => (
+          <div className="banner" key={data?.id}>
+            <Banner
+              settingsData={settingsData}
+              paragraphOne={data?.text}
+              src={data?.image}
+            />
+          </div>
+        ))}
+        {/* <div>
           <Banner
             paragraphOne="Do you suffer when witnessing"
             paragraphTwo="killings and massacres due to"
@@ -84,7 +93,7 @@ export default function SliderComponent() {
         </div>
         <div>
           <BannerTwo />
-        </div>
+        </div> */}
       </Slider>
     </S.sliderMain>
   );

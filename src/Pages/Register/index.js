@@ -16,6 +16,7 @@ export default function Register() {
   const [dataPrivacy, setDataPrivacy] = useState({});
   const [constitutionTerms, setConstitutionTerms] = useState({});
   const [category, setCategory] = useState();
+  const [specializations, setSpecializations] = useState();
 
   const closeModalTerms = () => setShowTerms(false);
 
@@ -65,14 +66,25 @@ export default function Register() {
     axiosInstance
       .get("/api/web-site/categories/academic_levels")
       .then((res) => {
-        setCategory(res.data);
-        console.log("acadi", res.data?.items);
+        setCategory(res.data?.items);
+        // console.log("acadi", res.data?.items);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
+  useEffect(() => {
+    axiosInstance
+      .get("/api/web-site/categories/specializations")
+      .then((res) => {
+        setSpecializations(res.data?.items);
+        // console.log("setSpecializations", res.data?.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <S.RegisterContainer>
       <S.RegisterBox>
@@ -145,9 +157,12 @@ export default function Register() {
             <label>Academic Level</label>
             <select name="degree">
               <option value="Select from here">Select from here</option>
-              <option value="Bachelor">Bachelor</option>
-              <option value="Master's">Master's</option>
-              <option value="Specialist">Specialist</option>
+
+              {category?.map((cat) => (
+                <>
+                  <option value={cat?.name}>{cat?.name}</option>
+                </>
+              ))}
             </select>
           </div>
           <div>
@@ -155,9 +170,12 @@ export default function Register() {
 
             <select name="major">
               <option value="Select from here">Select from here</option>
-              <option value="IT">IT</option>
-              <option value="Medical">Medical</option>
-              <option value="IT & C">IT & C</option>
+
+              {specializations?.map((special) => (
+                <>
+                  <option value={special?.name}>{special?.name}</option>
+                </>
+              ))}
             </select>
           </div>
         </S.RegisterContent>

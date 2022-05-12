@@ -1,7 +1,7 @@
 import Social from "../Social";
 import * as S from "./style";
 
-function Banner({ paragraphOne, paragraphTwo, paragraphThree, src }) {
+function Banner({ paragraphOne, src, settingsData }) {
   return (
     <S.BannerContainer>
       <div>
@@ -9,10 +9,14 @@ function Banner({ paragraphOne, paragraphTwo, paragraphThree, src }) {
         <h2>1,115,887</h2>
       </div>
       <div>
-        <div>
-          <p>{paragraphOne}</p>
-          <p>{paragraphTwo}</p>
-          <p>{paragraphThree}</p>
+        <div className="box-one">
+          <S.contentBanner>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: paragraphOne,
+              }}
+            />
+          </S.contentBanner>
         </div>
 
         <S.BackGround>
@@ -20,7 +24,7 @@ function Banner({ paragraphOne, paragraphTwo, paragraphThree, src }) {
           <img src={src} alt="banner virtual global" />
         </S.BackGround>
 
-        <Social />
+        <Social settingsData={settingsData} />
       </div>
     </S.BannerContainer>
   );

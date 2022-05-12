@@ -104,6 +104,13 @@ export const AnswerContainer = styled.div`
         color: #ffffff;
         margin-top: 32px;
         margin-bottom: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & svg {
+          margin-left: 5px;
+        }
       }
     }
     @media (max-width: 1000px) {
