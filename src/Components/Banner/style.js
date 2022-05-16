@@ -81,6 +81,11 @@ export const BackGround = styled.div`
     max-width: 90%;
     margin: auto;
   }
+
+  & a {
+    z-index: 22;
+    position: relative;
+  }
   & > span {
     position: absolute;
     width: 419px;

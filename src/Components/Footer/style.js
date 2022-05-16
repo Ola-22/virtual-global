@@ -102,6 +102,10 @@ export const FooterSocial = styled.div`
       &:first-of-type > img {
         width: 12px;
       }
+
+      &:hover {
+        background: #1976d2;
+      }
     }
     @media (max-width: 900px) {
       display: flex;
@@ -109,36 +113,6 @@ export const FooterSocial = styled.div`
   }
 
   & div:first-of-type {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: 1px solid #fff;
-    width: 303px;
-    height: 50px;
-    border-radius: 25px;
-    background-color: #ffffff;
-    margin-left: -2%;
-    &::after {
-      content: "";
-      width: 68px;
-      height: 48px;
-      background: #ff5858;
-      border-radius: 25px;
-      position: absolute;
-      top: 0;
-      left: 77.4%;
-    }
-    & input {
-      border: none;
-      background-color: inherit;
-    }
-
-    & img {
-      position: relative;
-      z-index: 22;
-      margin-left: 20px;
-    }
   }
 `;
 
@@ -147,4 +121,60 @@ export const copyRight = styled.p`
   color: #000000;
   align-self: center;
   margin: 22px 0 24px;
+`;
+
+export const boxMail = styled.div`
+  background: #ff5858 !important;
+  max-width: 68px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & svg {
+    fill: white;
+    padding-right: 5px;
+    font-size: 20px;
+  }
+`;
+
+export const containerMail = styled.div`
+  display: flex;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  & div:first-child {
+    border: 1px solid #fff;
+    width: 303px;
+    border-radius: 25px;
+    background-color: #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    & input {
+      border: none;
+      background-color: inherit;
+      padding-left: 2em;
+      border-radius: 25px;
+    }
+
+    & img {
+      position: relative;
+      z-index: 22;
+      margin-left: 20px;
+    }
+  }
+
+  & h3 {
+    color: red;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
 `;

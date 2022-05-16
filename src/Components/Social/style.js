@@ -15,15 +15,21 @@ export const SocialContainer = styled.div`
     align-items: center;
     margin-top: 14px;
 
-    & img {
-      object-fit: contain;
+    &:hover {
+      background-color: #1976d2;
+      color: #ffffff;
+      transition: 0.5s ease-in-out;
+
+      & svg {
+        color: #ffffff;
+      }
     }
 
     & svg {
       color: #1976d2;
     }
-    /* & svg[data-icon="instagram"] {
-      font-size: 30px;
+    & svg[data-icon="instagram"] {
+      /* font-size: 30px;
       color: white;
       background: linear-gradient(#ffc107, #9c27b0);
 
@@ -34,8 +40,9 @@ export const SocialContainer = styled.div`
         #fd5949 45%,
         #d6249f 60%,
         #fff 90%
-      );
-    } */
+      ); */
+      /* border-radius: 5px 5px 15px 15px; */
+    }
   }
   @media (max-width: 900px) {
     /* display: none; */
