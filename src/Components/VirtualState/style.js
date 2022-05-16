@@ -70,6 +70,12 @@ export const VirtualState = styled.div`
         margin-bottom: 10px;
         margin: auto;
       }
+
+      &:hover {
+        background: linear-gradient(to top right, #2395db, #5abbf8) #2395db;
+        color: #ffffff;
+        transition: 0.5s ease-out;
+      }
     }
   }
   @media (max-width: 600px) {

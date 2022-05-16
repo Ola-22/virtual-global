@@ -55,3 +55,23 @@ export const AboutContainer = styled.div`
     }
   }
 `;
+
+export const BoxAbout = styled.div`
+  border: 1px solid #d6d6d6;
+  width: 90%;
+  min-height: 443px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 92px;
+
+  & img {
+    /* max-width: 756px; */
+    width: 90%;
+    min-height: 375px;
+    height: 100%;
+  }
+`;

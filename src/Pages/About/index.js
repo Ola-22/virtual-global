@@ -38,7 +38,9 @@ function About({ settingsData }) {
               __html: aboutData?.items?.text,
             }}
           />
-          <img src={aboutData?.items?.image} alt="" />
+          <S.BoxAbout>
+            <img src={aboutData?.items?.image} alt="" />
+          </S.BoxAbout>
         </div>
       </S.AboutContainer>
     </div>

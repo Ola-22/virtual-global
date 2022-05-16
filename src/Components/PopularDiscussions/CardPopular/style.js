@@ -3,24 +3,29 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  /* flex-wrap: wrap; */
-  margin-bottom: 121px;
+  flex-wrap: wrap;
+  /* margin-bottom: 121px; */
   /* width: 90%; */
 
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
+  /* 
+  &:nth-of-type(2) {
+    position: absolute;
+    top: 74px;
+  } */
 
   & .card-box {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
-
     padding: 42px;
     max-width: 565px;
     width: 100%;
+    height: 280px;
     & p {
       font-size: 16px;
       margin-top: 23px;
@@ -29,6 +34,10 @@ export const CardContainer = styled.div`
     @media (max-width: 1200px) {
       padding: 20px;
       max-width: 470px;
+    }
+
+    @media (max-width: 550px) {
+      width: 90%;
     }
   }
 

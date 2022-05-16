@@ -27,7 +27,7 @@ const Ul = styled.ul`
       position: absolute;
       top: 0;
       margin-left: -20px;
-      @media (max-width: 970px) {
+      @media (max-width: 980px) {
         display: none;
       }
     }
@@ -35,12 +35,12 @@ const Ul = styled.ul`
     &.active {
       background: rgba(0, 0, 0, 20%);
 
-      @media (max-width: 960px) {
+      @media (max-width: 980px) {
         background: inherit;
       }
     }
   }
-  @media (max-width: 960px) {
+  @media (max-width: 980px) {
     flex-flow: column nowrap;
     background-color: #2395db;
     position: fixed;
