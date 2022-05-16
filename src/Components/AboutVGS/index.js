@@ -1,38 +1,29 @@
-import { useState } from "react";
 import * as S from "./style";
-import { useEffect } from "react";
-import axiosInstance from "../../helpers/axios";
+import { useNavigate } from "react-router-dom";
+import Button from "../Button";
 
-export default function AboutVGS() {
-  const [showMore, setShowMore] = useState(false);
-
-  const [aboutData, setAboutData] = useState();
-
-  useEffect(() => {
-    axiosInstance
-      .get("/api/web-site/pages/who_we_are")
-      .then((res) => {
-        setAboutData(res.data);
-        // console.log("setAboutData", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+export default function AboutVGS({ homeData }) {
+  const navigate = useNavigate();
 
   return (
     <S.AboutContainer>
       <div>
-        <h1>{aboutData?.items?.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: aboutData?.items?.text }} />
+        <h1>{homeData?.items?.who_we_are?.title}</h1>
+        <div
+          className="text"
+          dangerouslySetInnerHTML={{
+            __html: homeData?.items?.who_we_are?.text,
+          }}
+        />
 
-        {showMore && (
-          <div dangerouslySetInnerHTML={{ __html: aboutData?.items?.text }} />
-        )}
-        <button onClick={() => setShowMore(!showMore)}>Read More</button>
+        {/* <button onClick={() => navigate("/who-we-are")}>Read More</button> */}
+        <Button title="Read More" onClick={() => navigate("/who-we-are")} />
       </div>
       <div>
-        <img src={aboutData?.items?.image} alt="read the about information" />
+        <img
+          src={homeData?.items?.who_we_are?.image}
+          alt="read the about information"
+        />
       </div>
     </S.AboutContainer>
   );

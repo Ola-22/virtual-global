@@ -9,7 +9,6 @@ import Profile from "./Pages/Profile";
 import About from "./Pages/About";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -42,44 +41,6 @@ function App() {
         console.log(err);
       });
   }, []);
-
-  async function sendData() {
-    const data = {
-      email: "a.alghazali44@hotmailc.om",
-    };
-    const config = {
-      headers: {
-        Accept: "application/json",
-        lang: "en",
-      },
-    };
-    await axiosInstance
-      .post("/api/web-site/subscribe-mailing-list", data, config)
-      .then((res) => {
-        // console.log("mailing", res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  useEffect(() => {
-    sendData();
-  }, []);
-
-  // useEffect(() => {
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: { Accept: "application/json", lang: "en" },
-  //     body: JSON.stringify({ email: "a.alghazali8@hotmailc.om" }),
-  //   };
-  //   fetch(
-  //     "https://virtualnational.nstechs-dev.com/api/web-site/subscribe-mailing-list",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // });
 
   return (
     <BrowserRouter>

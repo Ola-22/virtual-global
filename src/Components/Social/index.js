@@ -28,14 +28,22 @@ library.add(
 );
 
 export default function Social({ settingsData }) {
+  // console.log(settingsData);
+
   return (
     <S.SocialContainer className="social">
-      {settingsData?.items?.social_media?.map((icons) => (
-        <a href={icons.link}>
+      {settingsData?.items?.social_media?.map((icons, index) => (
+        <a href={icons.link} key={index}>
           {icons.icon === "fa-facebook" ? (
-            <FontAwesomeIcon icon={`fa-brands ${icons.icon}-f`} />
+            <FontAwesomeIcon
+              className={icons.class}
+              icon={`fa-brands ${icons.icon}-f`}
+            />
           ) : (
-            <FontAwesomeIcon icon={`fa-brands ${icons.icon}`} />
+            <FontAwesomeIcon
+              className={icons.class}
+              icon={`fa-brands ${icons.icon}`}
+            />
           )}
         </a>
       ))}

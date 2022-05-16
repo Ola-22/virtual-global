@@ -1,7 +1,7 @@
 import Social from "../Social";
 import * as S from "./style";
 
-function Banner({ paragraphOne, src, settingsData }) {
+function Banner({ paragraphOne, src, settingsData, link }) {
   return (
     <S.BannerContainer>
       <div>
@@ -21,7 +21,9 @@ function Banner({ paragraphOne, src, settingsData }) {
 
         <S.BackGround>
           <span></span>
-          <img src={src} alt="banner virtual global" />
+          <a href={link}>
+            <img src={src} alt="banner virtual global" />
+          </a>
         </S.BackGround>
 
         <Social settingsData={settingsData} />

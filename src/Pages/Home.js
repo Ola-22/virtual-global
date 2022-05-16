@@ -14,7 +14,7 @@ export default function Home({ settingsData, homeData }) {
       <Header />
       <Banner homeData={homeData} settingsData={settingsData} />
       <VirtualState homeData={homeData} />
-      <AboutVGS />
+      <AboutVGS homeData={homeData} />
       <PopularDiscussions homeData={homeData} />
       <AnswerQuestions homeData={homeData} />
       <Footer settingsData={settingsData} />

@@ -72,6 +72,7 @@ export default function SliderComponent({ homeData, settingsData }) {
               settingsData={settingsData}
               paragraphOne={data?.text}
               src={data?.image}
+              link={data?.link}
             />
           </div>
         ))}

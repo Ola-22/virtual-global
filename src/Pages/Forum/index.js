@@ -90,7 +90,7 @@ function Forum({ settingsData }) {
           </TabNav>
         </>
       </S.ForumContainer>
-      <Footer />
+      <Footer settingsData={settingsData} />
     </div>
   );
 }

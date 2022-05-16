@@ -17,6 +17,11 @@ export default function Register() {
   const [constitutionTerms, setConstitutionTerms] = useState({});
   const [category, setCategory] = useState();
   const [specializations, setSpecializations] = useState();
+  const [country, setCountry] = useState();
+
+  const [categoryDegree, setCategoryDegree] = useState("");
+  const [categoryCountry, setCategoryCountry] = useState("");
+  const [categoryMajor, setCategoryMajor] = useState("");
 
   const closeModalTerms = () => setShowTerms(false);
 
@@ -67,7 +72,7 @@ export default function Register() {
       .get("/api/web-site/categories/academic_levels")
       .then((res) => {
         setCategory(res.data?.items);
-        // console.log("acadi", res.data?.items);
+        // console.log("ac/adi", res.data?.items);
       })
       .catch((err) => {
         console.log(err);
@@ -85,6 +90,23 @@ export default function Register() {
         console.log(err);
       });
   }, []);
+
+  useEffect(() => {
+    axiosInstance
+      .get("/api/web-site/categories/countries")
+      .then((res) => {
+        setCountry(res.data?.items);
+        // console.log("country", res.data?.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // console.log(categoryDegree);
+  // console.log(categoryCountry);
+  // console.log(categoryMajor);
+
   return (
     <S.RegisterContainer>
       <S.RegisterBox>
@@ -124,7 +146,22 @@ export default function Register() {
           </div>
           <div>
             <label>Country of Birth</label>
-            <select placeholder="Select from here" />
+
+            <select
+              name="country"
+              value={categoryCountry}
+              onChange={(e) => setCategoryCountry(e.target.value)}
+            >
+              <option value="Select from here">Select from here</option>
+
+              {country?.map((country) => (
+                <>
+                  <option key={country.id} value={country?.name}>
+                    {country?.name}
+                  </option>
+                </>
+              ))}
+            </select>
           </div>
         </S.RegisterContent>
 
@@ -155,12 +192,18 @@ export default function Register() {
         <S.RegisterContent>
           <div>
             <label>Academic Level</label>
-            <select name="degree">
+            <select
+              name="degree"
+              value={categoryDegree}
+              onChange={(e) => setCategoryDegree(e.target.value)}
+            >
               <option value="Select from here">Select from here</option>
 
               {category?.map((cat) => (
                 <>
-                  <option value={cat?.name}>{cat?.name}</option>
+                  <option key={cat.id} value={cat?.name}>
+                    {cat?.name}
+                  </option>
                 </>
               ))}
             </select>
@@ -168,12 +211,18 @@ export default function Register() {
           <div>
             <label>Major of Interest, Specialization </label>
 
-            <select name="major">
+            <select
+              name="major"
+              value={categoryMajor}
+              onChange={(e) => setCategoryMajor(e.target.value)}
+            >
               <option value="Select from here">Select from here</option>
 
               {specializations?.map((special) => (
                 <>
-                  <option value={special?.name}>{special?.name}</option>
+                  <option key={special.id} value={special?.name}>
+                    {special?.name}
+                  </option>
                 </>
               ))}
             </select>

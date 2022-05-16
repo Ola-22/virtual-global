@@ -49,6 +49,10 @@ const Ul = styled.ul`
       background: #5cabff;
     }
   }
+
+  @media (max-width: 980px) {
+    display: none;
+  }
 `;
 function Dropdown({ VGS, Vission }) {
   return (
