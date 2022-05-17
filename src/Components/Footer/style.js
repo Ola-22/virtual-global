@@ -90,8 +90,7 @@ export const FooterSocial = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    max-width: 517px;
-    width: 100%;
+    width: 50%;
     & > a {
       background-color: rgba(38, 52, 66, 0.2);
       margin-left: 10px;
@@ -110,9 +109,12 @@ export const FooterSocial = styled.div`
     @media (max-width: 900px) {
       display: flex;
     }
+    @media (max-width: 760px) {
+      justify-content: center;
+    }
   }
-
-  & div:first-of-type {
+  @media (max-width: 760px) {
+    justify-content: center;
   }
 `;
 

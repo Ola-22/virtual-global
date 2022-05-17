@@ -4,7 +4,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* flex-wrap: wrap; */
   background-color: #2d98da;
   min-height: 71px;
   position: relative;

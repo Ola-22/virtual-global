@@ -3,18 +3,10 @@ import styled from "styled-components";
 export const BannerContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  /* background-color: #f8f8f8; */
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
   padding-bottom: 22px;
-  /* background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0.8),
-      rgba(248, 248, 248, 0.9)
-    ),
-    url(/images/background.png);
-  background-size: 100%; */
 
   & > div:first-of-type {
     display: flex;
@@ -42,45 +34,29 @@ export const BannerContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
 
-    & p {
-      /* font-size: 30px;
-      text-transform: uppercase;
-      color: #ffffff;
-      background-color: #2f2f2f;
-      width: max-content;
-      max-width: 500px;
-      border-radius: 5px;
-      padding: 10px;
-      word-break: break-word;
-      margin-top: 5px; */
-
-      @media (max-width: 900px) {
-        font-size: 20px;
-      }
-
-      @media (max-width: 400px) {
-        width: 90%;
-        margin: auto;
-        margin-top: 10px;
-      }
-    }
-
     & img {
       z-index: 5;
-    }
 
-    @media (max-width: 900px) {
-      /* flex-direction: column-reverse; */
+      @media (max-width: 500px) {
+        max-width: 90%;
+        margin: auto;
+      }
+    }
+  }
+
+  & .social {
+    @media (max-width: 600px) {
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
     }
   }
 `;
 
 export const BackGround = styled.div`
   margin-top: 2em;
-  @media (max-width: 500px) {
-    max-width: 90%;
-    margin: auto;
-  }
 
   & a {
     z-index: 22;
@@ -107,10 +83,6 @@ export const BackGround = styled.div`
     max-width: 100%;
     height: auto;
   }
-
-  @media (max-width: 420px) {
-    /* width: 90%; */
-  }
 `;
 
 export const sliderMain = styled.div`
@@ -126,7 +98,8 @@ export const sliderMain = styled.div`
 `;
 
 export const contentBanner = styled.h1`
-  width: 650px;
+  max-width: 650px;
+  width: 100%;
 
   & span {
     font-size: 30px;
@@ -137,5 +110,13 @@ export const contentBanner = styled.h1`
     line-height: 65px;
     padding: 10px;
     box-decoration-break: clone;
+
+    @media (max-width: 700px) {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    text-align: center;
   }
 `;

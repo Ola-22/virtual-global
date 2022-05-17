@@ -60,12 +60,6 @@ export const CardMain = styled.div`
     }
   }
 
-  /* @media (max-width: 500px) {
-    width: 100%;
-    align-items: center;
-    padding: 0;
-  } */
-
   @media (min-width: 400px) and (max-width: 1300px) {
     width: 90%;
   }
