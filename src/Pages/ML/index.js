@@ -1,4 +1,3 @@
-import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
 import * as S from "./style";

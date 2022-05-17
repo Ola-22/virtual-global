@@ -3,7 +3,7 @@ import CardPolular from "./CardPopular";
 import * as S from "./style";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <S.NextArrow className={className} onClick={onClick}>
       <img src="/images/arrowNext.png" alt="" />
@@ -12,7 +12,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <S.PrevArrow className={className} onClick={onClick}>
       <img src="/images/arrowPrev.png" alt="" />

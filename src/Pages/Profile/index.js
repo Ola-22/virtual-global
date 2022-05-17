@@ -1,9 +1,7 @@
-import Comments from "../../Components/Comments";
 import Footer from "../../Components/Footer";
 import Nav from "../../Components/Nav";
 import * as S from "./style";
 import { useState } from "react";
-import CardTabs from "../../Components/CardTabs";
 import LikeTopic from "../../Components/LikeTopic";
 import IDCard from "../../Components/IDCard";
 import { Modal } from "../../Components/Modal";
@@ -114,6 +112,7 @@ function Profile({ settingsData }) {
                 <label>email</label>
                 <input
                   type="email"
+                  value={email ?? ""}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="alex.fordam@gmail.com"
                 />
@@ -123,6 +122,7 @@ function Profile({ settingsData }) {
                 <input
                   type="password"
                   placeholder="*****"
+                  value={password ?? ""}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </S.profileInformation>
