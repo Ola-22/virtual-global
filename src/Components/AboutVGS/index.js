@@ -16,7 +16,6 @@ export default function AboutVGS({ homeData }) {
           }}
         />
 
-        {/* <button onClick={() => navigate("/who-we-are")}>Read More</button> */}
         <Button title="Read More" onClick={() => navigate("/who-we-are")} />
       </div>
       <div>

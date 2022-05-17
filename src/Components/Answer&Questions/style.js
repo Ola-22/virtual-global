@@ -16,7 +16,11 @@ export const AccordianContainer = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 600px) {
-    width: 90%;
+    max-width: 90%;
+  }
+
+  @media (max-width: 970px) and (min-width: 630px) {
+    max-width: 100%;
   }
 `;
 
@@ -36,7 +40,6 @@ export const AccordianAnswer = styled.p`
 export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  /* flex-wrap: wrap; */
   margin-top: 110px;
   margin-bottom: 125px;
 
@@ -56,15 +59,14 @@ export const AnswerContainer = styled.div`
     align-items: center;
     width: 100%;
     max-width: 90%;
-    /* padding-left: 51px; */
     padding-top: 39px;
     height: auto;
+
     & form {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       width: 90%;
-      /* margin-top: 77px; */
       position: relative;
 
       & input[type="email"] {
@@ -136,20 +138,25 @@ export const AnswerContainer = styled.div`
         }
       }
     }
-    @media (max-width: 1000px) {
-      margin-top: 20px;
-    }
-    @media (min-width: 400px) {
-      width: 545px;
-    }
-    /* 
-  
-    @media (max-width: 1200px) {
-      margin-right: 40px;
-    } */
 
-    @media (max-width: 970px) {
-      margin: 0;
+    @media (min-width: 970px) and (max-width: 1200px) {
+      max-width: 450px;
+    }
+
+    @media (min-width: 1300px) {
+      max-width: 545px;
+    }
+  }
+
+  & .accordion {
+    /* max-width: 545px; */
+    max-width: 100%;
+    width: 100%;
+    @media (max-width: 970px) and (min-width: 630px) {
+      max-width: 90%;
+    }
+    @media (min-width: 1300px) {
+      max-width: 545px;
     }
   }
 `;
@@ -192,6 +199,9 @@ export const animationBox = styled.div`
   }
 
   &:focus-within label {
-    transform: translate(0, 16px) scale(0.75);
+    transform: translate(0, 16px) scale(0.75) !important;
+  }
+  .Active {
+    transform: translate(0, 12px) scale(0.75);
   }
 `;

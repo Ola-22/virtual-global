@@ -7,14 +7,15 @@ import { FaSpinner } from "react-icons/fa";
 function AnswerQuestions({ homeData }) {
   const [contactData, setContactData] = useState();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [subject, setSubject] = useState("");
-  const [text, setText] = useState("");
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    subject: "",
+    text: "",
+  });
 
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
+  const [isActive, setIsActive] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -27,11 +28,11 @@ function AnswerQuestions({ homeData }) {
 
   async function sendData() {
     const data = {
-      name: name,
-      email: email,
-      mobile: mobile,
-      subject: subject,
-      text: text,
+      name: state.name,
+      email: state.email,
+      mobile: state.mobile,
+      subject: state.subject,
+      text: state.text,
     };
     const config = {
       headers: {
@@ -42,42 +43,52 @@ function AnswerQuestions({ homeData }) {
     await axiosInstance
       .post("/api/web-site/contact-us", data, config)
       .then((res) => {
-        // console.log("contact", res.data);
+        console.log("contact", res.data);
         setContactData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    setName("");
-    setEmail("");
-    setMobile("");
-    setSubject("");
-    setText("");
+    setState(
+      { name: "" },
+      { email: "" },
+      { mobile: "" },
+      { subject: "" },
+      { text: "" }
+    );
   }
 
-  // useEffect(() => {
-  //   sendData();
-  // }, []);
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setState({
+      ...state,
+      [evt.target.name]: value,
+    });
+
+    if (value !== "") {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const [show, setShow] = useState(false);
+
   useEffect(() => {
-    const timeId = setTimeout(() => {
+    setShow(true);
+    setTimeout(() => {
       setShow(false);
     }, 3000);
-
-    return () => {
-      clearTimeout(timeId);
-    };
-  }, []);
+  }, [show]);
 
   return (
     <S.AnswerContainer>
-      <div style={{ width: "545px" }}>
+      <div className="accordion">
         <h1>Answer & Questions</h1>
         <div style={{ cursor: "pointer" }}>
           <Accordion homeData={homeData} />
@@ -95,11 +106,15 @@ function AnswerQuestions({ homeData }) {
         <form onSubmit={handleSubmit}>
           <S.container>
             <S.animationBox>
-              <label>Name</label>
+              <label className={isActive ? "Active" : ""} htmlFor="name">
+                Name
+              </label>
               <input
                 type="text"
-                value={name ?? ""}
-                onChange={(e) => setName(e.target.value)}
+                name="name"
+                value={state.name}
+                id="name"
+                onChange={handleChange}
               />
             </S.animationBox>
 
@@ -116,11 +131,14 @@ function AnswerQuestions({ homeData }) {
           <div className="box-inputs">
             <S.container>
               <S.animationBox>
-                <label>Email</label>
+                <label className={isActive ? "Active" : ""} htmlFor="email">
+                  Email
+                </label>
                 <input
                   type="email"
-                  value={email ?? ""}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  value={state.email ?? ""}
+                  onChange={handleChange}
                 />
               </S.animationBox>
 
@@ -136,11 +154,14 @@ function AnswerQuestions({ homeData }) {
 
             <S.container>
               <S.animationBox>
-                <label>Phone</label>
+                <label className={isActive ? "Active" : ""} htmlFor="mobile">
+                  Phone
+                </label>
                 <input
                   type="text"
-                  value={mobile ?? ""}
-                  onChange={(e) => setMobile(e.target.value)}
+                  value={state.mobile ?? ""}
+                  name="mobile"
+                  onChange={handleChange}
                 />
               </S.animationBox>
 
@@ -158,11 +179,14 @@ function AnswerQuestions({ homeData }) {
 
           <S.container>
             <S.animationBox>
-              <label>Subject</label>
+              <label className={isActive ? "Active" : ""} htmlFor="subject">
+                Subject
+              </label>
               <input
                 type="text"
-                value={subject ?? ""}
-                onChange={(e) => setSubject(e.target.value)}
+                value={state.subject ?? ""}
+                name="subject"
+                onChange={handleChange}
               />
             </S.animationBox>
             {contactData?.status === false
@@ -175,13 +199,16 @@ function AnswerQuestions({ homeData }) {
               : ""}
 
             <S.animationBox>
-              <label>Text</label>
+              <label className={isActive ? "Active" : ""} htmlFor="text">
+                Text
+              </label>
               <textarea
                 id="tell-us"
                 rows="4"
                 cols="50"
-                value={text ?? ""}
-                onChange={(e) => setText(e.target.value)}
+                value={state.text ?? ""}
+                name="text"
+                onChange={handleChange}
               />
             </S.animationBox>
           </S.container>
@@ -214,10 +241,9 @@ function AnswerQuestions({ homeData }) {
             </button>
           )}
 
-          {show ||
-            (contactData?.status === true && (
-              <div style={{ color: "green" }}>{contactData?.message}</div>
-            ))}
+          {contactData?.status === true && show && (
+            <div style={{ color: "green" }}>{contactData?.message}</div>
+          )}
         </form>
       </div>
     </S.AnswerContainer>

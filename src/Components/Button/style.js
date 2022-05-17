@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ButtonContainer = styled.button`
-  /* background: linear-gradient(to top right, #2395db, #5abbf8) #2395db; */
   background: ${(props) =>
     props.primaryGround
       ? "#ffffff"

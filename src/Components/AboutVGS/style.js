@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  /* flex-wrap: wrap; */
   margin-top: 84px;
 
   @media (max-width: 800px) {
@@ -12,7 +11,6 @@ export const AboutContainer = styled.div`
 
   & > div:first-of-type {
     @media (max-width: 1200px) {
-      /* width: 50%; */
       margin-left: 20px;
     }
     & h1 {
