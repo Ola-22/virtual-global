@@ -1,7 +1,7 @@
 import * as S from "./style";
 import Social from "../Social";
 import axiosInstance from "../../helpers/axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 
 function Footer({ settingsData }) {
@@ -30,7 +30,6 @@ function Footer({ settingsData }) {
     await axiosInstance
       .post("/api/web-site/subscribe-mailing-list", data, config)
       .then((res) => {
-        // console.log("mailing", res.data);
         setMailingData(res.data);
       })
       .catch((err) => {

@@ -27,7 +27,7 @@ const Ul = styled.ul`
       position: absolute;
       top: 0;
       margin-left: -20px;
-      @media (max-width: 980px) {
+      @media (max-width: 1100px) {
         display: none;
       }
     }
@@ -38,6 +38,11 @@ const Ul = styled.ul`
       @media (max-width: 980px) {
         background: inherit;
       }
+    }
+    @media (min-width: 979px) and (max-width: 1100px) {
+      font-size: 12px;
+      padding-inline-end: 10px;
+      padding-inline-start: 10px;
     }
   }
   @media (max-width: 980px) {

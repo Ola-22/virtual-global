@@ -20,7 +20,6 @@ export const bannerContainer = styled.div`
       color: #ffffff;
       background-color: #2f2f2f;
       width: 500px;
-      /* max-width: max-content; */
       border-radius: 5px;
       padding: 10px;
       word-break: break-word;

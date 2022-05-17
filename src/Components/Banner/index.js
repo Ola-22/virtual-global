@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import Banner from "./Banner";
-import BannerTwo from "./BannerTwo";
 import * as S from "./style";
 
 function SampleNextArrow(props) {
@@ -56,10 +55,18 @@ export default function SliderComponent({ homeData, settingsData }) {
           slidesToScroll: 1,
         },
       },
+
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
-    // autoplay: true,
-    // speed: 2000,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 1500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
@@ -76,25 +83,6 @@ export default function SliderComponent({ homeData, settingsData }) {
             />
           </div>
         ))}
-        {/* <div>
-          <Banner
-            paragraphOne="Do you suffer when witnessing"
-            paragraphTwo="killings and massacres due to"
-            paragraphThree="wars? Do you feel the danger of"
-            src="/images/banner.png"
-          />
-        </div>
-        <div>
-          <Banner
-            paragraphOne="Do you suffer when witnessing"
-            paragraphTwo="killings and massacres due to"
-            paragraphThree="wars? Do you feel the danger of"
-            src="/images/banner-two.png"
-          />
-        </div>
-        <div>
-          <BannerTwo />
-        </div> */}
       </Slider>
     </S.sliderMain>
   );
