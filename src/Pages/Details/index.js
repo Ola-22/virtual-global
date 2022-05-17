@@ -2,7 +2,6 @@ import CardForum from "../../Components/CardForum";
 import Nav from "../../Components/Nav";
 import HeaderForum from "../../Components/HeaderForum";
 import Footer from "../../Components/Footer";
-import CardTabs from "../../Components/CardTabs";
 import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";

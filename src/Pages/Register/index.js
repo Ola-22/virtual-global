@@ -6,7 +6,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 
 export default function Register() {
-  const [gender, setGender] = useState();
+  const [setGender] = useState();
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showVirtualConstitution, setShowVirtualConstitution] = useState(false);
@@ -96,16 +96,11 @@ export default function Register() {
       .get("/api/web-site/categories/countries")
       .then((res) => {
         setCountry(res.data?.items);
-        // console.log("country", res.data?.items);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  // console.log(categoryDegree);
-  // console.log(categoryCountry);
-  // console.log(categoryMajor);
 
   return (
     <S.RegisterContainer>
