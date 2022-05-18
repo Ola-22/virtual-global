@@ -2,19 +2,48 @@ import CardForum from "../../Components/CardForum";
 import HeaderForum from "../../Components/HeaderForum";
 import Nav from "../../Components/Nav";
 import * as S from "./style";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TabNav from "../../Components/Tabs/TabNav";
 import Tab from "../../Components/Tabs/Tab";
 import CardTabs from "../../Components/CardTabs";
 import Footer from "../../Components/Footer";
+import axiosInstance from "../../helpers/axios";
+import RecentTopics from "./RecentTopics";
+import MostLikes from "./MostLikes";
+import MostReplies from "./MostReplies";
+import { Link, useSearchParams } from "react-router-dom";
+import MostVisit from "./MostVisit";
 
 function Forum({ settingsData }) {
   const [selected, setSelected] = useState("Recent Topics");
+  const [discussion, setDiscussions] = useState();
 
   const SelectTab = (tab) => {
     setSelected(tab);
   };
 
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+      },
+    };
+
+    axiosInstance
+      .get(
+        `/api/user/discussions/all`,
+
+        config
+      )
+      .then((res) => {
+        console.log(res);
+        setDiscussions(res.data.items.discussions);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(selected);
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />
@@ -61,30 +90,32 @@ function Forum({ settingsData }) {
           >
             <>
               <Tab isSelected={selected === "Recent Topics"}>
-                <CardTabs
-                  date="June 18, 2020"
-                  title="In light of the current situation of wars and human"
-                  paragraph="In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outs"
-                  totalLikes="1.555"
-                  totalComment="1.555"
-                />
-                <CardTabs
-                  date="June 18, 2020"
-                  title="In light of the current situation of wars and human"
-                  paragraph="In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outs"
-                  totalLikes="1.555"
-                  totalComment="1.555"
-                />
+                <RecentTopics discussion={discussion} />
               </Tab>
 
               <Tab isSelected={selected === "Most Replies"}>
-                <CardTabs
-                  date="June 18, 2020"
-                  title="In light of the current situation of wars and human"
-                  paragraph="In light of the current situation of wars and human tragedies in the World and the absence of a promising horizon where real peace and constructive cooperation between people prevails, this proposal urges us to think outs"
-                  totalLikes="1.555"
-                  totalComment="1.555"
-                />
+                <MostReplies />
+              </Tab>
+
+              <Tab isSelected={selected === "Recent Replies"}>
+                {discussion?.map((disc) => (
+                  <CardTabs
+                    key={disc?.id}
+                    date={disc?.created_at}
+                    title={disc?.title}
+                    paragraph={disc?.text}
+                    totalLikes={disc?.likes_count}
+                    totalComment={disc?.commnets_count}
+                  />
+                ))}
+              </Tab>
+
+              <Tab isSelected={selected === "Most Visit"}>
+                <MostVisit />
+              </Tab>
+
+              <Tab isSelected={selected === "Most Likes"}>
+                <MostLikes />
               </Tab>
             </>
           </TabNav>

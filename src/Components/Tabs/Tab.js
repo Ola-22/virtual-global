@@ -1,6 +1,10 @@
 export default function Tab(props) {
   if (props.isSelected) {
-    return <div className="tab">{props.children}</div>;
+    return (
+      <a className="tab" onClick={props.onClick}>
+        {props.children}
+      </a>
+    );
   }
   return null;
 }
