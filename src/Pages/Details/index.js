@@ -5,8 +5,35 @@ import Footer from "../../Components/Footer";
 import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axiosInstance from "../../helpers/axios";
 
 function Details() {
+  const { id } = useParams();
+
+  console.log(id);
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+      },
+    };
+
+    axiosInstance
+      .get(
+        `/api/user/discussions/${id}`,
+
+        config
+      )
+      .then((res) => {
+        console.log("d", res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div style={{ width: "100%" }}>
       <Nav />

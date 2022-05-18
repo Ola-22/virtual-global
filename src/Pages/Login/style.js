@@ -56,6 +56,11 @@ export const loginContainer = styled.div`
       margin-bottom: 10px;
     }
   }
+
+  & .error {
+    color: red;
+    font-size: 13px;
+  }
 `;
 
 export const LoginBox = styled.div`
@@ -84,6 +89,7 @@ export const LoginBox = styled.div`
     height: 55px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
+    padding-left: 10px;
   }
   & label {
     margin-top: 29px;
