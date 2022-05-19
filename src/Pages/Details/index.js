@@ -33,7 +33,7 @@ function Details({ settingsData }) {
         setResult(res.data.items);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   return (
     <div style={{ width: "100%" }}>

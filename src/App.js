@@ -60,6 +60,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        {currentUser && ""}
         <Routes>
           <Route
             path="/"
