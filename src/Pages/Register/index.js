@@ -211,7 +211,7 @@ export default function Register() {
               name="lname"
               placeholder="Enter Here"
               value={state.lname}
-              id="fname"
+              id="lname"
               onChange={handleChange}
             />
           </div>
