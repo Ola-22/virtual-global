@@ -10,7 +10,6 @@ import About from "./Pages/About";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
 import authService from "./Pages/Register/Auth";
-import MostLikes from "./Pages/Forum/MostLikes";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -44,7 +43,7 @@ function App() {
       });
   }, []);
 
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [setCurrentUser] = useState(undefined);
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -54,9 +53,9 @@ function App() {
     }
   }, []);
 
-  const logOut = () => {
-    authService.logout();
-  };
+  // const logOut = () => {
+  //   authService.logout();
+  // };
 
   return (
     <BrowserRouter>
@@ -74,7 +73,10 @@ function App() {
             element={<Forum settingsData={settingsData} />}
           />
 
-          <Route path="/discussion/:id" element={<Details />} />
+          <Route
+            path="/discussion/:id"
+            element={<Details settingsData={settingsData} />}
+          />
           <Route path="/ml" element={<ML />} />
           <Route
             path="/profile"

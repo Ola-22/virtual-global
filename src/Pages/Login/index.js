@@ -2,7 +2,6 @@ import * as S from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
 import { useState } from "react";
-import axiosInstance from "../../helpers/axios";
 import authService from "../Register/Auth";
 
 function Login() {
@@ -13,7 +12,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       await authService.SignIn(email, password).then(
         (response) => {
