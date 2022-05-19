@@ -148,14 +148,14 @@ export default function Register() {
         )
         .then(
           (response) => {
-            // console.log(response);
+            console.log(response);
 
             if (response.status === true) {
               // console.log("Sign up successfully", response.items.token);
               navigate("/");
             }
 
-            setRegisterData(response.data);
+            setRegisterData(response);
           },
           (error) => {
             console.log(error);
@@ -166,7 +166,7 @@ export default function Register() {
     }
   };
 
-  // console.log("T", registerData);
+  console.log("T", registerData);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -185,8 +185,6 @@ export default function Register() {
         <S.RegisterContent>
           <div>
             <label>First Name</label>
-            {/* <input type="text" placeholder="Enter Here" /> */}
-
             <input
               type="text"
               name="fname"
@@ -195,14 +193,17 @@ export default function Register() {
               id="fname"
               onChange={handleChange}
             />
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "f_name" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
-          {registerData?.status === false &&
-            registerData?.items?.map(
-              (err, index) =>
-                err?.field_name === "f_name" && (
-                  <h3 key={index}>{err.message}</h3>
-                )
-            )}
+
           <div>
             <label>Last Name</label>
 
@@ -214,11 +215,20 @@ export default function Register() {
               id="lname"
               onChange={handleChange}
             />
+
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "l_name" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
         </S.RegisterContent>
         <S.wrapperEmail>
           <label>Email</label>
-          {/* <input type="email" placeholder="Enter Here" /> */}
           <input
             type="email"
             name="email"
@@ -227,12 +237,20 @@ export default function Register() {
             id="email"
             onChange={handleChange}
           />
+          {registerData?.status === false &&
+            registerData?.items?.map(
+              (err, index) =>
+                err?.field_name === "email" && (
+                  <h3 className="error" key={index}>
+                    {err.message}
+                  </h3>
+                )
+            )}
         </S.wrapperEmail>
 
         <S.RegisterContent>
           <div>
             <label>Password</label>
-            {/* <input type="password" placeholder="Enter Here" /> */}
 
             <input
               type="password"
@@ -242,10 +260,18 @@ export default function Register() {
               id="password"
               onChange={handleChange}
             />
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "password" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
           <div>
             <label>Confirm Password</label>
-            {/* <input type="password" placeholder="Enter Here" /> */}
 
             <input
               type="password"
@@ -267,6 +293,15 @@ export default function Register() {
               onChange={(e) => setDate(e.target.value)}
               placeholder="Example NOV 11 1990"
             />
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "dob" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
           <div>
             <label>Country of Birth</label>
@@ -286,6 +321,16 @@ export default function Register() {
                 </>
               ))}
             </select>
+
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "country_birth_id" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
         </S.RegisterContent>
 
@@ -311,6 +356,15 @@ export default function Register() {
               <span>Female</span>
             </div>
           </div>
+          {registerData?.status === false &&
+            registerData?.items?.map(
+              (err, index) =>
+                err?.field_name === "gender" && (
+                  <h3 className="error" key={index}>
+                    {err.message}
+                  </h3>
+                )
+            )}
         </S.RegisterGender>
 
         <S.RegisterContent>
@@ -331,6 +385,15 @@ export default function Register() {
                 </>
               ))}
             </select>
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "academic_level_id" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
           <div>
             <label>Major of Interest, Specialization </label>
@@ -350,6 +413,16 @@ export default function Register() {
                 </>
               ))}
             </select>
+
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "specialization_id" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
         </S.RegisterContent>
         <S.RegisterGender>
@@ -365,6 +438,16 @@ export default function Register() {
                 Virtual Constitution Terms
               </S.AnchorTag>
             </span>
+
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "accept_constitution_terms" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
         </S.RegisterGender>
 
@@ -384,6 +467,16 @@ export default function Register() {
                 Privacy Policy
               </S.AnchorTag>
             </span>
+
+            {registerData?.status === false &&
+              registerData?.items?.map(
+                (err, index) =>
+                  err?.field_name === "accept_terms_conditions" && (
+                    <h3 className="error" key={index}>
+                      {err.message}
+                    </h3>
+                  )
+              )}
           </div>
         </S.RegisterGender>
         <Button

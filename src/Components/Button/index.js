@@ -1,8 +1,8 @@
 import * as S from "./style";
 
-function Button({ title, onClick, img }) {
+function Button({ title, onClick, img, className }) {
   return (
-    <S.ButtonContainer onClick={onClick}>
+    <S.ButtonContainer className={className} onClick={onClick}>
       {title}
 
       {img && <img src="/images/send.png" alt="send data" />}

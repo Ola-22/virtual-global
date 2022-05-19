@@ -1,10 +1,10 @@
-import * as S from "./style";
+import * as S from "./ReplyStyle";
 
-function ReplyComment({ name, time, comment, likes_count }) {
+function ReplyComment({ name, time, comment, likes_count, src }) {
   return (
     <S.replyComments>
       <div>
-        <img src="/images/user.png" alt="user reply comment" />
+        <img className="user-image" src={src} alt="user reply comment" />
         <div className="user">
           <h5>{name}</h5>
           <h6>{time}</h6>
