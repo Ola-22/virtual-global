@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const commentContainer = styled.div`
+export const replyComments = styled.div`
+  padding-inline-start: 52.5px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 44px;
+  border-left: 5px solid rgba(45, 152, 218, 10%);
+
   & div {
     display: flex;
     & .user {
@@ -14,6 +15,9 @@ export const commentContainer = styled.div`
       margin-inline-start: 12px;
     }
   }
+  & p {
+    width: 92%;
+  }
 
   & .user-image {
     width: 54px;
@@ -21,6 +25,7 @@ export const commentContainer = styled.div`
     object-fit: cover;
     border-radius: 50%;
   }
+
   & .paragraph {
     background-color: #f9f9f9;
     max-width: 689px;
@@ -53,24 +58,5 @@ export const commentContainer = styled.div`
     & img {
       cursor: pointer;
     }
-  }
-`;
-
-export const replyComments = styled.div`
-  padding-inline-start: 52.5px;
-  margin-top: 35px;
-  display: flex;
-  flex-direction: column;
-  border-left: 5px solid rgba(45, 152, 218, 10%);
-
-  & p {
-    width: 92%;
-  }
-
-  & .user-image {
-    width: 54px;
-    height: 54px;
-    object-fit: cover;
-    border-radius: 50%;
   }
 `;

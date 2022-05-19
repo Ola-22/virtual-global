@@ -2,26 +2,37 @@ import styled from "styled-components";
 
 export const DetailsContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  /* flex-wrap: wrap; */
+  justify-content: center;
   background: #f8f8f8;
   padding-top: 31px;
   padding-bottom: 46px;
+
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const DetailsBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
-  max-width: 765px;
-  width: 100%;
+  /* max-width: 765px; */
+  width: 60%;
   min-height: 287px;
   background-color: #ffffff;
   border-radius: 10px;
   padding: 0 42px;
   margin-bottom: 15px;
   padding-top: 29px;
+
+  @media (max-width: 700px) {
+    width: 90%;
+    max-width: 765px;
+    margin-top: 5%;
+  }
   & h6 {
     font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
@@ -105,6 +116,12 @@ export const DetailsBox = styled.div`
         height: 100%;
         border: 1px solid #e6e6e6;
         border-radius: 25px;
+        padding-left: 4%;
+        overflow: scroll;
+        padding-right: 3%;
+        word-wrap: break-word;
+        word-break: break-all;
+        hyphens: auto;
 
         &:placeholder-shown {
           padding-inline-start: 25px;
@@ -115,6 +132,70 @@ export const DetailsBox = styled.div`
       & button {
         max-width: 149px;
       }
+    }
+  }
+`;
+
+export const CardForum = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  align-items: center;
+  /* max-width: 367px; */
+  width: 30%;
+  border-radius: 10px;
+  min-height: 549px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
+  z-index: 4;
+
+  @media (max-width: 700px) {
+    width: 90%;
+    max-height: auto !important;
+    height: auto;
+  }
+  &:last-child {
+    padding-bottom: 34.5px;
+  }
+
+  & h3 {
+    font-size: 22px;
+    color: #2d98da;
+    text-transform: capitalize;
+    margin: 33px 0 30.5px 22px;
+    align-self: flex-start;
+  }
+
+  & .boxCard {
+    height: 135px;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+    padding: 21px;
+    margin-bottom: 7px;
+    width: 90%;
+    & div:first-of-type {
+      display: flex;
+      align-items: center;
+      margin-inline-end: 13px;
+    }
+    & p {
+      font-size: 16px;
+      max-width: 290px;
+      height: 58px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    & img {
+      width: 23px;
+    }
+    & span {
+      font-size: 18px;
+      margin-left: 14.6px;
+    }
+
+    & div {
+      display: flex;
+      align-items: center;
     }
   }
 `;

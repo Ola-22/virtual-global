@@ -55,7 +55,8 @@ export const ForumContainer = styled.div`
     justify-content: space-between;
   }
 
-  & .box {
+  & .box-one {
+    width: 25%;
     @media (min-width: 600px) and (max-width: 1300px) {
       margin-left: 2%;
     }

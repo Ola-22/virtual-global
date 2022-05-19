@@ -4,16 +4,20 @@ function CardBox({ paragraph, totalLikes, totalComments }) {
   return (
     <S.CardForum>
       <div className="boxCard">
-        <p>{paragraph}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: paragraph,
+          }}
+        />
         <div>
           <div>
             <img src="/images/like.png" alt="like the discussions" />
-            <span>1.555</span>
+            <span>{totalLikes}</span>
           </div>
 
           <div>
             <img src="/images/chat.png" alt="like the discussions" />
-            <span>1.555</span>
+            <span>{totalComments}</span>
           </div>
         </div>
       </div>

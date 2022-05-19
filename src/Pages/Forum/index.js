@@ -36,7 +36,7 @@ function Forum({ settingsData }) {
         config
       )
       .then((res) => {
-        console.log(res);
+        console.log("err", res);
         setDiscussions(res.data.items.discussions);
       })
       .catch((err) => console.log(err));
@@ -48,11 +48,11 @@ function Forum({ settingsData }) {
       <Nav settingsData={settingsData} />
       <HeaderForum settingsData={settingsData} />
       <S.ForumContainer>
-        <div className="box">
+        <div className="box-one">
           <div className="topForum">
             <div>
               <h2>topics</h2>
-              <p>+1720</p>
+              <p>{discussion?.length}</p>
             </div>
             <div>
               <h2>replies</h2>
