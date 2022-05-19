@@ -15,7 +15,7 @@ export default function MostLikes() {
         },
       })
       .then((res) => {
-        console.log("disdd", res.data.items);
+        // console.log("disdd", res.data.items);
         setDiscussionLikes(res.data.items.discussions);
       })
       .catch((err) => console.log(err));

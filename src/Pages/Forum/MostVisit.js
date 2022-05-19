@@ -15,7 +15,7 @@ export default function MostVisit() {
         },
       })
       .then((res) => {
-        console.log("disdd", res.data.items);
+        // console.log("disdd", res.data.items);
         setDiscussionVisit(res.data.items.discussions);
       })
       .catch((err) => console.log(err));

@@ -6,13 +6,13 @@ import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
 
-function Details() {
+function Details({ settingsData }) {
   const { id } = useParams();
 
-  console.log(id);
+  const [result, setResult] = useState();
 
   useEffect(() => {
     const config = {
@@ -30,13 +30,14 @@ function Details() {
       )
       .then((res) => {
         console.log("d", res);
+        setResult(res.data.items);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div style={{ width: "100%" }}>
-      <Nav />
+      <Nav settingsData={settingsData} />
       <HeaderForum />
       <S.DetailsContainer>
         <CardForum
@@ -47,42 +48,41 @@ function Details() {
         />
 
         <S.DetailsBox>
-          <h6>Asked : June 18, 2020</h6>
-          <h3>In light of the current situation of wars and human</h3>
-          <p>
-            In light of the current situation of wars and human tragedies in the
-            World and the absence of a promising horizon where real peace and
-            constructive cooperation between people prevails, this proposal
-            urges us to think outside the box, looking for creative solutions to
-            try to change this reality. The World is made up of many nations and
-            entities that differ in interests and goals. Therefore, it is
-            difficult to build a unified strategy for a better future for human
-            life on Earth! To overcome this reality, this ambitious – long term-
-            proposal suggests the creation of a Virtual Global State (VGS) that
-            liberates people from the complexities of their geopolitical,
-            civilizational, ethnic, racial, religious and ideological
-            differences, though respected, and helps address
-          </p>
-          <div className="container">
-            <div>
-              <img src="/images/like.png" alt="likes of the content" />
-              <span>1.555</span>
-            </div>
-            <div>
-              <img src="/images/chat.png" alt="likes of the content" />
-              <span>1.555</span>
-            </div>
-          </div>
-          <div className="comments">
-            <h5 className="number-comments">195 comments</h5>
-            <Comments replyComment />
-            <Comments />
-            <div className="add-comment">
-              <img src="/images/user.png" alt="" />
-              <input type="text" placeholder="write here" />
-              <Button title="comment" />
-            </div>
-          </div>
+          {result && (
+            <>
+              <h6>Asked : {result?.discussion?.created_at}</h6>
+              <h3>{result?.discussion?.title}</h3>
+
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: result?.discussion?.text,
+                }}
+              />
+
+              <div className="container">
+                <div>
+                  <img src="/images/like.png" alt="likes of the content" />
+                  <span>{result?.discussion?.likes_count}</span>
+                </div>
+                <div>
+                  <img src="/images/chat.png" alt="likes of the content" />
+                  <span>{result?.discussion?.comments_count}</span>
+                </div>
+              </div>
+              <div className="comments">
+                <h5 className="number-comments">
+                  {result?.discussion?.comments?.length} comments
+                </h5>
+                <Comments replyComment />
+                <Comments />
+                <div className="add-comment">
+                  <img src="/images/user.png" alt="" />
+                  <input type="text" placeholder="write here" />
+                  <Button title="comment" />
+                </div>
+              </div>
+            </>
+          )}
         </S.DetailsBox>
       </S.DetailsContainer>
       <Footer />

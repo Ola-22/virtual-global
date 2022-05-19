@@ -15,7 +15,7 @@ export default function MostReplies() {
         },
       })
       .then((res) => {
-        console.log("disdd", res.data.items);
+        // console.log("disdd", res.data.items);
         setDiscussionReplies(res.data.items.discussions);
       })
       .catch((err) => console.log(err));

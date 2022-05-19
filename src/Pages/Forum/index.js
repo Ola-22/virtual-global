@@ -11,7 +11,6 @@ import axiosInstance from "../../helpers/axios";
 import RecentTopics from "./RecentTopics";
 import MostLikes from "./MostLikes";
 import MostReplies from "./MostReplies";
-import { Link, useSearchParams } from "react-router-dom";
 import MostVisit from "./MostVisit";
 
 function Forum({ settingsData }) {
@@ -43,7 +42,7 @@ function Forum({ settingsData }) {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(selected);
+  // console.log(selected);
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />

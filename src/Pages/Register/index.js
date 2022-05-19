@@ -28,9 +28,9 @@ export default function Register() {
   const [acceptConstitution, setAcceptConstitution] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
 
-  console.log("R", acceptConstitution);
-  console.log("T", acceptTerms);
-  const [token, setToken] = useState();
+  // console.log("R", acceptConstitution);
+  // console.log("T", acceptTerms);
+  // const [token, setToken] = useState();
 
   const [state, setState] = useState({
     fname: "",
@@ -41,19 +41,6 @@ export default function Register() {
   });
 
   const [date, setDate] = useState("");
-
-  console.log(state.fname);
-  console.log(state.lname);
-  console.log(state.email);
-  console.log(state.password);
-  console.log("C", state.confirmPass);
-  console.log(state.dob);
-  console.log(categoryCountry);
-  console.log(categoryDegree);
-  console.log(categoryMajor);
-  console.log(gender);
-
-  console.log(date);
 
   // console.log(state.accept_terms_conditions);
   // console.log(state.accept_constitution_terms);
@@ -131,7 +118,7 @@ export default function Register() {
       .get("/api/web-site/categories/countries")
       .then((res) => {
         setCountry(res.data?.items);
-        console.log(country);
+        // console.log(country);
       })
       .catch((err) => {
         console.log(err);
@@ -140,8 +127,9 @@ export default function Register() {
 
   const navigate = useNavigate();
 
+  const [registerData, setRegisterData] = useState();
   const handleSignup = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       await authService
         .SignUp(
@@ -160,12 +148,14 @@ export default function Register() {
         )
         .then(
           (response) => {
-            console.log(response);
+            // console.log(response);
 
             if (response.status === true) {
-              console.log("Sign up successfully", response.items.token);
+              // console.log("Sign up successfully", response.items.token);
               navigate("/");
             }
+
+            setRegisterData(response.data);
           },
           (error) => {
             console.log(error);
@@ -175,6 +165,8 @@ export default function Register() {
       console.log(err);
     }
   };
+
+  // console.log("T", registerData);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -204,9 +196,15 @@ export default function Register() {
               onChange={handleChange}
             />
           </div>
+          {registerData?.status === false &&
+            registerData?.items?.map(
+              (err, index) =>
+                err?.field_name === "f_name" && (
+                  <h3 key={index}>{err.message}</h3>
+                )
+            )}
           <div>
             <label>Last Name</label>
-            {/* <input type="text" placeholder="Enter Here" /> */}
 
             <input
               type="text"
@@ -392,7 +390,7 @@ export default function Register() {
           onClick={(e) => {
             e.preventDefault();
             handleSignup();
-            setShowCouncil(true);
+            // setShowCouncil(true);
           }}
           title="Register Now"
         />
