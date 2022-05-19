@@ -19,17 +19,17 @@ function Login() {
           console.log(response);
 
           if (response.status === true) {
-            console.log("Sign in successfully", response.items.token);
+            // console.log("Sign in successfully", response.items.token);
             navigate("/");
           }
 
           if (response.status === false) {
-            console.log("Sign in unsuccessfully", response.message);
+            // console.log("Sign in unsuccessfully", response.message);
             // navigate("/");
           }
         },
         (error) => {
-          console.log("Er,", error);
+          // console.log("Er,", error);
           setError(error.response.data?.message);
         }
       );

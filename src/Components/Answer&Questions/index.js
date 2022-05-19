@@ -43,7 +43,7 @@ function AnswerQuestions({ homeData }) {
     await axiosInstance
       .post("/api/web-site/contact-us", data, config)
       .then((res) => {
-        console.log("contact", res.data);
+        // console.log("contact", res.data);
         setContactData(res.data);
       })
       .catch((err) => {

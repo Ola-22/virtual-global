@@ -42,19 +42,6 @@ export default function Register() {
 
   const [date, setDate] = useState("");
 
-  console.log(state.fname);
-  console.log(state.lname);
-  console.log(state.email);
-  console.log(state.password);
-  console.log("C", state.confirmPass);
-  console.log(state.dob);
-  console.log(categoryCountry);
-  console.log(categoryDegree);
-  console.log(categoryMajor);
-  console.log(gender);
-
-  console.log(date);
-
   // console.log(state.accept_terms_conditions);
   // console.log(state.accept_constitution_terms);
 
@@ -131,7 +118,7 @@ export default function Register() {
       .get("/api/web-site/categories/countries")
       .then((res) => {
         setCountry(res.data?.items);
-        console.log(country);
+        // console.log(country);
       })
       .catch((err) => {
         console.log(err);
@@ -161,10 +148,10 @@ export default function Register() {
         )
         .then(
           (response) => {
-            console.log(response);
+            // console.log(response);
 
             if (response.status === true) {
-              console.log("Sign up successfully", response.items.token);
+              // console.log("Sign up successfully", response.items.token);
               navigate("/");
             }
 
@@ -179,7 +166,7 @@ export default function Register() {
     }
   };
 
-  console.log("T", registerData);
+  // console.log("T", registerData);
 
   function handleChange(evt) {
     const value = evt.target.value;

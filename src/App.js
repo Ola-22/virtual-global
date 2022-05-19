@@ -43,7 +43,7 @@ function App() {
       });
   }, []);
 
-  const [setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
     const user = authService.getCurrentUser();
