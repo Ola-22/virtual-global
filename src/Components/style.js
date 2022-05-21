@@ -15,6 +15,10 @@ export const IDCardContainer = styled.div`
   height: 90%;
   border-radius: 9px;
   padding-bottom: 23px;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
 `;
 
 export const IDCardBox = styled.div`
@@ -57,6 +61,12 @@ export const VirtualID = styled.div`
         width: 100%;
         margin-top: 31px;
         margin-bottom: 6px;
+      }
+    }
+    & .img-user {
+      @media (max-width: 500px) {
+        width: 50px;
+        height: 50px;
       }
     }
   }

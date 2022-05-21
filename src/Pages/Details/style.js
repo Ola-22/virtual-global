@@ -127,10 +127,17 @@ export const DetailsBox = styled.div`
           padding-inline-start: 25px;
           text-transform: capitalize;
         }
+
+        @media (max-width: 1000px) {
+          width: 80%;
+        }
       }
 
       & button {
         max-width: 149px;
+        @media (max-width: 1200px) {
+          margin-top: 4%;
+        }
       }
     }
   }
@@ -197,5 +204,9 @@ export const CardForum = styled.div`
       display: flex;
       align-items: center;
     }
+  }
+  & .card-box {
+    max-width: 90%;
+    width: 90%;
   }
 `;

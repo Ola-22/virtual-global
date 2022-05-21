@@ -1,6 +1,6 @@
 import * as S from "./style";
 
-function IDCard() {
+function IDCard({ src, fname, lname, gender, national, country, date }) {
   return (
     <S.IDCardContainer>
       <S.IDCardBox>
@@ -14,9 +14,10 @@ function IDCard() {
         <div className="virtual-box">
           <div>
             <img
+              className="img-user"
               width="120"
               height="120"
-              src="/images/user-img.png"
+              src={src}
               alt="img of the user profile"
             />
             <h4>Virtual ID Number/ Numéro d'ID Virtuel</h4>
@@ -26,17 +27,17 @@ function IDCard() {
           <S.boxCard>
             <div>
               <h4>Surname/Nom</h4>
-              <h3>Fordman</h3>
+              <h3>{lname}</h3>
             </div>
 
             <div>
               <h4>Given Names/ prénom</h4>
-              <h3>Alex</h3>
+              <h3>{fname}</h3>
             </div>
 
             <div>
               <h4>Date of birth/ Date de naissance</h4>
-              <h3>01/03/1992</h3>
+              <h3>{date}</h3>
             </div>
 
             <div>
@@ -48,17 +49,17 @@ function IDCard() {
           <S.boxCard>
             <div>
               <h4>Gender/ sexe</h4>
-              <h3>male</h3>
+              <h3>{gender}</h3>
             </div>
 
             <div>
               <h4>Virtual Nationality/ Nationalité virtuelle</h4>
-              <h3>Virlan</h3>
+              <h3>{national}</h3>
             </div>
 
             <div>
               <h4>Place of birth/ Lieu de naissance</h4>
-              <h3>LONDON</h3>
+              <h3>{country}</h3>
             </div>
 
             <div>

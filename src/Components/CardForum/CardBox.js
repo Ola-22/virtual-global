@@ -2,7 +2,7 @@ import * as S from "./style";
 
 function CardBox({ paragraph, totalLikes, totalComments }) {
   return (
-    <S.CardForum>
+    <S.CardForum className="card-box">
       <div className="boxCard">
         <p
           dangerouslySetInnerHTML={{

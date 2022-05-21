@@ -3,13 +3,15 @@ import styled from "styled-components";
 export const topicContainer = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
-  min-height: 351px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 17px;
   padding-left: 32px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   & h5 {
     font-size: 18px;
     font-weight: normal;
@@ -47,7 +49,7 @@ export const topicContainer = styled.div`
     }
   }
 
-  @media (max-width: 1200px) {
+  /* @media (max-width: 1200px) {
     width: 90%;
-  }
+  } */
 `;

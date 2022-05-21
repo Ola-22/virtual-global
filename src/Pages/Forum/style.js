@@ -48,17 +48,38 @@ export const ForumContainer = styled.div`
         }
       }
     }
+
+    @media (max-width: 700px) {
+      justify-content: space-between;
+    }
   }
 
-  @media (min-width: 600px) and (max-width: 1300px) {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
   }
 
   & .box-one {
     width: 25%;
-    @media (min-width: 600px) and (max-width: 1300px) {
-      margin-left: 2%;
+    @media (max-width: 700px) {
+      width: 90%;
     }
+
+    /* @media (max-width: 1100px) {
+      width: 30%;
+    } */
+  }
+  & .tab {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
+
+export const MainTopic = styled.div`
+  @media (max-width: 1100px) {
+    width: 60%;
+  }
+
+  @media (max-width: 700px) {
+    width: 90% !important;
   }
 `;
