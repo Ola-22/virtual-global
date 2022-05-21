@@ -3,7 +3,6 @@ import * as S from "./style";
 function LikeTopic({ date, paragraph, name, time, comment }) {
   return (
     <S.topicContainer>
-      <h5>like topic</h5>
       <h6>Asked: {date}</h6>
       <p>{paragraph}</p>
       <div>
@@ -13,7 +12,12 @@ function LikeTopic({ date, paragraph, name, time, comment }) {
           <h6>{time}</h6>
         </div>
       </div>
-      <p>{comment}</p>
+
+      <p
+        dangerouslySetInnerHTML={{
+          __html: comment,
+        }}
+      />
     </S.topicContainer>
   );
 }

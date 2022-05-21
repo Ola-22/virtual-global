@@ -59,24 +59,26 @@ function Forum({ settingsData }) {
               <p>1.558.114</p>
             </div>
           </div>
-
-          <CardForum
-            title="hot discussions"
-            paragraph="In light of the current situation of wars and human tragedies in the World and "
-            totalComments="1.555"
-            totalLikes="1.555"
-          />
-          <div style={{ marginTop: "14px" }}>
+          <div>
             <CardForum
               title="hot discussions"
               paragraph="In light of the current situation of wars and human tragedies in the World and "
               totalComments="1.555"
               totalLikes="1.555"
             />
+            <div style={{ marginTop: "14px" }}>
+              <CardForum
+                title="hot discussions"
+                paragraph="In light of the current situation of wars and human tragedies in the World and "
+                totalComments="1.555"
+                totalLikes="1.555"
+              />
+            </div>
           </div>
         </div>
-        <>
+        <S.MainTopic>
           <TabNav
+            className="main-topic"
             tabs={[
               "Recent Topics",
               "Most Replies",
@@ -118,7 +120,7 @@ function Forum({ settingsData }) {
               </Tab>
             </>
           </TabNav>
-        </>
+        </S.MainTopic>
       </S.ForumContainer>
       <Footer settingsData={settingsData} />
     </div>

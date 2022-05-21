@@ -64,20 +64,50 @@ function Details({ settingsData }) {
       .post(`/api/user/discussions/save-comment/${id}`, data, config)
       .then((res) => {
         console.log("comment", res);
+        // window.reload();
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  // useEffect(() => {
-  //   sendComment();
-  // });
 
   const [showInput, setShowInput] = useState(false);
   const [userName, setUserName] = useState("");
   console.log(parentId);
 
   console.log(userName);
+
+  const [lengthComment, setLengthComment] = useState(0);
+  const [loadComment, setLoadComment] = useState();
+  const [showComments, setShowComments] = useState(false);
+
+  console.log(lengthComment);
+  async function loadMoreComment() {
+    const data = {
+      count: lengthComment,
+      parent_id: parentId,
+    };
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: "en",
+      },
+    };
+    await axiosInstance
+      .post(`/api/user/discussions/load-more-comment/${id}`, data, config)
+      .then((res) => {
+        console.log("loadcomment", res);
+        setLoadComment(res.data.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    setLengthComment(result?.discussion?.comments.length);
+  }, []);
 
   return (
     <div style={{ width: "100%" }}>
@@ -136,40 +166,6 @@ function Details({ settingsData }) {
                           setUserName(comment.user_name);
                         }}
                       />
-                      {/* {showInput && (
-                        <div className="add-comment">
-                          <img src="/images/user.png" alt="" />
-                          <input
-                            type="text"
-                            placeholder="write here"
-                            value={textComment ?? ""}
-                            onChange={(e) => setTextComment(e.target.value)}
-                          />
-
-                          {!loading && (
-                            <Button
-                              title="comment"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                sendComment();
-                                handleClick();
-                              }}
-                            />
-                          )}
-
-                          {loading && (
-                            <Button
-                              className="disabled"
-                              title="comment"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                sendComment();
-                                handleClick();
-                              }}
-                            />
-                          )}
-                        </div>
-                      )} */}
 
                       {comment?.replies?.map((reply) => (
                         <ReplyComment
@@ -181,6 +177,34 @@ function Details({ settingsData }) {
                         />
                       ))}
                     </>
+                  ))}
+
+                {lengthComment >= 5 && (
+                  <button
+                    onClick={() => {
+                      loadMoreComment();
+                      // setLengthComment(result?.discussion?.comments.length);
+                      setShowComments(!showComments);
+                    }}
+                  >
+                    load more comment
+                  </button>
+                )}
+
+                {showComments &&
+                  loadComment?.comments?.map((comment) => (
+                    <Comments
+                      key={comment.id}
+                      name={comment?.user_name}
+                      date={comment?.date}
+                      comment={comment?.text}
+                      src={comment?.user_image}
+                      onClick={() => {
+                        setParentId(comment.id);
+                        //  setShowInput(!showInput);
+                        //  setUserName(comment.user_name);
+                      }}
+                    />
                   ))}
 
                 <div className="add-comment">
@@ -197,6 +221,7 @@ function Details({ settingsData }) {
                       title="comment"
                       onClick={(e) => {
                         e.preventDefault();
+                        // window.location.reload(false);
                         sendComment();
                         handleClick();
                       }}
@@ -208,9 +233,11 @@ function Details({ settingsData }) {
                       className="disabled"
                       title="comment"
                       onClick={(e) => {
+                        // window.location.reload(false);
                         e.preventDefault();
                         sendComment();
                         handleClick();
+                        window.reload();
                       }}
                     />
                   )}
