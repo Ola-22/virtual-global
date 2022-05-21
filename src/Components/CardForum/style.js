@@ -5,11 +5,12 @@ export const CardForum = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   align-items: center;
-  max-width: 367px;
-  width: 100%;
+  /* max-width: 367px;
+  width: 100%; */
   border-radius: 10px;
   max-height: 549px;
   height: 100%;
+  width: 100%;
   &:last-child {
     padding-bottom: 34.5px;
   }
@@ -33,6 +34,10 @@ export const CardForum = styled.div`
       display: flex;
       align-items: center;
       margin-inline-end: 13px;
+
+      @media (max-width: 800px) {
+        justify-content: space-around;
+      }
     }
     & p {
       font-size: 16px;
@@ -53,5 +58,10 @@ export const CardForum = styled.div`
       display: flex;
       align-items: center;
     }
+  }
+
+  @media (max-width: 700px) {
+    max-width: 100%;
+    width: 100%;
   }
 `;

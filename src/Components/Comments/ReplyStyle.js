@@ -33,7 +33,7 @@ export const replyComments = styled.div`
     min-height: 94px;
     border-radius: 10px;
     display: flex;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 20px;
     word-break: break-all;
     /* align-items: center; */

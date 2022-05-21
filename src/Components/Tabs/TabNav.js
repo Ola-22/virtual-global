@@ -3,7 +3,7 @@ import * as S from "./style";
 export default function TabNav(props) {
   return (
     <S.MainTab>
-      <S.TabsContainer>
+      <S.TabsContainer className="main-tabs">
         {props.tabs.map((tab) => {
           const activeSelect = tab === props.selected ? "activeSelect" : "";
           return (

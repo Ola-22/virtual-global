@@ -23,7 +23,7 @@ export const CardContainer = styled.div`
     /* flex-wrap: wrap; */
     justify-content: center;
     padding: 42px;
-    max-width: 565px;
+    /* max-/: 565px; */
     width: 100%;
     height: 280px;
     & p {

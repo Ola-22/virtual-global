@@ -5,7 +5,7 @@ export const TabsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 765px;
+  /* max-width: 765px; */
   width: 100%;
   position: relative;
   background-color: #ffffff;
@@ -13,9 +13,9 @@ export const TabsContainer = styled.div`
   border-radius: 10px;
   margin-bottom: 24px;
 
-  @media (min-width: 400px) and (max-width: 1300px) {
+  /* @media (min-width: 400px) and (max-width: 1300px) {
     width: 90%;
-  }
+  } */
 
   & li {
     color: rgba(0, 0, 0, 0.25);
@@ -56,7 +56,7 @@ export const MainTab = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: 765px;
+  /* max-width: 765px; */
   width: 100%;
 
   /* @media (max-width: 700px) {
@@ -64,6 +64,6 @@ export const MainTab = styled.div`
   } */
 
   @media (min-width: 400px) and (max-width: 1300px) {
-    margin-left: 2%;
+    /* margin-left: 2%; */
   }
 `;

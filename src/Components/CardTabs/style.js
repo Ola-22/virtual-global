@@ -10,7 +10,7 @@ export const CardMain = styled.div`
   min-height: 287px;
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 0 42px;
+  padding: 10px 42px;
   margin-bottom: 15px;
   & h6 {
     font-size: 16px;
@@ -31,7 +31,8 @@ export const CardMain = styled.div`
   & .box {
     display: flex;
     justify-content: space-around;
-    max-width: 689px;
+    flex-wrap: wrap;
+    max-width: 100%;
     width: 100%;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -44,23 +45,20 @@ export const CardMain = styled.div`
         font-size: 18px;
         margin-left: 14.5px;
       }
-      &:last-of-type {
+      & .chat {
         margin-inline-start: 42px;
       }
     }
 
     & button {
-      max-width: 149px;
-      width: 100%;
+      width: 149px;
+      /* width: 100%; */
       height: 45px;
-    }
-    @media (max-width: 600px) {
-      width: 90%;
-      padding: 0 10px;
-    }
-  }
 
-  @media (min-width: 400px) and (max-width: 1300px) {
-    width: 90%;
+      @media (max-width: 450px) {
+        max-width: 149px;
+        width: 100%;
+      }
+    }
   }
 `;

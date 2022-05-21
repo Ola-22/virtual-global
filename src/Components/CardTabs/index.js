@@ -19,7 +19,7 @@ function CardTabs({ date, title, paragraph, totalLikes, totalComment }) {
             <img src="/images/like.png" alt="likes of the content" />
             <span>{totalLikes}</span>
           </div>
-          <div>
+          <div className="chat">
             <img src="/images/chat.png" alt="likes of the content" />
             <span>{totalComment}</span>
           </div>
