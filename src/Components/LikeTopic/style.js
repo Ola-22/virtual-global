@@ -34,7 +34,7 @@ export const topicContainer = styled.div`
   & p {
     font-size: 22px;
   }
-  & p:last-of-type {
+  & .text {
     max-width: 1066px;
     background-color: #f9f9f9;
     min-height: 94px;

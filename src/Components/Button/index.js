@@ -1,3 +1,4 @@
+import { MenuIcon } from "../svg";
 import * as S from "./style";
 
 function Button({ title, onClick, img, className }) {
@@ -5,7 +6,7 @@ function Button({ title, onClick, img, className }) {
     <S.ButtonContainer className={className} onClick={onClick}>
       {title}
 
-      {img && <img src="/images/send.png" alt="send data" />}
+      {img && <MenuIcon fill="white" />}
     </S.ButtonContainer>
   );
 }

@@ -35,20 +35,22 @@ export const RegisterContainer = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
+      height: 80%;
+      justify-content: space-around;
+      /* flex-wrap: wrap; */
       & p {
         min-height: 62px !important;
-        height: 100%;
-        max-width: 530px;
+        /* height: 100%; */
+        max-width: 60%;
         text-align: center;
         overflow-y: hidden !important;
       }
 
       & .container {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
-        width: 100%;
+        width: 55%;
         & button {
           max-width: 112px;
           width: 100%;
@@ -82,20 +84,39 @@ export const RegisterContainer = styled.div`
           padding: 10px;
           font-size: 14px;
           color: rgba(0, 0, 0, 0.3);
+          outline: none;
         }
       }
 
-      & button {
+      & .send {
         max-width: 201px;
+        justify-content: space-evenly;
+        padding-left: 8%;
+
+        & > svg {
+          fill: white;
+        }
+
+        &:hover {
+          & > svg {
+            fill: #5abbf8;
+          }
+        }
       }
     }
+  }
+
+  & .activeBtn {
+    background: linear-gradient(to top right, #2395db, #5abbf8) #2395db;
+    color: #fff !important;
   }
 `;
 
 export const RegisterBox = styled.div`
   max-width: 798px;
+  justify-content: center;
   width: 90%;
-  height: 90%;
+  height: 95%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -128,7 +149,7 @@ export const RegisterBox = styled.div`
   }
 
   & button {
-    margin: 10px;
+    /* margin: 10px; */
   }
 `;
 
@@ -138,7 +159,7 @@ export const RegisterContent = styled.div`
   flex-wrap: wrap;
   max-width: 739px;
   width: 90%;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   & div {
     display: flex;
     flex-direction: column;
@@ -153,15 +174,21 @@ export const wrapperEmail = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 5px;
-  margin-left: 10%;
+  /* margin-top: 5px;
+  margin-left: 10%; */
+  justify-content: center;
+  align-items: center;
+
+  & label {
+    width: 90%;
+  }
 `;
 
 export const RegisterGender = styled.div`
   max-width: 739px;
   width: 90%;
 
-  margin-top: 5px;
+  /* margin-top: 5px; */
   & div {
     display: flex;
     & input {
@@ -174,6 +201,10 @@ export const RegisterGender = styled.div`
     & span {
       margin-left: 5px;
     }
+  }
+
+  & .flex-column {
+    flex-direction: column;
   }
 `;
 
@@ -188,4 +219,13 @@ export const loginAccount = styled.div`
   & a {
     color: #2d98da;
   }
+`;
+
+export const MainRegister = styled.div`
+  height: 97%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;

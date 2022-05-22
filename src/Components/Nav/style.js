@@ -6,6 +6,7 @@ export const NavContainer = styled.div`
   align-items: center;
   flex-wrap: nowrap;
   height: 85px;
+  width: 100%;
 
   & > div,
   & a > div {

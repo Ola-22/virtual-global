@@ -148,11 +148,12 @@ export default function Register() {
         )
         .then(
           (response) => {
-            console.log(response);
+            console.log("T", response);
 
             if (response.status === true) {
               // console.log("Sign up successfully", response.items.token);
-              navigate("/");
+              // navigate("/");
+              setShowCouncil(true);
             }
 
             setRegisterData(response);
@@ -176,361 +177,413 @@ export default function Register() {
     });
   }
 
+  const [val, setVal] = useState(null);
+  const [textReason, setTextReason] = useState("");
+  console.log(val);
+  async function sendRequestMember() {
+    const data = {
+      approval_status: val,
+      reason: textReason,
+    };
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: "en",
+      },
+    };
+    await axiosInstance
+      .post(`/api/user/member-nomination-request/save`, data, config)
+      .then((res) => {
+        console.log("sendRequest", res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    sendRequestMember();
+  }, []);
+
   return (
     <S.RegisterContainer>
       <S.RegisterBox>
-        <Link to="/">
-          <h2>virtual citizenship registration</h2>
-        </Link>
-        <S.RegisterContent>
-          <div>
-            <label>First Name</label>
+        <S.MainRegister>
+          <Link to="/">
+            <h2>virtual citizenship registration</h2>
+          </Link>
+          <S.RegisterContent>
+            <div>
+              <label>First Name</label>
+              <input
+                type="text"
+                name="fname"
+                placeholder="Enter Here"
+                value={state.fname}
+                id="fname"
+                onChange={handleChange}
+              />
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "f_name" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+
+            <div>
+              <label>Last Name</label>
+
+              <input
+                type="text"
+                name="lname"
+                placeholder="Enter Here"
+                value={state.lname}
+                id="lname"
+                onChange={handleChange}
+              />
+
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "l_name" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+          </S.RegisterContent>
+          <S.wrapperEmail>
+            <label>Email</label>
             <input
-              type="text"
-              name="fname"
+              type="email"
+              name="email"
               placeholder="Enter Here"
-              value={state.fname}
-              id="fname"
+              value={state.email}
+              id="email"
               onChange={handleChange}
             />
             {registerData?.status === false &&
               registerData?.items?.map(
                 (err, index) =>
-                  err?.field_name === "f_name" && (
+                  err?.field_name === "email" && (
                     <h3 className="error" key={index}>
                       {err.message}
                     </h3>
                   )
               )}
-          </div>
+          </S.wrapperEmail>
 
-          <div>
-            <label>Last Name</label>
+          <S.RegisterContent>
+            <div>
+              <label>Password</label>
 
-            <input
-              type="text"
-              name="lname"
-              placeholder="Enter Here"
-              value={state.lname}
-              id="lname"
-              onChange={handleChange}
-            />
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter Here"
+                value={state.password}
+                id="password"
+                onChange={handleChange}
+              />
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "password" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+            <div>
+              <label>Confirm Password</label>
 
+              <input
+                type="password"
+                name="confirmPass"
+                placeholder="Enter Here"
+                value={state.confirmPass}
+                id="confirmPass"
+                onChange={handleChange}
+              />
+            </div>
+          </S.RegisterContent>
+
+          <S.RegisterContent>
+            <div>
+              <label>Date of Birth</label>
+              <input
+                type="date"
+                value={date ?? ""}
+                onChange={(e) => setDate(e.target.value)}
+                placeholder="Example NOV 11 1990"
+              />
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "dob" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+            <div>
+              <label>Country of Birth</label>
+
+              <select
+                name="country"
+                value={categoryCountry}
+                onChange={(e) => setCategoryCountry(e.target.value)}
+              >
+                <option value="Select from here">Select from here</option>
+
+                {country?.map((country) => (
+                  <>
+                    <option key={country.id} value={country?.id}>
+                      {country?.name}
+                    </option>
+                  </>
+                ))}
+              </select>
+
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "country_birth_id" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+          </S.RegisterContent>
+
+          <S.RegisterGender>
+            <label>Gender</label>
+            <div>
+              <div>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  onChange={(e) => setGender(e.target.value)}
+                />
+                <span>Male</span>
+              </div>
+              <div className="gender">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  onChange={(e) => setGender(e.target.value)}
+                />
+                <span>Female</span>
+              </div>
+            </div>
             {registerData?.status === false &&
               registerData?.items?.map(
                 (err, index) =>
-                  err?.field_name === "l_name" && (
+                  err?.field_name === "gender" && (
                     <h3 className="error" key={index}>
                       {err.message}
                     </h3>
                   )
               )}
-          </div>
-        </S.RegisterContent>
-        <S.wrapperEmail>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Here"
-            value={state.email}
-            id="email"
-            onChange={handleChange}
-          />
-          {registerData?.status === false &&
-            registerData?.items?.map(
-              (err, index) =>
-                err?.field_name === "email" && (
-                  <h3 className="error" key={index}>
-                    {err.message}
-                  </h3>
-                )
-            )}
-        </S.wrapperEmail>
+          </S.RegisterGender>
 
-        <S.RegisterContent>
-          <div>
-            <label>Password</label>
+          <S.RegisterContent>
+            <div>
+              <label>Academic Level</label>
+              <select
+                name="degree"
+                value={categoryDegree}
+                onChange={(e) => setCategoryDegree(e.target.value)}
+              >
+                <option value="Select from here">Select from here</option>
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Here"
-              value={state.password}
-              id="password"
-              onChange={handleChange}
-            />
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "password" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-          <div>
-            <label>Confirm Password</label>
+                {category?.map((cat) => (
+                  <>
+                    <option key={cat.id} value={cat?.id}>
+                      {cat?.name}
+                    </option>
+                  </>
+                ))}
+              </select>
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "academic_level_id" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+            <div>
+              <label>Major of Interest, Specialization </label>
 
-            <input
-              type="password"
-              name="confirmPass"
-              placeholder="Enter Here"
-              value={state.confirmPass}
-              id="confirmPass"
-              onChange={handleChange}
-            />
-          </div>
-        </S.RegisterContent>
+              <select
+                name="major"
+                value={categoryMajor}
+                onChange={(e) => setCategoryMajor(e.target.value)}
+              >
+                <option value="Select from here">Select from here</option>
 
-        <S.RegisterContent>
-          <div>
-            <label>Date of Birth</label>
-            <input
-              type="date"
-              value={date ?? ""}
-              onChange={(e) => setDate(e.target.value)}
-              placeholder="Example NOV 11 1990"
-            />
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "dob" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-          <div>
-            <label>Country of Birth</label>
+                {specializations?.map((special) => (
+                  <>
+                    <option key={special.id} value={special?.id}>
+                      {special?.name}
+                    </option>
+                  </>
+                ))}
+              </select>
 
-            <select
-              name="country"
-              value={categoryCountry}
-              onChange={(e) => setCategoryCountry(e.target.value)}
-            >
-              <option value="Select from here">Select from here</option>
-
-              {country?.map((country) => (
-                <>
-                  <option key={country.id} value={country?.id}>
-                    {country?.name}
-                  </option>
-                </>
-              ))}
-            </select>
-
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "country_birth_id" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-        </S.RegisterContent>
-
-        <S.RegisterGender>
-          <label>Gender</label>
-          <div>
+              {registerData?.status === false &&
+                registerData?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "specialization_id" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+          </S.RegisterContent>
+          <S.RegisterGender>
             <div>
               <input
-                type="radio"
-                name="gender"
-                value="male"
-                onChange={(e) => setGender(e.target.value)}
+                type="checkbox"
+                defaultChecked={acceptConstitution}
+                onChange={(e) => setAcceptConstitution(e.target.checked)}
               />
-              <span>Male</span>
-            </div>
-            <div className="gender">
-              <input
-                type="radio"
-                name="gender"
-                value="female"
-                onChange={(e) => setGender(e.target.value)}
-              />
-              <span>Female</span>
-            </div>
-          </div>
-          {registerData?.status === false &&
-            registerData?.items?.map(
-              (err, index) =>
-                err?.field_name === "gender" && (
-                  <h3 className="error" key={index}>
-                    {err.message}
-                  </h3>
-                )
-            )}
-        </S.RegisterGender>
-
-        <S.RegisterContent>
-          <div>
-            <label>Academic Level</label>
-            <select
-              name="degree"
-              value={categoryDegree}
-              onChange={(e) => setCategoryDegree(e.target.value)}
-            >
-              <option value="Select from here">Select from here</option>
-
-              {category?.map((cat) => (
-                <>
-                  <option key={cat.id} value={cat?.id}>
-                    {cat?.name}
-                  </option>
-                </>
-              ))}
-            </select>
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "academic_level_id" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-          <div>
-            <label>Major of Interest, Specialization </label>
-
-            <select
-              name="major"
-              value={categoryMajor}
-              onChange={(e) => setCategoryMajor(e.target.value)}
-            >
-              <option value="Select from here">Select from here</option>
-
-              {specializations?.map((special) => (
-                <>
-                  <option key={special.id} value={special?.id}>
-                    {special?.name}
-                  </option>
-                </>
-              ))}
-            </select>
-
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "specialization_id" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-        </S.RegisterContent>
-        <S.RegisterGender>
-          <div>
-            <input
-              type="checkbox"
-              defaultChecked={acceptConstitution}
-              onChange={(e) => setAcceptConstitution(e.target.checked)}
-            />
-            <span>
-              Accept on the peamable of the
-              <S.AnchorTag onClick={() => setShowVirtualConstitution(true)}>
-                Virtual Constitution Terms
-              </S.AnchorTag>
-            </span>
-
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "accept_constitution_terms" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-        </S.RegisterGender>
-
-        <S.RegisterGender>
-          <div>
-            <input
-              type="checkbox"
-              onChange={(e) => setAcceptTerms(e.target.checked)}
-            />
-            <span>
-              Accept on
-              <S.AnchorTag onClick={() => setShowTerms(true)}>
-                Terms & Conditions
-              </S.AnchorTag>
-              &nbsp; And
-              <S.AnchorTag onClick={() => setShowPrivacyPolicy(true)}>
-                Privacy Policy
-              </S.AnchorTag>
-            </span>
-
-            {registerData?.status === false &&
-              registerData?.items?.map(
-                (err, index) =>
-                  err?.field_name === "accept_terms_conditions" && (
-                    <h3 className="error" key={index}>
-                      {err.message}
-                    </h3>
-                  )
-              )}
-          </div>
-        </S.RegisterGender>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            handleSignup();
-            // setShowCouncil(true);
-          }}
-          title="Register Now"
-        />
-
-        {showCouncil ? (
-          <div onClick={closeModalCouncil} className="back-drop"></div>
-        ) : null}
-
-        <Modal
-          content={
-            <>
-              <div className="modal-header close">
-                <span onClick={closeModalCouncil} className="close-modal-btn">
-                  <img src="/images/close.png" alt="close the Modal" />
+              <div className="flex-column">
+                <span>
+                  Accept on the peamable of the
+                  <S.AnchorTag onClick={() => setShowVirtualConstitution(true)}>
+                    Virtual Constitution Terms
+                  </S.AnchorTag>
                 </span>
+
+                {registerData?.status === false &&
+                  registerData?.items?.map(
+                    (err, index) =>
+                      err?.field_name === "accept_constitution_terms" && (
+                        <h3 className="error" key={index}>
+                          {err.message}
+                        </h3>
+                      )
+                  )}
               </div>
+            </div>
+          </S.RegisterGender>
 
-              <div className="modal-body council">
-                <img width="112" src="/images/council.png" alt="council" />
-                <p>
-                  Do you nominate yourself to be a candidate member of the
-                  Council of the Wise of the VGS? Why?
-                </p>
-                <div className="container">
-                  <button>Yes</button>
-                  <button>No</button>
+          <S.RegisterGender>
+            <div>
+              <input
+                type="checkbox"
+                onChange={(e) => setAcceptTerms(e.target.checked)}
+              />
+              <div className="flex-column">
+                <span>
+                  Accept on
+                  <S.AnchorTag onClick={() => setShowTerms(true)}>
+                    Terms & Conditions
+                  </S.AnchorTag>
+                  &nbsp; And
+                  <S.AnchorTag onClick={() => setShowPrivacyPolicy(true)}>
+                    Privacy Policy
+                  </S.AnchorTag>
+                </span>
+
+                {registerData?.status === false &&
+                  registerData?.items?.map(
+                    (err, index) =>
+                      err?.field_name === "accept_terms_conditions" && (
+                        <h3 className="error" key={index}>
+                          {err.message}
+                        </h3>
+                      )
+                  )}
+              </div>
+            </div>
+          </S.RegisterGender>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              handleSignup();
+
+              // setShowCouncil(true);
+            }}
+            title="Register Now"
+          />
+
+          {showCouncil ? (
+            <div onClick={closeModalCouncil} className="back-drop"></div>
+          ) : null}
+
+          <Modal
+            content={
+              <>
+                <div className="modal-header close">
+                  <span onClick={closeModalCouncil} className="close-modal-btn">
+                    <img src="/images/close.png" alt="close the Modal" />
+                  </span>
                 </div>
-                <div className="answer">
-                  <label htmlFor="answer">Why?</label>
 
-                  <textarea
-                    id="w3review"
-                    name="answer"
-                    defaultValue="Write here"
+                <div className="modal-body council">
+                  <img width="112" src="/images/council.png" alt="council" />
+                  <p>
+                    Do you nominate yourself to be a candidate member of the
+                    Council of the Wise of the VGS? Why?
+                  </p>
+                  <div className="container">
+                    <button
+                      className={val === "yes" && "activeBtn"}
+                      onClick={() => setVal("yes")}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      className={val === "no" && "activeBtn"}
+                      onClick={() => setVal("no")}
+                    >
+                      No
+                    </button>
+                  </div>
+                  <div className="answer">
+                    <label htmlFor="answer">Why?</label>
+
+                    <textarea
+                      id="w3review"
+                      name="answer"
+                      placeholder="Write here..."
+                      onChange={(e) => setTextReason(e.target.value)}
+                    />
+                  </div>
+                  <Button
+                    className="send"
+                    onClick={() => navigate("/")}
+                    title="send"
+                    img
                   />
                 </div>
-                <Button title="send" img />
-              </div>
-            </>
-          }
-          show={showCouncil}
-          close={closeModalCouncil}
-        />
+              </>
+            }
+            show={showCouncil}
+            close={closeModalCouncil}
+          />
 
-        <S.loginAccount>
-          You already have a citizenship ? <Link to="/login">Enter</Link>
-        </S.loginAccount>
+          <S.loginAccount>
+            You already have a citizenship ? <Link to="/login">Enter</Link>
+          </S.loginAccount>
+        </S.MainRegister>
       </S.RegisterBox>
 
       {showTerms ? (
