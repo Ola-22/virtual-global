@@ -106,4 +106,10 @@ export const ForumContainer = styled.div`
       margin: 8px 0;
     }
   }
+
+  & .user-image {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+  }
 `;

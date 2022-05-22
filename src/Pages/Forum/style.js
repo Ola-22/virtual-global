@@ -63,10 +63,6 @@ export const ForumContainer = styled.div`
     @media (max-width: 700px) {
       width: 90%;
     }
-
-    /* @media (max-width: 1100px) {
-      width: 30%;
-    } */
   }
   & .tab {
     width: 100%;

@@ -4,7 +4,13 @@ function LikeTopic({ date, paragraph, name, time, comment }) {
   return (
     <S.topicContainer>
       <h6>Asked: {date}</h6>
-      <p>{paragraph}</p>
+      {/* <span>{paragraph}</p> */}
+      <span
+        dangerouslySetInnerHTML={{
+          __html: paragraph,
+        }}
+      />
+
       <div>
         <img src="/images/user.png" alt="user img" />
         <div>
@@ -14,6 +20,7 @@ function LikeTopic({ date, paragraph, name, time, comment }) {
       </div>
 
       <p
+        className="text"
         dangerouslySetInnerHTML={{
           __html: comment,
         }}

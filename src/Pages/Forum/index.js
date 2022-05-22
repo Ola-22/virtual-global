@@ -13,7 +13,7 @@ import MostLikes from "./MostLikes";
 import MostReplies from "./MostReplies";
 import MostVisit from "./MostVisit";
 
-function Forum({ settingsData }) {
+function Forum({ settingsData, profileInformation }) {
   const [selected, setSelected] = useState("Recent Topics");
   const [discussion, setDiscussions] = useState();
 
@@ -46,7 +46,10 @@ function Forum({ settingsData }) {
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />
-      <HeaderForum settingsData={settingsData} />
+      <HeaderForum
+        profileInformation={profileInformation}
+        settingsData={settingsData}
+      />
       <S.ForumContainer>
         <div className="box-one">
           <div className="topForum">

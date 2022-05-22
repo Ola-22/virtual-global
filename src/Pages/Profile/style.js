@@ -409,6 +409,11 @@ export const ModalWrapper = styled.div`
     top: 5%;
     width: 60%;
 
+    @media (max-width: 900px) {
+      top: 92%;
+      width: 90%;
+    }
+
     & .edit-profile {
       width: 100%;
       display: flex;
@@ -431,7 +436,9 @@ export const ModalWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
+    @media (max-width: 900px) {
+      height: 75%;
+    }
     & input,
     select {
       width: 100%;

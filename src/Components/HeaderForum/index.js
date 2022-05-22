@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function HeaderForum({ settingsData }) {
+function HeaderForum({ profileInformation }) {
+  console.log("firstss", profileInformation);
   return (
     <S.ForumContainer>
       <div>
@@ -10,11 +11,15 @@ function HeaderForum({ settingsData }) {
       </div>
       <div>
         <Link to="/profile">
-          <img src="/images/user.png" alt="user profile" />
+          <img
+            className="user-image"
+            src={profileInformation?.user.image}
+            alt="user profile"
+          />
         </Link>
         <div>
           <p>welocome</p>
-          <h6>Marwan</h6>
+          <h6>{profileInformation?.user.first_name}</h6>
         </div>
         <span>
           <img src="/images/view.png" alt="view the profile of the user" />

@@ -109,6 +109,30 @@ function Details({ settingsData }) {
     setLengthComment(result?.discussion?.comments.length);
   }, []);
 
+  async function sendLike(id) {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: "en",
+      },
+    };
+    await axiosInstance
+      .post(`/api/user/discussions/like/${id}`, config)
+      .then((res) => {
+        // setMailingData(res.data);
+        console.log("T", res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  useEffect(() => {
+    sendLike(id);
+  }, []);
+
+  console.log(result);
+
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />
@@ -121,6 +145,8 @@ function Details({ settingsData }) {
               paragraph={topic?.text}
               totalLikes={topic?.likes_count}
               totalComments={topic?.comments_count}
+              id={id}
+              // onClick={() => sendLike()}
             />
           ))}
         </S.CardForum>
@@ -139,7 +165,11 @@ function Details({ settingsData }) {
 
               <div className="container">
                 <div>
-                  <img src="/images/like.png" alt="likes of the content" />
+                  <img
+                    src="/images/like.png"
+                    alt="likes of the content"
+                    onClick={() => sendLike(id)}
+                  />
                   <span>{result?.discussion?.likes_count}</span>
                 </div>
                 <div>
@@ -166,6 +196,7 @@ function Details({ settingsData }) {
                           setUserName(comment.user_name);
                         }}
                       />
+                      {/* <h3>{result?.discussion?.comments?.discussion_id}</h3> */}
 
                       {comment?.replies?.map((reply) => (
                         <ReplyComment

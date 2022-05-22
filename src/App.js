@@ -10,6 +10,7 @@ import About from "./Pages/About";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
 import authService from "./Pages/Register/Auth";
+import EditProfile from "./Pages/EditProfile";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -57,6 +58,29 @@ function App() {
   //   authService.logout();
   // };
 
+  const [profileInformation, setProfileInformation] = useState();
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: "en",
+      },
+    };
+
+    axiosInstance
+      .get(
+        `/api/user/profile/edit`,
+
+        config
+      )
+      .then((res) => {
+        console.log("profile", res);
+        setProfileInformation(res.data.items);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -71,7 +95,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route
             path="/discussion/"
-            element={<Forum settingsData={settingsData} />}
+            element={
+              <Forum
+                profileInformation={profileInformation}
+                settingsData={settingsData}
+              />
+            }
           />
 
           <Route
@@ -81,11 +110,21 @@ function App() {
           <Route path="/ml" element={<ML />} />
           <Route
             path="/profile"
-            element={<Profile settingsData={settingsData} />}
+            element={
+              <Profile
+                profileInformation={profileInformation}
+                settingsData={settingsData}
+              />
+            }
           />
           <Route
             path="/who-we-are"
             element={<About settingsData={settingsData} />}
+          />
+
+          <Route
+            path="/edit-profile"
+            element={<EditProfile settingsData={settingsData} />}
           />
         </Routes>
       </div>
