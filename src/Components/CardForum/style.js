@@ -8,8 +8,8 @@ export const CardForum = styled.div`
   /* max-width: 367px;
   width: 100%; */
   border-radius: 10px;
-  max-height: 549px;
-  height: 100%;
+  /* max-height: 549px;
+  height: 100%; */
   width: 100%;
   &:last-child {
     padding-bottom: 34.5px;

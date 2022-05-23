@@ -44,29 +44,6 @@ function Profile({ settingsData, profileInformation }) {
       .catch((err) => console.log(err));
   }, []);
 
-  // const [profileInformation, setProfileInformation] = useState();
-  // useEffect(() => {
-  //   const config = {
-  //     headers: {
-  //       Accept: "application/json",
-  //       Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-  //       lang: "en",
-  //     },
-  //   };
-
-  //   axiosInstance
-  //     .get(
-  //       `/api/user/profile/edit`,
-
-  //       config
-  //     )
-  //     .then((res) => {
-  //       console.log("profile", res);
-  //       setProfileInformation(res.data.items);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   return (
     <div id="profile-main" style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />

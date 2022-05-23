@@ -30,7 +30,7 @@ export const ProfileContainer = styled.div`
       justify-content: center;
       background-color: #ffffff;
       border-radius: 10px;
-      max-width: 609px;
+      max-width: 709px;
       width: 100%;
       padding-bottom: 82px;
       @media (max-width: 1200px) {
@@ -38,8 +38,8 @@ export const ProfileContainer = styled.div`
       }
 
       @media (max-width: 900px) {
-        width: 90%;
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
       }
 
       & > h3 {
@@ -60,7 +60,7 @@ export const ProfileContainer = styled.div`
       flex-wrap: wrap;
       background-color: #ffffff;
       border-radius: 10px;
-      max-width: 525px;
+      max-width: 425px;
       width: 100%;
       /* height: 505px; */
       @media (max-width: 900px) {

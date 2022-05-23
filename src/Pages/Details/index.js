@@ -11,7 +11,7 @@ import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 // import { FaSpinner } from "react-icons/fa";
 
-function Details({ settingsData }) {
+function Details({ settingsData, profileInformation }) {
   const { id } = useParams();
 
   const [result, setResult] = useState();
@@ -109,7 +109,8 @@ function Details({ settingsData }) {
     setLengthComment(result?.discussion?.comments.length);
   }, []);
 
-  async function sendLike(id) {
+  const [likeData, setLikeData] = useState();
+  async function sendLike() {
     const config = {
       headers: {
         Accept: "application/json",
@@ -118,25 +119,28 @@ function Details({ settingsData }) {
       },
     };
     await axiosInstance
-      .post(`/api/user/discussions/like/${id}`, config)
+      .post(
+        `/api/user/discussions/like/${id}`,
+        {
+          params: {
+            product: id,
+          },
+        },
+        config
+      )
       .then((res) => {
-        // setMailingData(res.data);
-        console.log("T", res);
+        console.log("Tsss", res);
+        setLikeData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  useEffect(() => {
-    sendLike(id);
-  }, []);
-
-  console.log(result);
 
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />
-      <HeaderForum />
+      <HeaderForum profileInformation={profileInformation} />
       <S.DetailsContainer>
         <S.CardForum>
           <h3>Related Topics</h3>
@@ -165,11 +169,20 @@ function Details({ settingsData }) {
 
               <div className="container">
                 <div>
-                  <img
-                    src="/images/like.png"
-                    alt="likes of the content"
-                    onClick={() => sendLike(id)}
-                  />
+                  {likeData?.items?.is_like === false ? (
+                    <img
+                      src="/images/like.png"
+                      alt="likes of the content"
+                      onClick={() => sendLike()}
+                    />
+                  ) : (
+                    <img
+                      src="/images/unlike.png"
+                      alt="likes of the content"
+                      onClick={() => sendLike()}
+                    />
+                  )}
+
                   <span>{result?.discussion?.likes_count}</span>
                 </div>
                 <div>
