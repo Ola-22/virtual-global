@@ -4,6 +4,7 @@ export const AboutContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 84px;
+  padding-bottom: 20px;
 
   @media (max-width: 800px) {
     flex-wrap: wrap;

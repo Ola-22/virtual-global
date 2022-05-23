@@ -36,9 +36,9 @@ function Forum({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        console.log("err", res);
+        // console.log("err", res);
         setDiscussions(res.data.items.discussions);
-        console.log(discussion);
+        // console.log(discussion);
       })
       .catch((err) => console.log(err));
   }, []);

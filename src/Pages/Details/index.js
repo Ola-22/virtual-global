@@ -40,7 +40,7 @@ function Details({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        console.log("d", res);
+        // console.log("d", res);
         setResult(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -63,7 +63,7 @@ function Details({ settingsData, profileInformation }) {
     await axiosInstance
       .post(`/api/user/discussions/save-comment/${id}`, data, config)
       .then((res) => {
-        console.log("comment", res);
+        // console.log("comment", res);
         // window.reload();
       })
       .catch((err) => {
@@ -73,15 +73,15 @@ function Details({ settingsData, profileInformation }) {
 
   const [showInput, setShowInput] = useState(false);
   const [userName, setUserName] = useState("");
-  console.log(parentId);
+  // console.log(parentId);
 
-  console.log(userName);
+  // console.log(userName);
 
   const [lengthComment, setLengthComment] = useState(0);
   const [loadComment, setLoadComment] = useState();
   const [showComments, setShowComments] = useState(false);
 
-  console.log(lengthComment);
+  // console.log(lengthComment);
   async function loadMoreComment() {
     const data = {
       count: lengthComment,
@@ -97,7 +97,7 @@ function Details({ settingsData, profileInformation }) {
     await axiosInstance
       .post(`/api/user/discussions/load-more-comment/${id}`, data, config)
       .then((res) => {
-        console.log("loadcomment", res);
+        // console.log("loadcomment", res);
         setLoadComment(res.data.items);
       })
       .catch((err) => {
@@ -107,7 +107,7 @@ function Details({ settingsData, profileInformation }) {
 
   useEffect(() => {
     setLengthComment(result?.discussion?.comments.length);
-  });
+  }, []);
 
   const [likeData, setLikeData] = useState();
   async function sendLike() {
@@ -129,7 +129,7 @@ function Details({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        console.log("Tsss", res);
+        // console.log("Tsss", res);
         setLikeData(res.data);
       })
       .catch((err) => {

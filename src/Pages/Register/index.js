@@ -167,7 +167,7 @@ export default function Register() {
     }
   };
 
-  console.log("T", registerData);
+  // console.log("T", registerData);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -195,7 +195,7 @@ export default function Register() {
     await axiosInstance
       .post(`/api/user/member-nomination-request/save`, data, config)
       .then((res) => {
-        console.log("sendRequest", res);
+        // console.log("sendRequest", res);
       })
       .catch((err) => {
         console.log(err);

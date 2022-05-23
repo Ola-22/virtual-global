@@ -104,11 +104,11 @@ export const contentBanner = styled.h1`
   & span {
     font-size: 30px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: #2f2f2f;
     border-radius: 5px;
     line-height: 65px;
-    /* padding: 10px; */
+    padding: 10px;
     box-decoration-break: clone;
 
     @media (max-width: 700px) {

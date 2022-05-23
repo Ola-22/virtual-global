@@ -7,7 +7,7 @@ import IDCard from "../../Components/IDCard";
 import axiosInstance from "../../helpers/axios";
 import Tab from "../../Components/Tabs/Tab";
 import TabNav from "../../Components/Tabs/TabNav";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Profile({ settingsData, profileInformation }) {
   const [showForm, setShowForm] = useState(false);
@@ -38,7 +38,7 @@ function Profile({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        console.log("laseActive", res);
+        // console.log("laseActive", res);
         setLastActivity(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -63,39 +63,47 @@ function Profile({ settingsData, profileInformation }) {
               />
             </div>
             <div className="profile-information">
-              <>
-                <S.profileInformation>
-                  <h2>profile information's</h2>
-                  <img
-                    className="edit"
-                    src="/images/edit.png"
-                    alt="edit your profile"
-                    onClick={() => navigate("/edit-profile")}
+              <S.containerProfile>
+                <>
+                  <S.profileInformation>
+                    <h2>profile information's</h2>
+                    <img
+                      className="edit"
+                      src="/images/edit.png"
+                      alt="edit your profile"
+                      onClick={() => navigate("/edit-profile")}
+                    />
+                  </S.profileInformation>
+                </>
+
+                {showForm ? (
+                  <div onClick={closeModalTerms} className="back-drop"></div>
+                ) : null}
+
+                <S.profileInformation className="box-profile">
+                  <S.imgUser
+                    className="profile-img"
+                    src={profileInformation?.user?.image}
+                    alt="user img"
                   />
+                  <S.boxInformation>
+                    <label>email</label>
+                    <h4>{profileInformation?.user?.email}</h4>
+                  </S.boxInformation>
                 </S.profileInformation>
-              </>
+                <S.profileInformation className="box-profile">
+                  <S.boxInformation>
+                    <label>password</label>
+                    <h4>*****</h4>
+                  </S.boxInformation>
+                </S.profileInformation>
 
-              {showForm ? (
-                <div onClick={closeModalTerms} className="back-drop"></div>
-              ) : null}
-
-              <S.profileInformation className="box-profile">
-                <S.imgUser
-                  className="profile-img"
-                  src={profileInformation?.user?.image}
-                  alt="user img"
-                />
-                <label>email</label>
-                <h4>{profileInformation?.user?.email}</h4>
-              </S.profileInformation>
-              <S.profileInformation className="box-profile">
-                <label>password</label>
-                <h4>*****</h4>
-              </S.profileInformation>
-
-              <S.profileInformation>
-                <button>change password</button>
-              </S.profileInformation>
+                <S.profileInformation>
+                  <Link to="/change-password">
+                    <button className="changePass">change password</button>
+                  </Link>
+                </S.profileInformation>
+              </S.containerProfile>
             </div>
           </div>
           <S.lastActivity>

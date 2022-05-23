@@ -72,6 +72,7 @@ export default function PopularDiscussions({ homeData }) {
               src={data?.image}
               likesCount={data?.likes_count}
               commentCount={data?.comments_count}
+              link={data.id}
             />
             // </div>
           ))}

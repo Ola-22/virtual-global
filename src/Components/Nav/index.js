@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function Nav({ settingsData }) {
   return (
     <S.NavContainer>
-      <Link to="/">
+      <Link className="box-virtual" to="/">
         <div>
           <img
             src={settingsData?.items?.logo}
             alt="logo"
-            width="110"
-            height="65"
+            width="140"
+            height="85"
           />
           <h3>{settingsData?.items?.title}</h3>
         </div>

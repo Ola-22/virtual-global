@@ -43,15 +43,14 @@ export const HeaderContainer = styled.div`
       }
     }
 
-    & > input {
+    & .login {
       max-width: 100px;
       height: 40px;
       border-radius: 8px;
       border: none;
       padding: 10px;
-      &::placeholder {
-        color: #000000;
-      }
+      background: #fff;
+      color: #000000;
 
       @media (max-width: 768px) {
         width: 70px;

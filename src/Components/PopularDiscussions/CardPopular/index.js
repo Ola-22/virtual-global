@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function CardPolular({ title, text, likesCount, commentCount, key }) {
+function CardPolular({ link, title, text, likesCount, commentCount, key }) {
   return (
     <S.CardContainer key={key}>
       <div className="card-box">
@@ -22,7 +23,9 @@ function CardPolular({ title, text, likesCount, commentCount, key }) {
             </div>
           </div>
 
-          <img src="/images/slideMore.png" alt="slide more of the popular" />
+          <Link to={`/discussion/${link}`}>
+            <img src="/images/slideMore.png" alt="slide more of the popular" />
+          </Link>
         </S.LikeCard>
       </div>
 
