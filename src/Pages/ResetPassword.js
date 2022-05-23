@@ -37,7 +37,7 @@ function ResetPassword({ settingsData }) {
 
   useEffect(() => {
     sendResetPassword();
-  }, []);
+  });
   return (
     <div>
       <Nav settingsData={settingsData} />

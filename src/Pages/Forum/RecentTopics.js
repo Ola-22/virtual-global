@@ -1,5 +1,4 @@
 import CardTabs from "../../Components/CardTabs";
-import { Link } from "react-router-dom";
 
 export default function RecentTopics({ discussion }) {
   const recentTopics = discussion?.sort(

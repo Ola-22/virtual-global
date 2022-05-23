@@ -107,7 +107,7 @@ function Details({ settingsData, profileInformation }) {
 
   useEffect(() => {
     setLengthComment(result?.discussion?.comments.length);
-  }, []);
+  });
 
   const [likeData, setLikeData] = useState();
   async function sendLike() {
