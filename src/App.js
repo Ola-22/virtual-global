@@ -9,7 +9,6 @@ import Profile from "./Pages/Profile";
 import About from "./Pages/About";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
-import authService from "./Pages/Register/Auth";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
@@ -46,20 +45,6 @@ function App() {
         console.log(err);
       });
   }, []);
-
-  // const [currentUser, setCurrentUser] = useState(undefined);
-
-  // useEffect(() => {
-  //   const user = authService.getCurrentUser();
-
-  //   if (user) {
-  //     setCurrentUser(user);
-  //   }
-  // }, []);
-
-  // const logOut = () => {
-  //   authService.logout();
-  // };
 
   const [profileInformation, setProfileInformation] = useState();
   useEffect(() => {

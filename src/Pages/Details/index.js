@@ -72,10 +72,7 @@ function Details({ settingsData, profileInformation }) {
   }
 
   const [showInput, setShowInput] = useState(false);
-  const [userName, setUserName] = useState("");
-  // console.log(parentId);
-
-  // console.log(userName);
+  const [setUserName] = useState("");
 
   const [lengthComment, setLengthComment] = useState(0);
   const [loadComment, setLoadComment] = useState();
@@ -107,7 +104,7 @@ function Details({ settingsData, profileInformation }) {
 
   useEffect(() => {
     setLengthComment(result?.discussion?.comments.length);
-  }, []);
+  }, [result?.discussion?.comments.length]);
 
   const [likeData, setLikeData] = useState();
   async function sendLike() {
