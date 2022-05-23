@@ -18,6 +18,10 @@ export const NavContainer = styled.div`
       font-size: 21px;
       text-transform: uppercase;
       color: #000000;
+
+      @media (max-width: 450px) {
+        font-size: 15px;
+      }
     }
 
     & select {
@@ -31,4 +35,9 @@ export const NavContainer = styled.div`
       padding-inline-start: 20px;
     }
   }
+
+  /* & .box-virtual {
+    max-width: 1100px;
+    width: 100%;
+  } */
 `;

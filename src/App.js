@@ -13,6 +13,7 @@ import authService from "./Pages/Register/Auth";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
+import ChangePassword from "./Pages/ChangePassword";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -46,15 +47,15 @@ function App() {
       });
   }, []);
 
-  const [currentUser, setCurrentUser] = useState(undefined);
+  // const [currentUser, setCurrentUser] = useState(undefined);
 
-  useEffect(() => {
-    const user = authService.getCurrentUser();
+  // useEffect(() => {
+  //   const user = authService.getCurrentUser();
 
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, []);
+  //   if (user) {
+  //     setCurrentUser(user);
+  //   }
+  // }, []);
 
   // const logOut = () => {
   //   authService.logout();
@@ -77,7 +78,7 @@ function App() {
         config
       )
       .then((res) => {
-        console.log("profile", res);
+        // console.log("profile", res);
         setProfileInformation(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -86,7 +87,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {currentUser && ""}
         <Routes>
           <Route
             path="/"
@@ -140,8 +140,10 @@ function App() {
 
           <Route
             path="/reset-password/:token/:emailRequest"
-            element={<ResetPassword settingsData={settingsData} />}
+            element={<ResetPassword />}
           />
+
+          <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
       </div>
     </BrowserRouter>

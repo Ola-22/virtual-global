@@ -23,15 +23,18 @@ function Header() {
       <Menu />
 
       <div className="rightNav">
-        <Link to="/discussion">
-          <img
-            src="/images/forum.png"
-            alt="form button"
-            width="15"
-            height="15"
-          />
-          Forum
-        </Link>
+        {currentUser && (
+          <Link to="/discussion">
+            <img
+              src="/images/forum.png"
+              alt="form button"
+              width="15"
+              height="15"
+            />
+            Forum
+          </Link>
+        )}
+
         {currentUser ? (
           <Link to="/login" onClick={logOut}>
             Logout
@@ -39,7 +42,10 @@ function Header() {
         ) : (
           <Link to="/register">Register</Link>
         )}
-        <input type="text" placeholder="Enter" />
+
+        <Link className="login" to="/login">
+          Login
+        </Link>
         <button>
           <img src="/images/search.png" alt="search" />
         </button>

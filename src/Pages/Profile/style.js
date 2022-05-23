@@ -86,8 +86,8 @@ export const ProfileContainer = styled.div`
       }
       & button {
         background-color: #2d98da;
-        max-width: 164px;
-        width: 100%;
+        width: 130%;
+        max-width: 300px;
         min-height: 36px;
         border-radius: 88px;
         border: none;
@@ -107,6 +107,10 @@ export const ProfileContainer = styled.div`
         text-transform: uppercase;
         font-size: 18px;
         width: 90%;
+      }
+
+      & img {
+        cursor: pointer;
       }
     }
   }
@@ -266,6 +270,11 @@ export const profileInformation = styled.div`
   &.box-profile {
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  & .changePass {
+    width: 130%;
+    max-width: 300px;
   }
 `;
 
@@ -474,4 +483,20 @@ export const boxInput = styled.div`
       height: 20px;
     }
   }
+`;
+
+export const boxInformation = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 90%;
+`;
+
+export const containerProfile = styled.div`
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
 `;

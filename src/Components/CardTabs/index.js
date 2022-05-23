@@ -17,7 +17,7 @@ function CardTabs({
 }) {
   const [setJoinData] = useState();
 
-  console.log(discussion, "T");
+  // console.log(discussion, "T");
 
   async function sendJoin() {
     const config = {
@@ -38,7 +38,7 @@ function CardTabs({
         config
       )
       .then((res) => {
-        console.log("join", res);
+        // console.log("join", res);
         setJoinData(res.data);
       })
       .catch((err) => {
@@ -46,7 +46,7 @@ function CardTabs({
       });
   }
 
-  console.log(is_join);
+  // console.log(is_join);
   return (
     <S.CardMain>
       <Link to={`/discussion/${id}`}>

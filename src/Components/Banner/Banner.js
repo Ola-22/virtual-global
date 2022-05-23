@@ -11,7 +11,7 @@ function Banner({ paragraphOne, src, settingsData, link }) {
       <div>
         <div className="box-one">
           <S.contentBanner>
-            <span
+            <h6
               dangerouslySetInnerHTML={{
                 __html: paragraphOne,
               }}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import * as S from "./style";
 
 function HeaderForum({ profileInformation }) {
-  console.log("firstss", profileInformation);
+  // console.log("firstss", profileInformation);
   return (
     <S.ForumContainer>
       <div>

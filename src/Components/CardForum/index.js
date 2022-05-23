@@ -31,7 +31,7 @@ function CardForum({
         config
       )
       .then((res) => {
-        console.log("dderr", res);
+        // console.log("dderr", res);
         setSpecial(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -39,8 +39,9 @@ function CardForum({
   return (
     <S.CardForum>
       <h3>{title}</h3>
-      {/* {[...Array(3)].map(() => { */}
-      {/* return ( */}
+      {/* {[...Array(3)].map(() => (
+        )
+      )]} */}
       <>
         {participated_discussions &&
           special?.participated_discussions?.map((disc) => (

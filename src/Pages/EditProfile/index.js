@@ -85,7 +85,7 @@ function EditProfile({ settingsData }) {
     dataImg.append("specialization_id", categoryMajor);
     dataImg.append("gender", gender);
 
-    console.log("img", dataImg);
+    // console.log("img", dataImg);
     const config = {
       headers: {
         Accept: "application/json",
@@ -94,7 +94,7 @@ function EditProfile({ settingsData }) {
       },
     };
 
-    console.log("E", file);
+    // console.log("E", file);
     axiosInstance
       .post(`/api/user/profile/update`, dataImg, config)
       .then((res) => {

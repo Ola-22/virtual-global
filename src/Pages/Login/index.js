@@ -16,7 +16,7 @@ function Login() {
     try {
       await authService.SignIn(email, password).then(
         (response) => {
-          console.log(response);
+          // console.log(response);
 
           if (response.status === true) {
             // console.log("Sign in successfully", response.items.token);
