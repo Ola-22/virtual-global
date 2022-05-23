@@ -204,7 +204,7 @@ export default function Register() {
 
   useEffect(() => {
     sendRequestMember();
-  }, []);
+  });
 
   return (
     <S.RegisterContainer>

@@ -1,7 +1,6 @@
 import CardTabs from "../../Components/CardTabs";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
-import { Link } from "react-router-dom";
 
 export default function MostVisit() {
   const [discussionVisit, setDiscussionVisit] = useState();

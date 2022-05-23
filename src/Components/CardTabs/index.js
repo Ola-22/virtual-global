@@ -15,7 +15,7 @@ function CardTabs({
   is_join,
   is_like,
 }) {
-  const [joinData, setJoinData] = useState();
+  const [setJoinData] = useState();
 
   console.log(discussion, "T");
 

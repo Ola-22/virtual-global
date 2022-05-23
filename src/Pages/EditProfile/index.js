@@ -13,15 +13,15 @@ function EditProfile({ settingsData }) {
 
   const navigate = useNavigate();
 
-  function handleChangeImg(e) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setFile(reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  }
+  // function handleChangeImg(e) {
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setFile(reader.result);
+  //     }
+  //   };
+  //   reader.readAsDataURL(e.target.files[0]);
+  // }
 
   const [category, setCategory] = useState();
   const [specializations, setSpecializations] = useState();

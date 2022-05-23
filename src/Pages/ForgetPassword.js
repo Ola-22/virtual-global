@@ -26,7 +26,7 @@ function ForgetPassword({ settingsData }) {
 
   useEffect(() => {
     sendRequestPassword();
-  }, []);
+  });
   return (
     <div>
       <Nav settingsData={settingsData} />
