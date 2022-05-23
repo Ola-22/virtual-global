@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
-import { useNavigate } from "react-router-dom";
 
 function ChangePassword({ settingsData }) {
   const [currentPassword, setCurrentPassword] = useState();

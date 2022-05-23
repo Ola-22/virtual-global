@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "../../Components/Button";
 import * as S from "./style";
@@ -10,8 +10,6 @@ function ResetPassword({ settingsData }) {
   const [password_confirmation, setPasswordConfirmation] = useState();
 
   const token = useParams();
-
-  const [ResetData, setResetData] = useState();
 
   const [loading, setLoading] = useState(false);
 
