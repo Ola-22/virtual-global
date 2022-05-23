@@ -20,12 +20,12 @@ export const CardContainer = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     justify-content: center;
     padding: 42px;
     /* max-/: 565px; */
     width: 100%;
     height: 280px;
+    max-width: 80%;
     & p {
       font-size: 16px;
       margin-top: 23px;

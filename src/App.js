@@ -11,6 +11,8 @@ import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
 import authService from "./Pages/Register/Auth";
 import EditProfile from "./Pages/EditProfile";
+import ForgetPassword from "./Pages/ForgetPassword";
+import ResetPassword from "./Pages/ResetPassword";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -105,7 +107,12 @@ function App() {
 
           <Route
             path="/discussion/:id"
-            element={<Details settingsData={settingsData} />}
+            element={
+              <Details
+                settingsData={settingsData}
+                profileInformation={profileInformation}
+              />
+            }
           />
           <Route path="/ml" element={<ML />} />
           <Route
@@ -125,6 +132,15 @@ function App() {
           <Route
             path="/edit-profile"
             element={<EditProfile settingsData={settingsData} />}
+          />
+          <Route
+            path="/forget-password"
+            element={<ForgetPassword settingsData={settingsData} />}
+          />
+
+          <Route
+            path="/reset-password/:token/:emailRequest"
+            element={<ResetPassword settingsData={settingsData} />}
           />
         </Routes>
       </div>

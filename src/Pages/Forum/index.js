@@ -38,11 +38,11 @@ function Forum({ settingsData, profileInformation }) {
       .then((res) => {
         console.log("err", res);
         setDiscussions(res.data.items.discussions);
+        console.log(discussion);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  // console.log(selected);
   return (
     <div style={{ width: "100%" }}>
       <Nav settingsData={settingsData} />
@@ -63,18 +63,11 @@ function Forum({ settingsData, profileInformation }) {
             </div>
           </div>
           <div>
-            <CardForum
-              title="hot discussions"
-              paragraph="In light of the current situation of wars and human tragedies in the World and "
-              totalComments="1.555"
-              totalLikes="1.555"
-            />
+            <CardForum title="Hot discussions" special_discussions />
             <div style={{ marginTop: "14px" }}>
               <CardForum
-                title="hot discussions"
-                paragraph="In light of the current situation of wars and human tragedies in the World and "
-                totalComments="1.555"
-                totalLikes="1.555"
+                title="Participated discussions"
+                participated_discussions
               />
             </div>
           </div>
@@ -104,12 +97,15 @@ function Forum({ settingsData, profileInformation }) {
               <Tab isSelected={selected === "Recent Replies"}>
                 {discussion?.map((disc) => (
                   <CardTabs
+                    discussion={discussion}
                     key={disc?.id}
                     date={disc?.created_at}
                     title={disc?.title}
                     paragraph={disc?.text}
                     totalLikes={disc?.likes_count}
                     totalComment={disc?.commnets_count}
+                    is_join={disc?.is_join}
+                    is_like={disc?.is_like}
                   />
                 ))}
               </Tab>

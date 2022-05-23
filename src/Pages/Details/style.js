@@ -27,6 +27,7 @@ export const DetailsBox = styled.div`
   padding: 0 42px;
   margin-bottom: 15px;
   padding-top: 29px;
+  padding-bottom: 20px;
 
   @media (max-width: 700px) {
     width: 90%;
@@ -66,6 +67,10 @@ export const DetailsBox = styled.div`
       &:last-of-type {
         margin-inline-start: 42px;
       }
+    }
+
+    & img {
+      cursor: pointer;
     }
   }
 

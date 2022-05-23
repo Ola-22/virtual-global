@@ -9,16 +9,20 @@ export default function RecentTopics({ discussion }) {
   return (
     <div>
       {recentTopics?.map((disc) => (
-        <Link to={`/discussion/${disc.id}`}>
-          <CardTabs
-            key={disc?.id}
-            date={disc?.created_at}
-            title={disc?.title}
-            paragraph={disc?.text}
-            totalLikes={disc?.likes_count}
-            totalComment={disc?.commnets_count}
-          />
-        </Link>
+        // <Link to={`/discussion/${disc.id}`}>
+        <CardTabs
+          discussion={discussion}
+          id={disc?.id}
+          key={disc?.id}
+          date={disc?.created_at}
+          title={disc?.title}
+          paragraph={disc?.text}
+          totalLikes={disc?.likes_count}
+          totalComment={disc?.commnets_count}
+          is_join={disc?.is_join}
+          is_like={disc?.is_like}
+        />
+        // </Link>
       ))}
     </div>
   );

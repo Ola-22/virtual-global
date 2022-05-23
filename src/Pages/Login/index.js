@@ -72,7 +72,9 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <div className="forget-pass">Forget Password</div>
+          <div className="forget-pass">
+            <Link to="/forget-password">Forget Password </Link>
+          </div>
           <div className="error"> {error}</div>
           <S.FooterLogin>
             <Button title="Login" onClick={() => handleSignIn()} />
