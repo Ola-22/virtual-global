@@ -36,7 +36,7 @@ function Header() {
         )}
 
         {currentUser ? (
-          <Link to="/login" onClick={logOut}>
+          <Link to="/" onClick={logOut}>
             Logout
           </Link>
         ) : (
