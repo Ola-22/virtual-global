@@ -67,7 +67,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, [language]);
+  }, []);
 
   const [profileInformation, setProfileInformation] = useState();
   useEffect(() => {
