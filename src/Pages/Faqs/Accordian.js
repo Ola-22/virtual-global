@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import axiosInstance from "../../helpers/axios";
-import * as S from "./style";
+import { useState } from "react";
 import * as F from "../../Components/Answer&Questions/style";
 
 function Accordian({ lengthFaqs, language }) {
