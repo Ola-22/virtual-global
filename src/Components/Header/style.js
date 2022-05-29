@@ -70,6 +70,36 @@ export const HeaderContainer = styled.div`
       }
     }
   }
+
+  & .modal-wrapper {
+    width: 50%;
+    left: 20%;
+    top: 200%;
+    z-index: 55555;
+    height: 208px;
+
+    & .modal-header {
+      justify-content: flex-end;
+    }
+    & .modal-body {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      & button {
+        max-width: 112px;
+        width: 100%;
+        min-height: 50px;
+        height: 100%;
+        background-color: rgba(35, 149, 219, 0.15);
+        border-radius: 28px;
+        border: none;
+        cursor: pointer;
+        color: #2d98da;
+        font-size: 14px;
+      }
+    }
+  }
 `;
 
 export const Nav = styled.nav`
