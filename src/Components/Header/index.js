@@ -37,7 +37,7 @@ function Header({ settingsData, profileInformation }) {
       navigate("/");
       setShowTerms(false);
     }
-  }, []);
+  }, [navigate, val]);
 
   return (
     <S.HeaderContainer>

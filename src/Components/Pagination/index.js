@@ -21,6 +21,7 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
                 paginate(number);
               }}
               className={isActive === index ? "active" : ""}
+              href="#"
             >
               {number}
             </a>
