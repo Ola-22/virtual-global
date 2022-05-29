@@ -86,6 +86,10 @@ export const BackGround = styled.div`
 `;
 
 export const sliderMain = styled.div`
+  position: relative;
+  display: flex;
+  /* flex-direction: column; */
+
   background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
@@ -95,7 +99,20 @@ export const sliderMain = styled.div`
   background-size: cover;
   /* max-height: 900px;
   height: 100%; */
-  height: 600px;
+  min-height: 600px;
+  height: auto;
+  justify-content: space-between;
+
+  & .container-writer {
+    display: flex;
+    /* justify-content: space-around; */
+    width: 80%;
+    flex-direction: column;
+  }
+
+  @media (max-width: 1100px) {
+    /* flex-wrap: wrap; */
+  }
 `;
 
 export const contentBanner = styled.h1`
@@ -150,5 +167,40 @@ export const NextArrow = styled.div`
 
   @media (max-width: 550px) {
     display: none;
+  }
+`;
+
+export const NumberVirtual = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  & .box-number {
+    margin-top: 15px;
+    margin-inline-end: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 212px;
+    width: 100%;
+    height: 71px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    @media (max-width: 1100px) {
+      max-width: 152px;
+      font-size: 12px;
+    }
+  }
+
+  & .social {
+    margin-inline-end: 1rem;
+  }
+
+  & h4 {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
   }
 `;
