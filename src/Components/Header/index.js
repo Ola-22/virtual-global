@@ -91,7 +91,6 @@ function Header({ settingsData, profileInformation }) {
           content={
             <>
               <div className="modal-header">
-                {/* <p>{dataTerms?.items?.title}</p> */}
                 <span onClick={closeModalTerms} className="close-modal-btn">
                   <img src="/images/close.png" alt="close the Modal" />
                 </span>
