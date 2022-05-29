@@ -43,7 +43,7 @@ function App() {
     axiosInstance
       .get("/api/web-site/settings", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: localStorage.getItem("language") || "en",
         },
       })
       .then((res) => {
