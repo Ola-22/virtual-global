@@ -1,17 +1,10 @@
 import * as S from "./style";
-import TypeAnimation from "react-type-animation";
 import Typewriter from "typewriter-effect";
 import Social from "../Social";
 
 export default function SliderComponent({ homeData, settingsData }) {
   return (
     <S.sliderMain>
-      {/* <S.NumberVirtual>
-        <h4> {settingsData?.items?.translation?.slider}</h4>
-        <h2>{settingsData?.items?.number_virtial_citizens}</h2>
-
-        <Social settingsData={settingsData} />
-      </S.NumberVirtual> */}
       <div className="container-writer">
         <Typewriter
           options={{
