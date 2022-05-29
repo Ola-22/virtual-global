@@ -14,6 +14,7 @@ export default function Home({
   profileInformation,
   language,
   handleSetLanguage,
+  setLanguage,
 }) {
   return (
     <S.headerContainer style={{ width: "100%" }}>
@@ -21,6 +22,7 @@ export default function Home({
         settingsData={settingsData}
         language={language}
         handleSetLanguage={handleSetLanguage}
+        setLanguage={setLanguage}
       />
 
       <Header
