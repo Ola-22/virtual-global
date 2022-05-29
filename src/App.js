@@ -58,7 +58,7 @@ function App() {
     axiosInstance
       .get("/api/web-site/home-page", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: localStorage.getItem("language") || "en",
         },
       })
       .then((res) => {
@@ -69,6 +69,7 @@ function App() {
       });
   }, []);
 
+  console.log(localStorage.getItem("language"));
   const [profileInformation, setProfileInformation] = useState();
   useEffect(() => {
     const config = {
