@@ -2,7 +2,7 @@ import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 
-export default function AboutVGS({ homeData }) {
+export default function AboutVGS({ homeData, settingsData }) {
   const navigate = useNavigate();
 
   return (
@@ -16,7 +16,10 @@ export default function AboutVGS({ homeData }) {
           }}
         />
 
-        <Button title="Read More" onClick={() => navigate("/who-we-are")} />
+        <Button
+          title={settingsData?.items?.translation?.button_who_we}
+          onClick={() => navigate("/who-we-are")}
+        />
       </div>
       <div>
         <img

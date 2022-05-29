@@ -6,7 +6,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
 
-export default function Register() {
+export default function Register({ language, settingsData }) {
   const [gender, setGender] = useState();
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -28,10 +28,6 @@ export default function Register() {
   const [acceptConstitution, setAcceptConstitution] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
 
-  // console.log("R", acceptConstitution);
-  // console.log("T", acceptTerms);
-  // const [token, setToken] = useState();
-
   const [state, setState] = useState({
     fname: "",
     lname: "",
@@ -41,9 +37,6 @@ export default function Register() {
   });
 
   const [date, setDate] = useState("");
-
-  // console.log(state.accept_terms_conditions);
-  // console.log(state.accept_constitution_terms);
 
   const closeModalTerms = () => setShowTerms(false);
 
@@ -55,10 +48,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/pages/terms")
+      .get("/api/web-site/pages/terms", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setDataTerms(res.data);
-        // console.log("0", res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -67,10 +63,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/pages/privacy_policy")
+      .get("/api/web-site/pages/privacy_policy", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setDataPrivacy(res.data);
-        // console.log("privacy", res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -79,10 +78,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/pages/constitution_terms")
+      .get("/api/web-site/pages/constitution_terms", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setConstitutionTerms(res.data);
-        // console.log("constitution_terms", res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -91,10 +93,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/academic_levels")
+      .get("/api/web-site/categories/academic_levels", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setCategory(res.data?.items);
-        // console.log("ac/adi", res.data?.items);
       })
       .catch((err) => {
         console.log(err);
@@ -103,10 +108,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/specializations")
+      .get("/api/web-site/categories/specializations", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setSpecializations(res.data?.items);
-        // console.log("setSpecializations", res.data?.items);
       })
       .catch((err) => {
         console.log(err);
@@ -115,10 +123,13 @@ export default function Register() {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/countries")
+      .get("/api/web-site/categories/countries", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setCountry(res.data?.items);
-        // console.log(country);
       })
       .catch((err) => {
         console.log(err);
@@ -148,8 +159,6 @@ export default function Register() {
         )
         .then(
           (response) => {
-            console.log("T", response);
-
             if (response.status === true) {
               // console.log("Sign up successfully", response.items.token);
               // navigate("/");
@@ -167,8 +176,6 @@ export default function Register() {
     }
   };
 
-  // console.log("T", registerData);
-
   function handleChange(evt) {
     const value = evt.target.value;
     setState({
@@ -179,7 +186,7 @@ export default function Register() {
 
   const [val, setVal] = useState(null);
   const [textReason, setTextReason] = useState("");
-  console.log(val);
+
   async function sendRequestMember() {
     const data = {
       approval_status: val,
@@ -189,14 +196,12 @@ export default function Register() {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
       .post(`/api/user/member-nomination-request/save`, data, config)
-      .then((res) => {
-        // console.log("sendRequest", res);
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
@@ -211,15 +216,17 @@ export default function Register() {
       <S.RegisterBox>
         <S.MainRegister>
           <Link to="/">
-            <h2>virtual citizenship registration</h2>
+            <h2>{settingsData?.items?.translation?.title_register}</h2>
           </Link>
           <S.RegisterContent>
             <div>
-              <label>First Name</label>
+              <label>{settingsData?.items?.translation?.first_name}</label>
               <input
                 type="text"
                 name="fname"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.fname}
                 id="fname"
                 onChange={handleChange}
@@ -236,12 +243,14 @@ export default function Register() {
             </div>
 
             <div>
-              <label>Last Name</label>
+              <label>{settingsData?.items?.translation?.Last_Name}</label>
 
               <input
                 type="text"
                 name="lname"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.lname}
                 id="lname"
                 onChange={handleChange}
@@ -259,11 +268,11 @@ export default function Register() {
             </div>
           </S.RegisterContent>
           <S.wrapperEmail>
-            <label>Email</label>
+            <label>{settingsData?.items?.translation?.email_profile}</label>
             <input
               type="email"
               name="email"
-              placeholder="Enter Here"
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
               value={state.email}
               id="email"
               onChange={handleChange}
@@ -281,12 +290,14 @@ export default function Register() {
 
           <S.RegisterContent>
             <div>
-              <label>Password</label>
+              <label>{settingsData?.items?.translation?._profile}</label>
 
               <input
                 type="password"
                 name="password"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.password}
                 id="password"
                 onChange={handleChange}
@@ -302,12 +313,16 @@ export default function Register() {
                 )}
             </div>
             <div>
-              <label>Confirm Password</label>
+              <label>
+                {settingsData?.items?.translation?.Confirm_Password}
+              </label>
 
               <input
                 type="password"
                 name="confirmPass"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.confirmPass}
                 id="confirmPass"
                 onChange={handleChange}
@@ -317,7 +332,7 @@ export default function Register() {
 
           <S.RegisterContent>
             <div>
-              <label>Date of Birth</label>
+              <label>{settingsData?.items?.translation?.Date_Birth}</label>
               <input
                 type="date"
                 value={date ?? ""}
@@ -335,14 +350,18 @@ export default function Register() {
                 )}
             </div>
             <div>
-              <label>Country of Birth</label>
+              <label>{settingsData?.items?.translation?.country_birth}</label>
 
               <select
                 name="country"
                 value={categoryCountry}
                 onChange={(e) => setCategoryCountry(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option
+                  value={settingsData?.items?.translation?.Select_from_here}
+                >
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {country?.map((country) => (
                   <>
@@ -366,25 +385,25 @@ export default function Register() {
           </S.RegisterContent>
 
           <S.RegisterGender>
-            <label>Gender</label>
+            <label>{settingsData?.items?.translation?.Gender}</label>
             <div>
               <div>
                 <input
                   type="radio"
                   name="gender"
-                  value="male"
+                  value={settingsData?.items?.translation?.gender_male}
                   onChange={(e) => setGender(e.target.value)}
                 />
-                <span>Male</span>
+                <span>{settingsData?.items?.translation?.gender_male}</span>
               </div>
               <div className="gender">
                 <input
                   type="radio"
                   name="gender"
-                  value="female"
+                  value={settingsData?.items?.translation?.gender_female}
                   onChange={(e) => setGender(e.target.value)}
                 />
-                <span>Female</span>
+                <span>{settingsData?.items?.translation?.gender_female}</span>
               </div>
             </div>
             {registerData?.status === false &&
@@ -400,13 +419,17 @@ export default function Register() {
 
           <S.RegisterContent>
             <div>
-              <label>Academic Level</label>
+              <label>{settingsData?.items?.translation?.Academic_level}</label>
               <select
                 name="degree"
                 value={categoryDegree}
                 onChange={(e) => setCategoryDegree(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option
+                  value={settingsData?.items?.translation?.Select_from_here}
+                >
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {category?.map((cat) => (
                   <>
@@ -427,14 +450,22 @@ export default function Register() {
                 )}
             </div>
             <div>
-              <label>Major of Interest, Specialization </label>
+              <label>
+                {" "}
+                {settingsData?.items?.translation?.Major_Specialization}
+              </label>
 
               <select
                 name="major"
                 value={categoryMajor}
                 onChange={(e) => setCategoryMajor(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option
+                  value={settingsData?.items?.translation?.Select_from_here}
+                >
+                  {" "}
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {specializations?.map((special) => (
                   <>
@@ -465,9 +496,9 @@ export default function Register() {
               />
               <div className="flex-column">
                 <span>
-                  Accept on the peamable of the
+                  {settingsData?.items?.translation?.Accept_virtual_terms}
                   <S.AnchorTag onClick={() => setShowVirtualConstitution(true)}>
-                    Virtual Constitution Terms
+                    {settingsData?.items?.translation?.virtual_terms}
                   </S.AnchorTag>
                 </span>
 
@@ -492,13 +523,13 @@ export default function Register() {
               />
               <div className="flex-column">
                 <span>
-                  Accept on
+                  {settingsData?.items?.translation?.accept_conditions}
                   <S.AnchorTag onClick={() => setShowTerms(true)}>
-                    Terms & Conditions
+                    {settingsData?.items?.translation?.terms_conditions}
                   </S.AnchorTag>
                   &nbsp; And
                   <S.AnchorTag onClick={() => setShowPrivacyPolicy(true)}>
-                    Privacy Policy
+                    {settingsData?.items?.translation?.privacy_policy}
                   </S.AnchorTag>
                 </span>
 
@@ -521,7 +552,7 @@ export default function Register() {
 
               // setShowCouncil(true);
             }}
-            title="Register Now"
+            title={settingsData?.items?.translation?.button_join}
           />
 
           {showCouncil ? (
@@ -539,38 +570,40 @@ export default function Register() {
 
                 <div className="modal-body council">
                   <img width="112" src="/images/council.png" alt="council" />
-                  <p>
-                    Do you nominate yourself to be a candidate member of the
-                    Council of the Wise of the VGS? Why?
-                  </p>
+                  <p>{settingsData?.items?.translation?.question}</p>
                   <div className="container">
                     <button
-                      className={val === "yes" && "activeBtn"}
+                      className={val === "yes" ? "activeBtn" : ""}
                       onClick={() => setVal("yes")}
                     >
-                      Yes
+                      {settingsData?.items?.translation?.btn_yes}
                     </button>
                     <button
-                      className={val === "no" && "activeBtn"}
+                      className={val === "no" ? "activeBtn" : ""}
                       onClick={() => setVal("no")}
                     >
-                      No
+                      {settingsData?.items?.translation?.btn_no}
                     </button>
                   </div>
                   <div className="answer">
-                    <label htmlFor="answer">Why?</label>
+                    <label htmlFor="answer">
+                      {settingsData?.items?.translation?.answer_council_wise}?
+                    </label>
 
                     <textarea
                       id="w3review"
                       name="answer"
-                      placeholder="Write here..."
+                      placeholder={
+                        settingsData?.items?.translation
+                          ?.placeholder_council_wise
+                      }
                       onChange={(e) => setTextReason(e.target.value)}
                     />
                   </div>
                   <Button
                     className="send"
                     onClick={() => navigate("/")}
-                    title="send"
+                    title={settingsData?.items?.translation?.btn_send}
                     img
                   />
                 </div>
@@ -581,7 +614,8 @@ export default function Register() {
           />
 
           <S.loginAccount>
-            You already have a citizenship ? <Link to="/login">Enter</Link>
+            {settingsData?.items?.translation?.already_have_citizenship}
+            <Link to="/login">{settingsData?.items?.translation?.enter}</Link>
           </S.loginAccount>
         </S.MainRegister>
       </S.RegisterBox>

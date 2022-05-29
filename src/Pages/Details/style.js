@@ -4,7 +4,7 @@ export const DetailsContainer = styled.div`
   display: flex;
   /* justify-content: space-evenly; */
   /* flex-wrap: wrap; */
-  justify-content: center;
+  justify-content: space-around;
   background: #f8f8f8;
   padding-top: 31px;
   padding-bottom: 46px;
@@ -20,7 +20,8 @@ export const DetailsBox = styled.div`
   /* justify-content: center; */
   flex-wrap: wrap;
   /* max-width: 765px; */
-  width: 60%;
+  width: 58%;
+  margin-left: -5%;
   min-height: 287px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -103,16 +104,7 @@ export const DetailsBox = styled.div`
       justify-content: space-between;
       flex-wrap: wrap;
       padding-bottom: 39px;
-
-      &::before {
-        content: "";
-        display: flex;
-        max-width: 100%;
-        width: 100%;
-        height: 1px;
-        background-color: #e8e8e8;
-        margin: 36.5px 0 38px;
-      }
+      margin-top: 20px;
 
       & input {
         max-width: 461px;
@@ -154,17 +146,19 @@ export const CardForum = styled.div`
   background-color: #ffffff;
   align-items: center;
   /* max-width: 367px; */
-  width: 30%;
+  width: 23%;
   border-radius: 10px;
   min-height: 549px;
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;
+  margin-right: -12%;
 
   @media (max-width: 700px) {
     width: 90%;
     max-height: auto !important;
     height: auto;
+    margin-right: 0;
   }
   &:last-child {
     padding-bottom: 34.5px;
@@ -213,5 +207,35 @@ export const CardForum = styled.div`
   & .card-box {
     max-width: 90%;
     width: 90%;
+  }
+`;
+
+export const CommentsWrapper = styled.div`
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 20px;
+`;
+
+export const Main = styled.div`
+  width: 100%;
+
+  & .box-virtual {
+    max-width: 830px;
+    width: 100%;
+    @media (max-width: 1200px) {
+      max-width: 700px;
+    }
+  }
+
+  & .load-comment {
+    max-width: 139px;
+    width: 100%;
+    height: 45px;
+    align-self: center;
+    border-radius: 2px;
+    border: navajowhite;
+    color: #5abbf8;
+    background: white;
+    border: 1px solid #5abbf8;
+    margin-top: 10px;
   }
 `;

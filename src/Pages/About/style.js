@@ -16,13 +16,14 @@ export const AboutContainer = styled.div`
 
   & .box {
     background-color: #ffffff;
-    max-width: 1140px;
-    width: 100%;
+    /* max-width: 1140px; */
+    width: 88%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     margin-top: 27px;
+
     & img {
       max-width: 400px;
       max-height: 300px;
@@ -51,7 +52,7 @@ export const AboutContainer = styled.div`
       }
     }
     @media (max-width: 1200px) {
-      width: 90%;
+      width: 95%;
     }
   }
 `;
@@ -73,5 +74,19 @@ export const BoxAbout = styled.div`
     width: 90%;
     min-height: 375px;
     height: 100%;
+  }
+`;
+
+export const Main = styled.div`
+  width: 100%;
+
+  & .box-virtual {
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  & .right {
+    max-width: 120px;
+    width: 100%;
   }
 `;

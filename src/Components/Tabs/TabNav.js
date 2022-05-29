@@ -4,10 +4,10 @@ export default function TabNav(props) {
   return (
     <S.MainTab>
       <S.TabsContainer className="main-tabs">
-        {props.tabs.map((tab) => {
+        {props.tabs.map((tab, index) => {
           const activeSelect = tab === props.selected ? "activeSelect" : "";
           return (
-            <li className="nav-item" key={tab}>
+            <li className="nav-item" key={index}>
               <div
                 className={"tab-link " + activeSelect}
                 onClick={() => props.SelectTab(tab)}

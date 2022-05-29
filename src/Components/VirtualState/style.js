@@ -53,8 +53,8 @@ export const VirtualState = styled.div`
     }
 
     & > a {
-      max-width: 234px;
-      height: 64px;
+      max-width: 150px;
+      height: 55px;
       background-color: #ffffff;
       border-radius: 88px;
       display: flex;
@@ -72,8 +72,7 @@ export const VirtualState = styled.div`
       }
 
       &:hover {
-        background: linear-gradient(to top right, #2395db, #5abbf8) #2395db;
-        color: #ffffff;
+        color: #2395db;
         transition: 0.5s ease-out;
       }
     }

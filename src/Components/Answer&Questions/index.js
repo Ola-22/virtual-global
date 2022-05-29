@@ -4,7 +4,7 @@ import axiosInstance from "../../helpers/axios";
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 
-function AnswerQuestions({ homeData }) {
+function AnswerQuestions({ homeData, settingsData }) {
   const [contactData, setContactData] = useState();
 
   const [state, setState] = useState({
@@ -37,13 +37,12 @@ function AnswerQuestions({ homeData }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
       .post("/api/web-site/contact-us", data, config)
       .then((res) => {
-        // console.log("contact", res.data);
         setContactData(res.data);
       })
       .catch((err) => {
@@ -89,13 +88,13 @@ function AnswerQuestions({ homeData }) {
   return (
     <S.AnswerContainer>
       <div className="accordion">
-        <h1>Answer & Questions</h1>
+        <h1>{settingsData?.items?.translation?.answer_questions}</h1>
         <div style={{ cursor: "pointer" }}>
           <Accordion homeData={homeData} />
         </div>
       </div>
       <div className="main-box">
-        <h1>Let's Talk</h1>
+        <h1>{settingsData?.items?.translation?.contact_us}</h1>
 
         <p
           dangerouslySetInnerHTML={{
@@ -107,7 +106,7 @@ function AnswerQuestions({ homeData }) {
           <S.container>
             <S.animationBox>
               <label className={isActive ? "Active" : ""} htmlFor="name">
-                Name
+                {settingsData?.items?.translation?.first_name}
               </label>
               <input
                 type="text"
@@ -132,7 +131,7 @@ function AnswerQuestions({ homeData }) {
             <S.container>
               <S.animationBox>
                 <label className={isActive ? "Active" : ""} htmlFor="email">
-                  Email
+                  {settingsData?.items?.translation?.email}
                 </label>
                 <input
                   type="email"
@@ -155,7 +154,7 @@ function AnswerQuestions({ homeData }) {
             <S.container>
               <S.animationBox>
                 <label className={isActive ? "Active" : ""} htmlFor="mobile">
-                  Phone
+                  {settingsData?.items?.translation?.phone}
                 </label>
                 <input
                   type="text"
@@ -175,12 +174,14 @@ function AnswerQuestions({ homeData }) {
                 : ""}
             </S.container>
           </div>
-          <label htmlFor="tell-us">Tell Us About Anything *</label>
+          <label htmlFor="tell-us">
+            {settingsData?.items?.translation?.tell_about}
+          </label>
 
           <S.container>
             <S.animationBox>
               <label className={isActive ? "Active" : ""} htmlFor="subject">
-                Subject
+                {settingsData?.items?.translation?.subject_form}
               </label>
               <input
                 type="text"
@@ -200,7 +201,7 @@ function AnswerQuestions({ homeData }) {
 
             <S.animationBox>
               <label className={isActive ? "Active" : ""} htmlFor="text">
-                Text
+                {settingsData?.items?.translation?.text}
               </label>
               <textarea
                 id="tell-us"
@@ -222,7 +223,7 @@ function AnswerQuestions({ homeData }) {
                 handleClick();
               }}
             >
-              Send
+              {settingsData?.items?.translation?.btn_send}
             </button>
           )}
 
@@ -236,7 +237,8 @@ function AnswerQuestions({ homeData }) {
                 handleClick();
               }}
             >
-              Send
+              {settingsData?.items?.translation?.btn_send}
+
               <FaSpinner icon="spinner" />
             </button>
           )}

@@ -5,26 +5,24 @@ import axiosInstance from "../../helpers/axios";
 import { useState } from "react";
 
 function CardTabs({
-  discussion,
   date,
   title,
   paragraph,
   totalLikes,
   totalComment,
   id,
-  is_join,
   is_like,
+  language,
+  settingsData,
 }) {
-  const [setJoinData] = useState();
-
-  // console.log(discussion, "T");
+  const [joinData, setJoinData] = useState();
 
   async function sendJoin() {
     const config = {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
@@ -38,7 +36,6 @@ function CardTabs({
         config
       )
       .then((res) => {
-        // console.log("join", res);
         setJoinData(res.data);
       })
       .catch((err) => {
@@ -46,11 +43,12 @@ function CardTabs({
       });
   }
 
-  // console.log(is_join);
   return (
     <S.CardMain>
       <Link to={`/discussion/${id}`}>
-        <h6>Asked : {date}</h6>
+        <h6>
+          {settingsData?.items?.translation?.asked_Forum_Details}: {date}
+        </h6>
 
         <h3>{title}</h3>
         <p
@@ -76,19 +74,10 @@ function CardTabs({
             <span>{totalComment}</span>
           </div>
         </div>
-        <div>
-          {/* {joinData?.status === false ? ( */}
-          {/* <Button onClick={() => sendJoin()} title="unjoin Discussion" /> */}
-          {/* ) : ( */}
-          {/* <Button onClick={() => sendJoin()} title="Join Discussion" /> */}
-          {/* )} */}
-
-          {is_join === true ? (
-            <Button onClick={() => sendJoin()} title="unjoin Discussion" />
-          ) : (
-            <Button onClick={() => sendJoin()} title="join Discussion" />
-          )}
-        </div>
+        <S.JoinButton>
+          <Button onClick={() => sendJoin()} title="join Discussion" />
+          <h4> {joinData?.message}</h4>
+        </S.JoinButton>
       </div>
     </S.CardMain>
   );

@@ -8,17 +8,48 @@ import PopularDiscussions from "../../Components/PopularDiscussions";
 import VirtualState from "../../Components/VirtualState";
 import * as S from "./style";
 
-export default function Home({ settingsData, homeData }) {
+export default function Home({
+  settingsData,
+  homeData,
+  profileInformation,
+  language,
+  handleSetLanguage,
+}) {
   return (
     <S.headerContainer style={{ width: "100%" }}>
-      <Nav settingsData={settingsData} />
-      <Header />
-      <Banner homeData={homeData} settingsData={settingsData} />
-      <VirtualState homeData={homeData} />
-      <AboutVGS homeData={homeData} />
-      <PopularDiscussions homeData={homeData} />
-      <AnswerQuestions homeData={homeData} />
-      <Footer settingsData={settingsData} />
+      <Nav
+        settingsData={settingsData}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
+
+      <Header
+        profileInformation={profileInformation}
+        settingsData={settingsData}
+        language={language}
+      />
+      <Banner
+        homeData={homeData}
+        settingsData={settingsData}
+        language={language}
+      />
+      <VirtualState
+        homeData={homeData}
+        language={language}
+        settingsData={settingsData}
+      />
+      <AboutVGS homeData={homeData} settingsData={settingsData} />
+      <PopularDiscussions
+        homeData={homeData}
+        language={language}
+        settingsData={settingsData}
+      />
+      <AnswerQuestions
+        settingsData={settingsData}
+        homeData={homeData}
+        language={language}
+      />
+      <Footer settingsData={settingsData} language={language} />
     </S.headerContainer>
   );
 }

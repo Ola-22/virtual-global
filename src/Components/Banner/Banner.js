@@ -5,8 +5,8 @@ function Banner({ paragraphOne, src, settingsData, link }) {
   return (
     <S.BannerContainer>
       <div>
-        <h4>NUMBER of VIRTUAL Citizens</h4>
-        <h2>1,115,887</h2>
+        <h4> {settingsData?.items?.translation?.slider}</h4>
+        <h2>{settingsData?.items?.number_virtial_citizens}</h2>
       </div>
       <div>
         <div className="box-one">

@@ -6,6 +6,8 @@ export const commentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 44px;
+  /* border-bottom: 1px solid;
+  padding-bottom: 20px; */
   & div {
     display: flex;
     & .user {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import LeftNav from "./LeftNav";
+import Navbar from "./Navbar";
 
 const StyledMenu = styled.div`
   width: 2rem;
@@ -37,7 +37,7 @@ const StyledMenu = styled.div`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ settingsData }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -47,7 +47,7 @@ const Menu = () => {
         <div />
         <div />
       </StyledMenu>
-      <LeftNav open={open} />
+      <Navbar open={open} settingsData={settingsData} />
     </>
   );
 };

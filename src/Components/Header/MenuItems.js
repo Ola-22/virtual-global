@@ -1,37 +1,63 @@
-export const MenuItems = [
-  {
-    title: "Abstract",
-    path: "/abstract",
-  },
-  {
-    title: "Implementation",
-    path: "/implementation",
-  },
-  {
-    title: "Project",
-    path: "/project",
-  },
-  {
-    title: "SMW",
-    path: "/smw",
-  },
-  {
-    title: "List",
-    path: "/list",
-  },
-];
+import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
-export const MenuItemsVission = [
-  {
-    title: "Introduction",
-    path: "/introduction",
-  },
-  {
-    title: "GIV",
-    path: "/giv",
-  },
-  {
-    title: "WTL",
-    path: "/wtl",
-  },
-];
+const MenuItems = ({ items, depthLevel }) => {
+  const [dropdown, setDropdown] = useState(false);
+
+  let ref = useRef();
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropdown]);
+
+  const onMouseEnter = () => {
+    window.innerWidth > 960 && setDropdown(true);
+  };
+
+  const onMouseLeave = () => {
+    window.innerWidth > 960 && setDropdown(false);
+  };
+
+  return (
+    <li
+      className="menu-items"
+      ref={ref}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {items?.sub_menu.length > 0 ? (
+        <>
+          <button
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            onClick={() => setDropdown((prev) => !prev)}
+          >
+            {items.title}{" "}
+            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
+          </button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenus={items.sub_menu}
+            dropdown={dropdown}
+          />
+        </>
+      ) : (
+        <NavLink to={items.link}>{items.title}</NavLink>
+      )}
+    </li>
+  );
+};
+
+export default MenuItems;

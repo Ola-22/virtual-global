@@ -2,6 +2,7 @@ import CardBox from "./CardBox";
 import * as S from "./style";
 import { useState, useEffect } from "react";
 import axiosInstance from "../../helpers/axios";
+import { Link } from "react-router-dom";
 
 function CardForum({
   title,
@@ -12,6 +13,7 @@ function CardForum({
   text_Box,
   participated_discussions,
   special_discussions,
+  language,
 }) {
   const [special, setSpecial] = useState();
 
@@ -20,7 +22,7 @@ function CardForum({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
 
@@ -31,7 +33,6 @@ function CardForum({
         config
       )
       .then((res) => {
-        // console.log("dderr", res);
         setSpecial(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -45,21 +46,25 @@ function CardForum({
       <>
         {participated_discussions &&
           special?.participated_discussions?.map((disc) => (
-            <CardBox
-              title={title_Box}
-              paragraph={disc.text}
-              totalComments={disc.comments_count}
-              totalLikes={disc.likes_count}
-            />
+            <Link to={`/discussion/${disc.id}`} key={disc.id}>
+              <CardBox
+                title={title_Box}
+                paragraph={disc.text}
+                totalComments={disc.comments_count}
+                totalLikes={disc.likes_count}
+              />
+            </Link>
           ))}
         {special_discussions &&
           special?.special_discussions?.map((disc) => (
-            <CardBox
-              title={title_Box}
-              paragraph={disc.text}
-              totalComments={disc.comments_count}
-              totalLikes={disc.likes_count}
-            />
+            <Link to={`/discussion/${disc.id}`} key={disc.id}>
+              <CardBox
+                title={title_Box}
+                paragraph={disc.text}
+                totalComments={disc.comments_count}
+                totalLikes={disc.likes_count}
+              />
+            </Link>
           ))}
       </>
       {/* ) })} */}

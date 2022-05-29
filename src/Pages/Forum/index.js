@@ -5,27 +5,35 @@ import * as S from "./style";
 import { useState, useEffect } from "react";
 import TabNav from "../../Components/Tabs/TabNav";
 import Tab from "../../Components/Tabs/Tab";
-import CardTabs from "../../Components/CardTabs";
 import Footer from "../../Components/Footer";
 import axiosInstance from "../../helpers/axios";
 import RecentTopics from "./RecentTopics";
 import MostLikes from "./MostLikes";
 import MostReplies from "./MostReplies";
 import MostVisit from "./MostVisit";
+import RecentReplies from "./RecentReplies";
+import axios from "axios";
 
-function Forum({ settingsData, profileInformation }) {
-  const [selected, setSelected] = useState("Recent Topics");
-  const [discussion, setDiscussions] = useState();
+function Forum({ settingsData, profileInformation, language }) {
+  const [selected, setSelected] = useState(
+    settingsData?.items?.translation?.recent_topics || "Recent Topics"
+  );
+
+  console.log(selected);
+
+  const [discussion, setDiscussions] = useState([]);
 
   const SelectTab = (tab) => {
     setSelected(tab);
   };
 
+  const [searchQuery, setSearchQuery] = useState();
   useEffect(() => {
     const config = {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: localStorage.getItem("language"),
       },
     };
 
@@ -36,38 +44,71 @@ function Forum({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        // console.log("err", res);
         setDiscussions(res.data.items.discussions);
-        // console.log(discussion);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  const [discussionsSearch, setDiscussionsSearch] = useState();
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: localStorage.getItem("language"),
+      },
+    };
+    const source = axios.CancelToken.source();
+    axiosInstance
+      .get(
+        `/api/user/discussions/all?title=${searchQuery}`,
+
+        config
+      )
+      .then((res) => {
+        setDiscussionsSearch(res.data.items.discussions);
+      })
+      .catch((err) => console.log(err));
+
+    return () => source.cancel();
+  }, [searchQuery]);
+
   return (
-    <div style={{ width: "100%" }}>
+    <S.Main>
       <Nav settingsData={settingsData} />
       <HeaderForum
         profileInformation={profileInformation}
         settingsData={settingsData}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery || ""}
       />
       <S.ForumContainer>
         <div className="box-one">
           <div className="topForum">
             <div>
-              <h2>topics</h2>
+              <h2> {settingsData?.items?.translation?.topics}</h2>
               <p>{discussion?.length}</p>
             </div>
             <div>
-              <h2>replies</h2>
+              <h2>{settingsData?.items?.translation?.replies}</h2>
               <p>1.558.114</p>
             </div>
           </div>
           <div>
-            <CardForum title="Hot discussions" special_discussions />
+            <CardForum
+              title={settingsData?.items?.translation?.hot_discussions}
+              special_discussions
+              language={language}
+              settingsData={settingsData}
+            />
             <div style={{ marginTop: "14px" }}>
               <CardForum
-                title="Participated discussions"
+                title={
+                  settingsData?.items?.translation?.Participated_Discussions
+                }
                 participated_discussions
+                language={language}
+                settingsData={settingsData}
               />
             </div>
           </div>
@@ -76,53 +117,76 @@ function Forum({ settingsData, profileInformation }) {
           <TabNav
             className="main-topic"
             tabs={[
-              "Recent Topics",
-              "Most Replies",
-              "Recent Replies",
-              "Most Visit",
-              "Most Likes",
+              settingsData?.items?.translation?.recent_topics,
+              settingsData?.items?.translation?.most_replies,
+              settingsData?.items?.translation?.recent_replies,
+              settingsData?.items?.translation?.most_visit,
+              settingsData?.items?.translation?.most_likes,
             ]}
             selected={selected}
             SelectTab={SelectTab}
           >
             <>
-              <Tab isSelected={selected === "Recent Topics"}>
-                <RecentTopics discussion={discussion} />
+              <Tab
+                isSelected={
+                  selected === settingsData?.items?.translation?.recent_topics
+                }
+              >
+                <RecentTopics
+                  settingsData={settingsData}
+                  discussionsSearch={discussionsSearch}
+                />
               </Tab>
 
-              <Tab isSelected={selected === "Most Replies"}>
-                <MostReplies />
+              <Tab
+                isSelected={
+                  selected === settingsData?.items?.translation?.most_replies
+                }
+              >
+                <MostReplies
+                  settingsData={settingsData}
+                  discussionsSearch={discussionsSearch}
+                />
               </Tab>
 
-              <Tab isSelected={selected === "Recent Replies"}>
-                {discussion?.map((disc) => (
-                  <CardTabs
-                    discussion={discussion}
-                    key={disc?.id}
-                    date={disc?.created_at}
-                    title={disc?.title}
-                    paragraph={disc?.text}
-                    totalLikes={disc?.likes_count}
-                    totalComment={disc?.commnets_count}
-                    is_join={disc?.is_join}
-                    is_like={disc?.is_like}
-                  />
-                ))}
+              <Tab
+                isSelected={
+                  selected === settingsData?.items?.translation?.recent_replies
+                }
+              >
+                <RecentReplies
+                  settingsData={settingsData}
+                  discussionsSearch={discussionsSearch}
+                />
               </Tab>
 
-              <Tab isSelected={selected === "Most Visit"}>
-                <MostVisit />
+              <Tab
+                isSelected={
+                  selected === settingsData?.items?.translation?.most_visit
+                }
+              >
+                <MostVisit
+                  settingsData={settingsData}
+                  discussionsSearch={discussionsSearch}
+                />
               </Tab>
 
-              <Tab isSelected={selected === "Most Likes"}>
-                <MostLikes />
+              <Tab
+                isSelected={
+                  selected === settingsData?.items?.translation?.most_likes
+                }
+              >
+                <MostLikes
+                  settingsData={settingsData}
+                  discussionsSearch={discussionsSearch}
+                />
               </Tab>
             </>
           </TabNav>
         </S.MainTopic>
       </S.ForumContainer>
       <Footer settingsData={settingsData} />
-    </div>
+    </S.Main>
   );
 }
 

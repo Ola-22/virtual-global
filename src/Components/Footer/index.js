@@ -3,8 +3,9 @@ import Social from "../Social";
 import axiosInstance from "../../helpers/axios";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function Footer({ settingsData }) {
+function Footer({ settingsData, language }) {
   const [email, setEmail] = useState("");
   const [mailingData, setMailingData] = useState("");
 
@@ -24,7 +25,7 @@ function Footer({ settingsData }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
@@ -42,35 +43,54 @@ function Footer({ settingsData }) {
       <S.FooterContainer>
         <div className="top-footer">
           <div>
-            <h6>About</h6>
+            <h6>{settingsData?.items?.translation?.about_footer}</h6>
             <p>{settingsData?.items?.describe}</p>
           </div>
 
           <div>
-            <h6>Quick Access</h6>
+            <h6>{settingsData?.items?.translation?.quick_access_footer}</h6>
             <div className="box">
               <div>
-                <li>Join Us</li>
-                <li>Who We Are</li>
-                <li>Q&A</li>
-                <li>About VGS</li>
-                <li>GTS</li>
+                <Link to="/register">
+                  <li>{settingsData?.items?.translation?.link_join}</li>
+                </Link>
+                <Link to="/who-we-are">
+                  <li>{settingsData?.items?.translation?.link_about}</li>
+                </Link>
+                <Link to="/q&a">
+                  <li>{settingsData?.items?.translation?.link_faqs}</li>
+                </Link>
+                <Link to="/about-vgs">
+                  <li>{settingsData?.items?.translation?.link_vgs}</li>
+                </Link>
+                <Link to="/gts">
+                  <li>{settingsData?.items?.translation?.link_gts}</li>
+                </Link>
               </div>
               <div>
-                <li>WTM</li>
-                <li>GIV</li>
-                <li>ML</li>
-                <li>MO</li>
+                <Link to="/wtm">
+                  <li>{settingsData?.items?.translation?.link_wtm}</li>
+                </Link>
+                <Link to="/vission-giv">
+                  <li>{settingsData?.items?.translation?.link_giv}</li>
+                </Link>
+                <Link to="/ml">
+                  <li>{settingsData?.items?.translation?.link_ml}</li>
+                </Link>
+                <Link to="/mo">
+                  <li>{settingsData?.items?.translation?.link_mo}</li>
+                </Link>
               </div>
             </div>
           </div>
 
           <div>
-            <h6>Contact Us</h6>
+            <h6>{settingsData?.items?.translation?.contact_us_footer}</h6>
+
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />
-                <li>phone</li>
+                <li>{settingsData?.items?.translation?.phone}</li>
               </div>
               <li>
                 {settingsData?.items?.contact_information?.phone},
@@ -80,7 +100,7 @@ function Footer({ settingsData }) {
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />
-                <li>Email</li>
+                <li>{settingsData?.items?.translation?.email}</li>
               </div>
               <li>{settingsData?.items?.contact_information?.email}</li>
             </div>
@@ -92,7 +112,7 @@ function Footer({ settingsData }) {
               <input
                 type="email"
                 value={email ?? ""}
-                placeholder="Email"
+                placeholder={settingsData?.items?.translation?.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
@@ -128,7 +148,7 @@ function Footer({ settingsData }) {
           <Social settingsData={settingsData} />
         </S.FooterSocial>
         <S.copyRight className="copyRight">
-          Copyright © 2020 Verland All Rights Reserved
+          {settingsData?.items?.copyright}
         </S.copyRight>
       </S.FooterContainer>
     </>

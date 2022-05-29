@@ -11,10 +11,10 @@ import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 // import { FaSpinner } from "react-icons/fa";
 
-function Details({ settingsData, profileInformation }) {
+function Details({ settingsData, profileInformation, language }) {
   const { id } = useParams();
 
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +30,7 @@ function Details({ settingsData, profileInformation }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: localStorage.getItem("language"),
       },
     };
 
@@ -40,7 +41,6 @@ function Details({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        // console.log("d", res);
         setResult(res.data.items);
       })
       .catch((err) => console.log(err));
@@ -48,7 +48,7 @@ function Details({ settingsData, profileInformation }) {
 
   const [textComment, setTextComment] = useState();
   const [parentId, setParentId] = useState("0");
-
+  const [commentStatus, setCommentStatus] = useState();
   async function sendComment() {
     const data = {
       text: textComment,
@@ -63,8 +63,7 @@ function Details({ settingsData, profileInformation }) {
     await axiosInstance
       .post(`/api/user/discussions/save-comment/${id}`, data, config)
       .then((res) => {
-        // console.log("comment", res);
-        // window.reload();
+        setCommentStatus(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +77,6 @@ function Details({ settingsData, profileInformation }) {
   const [loadComment, setLoadComment] = useState();
   const [showComments, setShowComments] = useState(false);
 
-  // console.log(lengthComment);
   async function loadMoreComment() {
     const data = {
       count: lengthComment,
@@ -88,13 +86,12 @@ function Details({ settingsData, profileInformation }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
       .post(`/api/user/discussions/load-more-comment/${id}`, data, config)
       .then((res) => {
-        // console.log("loadcomment", res);
         setLoadComment(res.data.items);
       })
       .catch((err) => {
@@ -112,7 +109,7 @@ function Details({ settingsData, profileInformation }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
@@ -126,7 +123,6 @@ function Details({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        // console.log("Tsss", res);
         setLikeData(res.data);
       })
       .catch((err) => {
@@ -135,19 +131,21 @@ function Details({ settingsData, profileInformation }) {
   }
 
   return (
-    <div style={{ width: "100%" }}>
+    <S.Main>
       <Nav settingsData={settingsData} />
-      <HeaderForum profileInformation={profileInformation} />
+      <HeaderForum
+        settingsData={settingsData}
+        profileInformation={profileInformation}
+      />
       <S.DetailsContainer>
         <S.CardForum>
-          <h3>Related Topics</h3>
+          <h3>{settingsData?.items?.translation?.title_special}</h3>
           {result?.related_topics?.map((topic) => (
             <CardBox
               paragraph={topic?.text}
               totalLikes={topic?.likes_count}
               totalComments={topic?.comments_count}
               id={id}
-              // onClick={() => sendLike()}
             />
           ))}
         </S.CardForum>
@@ -155,7 +153,10 @@ function Details({ settingsData, profileInformation }) {
         <S.DetailsBox>
           {result && (
             <>
-              <h6>Asked : {result?.discussion?.created_at}</h6>
+              <h6>
+                {settingsData?.items?.translation?.asked_Forum_Details} :
+                {result?.discussion?.created_at}
+              </h6>
               <h3>{result?.discussion?.title}</h3>
 
               <p
@@ -189,11 +190,12 @@ function Details({ settingsData, profileInformation }) {
               </div>
               <div className="comments">
                 <h5 className="number-comments">
-                  {result?.discussion?.comments?.length} comments
+                  {result?.discussion?.comments?.length}{" "}
+                  {settingsData?.items?.translation?.comments_count}
                 </h5>
                 {result?.discussion?.comments.length !== 0 &&
                   result?.discussion?.comments?.map((comment) => (
-                    <>
+                    <S.CommentsWrapper>
                       <Comments
                         key={comment.id}
                         name={comment?.user_name}
@@ -206,7 +208,6 @@ function Details({ settingsData, profileInformation }) {
                           setUserName(comment.user_name);
                         }}
                       />
-                      {/* <h3>{result?.discussion?.comments?.discussion_id}</h3> */}
 
                       {comment?.replies?.map((reply) => (
                         <ReplyComment
@@ -217,14 +218,14 @@ function Details({ settingsData, profileInformation }) {
                           comment={reply.text}
                         />
                       ))}
-                    </>
+                    </S.CommentsWrapper>
                   ))}
 
                 {lengthComment >= 5 && (
                   <button
+                    className="load-comment"
                     onClick={() => {
                       loadMoreComment();
-                      // setLengthComment(result?.discussion?.comments.length);
                       setShowComments(!showComments);
                     }}
                   >
@@ -282,14 +283,19 @@ function Details({ settingsData, profileInformation }) {
                       }}
                     />
                   )}
+                  <h5 style={{ visibility: "hidden" }}>
+                    {" "}
+                    {commentStatus?.message}
+                  </h5>
                 </div>
+                <h5> {commentStatus?.message}</h5>
               </div>
             </>
           )}
         </S.DetailsBox>
       </S.DetailsContainer>
       <Footer settingsData={settingsData} />
-    </div>
+    </S.Main>
   );
 }
 

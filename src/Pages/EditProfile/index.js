@@ -5,11 +5,10 @@ import * as S from "./style";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ settingsData }) {
+function EditProfile({ settingsData, language }) {
   const [file, setFile] = useState(
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
-  // console.log(file);
 
   const navigate = useNavigate();
 
@@ -53,7 +52,11 @@ function EditProfile({ settingsData }) {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/academic_levels")
+      .get("/api/web-site/categories/academic_levels", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setCategory(res.data?.items);
       })
@@ -64,7 +67,11 @@ function EditProfile({ settingsData }) {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/specializations")
+      .get("/api/web-site/categories/specializations", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setSpecializations(res.data?.items);
       })
@@ -72,6 +79,7 @@ function EditProfile({ settingsData }) {
         console.log(err);
       });
   }, []);
+
   const [editProfile, setEditProfile] = useState();
   async function UpdateProfile() {
     const dataImg = new FormData();
@@ -85,20 +93,17 @@ function EditProfile({ settingsData }) {
     dataImg.append("specialization_id", categoryMajor);
     dataImg.append("gender", gender);
 
-    // console.log("img", dataImg);
     const config = {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        // lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
 
-    // console.log("E", file);
     axiosInstance
       .post(`/api/user/profile/update`, dataImg, config)
       .then((res) => {
-        console.log("edit-profile", res);
         setEditProfile(res.data);
         if (res.data.status === true) {
           navigate("/profile");
@@ -109,7 +114,11 @@ function EditProfile({ settingsData }) {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/categories/countries")
+      .get("/api/web-site/categories/countries", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setCountry(res.data?.items);
       })
@@ -134,7 +143,7 @@ function EditProfile({ settingsData }) {
           />
           <div className="label">
             <label className="image-upload" htmlFor="input">
-              change picture
+              {settingsData?.items?.translation?.change_pic}
             </label>
           </div>
         </S.userImage>
@@ -142,11 +151,13 @@ function EditProfile({ settingsData }) {
         <div className="box-inputs">
           <S.boxInput>
             <div>
-              <label>First Name</label>
+              <label>{settingsData?.items?.translation?.first_name}</label>
               <input
                 type="text"
                 name="fname"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.fname}
                 id="fname"
                 onChange={handleChange}
@@ -163,7 +174,7 @@ function EditProfile({ settingsData }) {
             </div>
 
             <div>
-              <label>Last Name</label>
+              <label>{settingsData?.items?.translation?.Last_Name}</label>
 
               <input
                 type="text"
@@ -186,11 +197,13 @@ function EditProfile({ settingsData }) {
           </S.boxInput>
           <S.boxInput>
             <div>
-              <label>Email</label>
+              <label>{settingsData?.items?.translation?.email}</label>
               <input
                 type="email"
                 name="email"
-                placeholder="Enter Here"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
                 value={state.email}
                 id="email"
                 onChange={handleChange}
@@ -206,7 +219,7 @@ function EditProfile({ settingsData }) {
                 )}
             </div>
             <div>
-              <label>Date of Birth</label>
+              <label>{settingsData?.items?.translation?.Date_Birth}</label>
               <input
                 type="date"
                 value={date ?? ""}
@@ -227,14 +240,17 @@ function EditProfile({ settingsData }) {
 
           <S.boxInput>
             <div>
-              <label>Country of Birth</label>
+              <label>{settingsData?.items?.translation?.country_birth}</label>
 
               <select
                 name="country"
                 value={categoryCountry}
                 onChange={(e) => setCategoryCountry(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option value="Select from here">
+                  {" "}
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {country?.map((country) => (
                   <>
@@ -257,7 +273,7 @@ function EditProfile({ settingsData }) {
             </div>
 
             <div>
-              <label>Gender</label>
+              <label>{settingsData?.items?.translation?.gender}</label>
               <div className="gender">
                 <div>
                   <input
@@ -266,7 +282,7 @@ function EditProfile({ settingsData }) {
                     value="male"
                     onChange={(e) => setGender(e.target.value)}
                   />
-                  <span>Male</span>
+                  <span>{settingsData?.items?.translation?.gender_male}</span>
                 </div>
                 <div>
                   <input
@@ -275,7 +291,7 @@ function EditProfile({ settingsData }) {
                     value="female"
                     onChange={(e) => setGender(e.target.value)}
                   />
-                  <span>Female</span>
+                  <span>{settingsData?.items?.translation?.gender_female}</span>
                 </div>
               </div>
               {editProfile?.status === false &&
@@ -291,13 +307,15 @@ function EditProfile({ settingsData }) {
           </S.boxInput>
           <S.boxInput>
             <div>
-              <label>Academic Level</label>
+              <label>{settingsData?.items?.translation?.Academic_level}</label>
               <select
                 name="degree"
                 value={categoryDegree}
                 onChange={(e) => setCategoryDegree(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option value="Select from here">
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {category?.map((cat) => (
                   <>
@@ -319,13 +337,17 @@ function EditProfile({ settingsData }) {
                 )}
             </div>
             <div>
-              <label>Major of Interest, Specialization </label>
+              <label>
+                {settingsData?.items?.translation?.Major_Specialization}
+              </label>
               <select
                 name="major"
                 value={categoryMajor}
                 onChange={(e) => setCategoryMajor(e.target.value)}
               >
-                <option value="Select from here">Select from here</option>
+                <option value="Select from here">
+                  {settingsData?.items?.translation?.Select_from_here}
+                </option>
 
                 {specializations?.map((special) => (
                   <>
@@ -346,7 +368,10 @@ function EditProfile({ settingsData }) {
                 )}
             </div>
           </S.boxInput>
-          <Button title="Update" onClick={() => UpdateProfile()} />
+          <Button
+            title={settingsData?.items?.translation?.btn_update}
+            onClick={() => UpdateProfile()}
+          />
         </div>
       </S.EditProfile>
     </S.MainEdit>

@@ -5,7 +5,7 @@ import * as S from "./style";
 
 import axiosInstance from "../../helpers/axios";
 
-function ResetPassword({ settingsData }) {
+function ResetPassword({ settingsData, language }) {
   const [password, setPassword] = useState();
   const [password_confirmation, setPasswordConfirmation] = useState();
 
@@ -39,9 +39,7 @@ function ResetPassword({ settingsData }) {
 
         config
       )
-      .then((res) => {
-        // console.log("reset", res);
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
@@ -56,10 +54,10 @@ function ResetPassword({ settingsData }) {
       </div>
       <div className="main-box">
         <div className="box">
-          <h1>reset password</h1>
-          <p>Please enter your new password</p>
+          <h1>{settingsData?.items?.translation?.title_reset_pass}</h1>
+          <p>{settingsData?.items?.translation?.paragraph_change_pass}</p>
           <S.InputBox>
-            <label>new password</label>
+            <label>{settingsData?.items?.translation?.new_password}</label>
             <input
               type="password"
               value={password ?? ""}
@@ -70,7 +68,7 @@ function ResetPassword({ settingsData }) {
           </S.InputBox>
 
           <S.InputBox>
-            <label>confirm new password</label>
+            <label>{settingsData?.items?.translation?.confirm_password}</label>
             <input
               type="password"
               value={password_confirmation ?? ""}
@@ -86,7 +84,7 @@ function ResetPassword({ settingsData }) {
                 sendResetPassword();
                 handleClick();
               }}
-              title="Send"
+              title={settingsData?.items?.translation?.btn_send}
             />
           )}
 
@@ -98,7 +96,7 @@ function ResetPassword({ settingsData }) {
                 sendResetPassword();
                 handleClick();
               }}
-              title="Send"
+              title={settingsData?.items?.translation?.btn_send}
               spinner
             />
           )}

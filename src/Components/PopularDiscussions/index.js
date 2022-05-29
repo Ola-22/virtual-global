@@ -20,7 +20,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function PopularDiscussions({ homeData }) {
+export default function PopularDiscussions({ homeData, settingsData }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -57,14 +57,12 @@ export default function PopularDiscussions({ homeData }) {
     ],
   };
 
-  // console.log("first", homeData);
   return (
     <S.PopularContainer>
-      <h1>popular Discussions</h1>
+      <h1>{settingsData?.items?.translation?.title_popular_discussions}</h1>
       <div className="slider-popular">
         <Slider {...settings}>
           {homeData?.items?.discussions?.map((data) => (
-            // <div className="card-poplurar">
             <CardPolular
               key={data?.id}
               text={data?.text}
@@ -74,7 +72,6 @@ export default function PopularDiscussions({ homeData }) {
               commentCount={data?.comments_count}
               link={data.id}
             />
-            // </div>
           ))}
         </Slider>
       </div>

@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function HeaderForum({ profileInformation }) {
-  // console.log("firstss", profileInformation);
+function HeaderForum({ profileInformation, settingsData, onChange, value }) {
   return (
     <S.ForumContainer>
       <div>
         <img src="/images/searchPage.png" alt="search of the page" />
-        <input type="text" placeholder="search here" />
+        <input
+          type="text"
+          placeholder="search here"
+          onChange={onChange}
+          value={value}
+        />
       </div>
-      <div>
+
+      <div className="profile-box">
         <Link to="/profile">
           <img
             className="user-image"
@@ -18,7 +23,7 @@ function HeaderForum({ profileInformation }) {
           />
         </Link>
         <div>
-          <p>welocome</p>
+          <p> {settingsData?.items?.translation?.special_welcome}</p>
           <h6>{profileInformation?.user.first_name}</h6>
         </div>
         <span>

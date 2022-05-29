@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const IDCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(/images/background-pro.png);
-  background-size: contain;
+  background: url(/images/background-pro.png) no-repeat;
+  background-size: cover;
   align-items: center;
   justify-content: center;
   /* padding: 17px 42px; */

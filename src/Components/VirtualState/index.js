@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function VirtualState({ homeData }) {
+function VirtualState({ homeData, settingsData }) {
   return (
     <S.VirtualState>
       <div>
@@ -18,7 +18,9 @@ function VirtualState({ homeData }) {
           }}
         />
 
-        <Link to="/register">Register Now</Link>
+        <Link to="/register">
+          {settingsData?.items?.translation?.button_join}
+        </Link>
       </div>
     </S.VirtualState>
   );

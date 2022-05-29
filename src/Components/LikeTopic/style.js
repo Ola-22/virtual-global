@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const topicContainer = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
-  min-height: 250px;
+  min-height: 137px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

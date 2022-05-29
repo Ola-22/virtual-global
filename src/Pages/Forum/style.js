@@ -14,10 +14,13 @@ export const ForumContainer = styled.div`
     display: flex;
     justify-content: space-around;
     margin-bottom: 21.5px;
+    @media (min-width: 700px) and (max-width: 800px) {
+      flex-wrap: wrap;
+    }
 
     & div {
-      max-width: 176px;
-      width: 100%;
+      width: 176px;
+      /* width: 100%; */
       border-radius: 10px;
       background-color: #ffffff;
       height: 140px;
@@ -46,6 +49,11 @@ export const ForumContainer = styled.div`
           color: #ff3a3a;
           text-transform: capitalize;
         }
+
+        @media (min-width: 700px) and (max-width: 800px) {
+          margin-left: 0px;
+          margin-top: 15px;
+        }
       }
     }
 
@@ -54,14 +62,18 @@ export const ForumContainer = styled.div`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     flex-wrap: wrap;
   }
 
   & .box-one {
     width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-inline-end: -7%;
     @media (max-width: 700px) {
       width: 90%;
+      margin-inline-end: 0;
     }
   }
   & .tab {
@@ -71,11 +83,27 @@ export const ForumContainer = styled.div`
 `;
 
 export const MainTopic = styled.div`
-  @media (max-width: 1100px) {
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: 56%;
+  flex-wrap: wrap;
+  @media (max-width: 1200px) {
+    width: 56%;
   }
 
   @media (max-width: 700px) {
     width: 90% !important;
+  }
+`;
+
+export const Main = styled.div`
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  width: 56%;
+  flex-wrap: wrap; */
+  & .box-virtual {
+    max-width: 840px;
+    width: 100%;
   }
 `;

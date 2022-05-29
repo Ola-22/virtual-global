@@ -1,26 +1,24 @@
 import Slider from "react-slick";
 import Banner from "./Banner";
 import * as S from "./style";
+import TypeAnimation from "react-type-animation";
+import { TypeWriter } from "./TypeWriter";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
+    <S.NextArrow className={className} onClick={onClick}>
+      <img src="/images/arrowNext.png" alt="" />
+    </S.NextArrow>
   );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    />
+    <S.PrevArrow className={className} onClick={onClick}>
+      <img src="/images/arrowPrev.png" alt="" />
+    </S.PrevArrow>
   );
 }
 
@@ -68,25 +66,28 @@ export default function SliderComponent({ homeData, settingsData }) {
     // speed: 2000,
     // autoplaySpeed: 1500,
     fade: true,
-    // infinite: true,
-    // speed: 500,
+    speed: 500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <S.sliderMain>
-      <Slider {...settings}>
+      <div className="slider">
         {homeData?.items?.sliders?.map((data) => (
-          <div className="banner" key={data?.id}>
-            <Banner
-              settingsData={settingsData}
-              paragraphOne={data?.text}
-              src={data?.image}
-              link={data?.link}
-            />
+          <div className="slide" key={data.id}>
+            <div className="content">
+              <TypeAnimation
+                cursor={true}
+                sequence={[data.text, 2000, ""]}
+                wrapper="span"
+                repeat={Infinity}
+              />
+              <img src={data.image} alt="" />
+            </div>
           </div>
         ))}
-      </Slider>
+      </div>
     </S.sliderMain>
   );
 }

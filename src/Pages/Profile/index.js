@@ -16,7 +16,12 @@ function Profile({ settingsData, profileInformation }) {
   const closeModalTerms = () => setShowForm(false);
 
   const [lastActivity, setLastActivity] = useState();
-  const [selected, setSelected] = useState("Like Discussions");
+  const [selected, setSelected] = useState(
+    settingsData?.items?.translation?.like_discussions_tabs ||
+      "like discussions"
+  );
+  // console.log(selected, "selected");
+  // console.log(settingsData?.items?.translation?.like_discussions_tabs);
 
   const SelectTab = (tab) => {
     setSelected(tab);
@@ -27,7 +32,7 @@ function Profile({ settingsData, profileInformation }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
 
@@ -38,35 +43,42 @@ function Profile({ settingsData, profileInformation }) {
         config
       )
       .then((res) => {
-        // console.log("laseActive", res);
         setLastActivity(res.data.items);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div id="profile-main" style={{ width: "100%" }}>
+    <S.Main id="profile-main">
       <Nav settingsData={settingsData} />
       <S.ProfileContainer>
         <div className="profile-main">
           <div className="box">
             <div className="virtual-id">
-              <h3>virtual national id card</h3>
+              <h3>{settingsData?.items?.translation?.ID_Card_title}</h3>
               <IDCard
                 src={profileInformation?.user?.image}
                 fname={profileInformation?.user?.first_name}
                 lname={profileInformation?.user?.last_name}
                 gender={profileInformation?.user?.gender}
-                national={profileInformation?.user?.country_birth_id}
-                country={profileInformation?.user?.country_birth_id}
+                national="Virlan"
+                country={profileInformation?.user?.country_birth}
                 date={profileInformation?.user?.dob}
+                settingsData={settingsData}
+                serial={profileInformation?.user?.serial}
+                data_register={profileInformation?.user?.created_at}
               />
             </div>
             <div className="profile-information">
               <S.containerProfile>
                 <>
                   <S.profileInformation>
-                    <h2>profile information's</h2>
+                    <h2>
+                      {
+                        settingsData?.items?.translation
+                          ?.title_profile_information
+                      }
+                    </h2>
                     <img
                       className="edit"
                       src="/images/edit.png"
@@ -87,54 +99,69 @@ function Profile({ settingsData, profileInformation }) {
                     alt="user img"
                   />
                   <S.boxInformation>
-                    <label>email</label>
+                    <label>{settingsData?.items?.translation?.email}</label>
                     <h4>{profileInformation?.user?.email}</h4>
                   </S.boxInformation>
                 </S.profileInformation>
                 <S.profileInformation className="box-profile">
                   <S.boxInformation>
-                    <label>password</label>
+                    <label>{settingsData?.items?.translation?.password}</label>
                     <h4>*****</h4>
                   </S.boxInformation>
                 </S.profileInformation>
 
                 <S.profileInformation>
                   <Link to="/change-password">
-                    <button className="changePass">change password</button>
+                    <button className="changePass">
+                      {settingsData?.items?.translation?.btn_change_pass}
+                    </button>
                   </Link>
                 </S.profileInformation>
               </S.containerProfile>
             </div>
           </div>
           <S.lastActivity>
-            <h2>last activities</h2>
+            <h2>{settingsData?.items?.translation?.last_activities}</h2>
 
             <TabNav
-              tabs={["Like Discussions", "Comment Discussions"]}
+              tabs={[
+                settingsData?.items?.translation?.like_discussions_tabs,
+                settingsData?.items?.translation?.comment_discussions_tabs,
+              ]}
               selected={selected}
               SelectTab={SelectTab}
             >
               <>
-                <Tab isSelected={selected === "Like Discussions"}>
+                <Tab
+                  isSelected={
+                    selected ===
+                    settingsData?.items?.translation?.like_discussions_tabs
+                  }
+                >
                   {lastActivity?.last_likes_discussions?.map((activity) => (
                     <LikeTopic
+                      key={activity.id}
                       date={activity?.created_at}
                       paragraph={activity?.text}
-                      name="Alex Fordman"
-                      time="30 min"
-                      // comment={activity.discussion.text}
+                      settingsData={settingsData}
                     />
                   ))}
                 </Tab>
 
-                <Tab isSelected={selected === "Comment Discussions"}>
+                <Tab
+                  isSelected={
+                    selected ===
+                    settingsData?.items?.translation?.comment_discussions_tabs
+                  }
+                >
                   {lastActivity?.last_comments_discussions?.map((activity) => (
                     <LikeTopic
+                      key={activity.id}
                       date={activity?.created_at}
                       paragraph={activity?.comment}
-                      name="Alex Fordman"
-                      time="30 min"
                       comment={activity.discussion.text}
+                      settingsData={settingsData}
+                      commentText
                     />
                   ))}
                 </Tab>
@@ -144,7 +171,7 @@ function Profile({ settingsData, profileInformation }) {
         </div>
         <Footer settingsData={settingsData} />
       </S.ProfileContainer>
-    </div>
+    </S.Main>
   );
 }
 

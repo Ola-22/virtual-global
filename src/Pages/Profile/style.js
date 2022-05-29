@@ -39,7 +39,7 @@ export const ProfileContainer = styled.div`
 
       @media (max-width: 900px) {
         width: 100%;
-        max-width: 100%;
+        max-width: 90%;
       }
 
       & > h3 {
@@ -114,66 +114,6 @@ export const ProfileContainer = styled.div`
       }
     }
   }
-  /* width: 100%;
-  background-color: #f8f8f8;
-  min-height: 100vh;
-
-  & .profile-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 28px;
-    padding-bottom: 299px;
-    & .box {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      max-width: 1153px;
-      width: 100%;
-      & div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #ffffff;
-        border-radius: 10px;
-        &:first-of-type {
-          max-width: 609px;
-          width: 100%;
-          min-height: 505px;
-          display: flex;
-          justify-content: space-evenly;
-          flex-wrap: wrap;
-
-          @media (max-width: 1200px) {
-            max-width: 1153px;
-            width: 90%;
-          }
-        }
-        
-        }
-      }
-    }
-
-    & h2 {
-      font-size: 18px;
-      background-color: #ffffff;
-      max-width: 1153px;
-      width: 100%;
-      margin-top: 29px;
-      height: 86px;
-      display: flex;
-      align-items: center;
-      padding-left: 4%;
-      text-transform: capitalize;
-      border-radius: 10px;
-
-      @media (max-width: 1200px) {
-        width: 90%;
-      }
-    }
-  } */
 
   & .main-tabs {
     background: inherit;
@@ -181,87 +121,6 @@ export const ProfileContainer = styled.div`
     width: 100%;
   }
 `;
-
-// & .modal-wrapper {
-//   max-height: 550px;
-//   height: 80%;
-//   top: 0;
-//   left: 30%;
-//   border-radius: 5px;
-//   display: flex;
-//   flex-direction: column;
-//   z-index: 444;
-//   max-width: 40%;
-
-//   & .edit-profile {
-//     background-color: #2d98da;
-//     height: 20%;
-//     position: relative;
-//     border-radius: 5px;
-
-//     & p {
-//       color: white;
-//     }
-//   }
-
-/* & .user-img {
-    width: 142px;
-    height: 142px;
-    margin: 0;
-    border: 5px solid white;
-    padding: 3px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 35%;
-  } */
-
-//   & .modal-body {
-//     display: flex;
-//     flex-direction: column;
-//     /* padding-left: 20px; */
-//     padding-bottom: 20px;
-//     & div {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: space-around;
-//       padding: 0;
-//       align-items: center;
-//       margin-bottom: 15px;
-//     }
-
-//     & input {
-//       width: 90%;
-//       height: 40px;
-//       border-radius: 8px;
-//       border: 1px solid #dfdfdf;
-//       padding-left: 15px;
-//     }
-
-//     & label {
-//       font-weight: bold;
-//     }
-
-//     & button {
-//       align-self: center;
-//     }
-//   }
-
-//   input[type="file"] {
-//     display: none;
-//   }
-//   .label {
-//     /* display: flex;
-//     justify-content: center;
-//     */
-//     margin-top: 15%;
-//   }
-//   .image-upload {
-//     text-align: center;
-//     cursor: pointer;
-//   }
-// }
 
 export const profileInformation = styled.div`
   width: 90%;
@@ -499,4 +358,13 @@ export const containerProfile = styled.div`
   align-items: center;
   flex-direction: column;
   width: 90%;
+`;
+
+export const Main = styled.div`
+  width: 100%;
+
+  & .box-virtual {
+    max-width: 900px;
+    width: 100%;
+  }
 `;

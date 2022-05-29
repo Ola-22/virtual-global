@@ -28,8 +28,6 @@ library.add(
 );
 
 export default function Social({ settingsData }) {
-  // console.log(settingsData);
-
   return (
     <S.SocialContainer className="social">
       {settingsData?.items?.social_media?.map((icons, index) => (

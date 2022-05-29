@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 
-function ForgetPassword({ settingsData }) {
+function ForgetPassword({ settingsData, language }) {
   const [email, setEmail] = useState();
   const [forgetData, setForgetData] = useState();
 
@@ -24,13 +24,12 @@ function ForgetPassword({ settingsData }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
       .post(`/api/forget-password`, data, config)
       .then((res) => {
-        console.log("forget", res);
         setForgetData(res.data);
       })
       .catch((err) => {
@@ -38,9 +37,6 @@ function ForgetPassword({ settingsData }) {
       });
   }
 
-  // useEffect(() => {
-  //   sendRequestPassword();
-  // });
   return (
     <S.ForgetContainer>
       <div className="header">
@@ -50,12 +46,10 @@ function ForgetPassword({ settingsData }) {
       </div>
       <div className="main-box">
         <div className="box">
-          <h1>forget password</h1>
-          <p>
-            Please enter your registered email to receive forget password link
-          </p>
+          <h1>{settingsData?.items?.translation?.title_forget_pass}</h1>
+          <p>{settingsData?.items?.translation?.paragraph_forget_pass}</p>
           <S.InputBox>
-            <label>Email</label>
+            <label>{settingsData?.items?.translation?.email}</label>
             <input
               type="email"
               value={email ?? ""}
@@ -72,7 +66,7 @@ function ForgetPassword({ settingsData }) {
                 sendRequestPassword();
                 handleClick();
               }}
-              title="Send"
+              title={settingsData?.items?.translation?.btn_send}
             />
           )}
 
@@ -84,7 +78,7 @@ function ForgetPassword({ settingsData }) {
                 sendRequestPassword();
                 handleClick();
               }}
-              title="Send"
+              title={settingsData?.items?.translation?.btn_send}
               spinner
             />
           )}

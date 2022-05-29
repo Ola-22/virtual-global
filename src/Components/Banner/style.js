@@ -93,14 +93,16 @@ export const sliderMain = styled.div`
     ),
     url(/images/background.png);
   background-size: cover;
-  max-height: 900px;
-  height: 100%;
+  /* max-height: 900px;
+  height: 100%; */
+  height: 600px;
 `;
 
 export const contentBanner = styled.h1`
-  max-width: 650px;
-  width: 100%;
-
+  /* max-width: 650px;
+  width: 100%; */
+  padding-top: 20%;
+  max-width: 500px;
   & span {
     font-size: 30px;
     text-transform: uppercase;
@@ -110,6 +112,7 @@ export const contentBanner = styled.h1`
     line-height: 65px;
     padding: 10px;
     box-decoration-break: clone;
+    margin-inline-start: 7%;
 
     @media (max-width: 700px) {
       font-size: 20px;
@@ -118,5 +121,34 @@ export const contentBanner = styled.h1`
 
   @media (max-width: 700px) {
     text-align: center;
+  }
+`;
+
+export const PrevArrow = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 0.5%;
+  z-index: 2;
+  cursor: pointer;
+  &:before {
+    display: none;
+  }
+  @media (max-width: 550px) {
+    display: none;
+  }
+`;
+
+export const NextArrow = styled.div`
+  position: absolute;
+  top: 40%;
+  right: 0.5%;
+  cursor: pointer;
+
+  &:before {
+    display: none;
+  }
+
+  @media (max-width: 550px) {
+    display: none;
   }
 `;

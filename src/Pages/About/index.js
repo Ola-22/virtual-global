@@ -4,27 +4,31 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function About({ settingsData }) {
+function About({ settingsData, profileInformation }) {
   const [aboutData, setAboutData] = useState();
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/pages/who_we_are")
+      .get("/api/web-site/pages/who_we_are", {
+        headers: {
+          lang: localStorage.getItem("language"),
+        },
+      })
       .then((res) => {
         setAboutData(res.data);
-        // console.log("about", aboutData);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // console.log("about", aboutData);
-
   return (
-    <div style={{ width: "100%" }}>
+    <S.Main>
       <Nav settingsData={settingsData} />
-      <Header />
+      <Header
+        profileInformation={profileInformation}
+        settingsData={settingsData}
+      />
       <S.AboutContainer>
         <div className="box">
           <h1
@@ -43,7 +47,7 @@ function About({ settingsData }) {
           </S.BoxAbout>
         </div>
       </S.AboutContainer>
-    </div>
+    </S.Main>
   );
 }
 

@@ -37,11 +37,12 @@ export const ForumContainer = styled.div`
     }
   }
 
-  & div:last-of-type {
+  & .profile-box {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* flex-wrap: wrap; */
+    width: 40%;
 
     & div {
       display: flex;

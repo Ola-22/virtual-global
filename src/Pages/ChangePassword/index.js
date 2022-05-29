@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 
-function ChangePassword({ settingsData }) {
+function ChangePassword({ settingsData, language }) {
   const [currentPassword, setCurrentPassword] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setCofirmPassword] = useState();
@@ -32,13 +32,12 @@ function ChangePassword({ settingsData }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: "en",
+        lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
       .post(`/api/user/profile/update-password`, data, config)
       .then((res) => {
-        console.log("change", res);
         setChangeData(res.data);
         if (res.data.status === true) {
           navigate("/profile");
@@ -49,9 +48,6 @@ function ChangePassword({ settingsData }) {
       });
   }
 
-  // useEffect(() => {
-  //   sendRequestPassword();
-  // });
   return (
     <S.ForgetContainer>
       <div className="header">
@@ -61,10 +57,10 @@ function ChangePassword({ settingsData }) {
       </div>
       <div className="main-box">
         <div className="box">
-          <h1>change password</h1>
-          <p>Please enter your new password</p>
+          <h1>{settingsData?.items?.translation?.btn_change_pass}</h1>
+          <p>{settingsData?.items?.translation?.paragraph_change_pass}</p>
           <S.InputBox>
-            <label>current password</label>
+            <label>{settingsData?.items?.translation?.current_password}</label>
             <input
               type="password"
               value={currentPassword ?? ""}
@@ -84,7 +80,7 @@ function ChangePassword({ settingsData }) {
           </S.InputBox>
 
           <S.InputBox>
-            <label>password</label>
+            <label>{settingsData?.items?.translation?.password}</label>
             <input
               type="password"
               value={password ?? ""}
@@ -93,7 +89,7 @@ function ChangePassword({ settingsData }) {
           </S.InputBox>
 
           <S.InputBox>
-            <label>confirm password</label>
+            <label>{settingsData?.items?.translation?.Confirm_Password}</label>
             <input
               type="password"
               value={confirmPassword ?? ""}

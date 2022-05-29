@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { Link } from "react-router-dom";
 
-function Nav({ settingsData }) {
+function Nav({ settingsData, language, handleSetLanguage }) {
   return (
     <S.NavContainer>
       <Link className="box-virtual" to="/">
@@ -18,9 +18,19 @@ function Nav({ settingsData }) {
 
       <div className="right">
         <img src="/images/language.png" alt="language" />
-        <select className="custom-select">
-          <option value="English">En</option>
-          <option value="Arabic">Ar</option>
+
+        <select
+          className="custom-select"
+          value={language}
+          onChange={(e) => handleSetLanguage(e.target.value)}
+        >
+          {settingsData?.items?.languages?.map((lang, index) => (
+            <>
+              <option key={index} value={lang?.lang}>
+                {lang?.lang}
+              </option>
+            </>
+          ))}
         </select>
       </div>
     </S.NavContainer>

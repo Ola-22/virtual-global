@@ -47,6 +47,10 @@ export const FooterContainer = styled.div`
         justify-content: space-between;
         line-height: 2;
         margin-top: 22px;
+
+        & a {
+          color: #4b4b4b;
+        }
       }
     }
 

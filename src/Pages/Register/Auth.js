@@ -12,7 +12,8 @@ const SignUp = (
   specialization_id,
   gender,
   accept_terms_conditions,
-  accept_constitution_terms
+  accept_constitution_terms,
+  language
 ) => {
   const config = {
     headers: {
@@ -71,8 +72,8 @@ const SignIn = (email, password) => {
     });
 };
 
-const logout = () => {
-  axiosInstance
+const logout = async () => {
+  await axiosInstance
     .post("/api/sign-out", {
       headers: {
         Accept: "application/json",
@@ -83,11 +84,10 @@ const logout = () => {
       localStorage.removeItem("user");
     })
     .catch((err) => {
-      localStorage.removeItem("user");
-
-      if (err.response.status === 401) {
-        localStorage.removeItem("user");
-      }
+      // localStorage.removeItem("user");
+      // if (err.response.status === 401) {
+      //   localStorage.removeItem("user");
+      // }
     });
 };
 

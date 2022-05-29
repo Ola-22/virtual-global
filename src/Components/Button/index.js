@@ -2,9 +2,13 @@ import { MenuIcon } from "../svg";
 import * as S from "./style";
 import { FaSpinner } from "react-icons/fa";
 
-function Button({ title, onClick, img, className, spinner }) {
+function Button({ title, onClick, img, className, spinner, disabled }) {
   return (
-    <S.ButtonContainer className={className} onClick={onClick}>
+    <S.ButtonContainer
+      disabled={disabled}
+      className={className}
+      onClick={onClick}
+    >
       {title}
 
       {img && <MenuIcon fill="white" />}

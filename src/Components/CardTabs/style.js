@@ -62,3 +62,15 @@ export const CardMain = styled.div`
     }
   }
 `;
+
+export const JoinButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & h4 {
+    font-size: 12px;
+    font-weight: normal;
+  }
+`;

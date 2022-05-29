@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
-import * as S from "./style";
-import Menu from "./Menu";
 import { useEffect, useState } from "react";
 import authService from "../../Pages/Register/Auth";
+import { Link, useNavigate } from "react-router-dom";
+import * as S from "./style";
+import Menu from "./Munu";
 
-function Header() {
+function Header({ settingsData, profileInformation }) {
   const [currentUser, setCurrentUser] = useState(undefined);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -17,38 +18,56 @@ function Header() {
 
   const logOut = () => {
     authService.logout();
+    navigate("/");
   };
+
   return (
     <S.HeaderContainer>
-      <Menu />
+      <Menu settingsData={settingsData} />
 
       <div className="rightNav">
         {currentUser && (
-          <Link to="/discussion">
-            <img
-              src="/images/forum.png"
-              alt="form button"
-              width="15"
-              height="15"
-            />
-            Forum
-          </Link>
+          <>
+            <S.profileInformation>
+              <Link to="/profile">
+                <img src={profileInformation?.user.image} alt="" />
+              </Link>
+              <div>
+                <p>{settingsData?.items?.translation?.special_welcome}</p>
+                <h6>{profileInformation?.user.first_name}</h6>
+              </div>
+            </S.profileInformation>
+
+            <Link to="/discussion">
+              <img
+                src="/images/forum.png"
+                alt="form button"
+                width="15"
+                height="15"
+              />
+              {settingsData?.items?.translation?.forum_btn}
+            </Link>
+          </>
         )}
 
         {currentUser ? (
-          <Link to="/" onClick={logOut}>
-            Logout
+          <Link
+            to="/"
+            onClick={() => {
+              logOut();
+              navigate("/login");
+            }}
+          >
+            {settingsData?.items?.translation?.log_out}
           </Link>
         ) : (
           <Link to="/register">Register</Link>
         )}
-
-        <Link className="login" to="/login">
-          Login
-        </Link>
-        <button>
-          <img src="/images/search.png" alt="search" />
-        </button>
+        {!currentUser && (
+          <Link className="login" to="/login">
+            {settingsData?.items?.translation?.login}
+          </Link>
+        )}
       </div>
     </S.HeaderContainer>
   );
