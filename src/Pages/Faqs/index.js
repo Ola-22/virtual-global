@@ -3,7 +3,6 @@ import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
-import * as F from "../../Components/Answer&Questions/style";
 import Pagination from "../../Components/Pagination";
 import Accordian from "./Accordian";
 
