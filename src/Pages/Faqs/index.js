@@ -25,7 +25,7 @@ function Faqs({ settingsData, profileInformation }) {
 
   const lengthFaqs = faqs?.faqs;
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
