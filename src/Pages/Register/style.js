@@ -91,7 +91,7 @@ export const RegisterContainer = styled.div`
       & .send {
         max-width: 201px;
         justify-content: space-evenly;
-        padding-left: 8%;
+        padding-inline-start: 8%;
 
         & > svg {
           fill: white;
@@ -140,7 +140,7 @@ export const RegisterBox = styled.div`
     height: 45px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
-    padding-left: 24px;
+    padding-inline-start: 24px;
 
     &[type="email"] {
       max-width: 739px;
@@ -165,7 +165,7 @@ export const RegisterContent = styled.div`
     flex-direction: column;
     width: 45%;
     &:last-of-type {
-      margin-left: 1px;
+      margin-inline-start: 1px;
     }
   }
 `;
@@ -174,8 +174,6 @@ export const wrapperEmail = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* margin-top: 5px;
-  margin-left: 10%; */
   justify-content: center;
   align-items: center;
 
@@ -196,10 +194,10 @@ export const RegisterGender = styled.div`
       height: 17px;
     }
     & .gender {
-      margin-left: 66px;
+      margin-inline-start: 66px;
     }
     & span {
-      margin-left: 5px;
+      margin-inline-start: 5px;
     }
   }
 

@@ -12,7 +12,7 @@ export const AboutContainer = styled.div`
 
   & > div:first-of-type {
     @media (max-width: 1200px) {
-      margin-left: 20px;
+      margin-inline-start: 20px;
     }
     & h1 {
       font-size: 36px;

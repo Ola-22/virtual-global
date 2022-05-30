@@ -48,7 +48,7 @@ export const AnswerContainer = styled.div`
   }
   & h1 {
     font-size: 34px;
-    margin-left: 11%;
+    margin-inline-start: 11%;
   }
 
   & > div:last-of-type {
@@ -70,7 +70,7 @@ export const AnswerContainer = styled.div`
       position: relative;
 
       & input[type="email"] {
-        margin-right: 28px;
+        margin-inline-end: 28px;
       }
 
       & input,
@@ -113,7 +113,7 @@ export const AnswerContainer = styled.div`
         align-items: center;
 
         & svg {
-          margin-left: 5px;
+          margin-inline-start: 5px;
         }
 
         &:hover {
@@ -152,6 +152,8 @@ export const AnswerContainer = styled.div`
     /* max-width: 545px; */
     max-width: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
     @media (max-width: 970px) and (min-width: 630px) {
       max-width: 90%;
     }

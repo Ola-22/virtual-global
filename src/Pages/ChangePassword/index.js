@@ -48,6 +48,8 @@ function ChangePassword({ settingsData, language }) {
       });
   }
 
+  console.log(settingsData);
+
   return (
     <S.ForgetContainer>
       <div className="header">

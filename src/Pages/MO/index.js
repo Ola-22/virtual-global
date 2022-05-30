@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function MO({ settingsData }) {
+function MO({ settingsData, handleSetLanguage }) {
   const [moData, setMoData] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function MO({ settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <div style={{ width: "100%" }}>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header settingsData={settingsData} />
       <S.AboutContainer>
         <div className="box">

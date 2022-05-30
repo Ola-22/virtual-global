@@ -50,10 +50,10 @@ export const replyComments = styled.div`
     display: flex;
     align-items: center;
     & > div:last-of-type {
-      margin-left: 71px;
+      margin-inline-start: 71px;
     }
     & span {
-      margin-left: 14.6px;
+      margin-inline-start: 14.6px;
     }
     & img {
       cursor: pointer;

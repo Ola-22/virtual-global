@@ -52,7 +52,7 @@ export const ForgetContainer = styled.div`
 
       & button {
         & svg {
-          margin-left: 5px;
+          margin-inline-start: 5px;
         }
         @media (max-width: 450px) {
           width: 60%;
@@ -75,7 +75,7 @@ export const InputBox = styled.div`
     height: 50px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
-    padding-left: 10px;
+    padding-inline-start: 10px;
   }
 
   & h3 {

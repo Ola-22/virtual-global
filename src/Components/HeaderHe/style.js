@@ -15,7 +15,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-right: 5px;
+    padding-inline-end: 5px;
 
     & > a {
       display: flex;
@@ -28,13 +28,13 @@ export const HeaderContainer = styled.div`
       border: 1px solid #ffffff;
       font-size: 14px;
       color: #ffffff;
-      margin-right: 9px;
+      margin-inline-end: 9px;
       &:first-of-type {
         width: 113px;
         background-color: white;
         color: black;
         & img {
-          margin-right: 8px;
+          margin-inline-end: 8px;
         }
       }
 

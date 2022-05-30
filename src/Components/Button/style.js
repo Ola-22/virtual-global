@@ -26,6 +26,6 @@ export const ButtonContainer = styled.button`
   }
 
   & img {
-    margin-left: 46px;
+    margin-inline-start: 46px;
   }
 `;

@@ -51,7 +51,7 @@ export const VirtualID = styled.div`
   & h1 {
     font-size: 13px;
     margin-top: 30px;
-    margin-left: 4%;
+    margin-inline-start: 4%;
     @media (max-width: 375px) {
       margin-top: 25px;
     }

@@ -32,7 +32,10 @@ export const AboutContainer = styled.div`
     & h1 {
       font-size: 22px;
       align-self: flex-start;
-      margin: 55px 0 42px 4%;
+      margin-top: 55px;
+      margin-inline-end: 0;
+      margin-bottom: 42px;
+      margin-inline-start: 4%;
     }
 
     & > p {

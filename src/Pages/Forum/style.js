@@ -42,7 +42,7 @@ export const ForumContainer = styled.div`
       }
 
       &:last-of-type {
-        margin-left: 15px;
+        margin-inline-start: 15px;
 
         & h2 {
           font-size: 16px;
@@ -51,7 +51,7 @@ export const ForumContainer = styled.div`
         }
 
         @media (min-width: 700px) and (max-width: 800px) {
-          margin-left: 0px;
+          margin-inline-start: 0px;
           margin-top: 15px;
         }
       }
@@ -98,10 +98,6 @@ export const MainTopic = styled.div`
 
 export const Main = styled.div`
   width: 100%;
-  /* display: flex;
-  flex-direction: column;
-  width: 56%;
-  flex-wrap: wrap; */
   & .box-virtual {
     max-width: 840px;
     width: 100%;

@@ -43,7 +43,7 @@ export const CardMain = styled.div`
       align-items: center;
       & span {
         font-size: 18px;
-        margin-left: 14.5px;
+        margin-inline-start: 14.5px;
       }
       & .chat {
         margin-inline-start: 42px;

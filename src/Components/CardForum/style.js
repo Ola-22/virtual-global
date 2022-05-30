@@ -53,7 +53,7 @@ export const CardForum = styled.div`
     }
     & span {
       font-size: 18px;
-      margin-left: 14.6px;
+      margin-inline-start: 14.6px;
     }
 
     & div {

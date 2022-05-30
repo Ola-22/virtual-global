@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function VissionIntroduction({ settingsData, profileInformation }) {
+function VissionIntroduction({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+}) {
   const [introductionData, setIntroduction] = useState();
 
   useEffect(() => {
@@ -20,11 +24,11 @@ function VissionIntroduction({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

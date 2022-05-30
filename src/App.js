@@ -34,16 +34,16 @@ function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
 
-  let languageStoredInLocalStorage = localStorage.getItem("en");
+  let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
-    languageStoredInLocalStorage ? languageStoredInLocalStorage : "en"
+    languageStoredInLocalStorage ? languageStoredInLocalStorage : "English"
   );
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/settings", {
         headers: {
-          lang: localStorage.getItem("language") || "en",
+          lang: localStorage.getItem("language"),
         },
       })
       .then((res) => {
@@ -58,7 +58,7 @@ function App() {
     axiosInstance
       .get("/api/web-site/home-page", {
         headers: {
-          lang: localStorage.getItem("language") || "en",
+          lang: localStorage.getItem("language"),
         },
       })
       .then((res) => {
@@ -67,7 +67,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   console.log(localStorage.getItem("language"));
   const [profileInformation, setProfileInformation] = useState();
@@ -90,11 +90,16 @@ function App() {
         setProfileInformation(res.data.items);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [language]);
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div
+        className="App"
+        style={{
+          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+        }}
+      >
         <Routes>
           <Route
             path="/"
@@ -130,6 +135,10 @@ function App() {
                 profileInformation={profileInformation}
                 settingsData={settingsData}
                 language={language}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -141,6 +150,10 @@ function App() {
                 settingsData={settingsData}
                 profileInformation={profileInformation}
                 language={language}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -151,6 +164,10 @@ function App() {
                 profileInformation={profileInformation}
                 settingsData={settingsData}
                 language={language}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -159,8 +176,11 @@ function App() {
             element={
               <About
                 profileInformation={profileInformation}
-                language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -168,7 +188,14 @@ function App() {
           <Route
             path="/edit-profile"
             element={
-              <EditProfile language={language} settingsData={settingsData} />
+              <EditProfile
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
+                language={language}
+                settingsData={settingsData}
+              />
             }
           />
           <Route
@@ -185,7 +212,9 @@ function App() {
 
           <Route
             path="/change-password"
-            element={<ChangePassword language={language} />}
+            element={
+              <ChangePassword settingsData={settingsData} language={language} />
+            }
           />
 
           <Route
@@ -195,6 +224,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -206,6 +239,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -217,6 +254,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -228,6 +269,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -238,6 +283,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -249,6 +298,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -260,6 +313,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -271,6 +328,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -281,6 +342,10 @@ function App() {
                 language={language}
                 settingsData={settingsData}
                 profileInformation={profileInformation}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -292,6 +357,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -302,6 +371,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -312,6 +385,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -322,6 +399,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -333,6 +414,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -344,6 +429,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -354,6 +443,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />
@@ -364,6 +457,10 @@ function App() {
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
               />
             }
           />

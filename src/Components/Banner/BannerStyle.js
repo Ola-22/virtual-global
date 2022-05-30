@@ -12,7 +12,7 @@ export const bannerContainer = styled.div`
     z-index: 22;
 
     @media (max-width: 960px) {
-      margin-left: 2%;
+      margin-inline-start: 2%;
     }
     & > p {
       font-size: 16px;

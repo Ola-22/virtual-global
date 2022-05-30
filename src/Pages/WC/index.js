@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function WC({ settingsData, profileInformation }) {
+function WC({ settingsData, profileInformation, handleSetLanguage }) {
   const [wcData, setWCData] = useState();
 
   useEffect(() => {
@@ -16,15 +16,16 @@ function WC({ settingsData, profileInformation }) {
       })
       .then((res) => {
         setWCData(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

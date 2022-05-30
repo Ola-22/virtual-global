@@ -20,7 +20,7 @@ export const ModalWrapper = styled.div`
       color: #2d98da;
       font-size: 22px;
       text-transform: uppercase;
-      margin-left: 35px;
+      margin-inline-start: 35px;
     }
 
     & span {
