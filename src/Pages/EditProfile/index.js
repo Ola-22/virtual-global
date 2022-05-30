@@ -5,7 +5,7 @@ import * as S from "./style";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ settingsData, language }) {
+function EditProfile({ settingsData, handleSetLanguage }) {
   const [file, setFile] = useState(
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
@@ -63,7 +63,7 @@ function EditProfile({ settingsData, language }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   useEffect(() => {
     axiosInstance
@@ -78,7 +78,7 @@ function EditProfile({ settingsData, language }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   const [editProfile, setEditProfile] = useState();
   async function UpdateProfile() {
@@ -125,11 +125,11 @@ function EditProfile({ settingsData, language }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.MainEdit>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <S.EditProfile>
         <S.userImage>
           <img className="user-img" src={file} alt="user img" />

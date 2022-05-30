@@ -26,7 +26,7 @@ const Ul = styled.ul`
       display: flex;
       position: absolute;
       top: 0;
-      margin-left: -20px;
+      margin-inline-start: -20px;
       @media (max-width: 1100px) {
         display: none;
       }

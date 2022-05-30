@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function VissionGIV({ settingsData, profileInformation }) {
+function VissionGIV({ settingsData, profileInformation, handleSetLanguage }) {
   const [givData, setGIV] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function VissionGIV({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

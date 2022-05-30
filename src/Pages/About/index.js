@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function About({ settingsData, profileInformation }) {
+function About({
+  settingsData,
+  profileInformation,
+  language,
+  setLanguage,
+  handleSetLanguage,
+}) {
   const [aboutData, setAboutData] = useState();
 
   useEffect(() => {
@@ -20,11 +26,16 @@ function About({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+        setLanguage={setLanguage}
+        settingsData={settingsData}
+      />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

@@ -9,7 +9,7 @@ import Tab from "../../Components/Tabs/Tab";
 import TabNav from "../../Components/Tabs/TabNav";
 import { Link, useNavigate } from "react-router-dom";
 
-function Profile({ settingsData, profileInformation }) {
+function Profile({ settingsData, profileInformation, handleSetLanguage }) {
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
 
@@ -46,11 +46,11 @@ function Profile({ settingsData, profileInformation }) {
         setLastActivity(res.data.items);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main id="profile-main">
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <S.ProfileContainer>
         <div className="profile-main">
           <div className="box">

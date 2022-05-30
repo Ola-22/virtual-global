@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function WTM({ settingsData, profileInformation }) {
+function WTM({ settingsData, profileInformation, handleSetLanguage }) {
   const [wtmData, setWtmData] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function WTM({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

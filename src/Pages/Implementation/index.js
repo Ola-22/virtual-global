@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function Implementation({ settingsData, profileInformation }) {
+function Implementation({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+}) {
   const [implementationData, setImplementationData] = useState();
 
   useEffect(() => {
@@ -20,11 +24,11 @@ function Implementation({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav handleSetLanguage={handleSetLanguage} settingsData={settingsData} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

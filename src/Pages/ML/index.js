@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function ML({ settingsData, profileInformation }) {
+function ML({ settingsData, profileInformation, handleSetLanguage }) {
   const [mlData, setMLData] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function ML({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

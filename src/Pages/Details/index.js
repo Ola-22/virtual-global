@@ -11,7 +11,7 @@ import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 // import { FaSpinner } from "react-icons/fa";
 
-function Details({ settingsData, profileInformation, language }) {
+function Details({ settingsData, profileInformation, handleSetLanguage }) {
   const { id } = useParams();
 
   const [result, setResult] = useState([]);
@@ -132,7 +132,7 @@ function Details({ settingsData, profileInformation, language }) {
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <HeaderForum
         settingsData={settingsData}
         profileInformation={profileInformation}

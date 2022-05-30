@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function List({ settingsData, profileInformation }) {
+function List({ settingsData, profileInformation, handleSetLanguage }) {
   const [listData, setListData] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function List({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav handleSetLanguage={handleSetLanguage} settingsData={settingsData} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

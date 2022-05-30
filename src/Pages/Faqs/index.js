@@ -6,7 +6,7 @@ import * as S from "./style";
 import Pagination from "../../Components/Pagination";
 import Accordian from "./Accordian";
 
-function Faqs({ settingsData, profileInformation }) {
+function Faqs({ settingsData, profileInformation, handleSetLanguage }) {
   const [faqs, setFaqs] = useState();
   useEffect(() => {
     axiosInstance
@@ -21,7 +21,7 @@ function Faqs({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   const lengthFaqs = faqs?.faqs;
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,6 +38,9 @@ function Faqs({ settingsData, profileInformation }) {
       <Nav
         profileInformation={profileInformation}
         settingsData={settingsData}
+        // language={language}
+        handleSetLanguage={handleSetLanguage}
+        // setLanguage={setLanguage}
       />
       <Header
         profileInformation={profileInformation}

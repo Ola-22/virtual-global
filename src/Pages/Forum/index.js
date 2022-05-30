@@ -14,7 +14,12 @@ import MostVisit from "./MostVisit";
 import RecentReplies from "./RecentReplies";
 import axios from "axios";
 
-function Forum({ settingsData, profileInformation, language }) {
+function Forum({
+  settingsData,
+  profileInformation,
+  language,
+  handleSetLanguage,
+}) {
   const [selected, setSelected] = useState(
     settingsData?.items?.translation?.recent_topics || "Recent Topics"
   );
@@ -75,7 +80,7 @@ function Forum({ settingsData, profileInformation, language }) {
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
       <HeaderForum
         profileInformation={profileInformation}
         settingsData={settingsData}

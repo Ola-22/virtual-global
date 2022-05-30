@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Nav from "../../Components/Nav";
 import Header from "../../Components/Header";
 
-function BML({ settingsData, profileInformation }) {
+function BML({ settingsData, profileInformation, handleSetLanguage }) {
   const [bmlData, setBMLData] = useState();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function BML({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [handleSetLanguage]);
 
   return (
     <S.Main>
-      <Nav settingsData={settingsData} />
+      <Nav handleSetLanguage={handleSetLanguage} settingsData={settingsData} />
       <Header
         profileInformation={profileInformation}
         settingsData={settingsData}

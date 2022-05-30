@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 
-function ForgetPassword({ settingsData, language }) {
+function ForgetPassword({ settingsData }) {
   const [email, setEmail] = useState();
   const [forgetData, setForgetData] = useState();
 
