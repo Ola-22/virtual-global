@@ -60,11 +60,11 @@ export const LikeCard = styled.div`
     & h6 {
       font-size: 18px;
       font-weight: normal;
-      margin-left: 11px;
+      margin-inline-start: 11px;
     }
 
     &:last-child {
-      margin-left: 40px;
+      margin-inline-start: 40px;
     }
   }
 `;

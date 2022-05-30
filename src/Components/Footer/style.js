@@ -68,7 +68,7 @@ export const FooterContainer = styled.div`
         & img {
           width: 18px;
           height: 18px;
-          margin-right: 5px;
+          margin-inline-end: 5px;
         }
       }
     }
@@ -97,7 +97,7 @@ export const FooterSocial = styled.div`
     width: 50%;
     & > a {
       background-color: rgba(38, 52, 66, 0.2);
-      margin-left: 10px;
+      margin-inline-start: 10px;
 
       & img {
         width: 22px;
@@ -141,7 +141,7 @@ export const boxMail = styled.div`
 
   & svg {
     fill: white;
-    padding-right: 5px;
+    padding-inline-end: 5px;
     font-size: 20px;
   }
 `;
@@ -166,14 +166,14 @@ export const containerMail = styled.div`
     & input {
       border: none;
       background-color: inherit;
-      padding-left: 2em;
+      padding-inline-start: 2em;
       border-radius: 25px;
     }
 
     & img {
       position: relative;
       z-index: 22;
-      margin-left: 20px;
+      margin-inline-start: 20px;
     }
   }
 

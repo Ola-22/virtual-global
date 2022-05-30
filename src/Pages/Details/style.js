@@ -17,11 +17,9 @@ export const DetailsContainer = styled.div`
 export const DetailsBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   flex-wrap: wrap;
-  /* max-width: 765px; */
   width: 58%;
-  margin-left: -5%;
+  margin-inline-start: -5%;
   min-height: 287px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -63,7 +61,7 @@ export const DetailsBox = styled.div`
       align-items: center;
       & span {
         font-size: 18px;
-        margin-left: 14.5px;
+        margin-inline-start: 14.5px;
       }
       &:last-of-type {
         margin-inline-start: 42px;
@@ -113,9 +111,9 @@ export const DetailsBox = styled.div`
         height: 100%;
         border: 1px solid #e6e6e6;
         border-radius: 25px;
-        padding-left: 4%;
+        padding-inline-start: 4%;
         overflow: scroll;
-        padding-right: 3%;
+        padding-inline-end: 3%;
         word-wrap: break-word;
         word-break: break-all;
         hyphens: auto;
@@ -152,13 +150,13 @@ export const CardForum = styled.div`
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;
-  margin-right: -12%;
+  margin-inline-end: -12%;
 
   @media (max-width: 700px) {
     width: 90%;
     max-height: auto !important;
     height: auto;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
   &:last-child {
     padding-bottom: 34.5px;
@@ -196,7 +194,7 @@ export const CardForum = styled.div`
     }
     & span {
       font-size: 18px;
-      margin-left: 14.6px;
+      margin-inline-start: 14.6px;
     }
 
     & div {

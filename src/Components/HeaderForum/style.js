@@ -47,7 +47,7 @@ export const ForumContainer = styled.div`
     & div {
       display: flex;
       flex-direction: column;
-      margin-left: 6px;
+      margin-inline-start: 6px;
       & p {
         font-size: 10px;
         color: rgba(255, 255, 255, 0.6);
@@ -66,7 +66,7 @@ export const ForumContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 35px;
+      margin-inline-start: 35px;
       cursor: pointer;
       &::after {
         content: "";
@@ -87,7 +87,7 @@ export const ForumContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 43px;
+      margin-inline-start: 43px;
       cursor: pointer;
       &::after {
         content: "";

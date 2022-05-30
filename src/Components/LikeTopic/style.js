@@ -9,7 +9,7 @@ export const topicContainer = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 17px;
-  padding-left: 32px;
+  padding-inline-start: 32px;
   padding-bottom: 20px;
   padding-top: 20px;
   & h5 {
@@ -27,7 +27,7 @@ export const topicContainer = styled.div`
     display: flex;
     & div {
       flex-direction: column;
-      margin-left: 12px;
+      margin-inline-start: 12px;
     }
   }
 
@@ -40,7 +40,7 @@ export const topicContainer = styled.div`
     min-height: 94px;
     display: flex;
     align-items: center;
-    padding-left: 22px;
+    padding-inline-start: 22px;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -48,8 +48,4 @@ export const topicContainer = styled.div`
       width: 95%;
     }
   }
-
-  /* @media (max-width: 1200px) {
-    width: 90%;
-  } */
 `;

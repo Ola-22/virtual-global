@@ -21,7 +21,7 @@ export const MainEdit = styled.div`
       height: 40px;
       border-radius: 8px;
       border: 1px solid #dfdfdf;
-      padding-left: 15px;
+      padding-inline-start: 15px;
     }
   }
 `;

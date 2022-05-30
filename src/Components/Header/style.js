@@ -15,7 +15,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-right: 5px;
+    padding-inline-end: 5px;
 
     & > a {
       display: flex;
@@ -28,13 +28,13 @@ export const HeaderContainer = styled.div`
       border: 1px solid #ffffff;
       font-size: 14px;
       color: #ffffff;
-      margin-right: 9px;
+      margin-inline-end: 9px;
       &:first-of-type {
         width: 113px;
         background-color: white;
         color: black;
         & img {
-          margin-right: 8px;
+          margin-inline-end: 8px;
         }
       }
 
@@ -62,7 +62,7 @@ export const HeaderContainer = styled.div`
       background-color: inherit;
       border: 1px solid #ffffff;
       border-radius: 8px;
-      margin-left: 9px;
+      margin-inline-start: 9px;
       cursor: pointer;
       @media (max-width: 768px) {
         border: none;
@@ -182,8 +182,7 @@ export const Nav = styled.nav`
       position: absolute;
       top: 0;
       left: 0;
-      /* margin-left: -20px; */
-      @media (max-width: 900px) {
+      @media (max-width: 980px) {
         display: none;
       }
     }
@@ -226,7 +225,7 @@ export const Ul = styled.ul`
       display: flex;
       position: absolute;
       top: 0;
-      margin-left: -20px;
+      margin-inline-start: -20px;
       @media (max-width: 1100px) {
         display: none;
       }

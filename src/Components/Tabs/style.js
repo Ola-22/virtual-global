@@ -56,14 +56,5 @@ export const MainTab = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* max-width: 765px; */
   width: 100%;
-
-  /* @media (max-width: 700px) {
-    width: 93%;
-  } */
-
-  @media (min-width: 400px) and (max-width: 1300px) {
-    /* margin-left: 2%; */
-  }
 `;

@@ -52,7 +52,7 @@ export const loginContainer = styled.div`
     align-items: center;
 
     & img {
-      margin-left: 30px;
+      margin-inline-start: 30px;
       margin-bottom: 10px;
     }
   }
@@ -89,7 +89,7 @@ export const LoginBox = styled.div`
     height: 55px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
-    padding-left: 10px;
+    padding-inline-start: 10px;
   }
   & label {
     margin-top: 29px;
@@ -97,7 +97,7 @@ export const LoginBox = styled.div`
 
   & .forget-pass {
     text-align: right;
-    margin-right: 10%;
+    margin-inline-end: 10%;
     margin-top: 11px;
   }
 `;
