@@ -8,7 +8,7 @@ export const ButtonContainer = styled.button`
 
   max-width: ${(props) => (props.primary ? "184px" : "290px")};
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   border: none;
   border-radius: 88px;
   font-size: 14px;

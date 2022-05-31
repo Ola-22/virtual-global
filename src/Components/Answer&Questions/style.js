@@ -4,23 +4,26 @@ export const AccordianContainer = styled.div`
   display: flex;
   max-width: 545px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   border: 1px solid #dfdfdf;
   flex-wrap: wrap;
   border-radius: 10px;
-  height: 66px;
+  height: auto;
   margin-top: 10px;
-  padding: 0 25px;
-  margin: auto;
   margin-bottom: 20px;
 
-  @media (max-width: 600px) {
-    max-width: 90%;
-  }
+  & .accordion_faq {
+    height: 66px;
+    border-bottom: 1px solid #dfdfdf;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-  @media (max-width: 970px) and (min-width: 630px) {
-    max-width: 100%;
+    & h3 {
+      width: 80%;
+    }
   }
 `;
 
@@ -31,6 +34,7 @@ export const AccordianAnswer = styled.p`
   margin: auto;
   opacity: 0.5;
   line-height: 1.4;
+  padding-top: 9px;
 
   @media (max-width: 550px) {
     width: 90%;
@@ -40,6 +44,7 @@ export const AccordianAnswer = styled.p`
 export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
   margin-top: 110px;
   margin-bottom: 125px;
 
@@ -48,7 +53,12 @@ export const AnswerContainer = styled.div`
   }
   & h1 {
     font-size: 34px;
-    margin-inline-start: 11%;
+    margin-bottom: 21px;
+    width: 90%;
+  }
+
+  & p {
+    width: 90%;
   }
 
   & > div:last-of-type {
@@ -58,9 +68,13 @@ export const AnswerContainer = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 90%;
+    max-width: 50%;
     padding-top: 39px;
-    height: auto;
+    min-height: 589px;
+    height: 100%;
+    @media (max-width: 700px) {
+      max-width: 90%;
+    }
 
     & form {
       display: flex;
@@ -85,7 +99,7 @@ export const AnswerContainer = styled.div`
 
       & div {
         margin-top: 5px;
-        margin-bottom: 4px;
+        /* margin-bottom: 4px; */
         display: flex;
       }
       & textarea {
@@ -96,6 +110,9 @@ export const AnswerContainer = styled.div`
 
       & label {
         color: rgba(0, 0, 0, 0.35);
+      }
+      & .tell-us {
+        margin-top: 10px;
       }
 
       & button {
@@ -111,6 +128,12 @@ export const AnswerContainer = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: bold;
+
+        & img {
+          margin-inline-end: -37%;
+          margin-inline-start: 41px;
+        }
 
         & svg {
           margin-inline-start: 5px;
@@ -149,16 +172,16 @@ export const AnswerContainer = styled.div`
   }
 
   & .accordion {
-    /* max-width: 545px; */
-    max-width: 100%;
+    max-width: 40%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    @media (max-width: 970px) and (min-width: 630px) {
+    @media (max-width: 700px) {
       max-width: 90%;
     }
-    @media (min-width: 1300px) {
-      max-width: 545px;
+
+    & p {
+      width: 100%;
     }
   }
 `;

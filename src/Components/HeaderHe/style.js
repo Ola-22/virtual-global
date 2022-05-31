@@ -51,6 +51,7 @@ export const HeaderContainer = styled.div`
       padding: 10px;
       background: #fff;
       color: #000000;
+      text-transform: capitalize;
 
       @media (max-width: 768px) {
         width: 70px;

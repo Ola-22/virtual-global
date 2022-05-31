@@ -6,13 +6,15 @@ export const RegisterContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+  width: 100%;
   background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
       rgba(248, 248, 248, 0.9)
     ),
     url(/images/background.png);
-  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
   height: 100vh;
 
   & .modal-wrapper {
@@ -40,10 +42,10 @@ export const RegisterContainer = styled.div`
       /* flex-wrap: wrap; */
       & p {
         min-height: 62px !important;
-        /* height: 100%; */
         max-width: 60%;
         text-align: center;
         overflow-y: hidden !important;
+        font-size: 20px;
       }
 
       & .container {
@@ -141,10 +143,17 @@ export const RegisterBox = styled.div`
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
-
+    color: rgba(0, 0, 0, 0.3);
     &[type="email"] {
       max-width: 739px;
       width: 90%;
+    }
+  }
+
+  & input {
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+      text-transform: capitalize;
     }
   }
 
@@ -168,6 +177,12 @@ export const RegisterContent = styled.div`
       margin-inline-start: 1px;
     }
   }
+
+  & label {
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
 `;
 export const wrapperEmail = styled.div`
   width: 100%;
@@ -179,14 +194,14 @@ export const wrapperEmail = styled.div`
 
   & label {
     width: 90%;
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 `;
 
 export const RegisterGender = styled.div`
   max-width: 739px;
   width: 90%;
-
-  /* margin-top: 5px; */
   & div {
     display: flex;
     & input {
@@ -198,6 +213,7 @@ export const RegisterGender = styled.div`
     }
     & span {
       margin-inline-start: 5px;
+      font-size: 14px;
     }
   }
 
@@ -216,6 +232,7 @@ export const loginAccount = styled.div`
   font-size: 14px;
   & a {
     color: #2d98da;
+    font-weight: bold;
   }
 `;
 
@@ -225,5 +242,21 @@ export const MainRegister = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+`;
+
+export const HeaderRegister = styled.div`
+  min-height: 70px;
+  height: 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+`;
+
+export const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   align-items: center;
 `;

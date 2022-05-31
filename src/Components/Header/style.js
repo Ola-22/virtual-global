@@ -51,6 +51,7 @@ export const HeaderContainer = styled.div`
       padding: 10px;
       background: #fff;
       color: #000000;
+      text-transform: capitalize;
 
       @media (max-width: 768px) {
         width: 70px;
@@ -135,6 +136,29 @@ export const Nav = styled.nav`
       list-style: none;
       background-color: #fff;
       display: none;
+      border-radius: 0 0 4px 4px;
+
+      & .menu-items {
+        text-transform: capitalize;
+        height: 53px;
+        width: 100%;
+
+        &:not(:last-of-type) {
+          &::after {
+            content: "";
+            width: 100%;
+            height: 0.5px;
+            background-color: #e8e8e8;
+            color: #e8e8e8;
+            position: absolute;
+            left: 0;
+            top: 100%;
+          }
+        }
+        &:hover {
+          background: #5cabff;
+        }
+      }
 
       & .dropdown-submenu {
         position: absolute;
@@ -143,11 +167,15 @@ export const Nav = styled.nav`
       }
 
       &.show {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       & a {
         color: #000;
+        justify-content: center;
+        display: flex;
 
         & :not(:last-of-type) {
           &::after {
@@ -176,7 +204,7 @@ export const Nav = styled.nav`
     &::after {
       content: "";
       width: 1px;
-      height: 71px;
+      height: 100%;
       background-color: rgba(255, 255, 255, 0.5);
       display: flex;
       position: absolute;

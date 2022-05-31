@@ -6,7 +6,7 @@ export const SocialContainer = styled.div`
   width: 47px;
   & > a {
     background-color: #ffffff;
-    max-width: 47px;
+    min-width: 47px;
     width: 100%;
     height: 48px;
     border-radius: 50%;
