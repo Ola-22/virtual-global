@@ -2,14 +2,47 @@ import styled from "styled-components";
 
 export const MainEdit = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  height: 100vh;
   align-items: center;
 
+  & .header {
+    height: 10%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+
+  & .main-box {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(
+        to right,
+        rgba(248, 248, 248, 0.8),
+        rgba(248, 248, 248, 0.9)
+      ),
+      url(/images/background.png);
+    background-size: cover;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .box {
+      background-color: #fff;
+      height: 85%;
+      width: 60%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-around;
+      border-radius: 8px;
+    }
+  }
+
   & .box-inputs {
-    height: 80%;
+    height: 75%;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -23,17 +56,13 @@ export const MainEdit = styled.div`
       border: 1px solid #dfdfdf;
       padding-inline-start: 15px;
     }
-  }
-`;
 
-export const EditProfile = styled.div`
-  background-color: #f8f8f8;
-  height: 88%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    & label {
+      font-size: 13px;
+      text-transform: capitalize;
+      margin-bottom: 7px;
+    }
+  }
 `;
 
 export const userImage = styled.div`
@@ -41,11 +70,10 @@ export const userImage = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 10%;
-  position: absolute;
   top: 10%;
   & img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin: 0;
     border: 5px solid white;
     padding: 3px;
@@ -61,7 +89,7 @@ export const userImage = styled.div`
   & .label {
     display: flex;
     flex-flow: column;
-    margin-top: 120%;
+    margin-top: 84%;
     justify-content: center;
     align-items: center;
 
@@ -74,11 +102,12 @@ export const userImage = styled.div`
 export const boxInput = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
   justify-content: space-between;
   & div {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 47%;
   }
 
   & .gender {

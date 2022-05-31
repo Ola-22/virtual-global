@@ -56,24 +56,30 @@ export const BannerContainer = styled.div`
 `;
 
 export const BackGround = styled.div`
-  margin-top: 2em;
-
-  & a {
-    z-index: 22;
-    position: relative;
-  }
   & > span {
     position: absolute;
     width: 419px;
     max-width: 100%;
     opacity: 0.4;
-    z-index: 2;
+    /* z-index: 2; */
     height: 410px;
     border-radius: 20px;
     background-color: #4bb1f1;
     transform: rotate(-5deg);
+    margin-inline-start: 5%;
+    margin-top: 11%;
 
-    @media (max-width: 500px) {
+    @media (max-width: 1200px) {
+      top: 5%;
+      /* left: 45%; */
+      /* margin-inline-start: 5%; */
+    }
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
       display: none;
     }
   }
@@ -88,8 +94,6 @@ export const BackGround = styled.div`
 export const sliderMain = styled.div`
   position: relative;
   display: flex;
-  /* flex-direction: column; */
-
   background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
@@ -97,21 +101,31 @@ export const sliderMain = styled.div`
     ),
     url(/images/background.png);
   background-size: cover;
-  /* max-height: 900px;
-  height: 100%; */
   min-height: 600px;
   height: auto;
   justify-content: space-between;
 
-  & .container-writer {
-    display: flex;
-    /* justify-content: space-around; */
-    width: 80%;
-    flex-direction: column;
+  @media (max-width: 800px) {
+    min-height: 870px;
   }
 
-  @media (max-width: 1100px) {
-    /* flex-wrap: wrap; */
+  & .container-writer {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    @media (max-width: 960px) {
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    @media (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (max-width: 500px) {
+      width: 53%;
+    }
   }
 `;
 
@@ -202,5 +216,14 @@ export const NumberVirtual = styled.div`
     font-size: 11px;
     text-transform: uppercase;
     text-align: center;
+  }
+`;
+
+export const ContainerBanner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 960px) {
+    margin-inline-start: 80%;
   }
 `;

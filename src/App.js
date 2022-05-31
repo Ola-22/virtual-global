@@ -29,6 +29,7 @@ import MO from "./Pages/MO";
 import WTM from "./Pages/WTM";
 import GTS from "./Pages/GTS";
 import AboutVGS from "./Pages/AboutVGS";
+import Helmet from "react-helmet";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -52,7 +53,9 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
+
+  console.log(settingsData);
 
   useEffect(() => {
     axiosInstance
@@ -100,6 +103,9 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
+        <Helmet>
+          <title>{settingsData?.items?.title}</title>
+        </Helmet>
         <Routes>
           <Route
             path="/"
@@ -195,6 +201,7 @@ function App() {
                 }}
                 language={language}
                 settingsData={settingsData}
+                profileInformation={profileInformation}
               />
             }
           />

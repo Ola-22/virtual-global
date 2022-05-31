@@ -22,20 +22,21 @@ function Accordion({ homeData }) {
               <h3 className={show === index ? "active" : ""}>
                 {item.question}
               </h3>
+
+              <div>
+                <img src="/images/Accordion.png" alt="Accordion" />
+              </div>
             </div>
+
             <div>
-              <img src="/images/Accordion.png" alt="Accordion" />
+              <S.AccordianAnswer
+                className={show === index ? "active" : "inActive"}
+                dangerouslySetInnerHTML={{
+                  __html: item.answer,
+                }}
+              />
             </div>
           </S.AccordianContainer>
-
-          <div>
-            <S.AccordianAnswer
-              className={show === index ? "active" : "inActive"}
-              dangerouslySetInnerHTML={{
-                __html: item.answer,
-              }}
-            />
-          </div>
         </div>
       ))}
     </div>

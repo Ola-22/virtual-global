@@ -4,7 +4,7 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background-color: rgba(28, 28, 28, 0.2);
+  background-color: #f3f3f3;
   flex-wrap: wrap;
   color: #4b4b4b;
   min-height: 461px;
@@ -83,7 +83,7 @@ export const FooterSocial = styled.div`
   flex-wrap: wrap;
   &::after {
     content: "";
-    width: 100%;
+    width: 89%;
     height: 1px;
     background: rgba(101, 101, 101, 0.46);
     border-radius: 25px;
@@ -96,7 +96,7 @@ export const FooterSocial = styled.div`
     justify-content: flex-end;
     width: 50%;
     & > a {
-      background-color: rgba(38, 52, 66, 0.2);
+      background-color: rgba(38, 52, 66, 0.05);
       margin-inline-start: 10px;
 
       & img {
@@ -117,8 +117,9 @@ export const FooterSocial = styled.div`
       justify-content: center;
     }
   }
-  @media (max-width: 760px) {
+  @media (max-width: 800px) {
     justify-content: center;
+    flex-direction: column;
   }
 `;
 

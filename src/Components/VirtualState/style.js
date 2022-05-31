@@ -8,6 +8,10 @@ export const VirtualState = styled.div`
   justify-content: space-around;
   align-items: center;
 
+  @media (max-width: 600px) {
+    background-size: 10000px;
+  }
+
   & > div:first-of-type {
     position: relative;
     & img {
@@ -46,6 +50,7 @@ export const VirtualState = styled.div`
       word-wrap: break-word;
       width: 100%;
       max-width: 622px;
+      font-weight: normal;
       @media (max-width: 700px) {
         font-size: 15px;
         text-align: center;
@@ -53,7 +58,7 @@ export const VirtualState = styled.div`
     }
 
     & > a {
-      max-width: 150px;
+      max-width: 175px;
       height: 55px;
       background-color: #ffffff;
       border-radius: 88px;
@@ -63,6 +68,7 @@ export const VirtualState = styled.div`
       font-size: 18px;
       color: #000000;
       margin-top: 33px;
+      text-transform: capitalize;
       @media (max-width: 900px) {
         margin-top: 10px;
         width: 150px;
@@ -79,5 +85,15 @@ export const VirtualState = styled.div`
   }
   @media (max-width: 600px) {
     flex-direction: column;
+  }
+`;
+
+export const virtualBox = styled.div`
+  @media (max-width: 900px) {
+    max-width: 39%;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 90%;
   }
 `;
