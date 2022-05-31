@@ -14,6 +14,7 @@ export const RegisterContainer = styled.div`
     ),
     url(/images/background.png);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+
   height: 100vh;
   & .modal-wrapper {
     max-width: 930px;
@@ -137,12 +138,14 @@ export const RegisterBox = styled.div`
       width: 90%;
     }
   }
+
   & input {
     &::placeholder {
       color: rgba(0, 0, 0, 0.3);
       text-transform: capitalize;
     }
   }
+
   & button {
     /* margin: 10px; */
   }
@@ -163,6 +166,7 @@ export const RegisterContent = styled.div`
       margin-inline-start: 1px;
     }
   }
+
   & label {
     font-size: 14px;
     text-transform: capitalize;

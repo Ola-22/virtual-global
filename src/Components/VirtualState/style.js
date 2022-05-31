@@ -7,9 +7,15 @@ export const VirtualState = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
+ 
   @media (max-width: 600px) {
     background-size: 10000px;
   }
+
+  @media (max-width: 600px) {
+    background-size: 10000px;
+  }
+
   & > div:first-of-type {
     position: relative;
     & img {
@@ -86,6 +92,7 @@ export const virtualBox = styled.div`
   @media (max-width: 900px) {
     max-width: 39%;
   }
+
   @media (max-width: 600px) {
     max-width: 90%;
   }

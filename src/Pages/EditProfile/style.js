@@ -6,12 +6,14 @@ export const MainEdit = styled.div`
   flex-direction: column;
   height: 100vh;
   align-items: center;
+
   & .header {
     height: 10%;
     width: 80%;
     display: flex;
     align-items: center;
   }
+
   & .main-box {
     width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -26,6 +28,7 @@ export const MainEdit = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     & .box {
       background-color: #fff;
       height: 85%;
@@ -37,6 +40,7 @@ export const MainEdit = styled.div`
       border-radius: 8px;
     }
   }
+
   & .box-inputs {
     height: 75%;
     width: 90%;
@@ -52,6 +56,15 @@ export const MainEdit = styled.div`
       border: 1px solid #dfdfdf;
       padding-inline-start: 15px;
     }
+    & label {
+      font-size: 13px;
+      text-transform: capitalize;
+      margin-bottom: 7px;
+    }
+  }
+`;
+
+
     & label {
       font-size: 13px;
       text-transform: capitalize;

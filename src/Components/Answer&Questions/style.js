@@ -12,6 +12,8 @@ export const AccordianContainer = styled.div`
   height: auto;
   margin-top: 10px;
   margin-bottom: 20px;
+
+
   & .accordion_faq {
     height: 66px;
     border-bottom: 1px solid #dfdfdf;
@@ -19,6 +21,8 @@ export const AccordianContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+
     & h3 {
       width: 80%;
     }
@@ -33,6 +37,7 @@ export const AccordianAnswer = styled.p`
   opacity: 0.5;
   line-height: 1.4;
   padding-top: 9px;
+
   @media (max-width: 550px) {
     width: 90%;
   }
@@ -52,6 +57,7 @@ export const AnswerContainer = styled.div`
     margin-bottom: 21px;
     width: 90%;
   }
+
   & p {
     width: 90%;
   }
@@ -69,6 +75,7 @@ export const AnswerContainer = styled.div`
     @media (max-width: 700px) {
       max-width: 90%;
     }
+
     & form {
       display: flex;
       flex-direction: column;
@@ -103,6 +110,7 @@ export const AnswerContainer = styled.div`
       & .tell-us {
         margin-top: 10px;
       }
+
       & button {
         background: linear-gradient(#2395db, #5abbf8);
         border-radius: 88px;
@@ -117,10 +125,12 @@ export const AnswerContainer = styled.div`
         justify-content: center;
         align-items: center;
         font-weight: bold;
+
         & img {
           margin-inline-end: -37%;
           margin-inline-start: 41px;
         }
+
         & svg {
           margin-inline-start: 5px;
         }
@@ -158,6 +168,7 @@ export const AnswerContainer = styled.div`
     @media (max-width: 700px) {
       max-width: 90%;
     }
+
     & p {
       width: 100%;
     }

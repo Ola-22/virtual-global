@@ -48,6 +48,7 @@ export const HeaderContainer = styled.div`
       background: #fff;
       color: #000000;
       text-transform: capitalize;
+
       @media (max-width: 768px) {
         width: 70px;
       }
@@ -126,10 +127,12 @@ export const Nav = styled.nav`
       background-color: #fff;
       display: none;
       border-radius: 0 0 4px 4px;
+
       & .menu-items {
         text-transform: capitalize;
         height: 53px;
         width: 100%;
+
         &:not(:last-of-type) {
           &::after {
             content: "";
@@ -146,6 +149,7 @@ export const Nav = styled.nav`
           background: #5cabff;
         }
       }
+
       & .dropdown-submenu {
         position: absolute;
         left: 100%;
@@ -160,6 +164,7 @@ export const Nav = styled.nav`
         color: #000;
         justify-content: center;
         display: flex;
+
         & :not(:last-of-type) {
           &::after {
             content: "";

@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   /* justify-content: space-evenly; */
+  justify-content: space-evenly;
   background-color: #f3f3f3;
   flex-wrap: wrap;
   color: #4b4b4b;
@@ -139,6 +141,7 @@ export const FooterSocial = styled.div`
     justify-content: center;
     flex-direction: column;
     max-width: 90%;
+
   }
 `;
 

@@ -62,6 +62,7 @@ export const BackGround = styled.div`
     transform: rotate(-5deg);
     margin-inline-start: 5%;
     margin-top: 11%;
+
     @media (max-width: 1200px) {
       top: 5%;
       /* left: 45%; */
@@ -70,6 +71,11 @@ export const BackGround = styled.div`
     @media (max-width: 960px) {
       display: none;
     }
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+
     @media (max-width: 800px) {
       display: none;
     }
@@ -97,6 +103,11 @@ export const sliderMain = styled.div`
   @media (max-width: 800px) {
     min-height: 870px;
   }
+
+  @media (max-width: 800px) {
+    min-height: 870px;
+  }
+
   & .container-writer {
     display: flex;
     width: 80%;
