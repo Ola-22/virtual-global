@@ -7,6 +7,10 @@ export const VirtualState = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
+ 
+  @media (max-width: 600px) {
+    background-size: 10000px;
+  }
 
   @media (max-width: 600px) {
     background-size: 10000px;
@@ -18,7 +22,6 @@ export const VirtualState = styled.div`
       margin-top: 5%;
       z-index: 22;
       position: relative;
-
       @media (max-width: 600px) {
         max-width: 343px;
         width: 100%;
@@ -39,7 +42,6 @@ export const VirtualState = styled.div`
       }
     }
   }
-
   & > div:last-of-type {
     @media (max-width: 600px) {
       padding-bottom: 10px;
@@ -56,7 +58,6 @@ export const VirtualState = styled.div`
         text-align: center;
       }
     }
-
     & > a {
       max-width: 175px;
       height: 55px;
@@ -76,7 +77,6 @@ export const VirtualState = styled.div`
         margin-bottom: 10px;
         margin: auto;
       }
-
       &:hover {
         color: #2395db;
         transition: 0.5s ease-out;

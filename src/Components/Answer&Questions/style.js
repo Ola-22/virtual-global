@@ -13,6 +13,7 @@ export const AccordianContainer = styled.div`
   margin-top: 10px;
   margin-bottom: 20px;
 
+
   & .accordion_faq {
     height: 66px;
     border-bottom: 1px solid #dfdfdf;
@@ -20,6 +21,7 @@ export const AccordianContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
+
 
     & h3 {
       width: 80%;
@@ -47,7 +49,6 @@ export const AnswerContainer = styled.div`
   width: 100%;
   margin-top: 110px;
   margin-bottom: 125px;
-
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
@@ -60,7 +61,6 @@ export const AnswerContainer = styled.div`
   & p {
     width: 90%;
   }
-
   & > div:last-of-type {
     border: 1px solid #dfdfdf;
     border-radius: 10px;
@@ -82,11 +82,9 @@ export const AnswerContainer = styled.div`
       justify-content: space-between;
       width: 90%;
       position: relative;
-
       & input[type="email"] {
         margin-inline-end: 28px;
       }
-
       & input,
       textarea {
         width: 100%;
@@ -96,7 +94,6 @@ export const AnswerContainer = styled.div`
           color: rgba(0, 0, 0, 0.35);
         }
       }
-
       & div {
         margin-top: 5px;
         /* margin-bottom: 4px; */
@@ -107,7 +104,6 @@ export const AnswerContainer = styled.div`
         outline: none;
         padding-top: 30px;
       }
-
       & label {
         color: rgba(0, 0, 0, 0.35);
       }
@@ -138,7 +134,6 @@ export const AnswerContainer = styled.div`
         & svg {
           margin-inline-start: 5px;
         }
-
         &:hover {
           background: #ffffff;
           color: #5abbf8;
@@ -146,31 +141,25 @@ export const AnswerContainer = styled.div`
           transition: 0.5s ease-in-out;
         }
       }
-
       & .box-inputs {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-
         @media (max-width: 540px) {
           flex-direction: column;
         }
-
         @media only screen and (max-width: 1200px) and (min-width: 970px) {
           flex-direction: column;
         }
       }
     }
-
     @media (min-width: 970px) and (max-width: 1200px) {
       max-width: 450px;
     }
-
     @media (min-width: 1300px) {
       max-width: 545px;
     }
   }
-
   & .accordion {
     max-width: 40%;
     width: 100%;
@@ -190,7 +179,6 @@ export const container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
-
   & h3 {
     color: red;
     font-size: 13px;
@@ -203,7 +191,6 @@ export const animationBox = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
   & input,
   textarea {
     height: 56px;
@@ -211,7 +198,6 @@ export const animationBox = styled.div`
     outline: 0;
     font-size: 14px;
   }
-
   & label {
     font-size: 16px;
     padding: 0 12px;
@@ -222,7 +208,6 @@ export const animationBox = styled.div`
     transform-origin: top left;
     transition: all 0.2s ease-out;
   }
-
   &:focus-within label {
     transform: translate(0, 16px) scale(0.75) !important;
   }

@@ -7,7 +7,6 @@ export const HeaderContainer = styled.div`
   background-color: #2d98da;
   min-height: 71px;
   position: relative;
-
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
@@ -16,7 +15,6 @@ export const HeaderContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     padding-inline-end: 5px;
-
     & > a {
       display: flex;
       align-items: center;
@@ -37,12 +35,10 @@ export const HeaderContainer = styled.div`
           margin-inline-end: 8px;
         }
       }
-
       @media (max-width: 768px) {
         width: 70px;
       }
     }
-
     & .login {
       max-width: 100px;
       height: 40px;
@@ -71,14 +67,12 @@ export const HeaderContainer = styled.div`
       }
     }
   }
-
   & .modal-wrapper {
     width: 50%;
     left: 20%;
     top: 200%;
     z-index: 55555;
     height: 208px;
-
     & .modal-header {
       justify-content: flex-end;
     }
@@ -86,7 +80,6 @@ export const HeaderContainer = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-
       & button {
         max-width: 112px;
         width: 100%;
@@ -110,13 +103,11 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-around;
   color: white;
-
   & .menus {
     height: 100%;
     min-height: 71px;
     display: flex;
     align-items: center;
-
     @media (max-width: 980px) {
       justify-content: space-around;
       align-items: center;
@@ -126,7 +117,6 @@ export const Nav = styled.nav`
       min-height: 71px;
       height: 100%;
     }
-
     & .dropdown {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
       position: absolute;
@@ -165,13 +155,11 @@ export const Nav = styled.nav`
         left: 100%;
         top: -7px;
       }
-
       &.show {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-
       & a {
         color: #000;
         justify-content: center;
@@ -195,12 +183,10 @@ export const Nav = styled.nav`
       }
     }
   }
-
   & .menu-items {
     position: relative;
     font-size: 14px;
     text-transform: uppercase;
-
     &::after {
       content: "";
       width: 1px;
@@ -221,7 +207,6 @@ export const Nav = styled.nav`
       color: white;
       &.active {
         background: rgba(0, 0, 0, 20%);
-
         @media (max-width: 980px) {
           background: inherit;
         }
@@ -261,13 +246,11 @@ export const Ul = styled.ul`
     & a {
       &.active {
         background: rgba(0, 0, 0, 20%);
-
         @media (max-width: 980px) {
           background: inherit;
         }
       }
     }
-
     @media (min-width: 979px) and (max-width: 1100px) {
       font-size: 12px;
       padding-inline-end: 10px;
@@ -287,7 +270,6 @@ export const Ul = styled.ul`
     padding-top: 3.5rem;
     transition: ${({ open }) =>
       open ? "transform 0.3s ease-in-out" : "translateX(100%)"};
-
     z-index: 222;
   }
 `;
@@ -302,19 +284,16 @@ export const profileInformation = styled.div`
     height: 41px;
     border-radius: 50%;
   }
-
   & div {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-inline-start: 6px;
-
     & p {
       font-size: 10px;
       color: rgba(255, 255, 255, 0.6);
       text-transform: uppercase;
     }
-
     & h6 {
       font-size: 17px;
       color: #ffffff;

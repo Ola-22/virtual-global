@@ -56,6 +56,14 @@ export const MainEdit = styled.div`
       border: 1px solid #dfdfdf;
       padding-inline-start: 15px;
     }
+    & label {
+      font-size: 13px;
+      text-transform: capitalize;
+      margin-bottom: 7px;
+    }
+  }
+`;
+
 
     & label {
       font-size: 13px;
@@ -81,18 +89,15 @@ export const userImage = styled.div`
     border-radius: 50%;
     position: absolute;
   }
-
   input[type="file"] {
     display: none;
   }
-
   & .label {
     display: flex;
     flex-flow: column;
     margin-top: 84%;
     justify-content: center;
     align-items: center;
-
     & .image-upload {
       cursor: pointer;
     }
@@ -109,7 +114,6 @@ export const boxInput = styled.div`
     flex-direction: column;
     width: 47%;
   }
-
   & .gender {
     display: flex;
     flex-direction: row;

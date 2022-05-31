@@ -29,11 +29,21 @@ import MO from "./Pages/MO";
 import WTM from "./Pages/WTM";
 import GTS from "./Pages/GTS";
 import AboutVGS from "./Pages/AboutVGS";
+
+import song from "./music/background-music.mp3";
+
 import Helmet from "react-helmet";
+
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
+
+  const [songs, setSongs] = useState(new Audio(song));
+
+  useEffect(() => {
+    // songs.play();
+  }, []);
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
@@ -103,6 +113,13 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
+        {/* <audio autoplay>
+          <source
+            src="../public/music/background-music.mp3"
+            type="audio/mpeg"
+          />
+        </audio> */}
+
         <Helmet>
           <title>{settingsData?.items?.title}</title>
         </Helmet>

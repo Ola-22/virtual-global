@@ -7,7 +7,6 @@ export const BannerContainer = styled.div`
   flex-direction: column;
   position: relative;
   padding-bottom: 22px;
-
   & > div:first-of-type {
     display: flex;
     justify-content: center;
@@ -21,29 +20,24 @@ export const BannerContainer = styled.div`
     border-radius: 7px;
     align-content: center;
     margin: 15px 14px 25px 0;
-
     & h4 {
       color: rgba(0, 0, 0, 0.6);
       font-size: 11px;
     }
   }
-
   & > div:last-of-type {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-
     & img {
       z-index: 5;
-
       @media (max-width: 500px) {
         max-width: 90%;
         margin: auto;
       }
     }
   }
-
   & .social {
     @media (max-width: 600px) {
       width: 100%;
@@ -74,6 +68,9 @@ export const BackGround = styled.div`
       /* left: 45%; */
       /* margin-inline-start: 5%; */
     }
+    @media (max-width: 960px) {
+      display: none;
+    }
 
     @media (max-width: 960px) {
       display: none;
@@ -83,7 +80,6 @@ export const BackGround = styled.div`
       display: none;
     }
   }
-
   & > img {
     position: sticky;
     max-width: 100%;
@@ -104,6 +100,9 @@ export const sliderMain = styled.div`
   min-height: 600px;
   height: auto;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    min-height: 870px;
+  }
 
   @media (max-width: 800px) {
     min-height: 870px;
@@ -144,12 +143,10 @@ export const contentBanner = styled.h1`
     padding: 10px;
     box-decoration-break: clone;
     margin-inline-start: 7%;
-
     @media (max-width: 700px) {
       font-size: 20px;
     }
   }
-
   @media (max-width: 700px) {
     text-align: center;
   }
@@ -174,11 +171,9 @@ export const NextArrow = styled.div`
   top: 40%;
   right: 0.5%;
   cursor: pointer;
-
   &:before {
     display: none;
   }
-
   @media (max-width: 550px) {
     display: none;
   }
@@ -188,7 +183,6 @@ export const NumberVirtual = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
   & .box-number {
     margin-top: 15px;
     margin-inline-end: 1rem;
@@ -206,11 +200,9 @@ export const NumberVirtual = styled.div`
       font-size: 12px;
     }
   }
-
   & .social {
     margin-inline-end: 1rem;
   }
-
   & h4 {
     color: rgba(0, 0, 0, 0.6);
     font-size: 11px;

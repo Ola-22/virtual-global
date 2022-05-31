@@ -16,14 +16,11 @@ export const RegisterContainer = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 
   height: 100vh;
-
   & .modal-wrapper {
     max-width: 930px;
-
     & .close {
       justify-content: flex-end;
     }
-
     & .data {
       font-size: 18px;
       color: rgba(0, 0, 0, 0.7);
@@ -32,7 +29,6 @@ export const RegisterContainer = styled.div`
       height: 486px;
       overflow-y: scroll;
     }
-
     & .council {
       display: flex;
       flex-direction: column;
@@ -47,7 +43,6 @@ export const RegisterContainer = styled.div`
         overflow-y: hidden !important;
         font-size: 20px;
       }
-
       & .container {
         display: flex;
         justify-content: space-evenly;
@@ -66,12 +61,10 @@ export const RegisterContainer = styled.div`
           font-size: 14px;
         }
       }
-
       & .answer {
         display: flex;
         flex-direction: column;
         width: 90%;
-
         & label {
           font-size: 14px;
           margin-bottom: 10px;
@@ -89,16 +82,13 @@ export const RegisterContainer = styled.div`
           outline: none;
         }
       }
-
       & .send {
         max-width: 201px;
         justify-content: space-evenly;
         padding-inline-start: 8%;
-
         & > svg {
           fill: white;
         }
-
         &:hover {
           & > svg {
             fill: #5abbf8;
@@ -107,7 +97,6 @@ export const RegisterContainer = styled.div`
       }
     }
   }
-
   & .activeBtn {
     background: linear-gradient(to top right, #2395db, #5abbf8) #2395db;
     color: #fff !important;
@@ -191,7 +180,6 @@ export const wrapperEmail = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
   & label {
     width: 90%;
     margin-bottom: 10px;
@@ -216,7 +204,6 @@ export const RegisterGender = styled.div`
       font-size: 14px;
     }
   }
-
   & .flex-column {
     flex-direction: column;
   }

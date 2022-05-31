@@ -14,17 +14,14 @@ export const SocialContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 14px;
-
     &:hover {
       background-color: #1976d2;
       color: #ffffff;
       transition: 0.5s ease-in-out;
-
       & svg {
         color: #ffffff;
       }
     }
-
     & svg {
       color: #1976d2;
     }
@@ -32,7 +29,6 @@ export const SocialContainer = styled.div`
       /* font-size: 30px;
       color: white;
       background: linear-gradient(#ffc107, #9c27b0);
-
       background: radial-gradient(
         circle at 30% 107%,
         #fdf497 0%,
