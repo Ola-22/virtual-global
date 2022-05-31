@@ -42,12 +42,12 @@ function Footer({ settingsData, language }) {
     <>
       <S.FooterContainer>
         <div className="top-footer">
-          <div>
+          <S.AboutContainer>
             <h6>{settingsData?.items?.translation?.about_footer}</h6>
             <p>{settingsData?.items?.describe}</p>
-          </div>
+          </S.AboutContainer>
 
-          <div>
+          <S.AccessContainer>
             <h6>{settingsData?.items?.translation?.quick_access_footer}</h6>
             <div className="box">
               <div>
@@ -82,7 +82,7 @@ function Footer({ settingsData, language }) {
                 </Link>
               </div>
             </div>
-          </div>
+          </S.AccessContainer>
 
           <div>
             <h6>{settingsData?.items?.translation?.contact_us_footer}</h6>

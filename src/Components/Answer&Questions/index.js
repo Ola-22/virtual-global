@@ -174,7 +174,7 @@ function AnswerQuestions({ homeData, settingsData }) {
                 : ""}
             </S.container>
           </div>
-          <label htmlFor="tell-us">
+          <label htmlFor="tell-us" className="tell-us">
             {settingsData?.items?.translation?.tell_about}
           </label>
 
@@ -224,6 +224,7 @@ function AnswerQuestions({ homeData, settingsData }) {
               }}
             >
               {settingsData?.items?.translation?.btn_send}
+              <img src="/images/send.png" alt="send data form" />
             </button>
           )}
 

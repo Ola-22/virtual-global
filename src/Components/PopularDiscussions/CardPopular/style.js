@@ -20,15 +20,19 @@ export const CardContainer = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    justify-content: space-around;
     padding: 42px;
     /* max-/: 565px; */
     width: 100%;
-    height: 280px;
+    /* height: 280px; */
     max-width: 80%;
     & p {
       font-size: 16px;
-      margin-top: 23px;
+      /* margin-top: 23px; */
+      height: 98px;
+      overflow: hidden;
     }
 
     @media (max-width: 1200px) {

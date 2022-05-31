@@ -11,21 +11,85 @@ export default function SliderComponent({ homeData, settingsData }) {
             strings: [
               homeData?.items?.sliders[0].text,
               homeData?.items?.sliders[1].text,
+              homeData?.items?.sliders[2].text,
             ],
             autoStart: true,
             loop: true,
           }}
         />
-
-        <div className="slider">
-          {homeData?.items?.sliders?.map((data) => (
-            <div className="slide" key={data.id}>
+        <S.ContainerBanner>
+          {/* <S.BackGround>
+            <span></span>
+          </S.BackGround> */}
+          <div className="slider">
+            <S.BackGround>
+              <span></span>
+            </S.BackGround>
+            <div className="slide">
               <div className="content">
-                <img src={data.image} alt="" />
+                <a href={homeData?.items?.sliders[0]?.link}>
+                  <img
+                    src={homeData?.items?.sliders[0]?.image}
+                    alt="banner virtual global"
+                  />
+                </a>
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className="slide">
+              <div className="content">
+                <a href={homeData?.items?.sliders[1]?.link}>
+                  <img
+                    src={homeData?.items?.sliders[1]?.image}
+                    alt="banner virtual global"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="slide">
+              <div className="content">
+                <a href={homeData?.items?.sliders[2]?.link}>
+                  <img
+                    src={homeData?.items?.sliders[2]?.image}
+                    alt="banner virtual global"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="slide">
+              <div className="content">
+                <a href={homeData?.items?.sliders[3]?.link}>
+                  <img
+                    src={homeData?.items?.sliders[3]?.image}
+                    alt="banner virtual global"
+                  />
+                </a>
+              </div>
+            </div>
+            <div className="slide">
+              <div className="content">
+                <a href={homeData?.items?.sliders[3]?.link}>
+                  <img
+                    src={homeData?.items?.sliders[3]?.image}
+                    alt="banner virtual global"
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* {homeData?.items?.sliders?.map((data) => (
+              <div className="slide" key={data.id}>
+                <div className="content">
+                  <a href={data.link}>
+                    <img src={data.image} alt="banner virtual global" />
+                  </a>
+                </div>
+              </div>
+            ))} */}
+          </div>
+        </S.ContainerBanner>
       </div>
 
       <S.NumberVirtual>
