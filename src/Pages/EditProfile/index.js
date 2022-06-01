@@ -145,6 +145,51 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
 
   return (
     <S.MainEdit>
+
+      <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
+      <>
+        <S.userImage>
+          <img className="user-img" src={file} alt="user img" />
+
+          <input
+            type="file"
+            accept="image/*"
+            name="image-upload"
+            id="input"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+          <div className="label">
+            <label className="image-upload" htmlFor="input">
+              {settingsData?.items?.translation?.change_pic}
+            </label>
+          </div>
+        </S.userImage>
+
+        <div className="box-inputs">
+          <S.boxInput>
+            <div>
+              <label>{settingsData?.items?.translation?.first_name}</label>
+              <input
+                type="text"
+                name="fname"
+                placeholder={
+                  settingsData?.items?.translation?.placeholder_pages
+                }
+                value={state.fname}
+                id="fname"
+                onChange={handleChange}
+              />
+              {editProfile?.status === false &&
+                editProfile?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "f_name" && (
+                      <h3 className="error" key={index}>
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </div>
+
       <div className="header">
         <Link to="/">
           <img src="/images/Back.png" alt="back pages" />
@@ -154,6 +199,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
         <div className="box">
           <S.userImage>
             <img className="user-img" src={file} alt="user img" />
+
 
             <input
               type="file"
@@ -400,7 +446,11 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
             />
           </div>
         </div>
+
+      </>
+
       </div>
+
     </S.MainEdit>
   );
 }

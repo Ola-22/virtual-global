@@ -16,6 +16,14 @@ export const VirtualState = styled.div`
     background-size: 10000px;
   }
 
+  @media (max-width: 600px) {
+    background-size: 10000px;
+  }
+
+  @media (max-width: 600px) {
+    background-size: 10000px;
+  }
+
   & > div:first-of-type {
     position: relative;
     & img {

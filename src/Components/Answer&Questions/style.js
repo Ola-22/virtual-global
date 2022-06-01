@@ -13,6 +13,14 @@ export const AccordianContainer = styled.div`
   margin-top: 10px;
   margin-bottom: 20px;
 
+  & .accordion_faq {
+    height: 66px;
+    border-bottom: 1px solid #dfdfdf;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
 
   & .accordion_faq {
     height: 66px;

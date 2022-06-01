@@ -35,6 +35,8 @@ import song from "./music/background-music.mp3";
 import Helmet from "react-helmet";
 
 
+
+
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();

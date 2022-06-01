@@ -65,13 +65,7 @@ export const MainEdit = styled.div`
 `;
 
 
-    & label {
-      font-size: 13px;
-      text-transform: capitalize;
-      margin-bottom: 7px;
-    }
-  }
-`;
+
 
 export const userImage = styled.div`
   display: flex;
