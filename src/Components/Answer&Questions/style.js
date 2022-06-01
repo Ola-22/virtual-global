@@ -15,7 +15,6 @@ export const AccordianContainer = styled.div`
 
   & .accordion_faq {
     height: 66px;
-    border-bottom: 1px solid #dfdfdf;
     width: 100%;
     display: flex;
     align-items: center;
@@ -168,7 +167,7 @@ export const AnswerContainer = styled.div`
     }
 
     & p {
-      width: 100%;
+      width: 90%;
     }
   }
 `;

@@ -1,25 +1,27 @@
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
+function EditProfile({ settingsData, profileInformation }) {
   const [file, setFile] = useState(
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
 
   const navigate = useNavigate();
 
-  // console.log(profileInformation);
+  console.log(profileInformation);
+
+  const [image, setImage] = useState(profileInformation?.user?.image);
 
   function handleChangeImg(e) {
     const reader = new FileReader();
-    // reader.onload = () => {
-    //   if (reader.readyState === 2) {
-    //     setFile(reader.result);
-    //   }
-    // };
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
     reader.readAsDataURL(e.target.files[0]);
     setFile(e.target.files[0]);
   }
@@ -35,12 +37,31 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
   const [gender, setGender] = useState();
 
   const [state, setState] = useState({
-    fname: "",
-    lname: "",
+    fname: profileInformation?.user.first_name,
+    lname: profileInformation?.user?.last_name,
     password: "",
     confirmPass: "",
     email: "",
   });
+
+  useEffect(() => {
+    setState({
+      fname: profileInformation?.user.first_name,
+      lname: profileInformation?.user?.last_name,
+      email: profileInformation?.user.email,
+    });
+    setImage(profileInformation?.user?.image);
+    setGender(profileInformation?.user.gender);
+    setCategoryCountry(profileInformation?.user?.country_birth_id);
+    setCategoryMajor(profileInformation?.user?.specialization_id);
+    setCategoryDegree(profileInformation?.user?.academic_level_id);
+  }, [profileInformation]);
+
+  console.log(categoryCountry);
+  console.log(gender);
+  const ref = useRef(null);
+
+  console.log(ref.current?.value);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -65,7 +86,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSetLanguage]);
+  }, []);
 
   useEffect(() => {
     axiosInstance
@@ -80,18 +101,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSetLanguage]);
-
-  // console.log(file, "file");
-  // console.log(state.fname);
-  // console.log(file);
-  // console.log(state.lname);
-  // console.log(state.email);
-  // console.log(date);
-  // console.log(categoryCountry);
-  // console.log(categoryDegree);
-  // console.log(categoryMajor);
-  // console.log(gender);
+  }, []);
 
   const [editProfile, setEditProfile] = useState();
   async function UpdateProfile() {
@@ -140,7 +150,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSetLanguage]);
+  }, []);
 
   return (
     <S.MainEdit>
@@ -152,7 +162,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
       <div className="main-box">
         <div className="box">
           <S.userImage>
-            <img className="user-img" src={file} alt="user img" />
+            <img className="user-img" src={image} alt="user img" />
 
             <input
               type="file"
@@ -175,14 +185,16 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
                 <input
                   type="text"
                   name="fname"
+                  ref={ref}
                   // placeholder={
                   //   settingsData?.items?.translation?.placeholder_pages
                   // }
-                  value={state.fname || profileInformation?.user?.first_name}
+                  value={state.fname ?? ""}
                   // defaultValue={profileInformation?.user?.first_name}
                   id="fname"
                   onChange={handleChange}
                 />
+
                 {editProfile?.status === false &&
                   editProfile?.items?.map(
                     (err, index) =>
@@ -200,8 +212,9 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
                 <input
                   type="text"
                   name="lname"
+                  ref={ref}
                   placeholder="Enter Here"
-                  value={state.lname}
+                  value={state.lname ?? ""}
                   id="lname"
                   onChange={handleChange}
                 />
@@ -225,7 +238,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
                   placeholder={
                     settingsData?.items?.translation?.placeholder_pages
                   }
-                  value={state.email}
+                  value={state.email ?? ""}
                   id="email"
                   onChange={handleChange}
                 />
@@ -301,6 +314,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="male"
+                      checked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>{settingsData?.items?.translation?.gender_male}</span>
@@ -310,6 +324,7 @@ function EditProfile({ settingsData, handleSetLanguage, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="female"
+                      checked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>

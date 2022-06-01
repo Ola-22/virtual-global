@@ -18,10 +18,12 @@ function Accordion({ homeData }) {
       {homeData?.items?.faqs?.map((item, index) => (
         <div key={index} onClick={() => handleToggle(index)}>
           <S.AccordianContainer>
-            <div className="accordion_faq">
-              <h3 className={show === index ? "active" : ""}>
-                {item.question}
-              </h3>
+            <div
+              className={
+                show === index ? "accordion_faq active" : "accordion_faq"
+              }
+            >
+              <h3>{item.question}</h3>
 
               <div>
                 <img src="/images/Accordion.png" alt="Accordion" />

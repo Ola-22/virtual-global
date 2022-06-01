@@ -2,6 +2,9 @@ import * as S from "./style";
 import { Link } from "react-router-dom";
 
 function Nav({ settingsData, language, handleSetLanguage }) {
+  console.log(language);
+  console.log(settingsData?.items?.languages);
+
   return (
     <S.NavContainer>
       <Link className="box-virtual" to="/">

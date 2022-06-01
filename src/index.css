@@ -11,6 +11,7 @@
   }
 
 .App{
+  background: url("./music/background-music.mp3");
   font-family: "Montserrat";
   min-height: 100vh;
   display: flex;
@@ -32,6 +33,7 @@ input, select{
 
 .active{
   display: block;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .inActive{
@@ -304,4 +306,9 @@ button{
   border-top: 0.42em solid;
   border-inline-end: 0.32em solid transparent;
   border-inline-start: 0.32em solid transparent;
+}
+
+
+embed{
+  display: none;
 }

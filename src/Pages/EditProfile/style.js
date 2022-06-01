@@ -38,6 +38,9 @@ export const MainEdit = styled.div`
       flex-direction: column;
       justify-content: space-around;
       border-radius: 8px;
+      @media (max-width: 1000px) {
+        width: 80%;
+      }
     }
   }
 

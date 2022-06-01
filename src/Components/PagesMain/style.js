@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const AboutContainer = styled.div`
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
       rgba(248, 248, 248, 0.9)
     ),
-    url(/images/background.png);
+    url(/images/background.png); */
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -16,14 +17,12 @@ export const AboutContainer = styled.div`
 
   & .box {
     background-color: #ffffff;
-    /* max-width: 1140px; */
-    width: 88%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     margin-top: 27px;
-
     & img {
       max-width: 400px;
       max-height: 300px;
@@ -61,8 +60,8 @@ export const AboutContainer = styled.div`
 `;
 
 export const BoxAbout = styled.div`
-  border: 1px solid #d6d6d6;
-  width: 90%;
+  /* border: 1px solid #d6d6d6; */
+  /* width: 90%; */
   min-height: 443px;
   border-radius: 10px;
   display: flex;
@@ -82,14 +81,12 @@ export const BoxAbout = styled.div`
 
 export const Main = styled.div`
   width: 100%;
-
   & .box-virtual {
     max-width: 1000px;
     width: 100%;
   }
-
   & .right {
-    max-width: 120px;
+    max-width: 110px;
     width: 100%;
   }
 `;
