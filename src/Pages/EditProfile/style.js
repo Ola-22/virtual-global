@@ -63,7 +63,6 @@ export const MainEdit = styled.div`
     }
   }
 `;
-
 export const userImage = styled.div`
   display: flex;
   justify-content: space-around;

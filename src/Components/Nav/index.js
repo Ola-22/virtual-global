@@ -9,8 +9,8 @@ function Nav({ settingsData, language, handleSetLanguage }) {
           <img
             src={settingsData?.items?.logo}
             alt="logo"
-            width="140"
-            height="85"
+            width="110"
+            height="65"
           />
           <h3>{settingsData?.items?.title}</h3>
         </div>

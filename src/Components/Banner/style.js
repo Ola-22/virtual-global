@@ -76,7 +76,18 @@ export const BackGround = styled.div`
     @media (max-width: 800px) {
       display: none;
     }
+
+    display: none;
   }
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+
   & > img {
     position: sticky;
     max-width: 100%;
@@ -100,9 +111,7 @@ export const sliderMain = styled.div`
   @media (max-width: 800px) {
     min-height: 870px;
   }
-  @media (max-width: 800px) {
-    min-height: 870px;
-  }
+
   & .container-writer {
     display: flex;
     width: 80%;
