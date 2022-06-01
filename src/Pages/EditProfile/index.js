@@ -1,5 +1,4 @@
 import Button from "../../Components/Button";
-import Nav from "../../Components/Nav";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 import { useState, useEffect } from "react";
