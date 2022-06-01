@@ -133,6 +133,7 @@ export const RegisterBox = styled.div`
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
     color: rgba(0, 0, 0, 0.3);
+    appearance: none;
     &[type="email"] {
       max-width: 739px;
       width: 90%;
@@ -171,6 +172,21 @@ export const RegisterContent = styled.div`
     font-size: 14px;
     text-transform: capitalize;
     margin-bottom: 10px;
+  }
+
+  & input[type="date"] {
+    background: #fff url("/images/calendar.png") 97% 50% no-repeat;
+
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+  }
+
+  & select {
+    background: #fff url("/images/arrow.png") 97% 50% no-repeat;
   }
 `;
 export const wrapperEmail = styled.div`

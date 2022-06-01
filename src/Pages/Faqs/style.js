@@ -16,14 +16,20 @@ export const FaqsContainer = styled.div`
   padding-bottom: 29px;
 
   & .box {
-    width: 90%;
+    width: 70%;
     margin-top: 10%;
     display: flex;
     flex-direction: column;
 
     & .accordian {
       background: white;
+      max-width: 100%;
     }
+  }
+
+  & .accordion_faq {
+    max-width: 90%;
+    justify-content: space-between;
   }
 `;
 

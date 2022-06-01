@@ -20,7 +20,7 @@ export const ProfileContainer = styled.div`
       flex-wrap: wrap;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
       width: 100%;
     }
     & .virtual-id {
@@ -40,6 +40,11 @@ export const ProfileContainer = styled.div`
       @media (max-width: 900px) {
         width: 100%;
         max-width: 90%;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+        max-width: 100%;
       }
 
       & > h3 {
@@ -62,7 +67,6 @@ export const ProfileContainer = styled.div`
       border-radius: 10px;
       max-width: 425px;
       width: 100%;
-      /* height: 505px; */
       @media (max-width: 900px) {
         width: 90% !important;
         max-width: 90%;
@@ -71,6 +75,10 @@ export const ProfileContainer = styled.div`
         padding-bottom: 20px;
       }
 
+      @media (max-width: 700px) {
+        width: 100% !important;
+        max-width: 100%;
+      }
       & h2 {
         text-transform: capitalize;
       }
@@ -155,6 +163,11 @@ export const lastActivity = styled.div`
 
   @media (max-width: 500px) {
     width: 90%;
+  }
+
+  @media (max-width: 700px) {
+    max-width: 100%;
+    width: 98%;
   }
   & h2 {
     font-size: 18px;
