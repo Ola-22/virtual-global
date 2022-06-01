@@ -3,57 +3,47 @@ import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Details from "./Pages/Details";
-import ML from "./Pages/ML";
 import Forum from "./Pages/Forum";
 import Profile from "./Pages/Profile";
-import About from "./Pages/About";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import ChangePassword from "./Pages/ChangePassword";
-import Abstract from "./Pages/abstract";
-import Implementation from "./Pages/Implementation";
-import Project from "./Pages/Project";
-import SMW from "./Pages/SMW";
-import List from "./Pages/List";
-import BML from "./Pages/BML";
-import WC from "./Pages/WC";
-import VissionIntroduction from "./Pages/VissionIntroduction";
-import VissionGIV from "./Pages/VissionGIV";
-import VissionWTL from "./Pages/VissionWTL";
-import Goals from "./Pages/Goals";
 import Faqs from "./Pages/Faqs";
-import MO from "./Pages/MO";
-import WTM from "./Pages/WTM";
-import GTS from "./Pages/GTS";
-import AboutVGS from "./Pages/AboutVGS";
 
-// import song from "./music/background-music.mp3";
+import song from "./music/background-music.mp3";
 
 import Helmet from "react-helmet";
+import PagesMain from "./Components/PagesMain";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
 
-  // const [songs, setSongs] = useState(new Audio(song));
+  const [setSongs] = useState("");
 
   // useEffect(() => {
   //   songs.play();
   // }, [songs]);
 
+  window.onload = function () {
+    setSongs(new Audio(song));
+  };
+
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
-    languageStoredInLocalStorage ? languageStoredInLocalStorage : "English"
+    languageStoredInLocalStorage ? languageStoredInLocalStorage : "en"
   );
+
+  console.log(language, "D");
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/settings", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -64,13 +54,13 @@ function App() {
       });
   }, [language]);
 
-  console.log(settingsData);
+  // console.log(settingsData);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/home-page", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -81,7 +71,7 @@ function App() {
       });
   }, [language]);
 
-  console.log(localStorage.getItem("language"));
+  // console.log(localStorage.getItem("language"));
   const [profileInformation, setProfileInformation] = useState();
   useEffect(() => {
     const config = {
@@ -112,13 +102,6 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
-        {/* <audio autoplay>
-          <source
-            src="../public/music/background-music.mp3"
-            type="audio/mpeg"
-          />
-        </audio> */}
-
         <Helmet>
           <title>{settingsData?.items?.title}</title>
         </Helmet>
@@ -179,6 +162,20 @@ function App() {
               />
             }
           />
+
+          <Route
+            path="/:slug"
+            element={
+              <PagesMain
+                settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
+                profileInformation={profileInformation}
+              />
+            }
+          />
           <Route
             path="/profile"
             element={
@@ -186,19 +183,6 @@ function App() {
                 profileInformation={profileInformation}
                 settingsData={settingsData}
                 language={language}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/who-we-are"
-            element={
-              <About
-                profileInformation={profileInformation}
-                settingsData={settingsData}
                 handleSetLanguage={(language) => {
                   setLanguage(language);
                   storeLanguageInLocalStorage(language);
@@ -241,242 +225,9 @@ function App() {
           />
 
           <Route
-            path="/vgs-abstract"
-            element={
-              <Abstract
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/vgs-implementation"
-            element={
-              <Implementation
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/vgs-project"
-            element={
-              <Project
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/vgs-smw"
-            element={
-              <SMW
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/vgs-list"
-            element={
-              <List
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/bml"
-            element={
-              <BML
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/ml"
-            element={
-              <ML
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/wc"
-            element={
-              <WC
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/vission-introduction"
-            element={
-              <VissionIntroduction
-                language={language}
-                settingsData={settingsData}
-                profileInformation={profileInformation}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/vission-giv"
-            element={
-              <VissionGIV
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/vission-wtl"
-            element={
-              <VissionWTL
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/goals"
-            element={
-              <Goals
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
             path="/q&a"
             element={
               <Faqs
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/mo"
-            element={
-              <MO
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-
-          <Route
-            path="/wtm"
-            element={
-              <WTM
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/gts"
-            element={
-              <GTS
-                profileInformation={profileInformation}
-                language={language}
-                settingsData={settingsData}
-                handleSetLanguage={(language) => {
-                  setLanguage(language);
-                  storeLanguageInLocalStorage(language);
-                }}
-              />
-            }
-          />
-          <Route
-            path="/about-vgs"
-            element={
-              <AboutVGS
                 profileInformation={profileInformation}
                 language={language}
                 settingsData={settingsData}

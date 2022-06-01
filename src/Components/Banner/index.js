@@ -1,6 +1,7 @@
 import * as S from "./style";
 import Typewriter from "typewriter-effect";
 import Social from "../Social";
+import { NumberFormat } from "../../lib/NumberFormat";
 
 export default function SliderComponent({ homeData, settingsData }) {
   return (
@@ -18,9 +19,6 @@ export default function SliderComponent({ homeData, settingsData }) {
           }}
         />
         <S.ContainerBanner>
-          {/* <S.BackGround>
-            <span></span>
-          </S.BackGround> */}
           <div className="slider">
             <S.BackGround>
               <span></span>
@@ -95,7 +93,7 @@ export default function SliderComponent({ homeData, settingsData }) {
       <S.NumberVirtual>
         <div className="box-number">
           <h4> {settingsData?.items?.translation?.slider}</h4>
-          <h2>{settingsData?.items?.number_virtial_citizens}</h2>
+          <h2>{NumberFormat(settingsData?.items?.number_virtial_citizens)}</h2>
         </div>
 
         <Social settingsData={settingsData} />

@@ -342,11 +342,13 @@ export default function Register({ language, settingsData }) {
               <div>
                 <label>{settingsData?.items?.translation?.Date_Birth}</label>
                 <input
+                  id="input-date"
                   type="date"
                   value={date ?? ""}
                   onChange={(e) => setDate(e.target.value)}
                   placeholder="Example NOV 11 1990"
                 />
+
                 {registerData?.status === false &&
                   registerData?.items?.map(
                     (err, index) =>
