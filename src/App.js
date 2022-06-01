@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     // songs.play();
-  }, []);
+  }, [songs]);
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
