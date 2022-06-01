@@ -7,7 +7,6 @@ export const BannerContainer = styled.div`
   flex-direction: column;
   position: relative;
   padding-bottom: 22px;
-
   & > div:first-of-type {
     display: flex;
     justify-content: center;
@@ -21,29 +20,24 @@ export const BannerContainer = styled.div`
     border-radius: 7px;
     align-content: center;
     margin: 15px 14px 25px 0;
-
     & h4 {
       color: rgba(0, 0, 0, 0.6);
       font-size: 11px;
     }
   }
-
   & > div:last-of-type {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-
     & img {
       z-index: 5;
-
       @media (max-width: 500px) {
         max-width: 90%;
         margin: auto;
       }
     }
   }
-
   & .social {
     @media (max-width: 600px) {
       width: 100%;
@@ -56,28 +50,33 @@ export const BannerContainer = styled.div`
 `;
 
 export const BackGround = styled.div`
-  margin-top: 2em;
-
-  & a {
-    z-index: 22;
-    position: relative;
-  }
   & > span {
     position: absolute;
     width: 419px;
     max-width: 100%;
     opacity: 0.4;
-    z-index: 2;
+    /* z-index: 2; */
     height: 410px;
     border-radius: 20px;
     background-color: #4bb1f1;
     transform: rotate(-5deg);
-
-    @media (max-width: 500px) {
+    margin-inline-start: 5%;
+    margin-top: 11%;
+    @media (max-width: 1200px) {
+      top: 5%;
+      /* left: 45%; */
+      /* margin-inline-start: 5%; */
+    }
+    @media (max-width: 960px) {
+      display: none;
+    }
+    @media (max-width: 960px) {
+      display: none;
+    }
+    @media (max-width: 800px) {
       display: none;
     }
   }
-
   & > img {
     position: sticky;
     max-width: 100%;
@@ -88,8 +87,6 @@ export const BackGround = styled.div`
 export const sliderMain = styled.div`
   position: relative;
   display: flex;
-  /* flex-direction: column; */
-
   background: linear-gradient(
       to right,
       rgba(248, 248, 248, 0.8),
@@ -97,21 +94,32 @@ export const sliderMain = styled.div`
     ),
     url(/images/background.png);
   background-size: cover;
-  /* max-height: 900px;
-  height: 100%; */
   min-height: 600px;
   height: auto;
   justify-content: space-between;
-
+  @media (max-width: 800px) {
+    min-height: 870px;
+  }
+  @media (max-width: 800px) {
+    min-height: 870px;
+  }
   & .container-writer {
     display: flex;
-    /* justify-content: space-around; */
     width: 80%;
+    height: 100%;
     flex-direction: column;
-  }
-
-  @media (max-width: 1100px) {
-    /* flex-wrap: wrap; */
+    @media (max-width: 960px) {
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    @media (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (max-width: 500px) {
+      width: 53%;
+    }
   }
 `;
 
@@ -130,12 +138,10 @@ export const contentBanner = styled.h1`
     padding: 10px;
     box-decoration-break: clone;
     margin-inline-start: 7%;
-
     @media (max-width: 700px) {
       font-size: 20px;
     }
   }
-
   @media (max-width: 700px) {
     text-align: center;
   }
@@ -160,11 +166,9 @@ export const NextArrow = styled.div`
   top: 40%;
   right: 0.5%;
   cursor: pointer;
-
   &:before {
     display: none;
   }
-
   @media (max-width: 550px) {
     display: none;
   }
@@ -174,7 +178,6 @@ export const NumberVirtual = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
   & .box-number {
     margin-top: 15px;
     margin-inline-end: 1rem;
@@ -192,15 +195,22 @@ export const NumberVirtual = styled.div`
       font-size: 12px;
     }
   }
-
   & .social {
     margin-inline-end: 1rem;
   }
-
   & h4 {
     color: rgba(0, 0, 0, 0.6);
     font-size: 11px;
     text-transform: uppercase;
     text-align: center;
+  }
+`;
+
+export const ContainerBanner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 960px) {
+    margin-inline-start: 80%;
   }
 `;

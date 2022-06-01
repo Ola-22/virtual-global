@@ -130,7 +130,7 @@ function EditProfile({ settingsData, handleSetLanguage }) {
   return (
     <S.MainEdit>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
-      <S.EditProfile>
+      <>
         <S.userImage>
           <img className="user-img" src={file} alt="user img" />
 
@@ -373,7 +373,7 @@ function EditProfile({ settingsData, handleSetLanguage }) {
             onClick={() => UpdateProfile()}
           />
         </div>
-      </S.EditProfile>
+      </>
     </S.MainEdit>
   );
 }

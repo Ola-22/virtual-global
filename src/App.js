@@ -30,9 +30,19 @@ import WTM from "./Pages/WTM";
 import GTS from "./Pages/GTS";
 import AboutVGS from "./Pages/AboutVGS";
 
+import song from "./music/background-music.mp3";
+
+import Helmet from "react-helmet";
+
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
+
+  const [songs, setSongs] = useState(new Audio(song));
+
+  useEffect(() => {
+    // songs.play();
+  }, []);
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
@@ -52,7 +62,9 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
+
+  console.log(settingsData);
 
   useEffect(() => {
     axiosInstance
@@ -100,6 +112,16 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
+        {/* <audio autoplay>
+          <source
+            src="../public/music/background-music.mp3"
+            type="audio/mpeg"
+          />
+        </audio> */}
+
+        <Helmet>
+          <title>{settingsData?.items?.title}</title>
+        </Helmet>
         <Routes>
           <Route
             path="/"
@@ -195,6 +217,7 @@ function App() {
                 }}
                 language={language}
                 settingsData={settingsData}
+                profileInformation={profileInformation}
               />
             }
           />
