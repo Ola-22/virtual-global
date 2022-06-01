@@ -7,7 +7,7 @@ export const VirtualState = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
- 
+
   @media (max-width: 600px) {
     background-size: 10000px;
   }
