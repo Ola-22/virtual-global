@@ -60,3 +60,11 @@ export const NextArrow = styled.div`
     display: none;
   }
 `;
+
+export const MainSlider = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* height: 543px;
+  background: #fff; */
+`;

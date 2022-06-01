@@ -24,14 +24,24 @@ export default function PopularDiscussions({ homeData, settingsData }) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+
+      {
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -39,14 +49,7 @@ export default function PopularDiscussions({ homeData, settingsData }) {
           dots: false,
         },
       },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
+
       {
         breakpoint: 480,
         settings: {
@@ -63,6 +66,7 @@ export default function PopularDiscussions({ homeData, settingsData }) {
       <div className="slider-popular">
         <Slider {...settings}>
           {homeData?.items?.discussions?.map((data) => (
+            // <S.MainSlider>
             <CardPolular
               key={data?.id}
               text={data?.text}
@@ -72,6 +76,7 @@ export default function PopularDiscussions({ homeData, settingsData }) {
               commentCount={data?.comments_count}
               link={data.id}
             />
+            // </S.MainSlider>
           ))}
         </Slider>
       </div>
