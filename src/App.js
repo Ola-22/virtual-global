@@ -30,7 +30,7 @@ import WTM from "./Pages/WTM";
 import GTS from "./Pages/GTS";
 import AboutVGS from "./Pages/AboutVGS";
 
-import song from "./music/background-music.mp3";
+// import song from "./music/background-music.mp3";
 
 import Helmet from "react-helmet";
 
@@ -38,11 +38,11 @@ function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
 
-  const [songs, setSongs] = useState(new Audio(song));
+  // const [songs, setSongs] = useState(new Audio(song));
 
-  useEffect(() => {
-    // songs.play();
-  }, [songs]);
+  // useEffect(() => {
+  //   songs.play();
+  // }, [songs]);
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
