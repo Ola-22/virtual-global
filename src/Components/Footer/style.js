@@ -141,6 +141,7 @@ export const FooterSocial = styled.div`
     justify-content: center;
     flex-direction: column;
     max-width: 90%;
+
   }
 `;
 

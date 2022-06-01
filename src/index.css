@@ -135,6 +135,7 @@ button{
         top: 2%;
         max-width: 60%;
         margin-inline-start: -3%;
+
       }
     }
 
@@ -142,6 +143,8 @@ button{
       .Typewriter {
       
         margin-inline-start: 22%;
+
+
       }
     }
   
@@ -231,16 +234,14 @@ button{
 }
 .slider .slide:nth-child(2){
   animation-delay: 18s;
-}
-
-.slider .slide:nth-child(3){
-  animation-delay: 35s;
 
 }
 
 .slider .slide:nth-child(3){
   animation-delay: 35s;
+
 }
+
 
 .slider .slide:nth-child(4){
   animation-delay: 50s;

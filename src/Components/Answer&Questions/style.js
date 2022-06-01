@@ -21,6 +21,16 @@ export const AccordianContainer = styled.div`
     align-items: center;
     justify-content: space-around;
 
+
+  & .accordion_faq {
+    height: 66px;
+    border-bottom: 1px solid #dfdfdf;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
     & h3 {
       width: 80%;
     }

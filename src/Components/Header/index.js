@@ -69,14 +69,7 @@ function Header({ settingsData, profileInformation }) {
         )}
 
         {currentUser ? (
-          <Link
-            to="/"
-            // onClick={() => {
-            //   logOut();
-            //   navigate("/login");
-            // }}
-            onClick={() => setShowTerms(true)}
-          >
+          <Link to="/" onClick={() => setShowTerms(true)}>
             {settingsData?.items?.translation?.log_out}
           </Link>
         ) : (

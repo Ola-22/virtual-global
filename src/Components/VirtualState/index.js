@@ -11,7 +11,7 @@ function VirtualState({ homeData, settingsData }) {
           alt="join the virtual global"
         />
       </div>
-      <div>
+      <S.virtualBox>
         <h6
           dangerouslySetInnerHTML={{
             __html: homeData?.items?.register_now_section?.text,
@@ -21,7 +21,7 @@ function VirtualState({ homeData, settingsData }) {
         <Link to="/register">
           {settingsData?.items?.translation?.button_join}
         </Link>
-      </div>
+      </S.virtualBox>
     </S.VirtualState>
   );
 }
