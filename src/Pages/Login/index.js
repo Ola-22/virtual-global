@@ -72,12 +72,12 @@ function Login({ settingsData }) {
           <div className="error"> {error}</div>
           <S.FooterLogin>
             <Button title="Login" onClick={() => handleSignIn()} />
-            <div>
-              {settingsData?.items?.translation?.dont_have_citizenship}?
+            <S.citizenshipBox>
+              {settingsData?.items?.translation?.dont_have_citizenship} {""}
               <Link to="/register">
                 {settingsData?.items?.translation?.create_acount}
               </Link>
-            </div>
+            </S.citizenshipBox>
           </S.FooterLogin>
         </S.LoginBox>
       </div>

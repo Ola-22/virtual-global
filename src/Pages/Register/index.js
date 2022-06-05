@@ -341,23 +341,25 @@ export default function Register({ language, settingsData }) {
             <S.RegisterContent>
               <div>
                 <label>{settingsData?.items?.translation?.Date_Birth}</label>
-                <input
-                  id="input-date"
-                  type="date"
-                  value={date ?? ""}
-                  onChange={(e) => setDate(e.target.value)}
-                  placeholder="Example NOV 11 1990"
-                />
+                <div style={{ width: "100%" }}>
+                  <input
+                    id="input-date"
+                    type="date"
+                    value={date ?? ""}
+                    onChange={(e) => setDate(e.target.value)}
+                    placeholder="Example NOV 11 1990"
+                  />
 
-                {registerData?.status === false &&
-                  registerData?.items?.map(
-                    (err, index) =>
-                      err?.field_name === "dob" && (
-                        <h3 className="error" key={index}>
-                          {err.message}
-                        </h3>
-                      )
-                  )}
+                  {registerData?.status === false &&
+                    registerData?.items?.map(
+                      (err, index) =>
+                        err?.field_name === "dob" && (
+                          <h3 className="error" key={index}>
+                            {err.message}
+                          </h3>
+                        )
+                    )}
+                </div>
               </div>
               <div>
                 <label>{settingsData?.items?.translation?.country_birth}</label>
@@ -631,7 +633,7 @@ export default function Register({ language, settingsData }) {
             />
 
             <S.loginAccount>
-              {settingsData?.items?.translation?.already_have_citizenship}
+              {settingsData?.items?.translation?.already_have_citizenship} {""}
               <Link to="/login">{settingsData?.items?.translation?.enter}</Link>
             </S.loginAccount>
           </S.MainRegister>

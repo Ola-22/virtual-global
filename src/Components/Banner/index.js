@@ -1,28 +1,48 @@
 import * as S from "./style";
-import Typewriter from "typewriter-effect";
 import Social from "../Social";
 import { NumberFormat } from "../../lib/NumberFormat";
+import Typed from "react-typed";
+import { useEffect, useState } from "react";
 
 export default function SliderComponent({ homeData, settingsData }) {
+  const [data, setData] = useState("&nbsp;");
+  useEffect(() => {
+    setData(homeData);
+  }, [homeData]);
+  console.log(homeData, "home");
+  console.log(data);
+  const textLines = [
+    `${" "}`,
+    `${data?.items?.sliders[0]?.text}`,
+    `${data?.items?.sliders[1]?.text}`,
+    `${data?.items?.sliders[2]?.text}`,
+    `${data?.items?.sliders[3]?.text}`,
+    `${data?.items?.sliders[4]?.text}`,
+  ];
   return (
     <S.sliderMain>
+      {/* <TypeWriter content="ff" /> */}
+      {/* <TypeWriterEffect /> */}
+
+      {/* <Typed strings={textLines} typeSpeed={100} smartBackspace={false} /> */}
       <div className="container-writer">
-        <Typewriter
-          options={{
-            strings: [
-              homeData?.items?.sliders[0].text,
-              homeData?.items?.sliders[1].text,
-              homeData?.items?.sliders[2].text,
-            ],
-            autoStart: true,
-            loop: true,
-          }}
-        />
+        <div className="Typewriter">
+          <Typed
+            loop
+            typeSpeed={100}
+            backSpeed={null}
+            strings={textLines}
+            smartBackspace={false}
+            backDelay={0}
+            fadeOut
+            fadeOutDelay={null}
+            loopCount={0}
+            showCursor
+            cursorChar="|"
+          />
+        </div>
         <S.ContainerBanner>
           <div className="slider">
-            <S.BackGround>
-              <span></span>
-            </S.BackGround>
             <div className="slide">
               <div className="content">
                 <a href={homeData?.items?.sliders[0]?.link}>
@@ -68,24 +88,14 @@ export default function SliderComponent({ homeData, settingsData }) {
             </div>
             <div className="slide">
               <div className="content">
-                <a href={homeData?.items?.sliders[3]?.link}>
+                <a href={homeData?.items?.sliders[4]?.link}>
                   <img
-                    src={homeData?.items?.sliders[3]?.image}
+                    src={homeData?.items?.sliders[4]?.image}
                     alt="banner virtual global"
                   />
                 </a>
               </div>
             </div>
-
-            {/* {homeData?.items?.sliders?.map((data) => (
-              <div className="slide" key={data.id}>
-                <div className="content">
-                  <a href={data.link}>
-                    <img src={data.image} alt="banner virtual global" />
-                  </a>
-                </div>
-              </div>
-            ))} */}
           </div>
         </S.ContainerBanner>
       </div>

@@ -8,14 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    {/* <embed
-      loop="true"
-      src="../public/music/background-music.mp3"
-      hidden="true"
-      type="video/quicktime"
-    > */}
     <App />
-    {/* </embed> */}
   </React.StrictMode>
 );
 

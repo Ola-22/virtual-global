@@ -1,4 +1,3 @@
-import AboutVGS from "../../Components/AboutVGS";
 import AnswerQuestions from "../../Components/Answer&Questions";
 import Banner from "../../Components/Banner";
 import Footer from "../../Components/Footer";
@@ -40,7 +39,7 @@ export default function Home({
         language={language}
         settingsData={settingsData}
       />
-      <AboutVGS homeData={homeData} settingsData={settingsData} />
+      {/* <AboutVGS homeData={homeData} settingsData={settingsData} /> */}
       <PopularDiscussions
         homeData={homeData}
         language={language}

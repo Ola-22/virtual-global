@@ -14,33 +14,29 @@ export const AboutContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 29px;
+  width: 100%;
 
   & .box {
     background-color: #ffffff;
-    width: 100%;
+    width: 94%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     margin-top: 27px;
     & img {
-      max-width: 400px;
       max-height: 300px;
       height: 100%;
-      width: 100%;
     }
     & h1 {
       font-size: 22px;
-      align-self: flex-start;
-      margin-top: 55px;
-      margin-inline-end: 0;
+      margin-top: 2%;
+      width: 100%;
       margin-bottom: 42px;
-      margin-inline-start: 4%;
     }
 
     & > p {
       font-size: 18px;
-      max-width: 1043px;
       width: 100%;
       @media (max-width: 1200px) {
         width: 90%;
@@ -60,8 +56,7 @@ export const AboutContainer = styled.div`
 `;
 
 export const BoxAbout = styled.div`
-  /* border: 1px solid #d6d6d6; */
-  /* width: 90%; */
+  width: 100%;
   min-height: 443px;
   border-radius: 10px;
   display: flex;
@@ -73,16 +68,21 @@ export const BoxAbout = styled.div`
 
   & img {
     /* max-width: 756px; */
-    width: 90%;
+    width: 80%;
     min-height: 375px;
     height: 100%;
   }
 `;
 
 export const Main = styled.div`
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
   width: 100%;
+  height: 100%;
   & .box-virtual {
-    max-width: 1000px;
+    max-width: 1170px;
     width: 100%;
   }
   & .right {

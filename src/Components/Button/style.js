@@ -4,7 +4,7 @@ export const ButtonContainer = styled.button`
   background: ${(props) =>
     props.primaryGround
       ? "#ffffff"
-      : "linear-gradient(to top right, #2395db, #5abbf8) #2395db"};
+      : "linear-gradient(to right, #2395db, #5abbf8) #2395db"};
   max-width: ${(props) => (props.primary ? "184px" : "290px")};
   width: 100%;
   min-height: 50px;

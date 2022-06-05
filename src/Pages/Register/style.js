@@ -59,6 +59,8 @@ export const RegisterContainer = styled.div`
           cursor: pointer;
           color: #2d98da;
           font-size: 14px;
+          text-transform: capitalize;
+          font-weight: bold;
         }
       }
       & .answer {
@@ -132,12 +134,21 @@ export const RegisterBox = styled.div`
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
-    color: rgba(0, 0, 0, 0.3);
-    appearance: none;
+    /* color: rgba(0, 0, 0, 0.3); */
+
     &[type="email"] {
       max-width: 739px;
       width: 90%;
     }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  & select {
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   & input {
@@ -177,6 +188,27 @@ export const RegisterContent = styled.div`
   & input[type="date"] {
     background: #fff url("/images/calendar.png") 97% 50% no-repeat;
 
+    /* border: none; */
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    outline: 0;
+    padding: 0.75rem;
+    position: relative;
+    width: 100%;
+
+    &::-webkit-calendar-picker-indicator {
+      /* background: transparent; */
+      bottom: 0;
+      /* color: transparent; */
+      cursor: pointer;
+      height: auto;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+      border: 1px solid #dfdfdf;
+    }
     &::-webkit-inner-spin-button {
       display: none;
     }
@@ -187,6 +219,10 @@ export const RegisterContent = styled.div`
 
   & select {
     background: #fff url("/images/arrow.png") 97% 50% no-repeat;
+    color: rgba(0, 0, 0, 0.3);
+    & option {
+      color: rgba(0, 0, 0);
+    }
   }
 `;
 export const wrapperEmail = styled.div`

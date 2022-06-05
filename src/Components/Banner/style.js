@@ -123,7 +123,7 @@ export const sliderMain = styled.div`
       flex-direction: row;
     }
     @media (max-width: 800px) {
-      flex-direction: column;
+      /* flex-direction: column; */
       align-items: center;
     }
     @media (max-width: 500px) {
@@ -212,6 +212,10 @@ export const NumberVirtual = styled.div`
     font-size: 11px;
     text-transform: uppercase;
     text-align: center;
+  }
+
+  @media (max-width: 450px) {
+    display: none;
   }
 `;
 
