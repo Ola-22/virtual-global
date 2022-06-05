@@ -14,7 +14,8 @@ export const AccordianContainer = styled.div`
   margin-bottom: 20px;
 
   & .accordion_faq {
-    height: 66px;
+    min-height: 66px;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -119,13 +120,16 @@ export const AnswerContainer = styled.div`
         margin-top: 32px;
         margin-bottom: 42px;
         display: flex;
-        justify-content: center;
         align-items: center;
         font-weight: bold;
 
+        text-transform: capitalize;
+        justify-content: center;
+        position: relative;
+
         & img {
-          margin-inline-end: -37%;
-          margin-inline-start: 41px;
+          position: absolute;
+          right: 21.5px;
         }
 
         & svg {

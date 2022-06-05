@@ -28,9 +28,15 @@ export const CardContainer = styled.div`
     width: 100%;
     /* height: 280px; */
     max-width: 80%;
+    & h3 {
+      font-size: 22px;
+      text-transform: capitalize;
+      margin-bottom: 2%;
+    }
     & p {
       font-size: 16px;
-      /* margin-top: 23px; */
+      color: rgba(0, 0, 0, 0.6);
+      font-weight: bold;
       height: 98px;
       overflow: hidden;
     }

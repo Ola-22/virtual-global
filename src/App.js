@@ -13,24 +13,25 @@ import ResetPassword from "./Pages/ResetPassword";
 import ChangePassword from "./Pages/ChangePassword";
 import Faqs from "./Pages/Faqs";
 
-import song from "./music/background-music.mp3";
+// import song from "./music/background-music.mp3";
 
 import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
+import { PlayAudio } from "./sound";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
 
-  const [setSongs] = useState("");
+  // const [setSongs] = useState("");
 
   // useEffect(() => {
   //   songs.play();
   // }, [songs]);
 
-  window.onload = function () {
-    setSongs(new Audio(song));
-  };
+  // window.onload = function () {
+  //   setSongs(new Audio(song));
+  // };
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
@@ -102,6 +103,7 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
+        <PlayAudio filepath="./music/background-music.mp3" />
         <Helmet>
           <title>{settingsData?.items?.title}</title>
         </Helmet>

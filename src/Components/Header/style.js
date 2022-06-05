@@ -7,6 +7,7 @@ export const HeaderContainer = styled.div`
   background-color: #2d98da;
   min-height: 71px;
   position: relative;
+  width: 100%;
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
@@ -61,6 +62,7 @@ export const HeaderContainer = styled.div`
       border-radius: 8px;
       margin-inline-start: 9px;
       cursor: pointer;
+
       @media (max-width: 768px) {
         border: none;
         width: 0;
@@ -103,6 +105,15 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-around;
   color: white;
+  width: 75%;
+  @media (max-width: 980px) {
+    width: auto;
+  }
+
+  @media (min-width: 980px) and (max-width: 1200px) {
+    width: 60%;
+    max-height: 71px;
+  }
   & .menus {
     height: 100%;
     min-height: 71px;
@@ -211,6 +222,10 @@ export const Nav = styled.nav`
           background: inherit;
         }
       }
+    }
+
+    @media (min-width: 980px) and (max-width: 1200px) {
+      font-size: 10px;
     }
   }
 `;
