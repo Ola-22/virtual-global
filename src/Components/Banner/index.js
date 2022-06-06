@@ -21,10 +21,6 @@ export default function SliderComponent({ homeData, settingsData }) {
   ];
   return (
     <S.sliderMain>
-      {/* <TypeWriter content="ff" /> */}
-      {/* <TypeWriterEffect /> */}
-
-      {/* <Typed strings={textLines} typeSpeed={100} smartBackspace={false} /> */}
       <div className="container-writer">
         <div className="Typewriter">
           <Typed
