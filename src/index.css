@@ -224,7 +224,7 @@ button{
   }
 }
 .slider .slide .content img{
-  margin-inline-start: 60%;
+  margin-inline-start: 63%;
   position: absolute;
   top: 0;
   object-fit: cover;
@@ -396,4 +396,11 @@ button{
 
 embed{
   display: none;
+}
+
+.slick-slide{
+  /* min-height: 500px;
+    display: flex !important;
+    align-items: center; */
+  
 }

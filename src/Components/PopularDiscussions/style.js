@@ -22,11 +22,11 @@ export const PopularContainer = styled.div`
     &::after {
       content: "";
       width: 91px;
-      height: 2px;
+      height: 5px;
       color: #4bb1f1;
       background-color: #4bb1f1;
       position: absolute;
-      left: 47%;
+      margin-inline-start: 47%;
       display: flex;
     }
   }

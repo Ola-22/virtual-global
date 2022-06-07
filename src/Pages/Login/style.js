@@ -43,11 +43,7 @@ export const loginContainer = styled.div`
   }
 
   & .right-login {
-    background: linear-gradient(
-        rgba(248, 248, 248, 0.8),
-        rgba(248, 248, 248, 0.9)
-      ),
-      url(/images/background.png) fixed;
+    background: #f8f8f8;
     max-width: 980px;
     width: 100%;
     height: 100%;

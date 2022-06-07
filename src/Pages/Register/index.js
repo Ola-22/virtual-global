@@ -1,10 +1,11 @@
 import * as S from "./style";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Modal } from "../../Components/Modal";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function Register({ language, settingsData }) {
   const [gender, setGender] = useState();
@@ -27,6 +28,8 @@ export default function Register({ language, settingsData }) {
 
   const [acceptConstitution, setAcceptConstitution] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
+
+  const [clickYes, setClickYes] = useState(false);
 
   const [state, setState] = useState({
     fname: "",
@@ -139,6 +142,14 @@ export default function Register({ language, settingsData }) {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState();
+  const [token, setToken] = useState("");
+  const captchaRef = useRef(null);
+
+  // console.log(captchaRef);
+
+  const onSubmit = () => {
+    captchaRef.current.execute();
+  };
   const handleSignup = async (e) => {
     // e.preventDefault();
     try {
@@ -155,14 +166,17 @@ export default function Register({ language, settingsData }) {
           categoryMajor,
           gender,
           acceptConstitution,
-          acceptTerms
+          acceptTerms,
+          token
         )
         .then(
           (response) => {
             if (response.status === true) {
-              // console.log("Sign up successfully", response.items.token);
-              // navigate("/");
               setShowCouncil(true);
+            }
+
+            if (response) {
+              setToken(response?.data?.items.token);
             }
 
             setRegisterData(response);
@@ -561,11 +575,20 @@ export default function Register({ language, settingsData }) {
                 </div>
               </div>
             </S.RegisterGender>
+
+            <div>
+              <HCaptcha
+                sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
+                // onLoad={onLoad}
+                onVerify={setToken}
+                ref={captchaRef}
+              />
+            </div>
             <Button
               onClick={(e) => {
                 e.preventDefault();
                 handleSignup();
-
+                onSubmit();
                 // setShowCouncil(true);
               }}
               title={settingsData?.items?.translation?.button_join}
@@ -593,32 +616,45 @@ export default function Register({ language, settingsData }) {
                     <div className="container">
                       <button
                         className={val === "yes" ? "activeBtn" : ""}
-                        onClick={() => setVal("yes")}
+                        onClick={() => {
+                          setVal("yes");
+                          setClickYes(!clickYes);
+                        }}
                       >
                         {settingsData?.items?.translation?.btn_yes}
                       </button>
                       <button
                         className={val === "no" ? "activeBtn" : ""}
-                        onClick={() => setVal("no")}
+                        onClick={() => {
+                          setVal("no");
+                          setClickYes(false);
+                        }}
                       >
                         {settingsData?.items?.translation?.btn_no}
                       </button>
                     </div>
-                    <div className="answer">
-                      <label htmlFor="answer">
-                        {settingsData?.items?.translation?.answer_council_wise}?
-                      </label>
+                    {clickYes && (
+                      <div className="answer">
+                        <label htmlFor="answer">
+                          {
+                            settingsData?.items?.translation
+                              ?.answer_council_wise
+                          }
+                          ?
+                        </label>
 
-                      <textarea
-                        id="w3review"
-                        name="answer"
-                        placeholder={
-                          settingsData?.items?.translation
-                            ?.placeholder_council_wise
-                        }
-                        onChange={(e) => setTextReason(e.target.value)}
-                      />
-                    </div>
+                        <textarea
+                          id="w3review"
+                          name="answer"
+                          placeholder={
+                            settingsData?.items?.translation
+                              ?.placeholder_council_wise
+                          }
+                          onChange={(e) => setTextReason(e.target.value)}
+                        />
+                      </div>
+                    )}
+
                     <Button
                       className="send"
                       onClick={() => navigate("/")}

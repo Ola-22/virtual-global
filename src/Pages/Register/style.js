@@ -7,15 +7,12 @@ export const RegisterContainer = styled.div`
   flex-wrap: wrap;
   position: relative;
   width: 100%;
-  background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0.8),
-      rgba(248, 248, 248, 0.9)
-    ),
-    url(/images/background.png);
+  background: #f8f8f8;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 2%;
+  padding-top: 2%;
   & .modal-wrapper {
     max-width: 930px;
     & .close {
@@ -116,6 +113,7 @@ export const RegisterBox = styled.div`
   align-items: center;
   background-color: #fff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+  padding-bottom: 5px;
   & h2 {
     text-align: center;
     text-transform: uppercase;

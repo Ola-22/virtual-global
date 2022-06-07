@@ -1,13 +1,7 @@
 import styled from "styled-components";
 
 export const AboutContainer = styled.div`
-  /* background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0.8),
-      rgba(248, 248, 248, 0.9)
-    ),
-    url(/images/background.png); */
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -18,7 +12,7 @@ export const AboutContainer = styled.div`
 
   & .box {
     background-color: #ffffff;
-    width: 94%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,6 +46,14 @@ export const AboutContainer = styled.div`
     @media (max-width: 1200px) {
       width: 95%;
     }
+
+    & .container {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    background-color: #ffffff;
   }
 `;
 
