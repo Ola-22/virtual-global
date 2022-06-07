@@ -43,20 +43,22 @@ function PagesMain({ settingsData, handleSetLanguage, profileInformation }) {
       />
       <S.AboutContainer>
         <div className="box">
-          <h1
-            dangerouslySetInnerHTML={{
-              __html: data?.items?.title,
-            }}
-          />
+          <div className="container">
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: data?.items?.title,
+              }}
+            />
 
-          <p
-            dangerouslySetInnerHTML={{
-              __html: data?.items?.text,
-            }}
-          />
-          <S.BoxAbout>
-            <img src={data?.items?.image} alt="" />
-          </S.BoxAbout>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: data?.items?.text,
+              }}
+            />
+            <S.BoxAbout>
+              <img src={data?.items?.image} alt="" />
+            </S.BoxAbout>
+          </div>
         </div>
       </S.AboutContainer>
     </S.Main>

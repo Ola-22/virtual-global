@@ -17,12 +17,7 @@ export const ForgetContainer = styled.div`
   & .main-box {
     width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    background: linear-gradient(
-        to right,
-        rgba(248, 248, 248, 0.8),
-        rgba(248, 248, 248, 0.9)
-      ),
-      url(/images/background.png);
+    background: #f8f8f8;
     background-size: cover;
     height: 90%;
     display: flex;

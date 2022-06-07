@@ -103,7 +103,7 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
-        <PlayAudio filepath="./music/background-music.mp3" />
+        {/* <PlayAudio filepath="./music/background-music.mp3" /> */}
         <Helmet>
           <title>{settingsData?.items?.title}</title>
         </Helmet>

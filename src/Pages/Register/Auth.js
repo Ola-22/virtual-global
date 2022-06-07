@@ -20,6 +20,7 @@ const SignUp = (
       Accept: "application/json",
     },
   };
+
   return axiosInstance
     .post(
       "/api/signup",

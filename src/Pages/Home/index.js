@@ -4,6 +4,7 @@ import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
 import PopularDiscussions from "../../Components/PopularDiscussions";
+import Testimonials from "../../Components/Testimonials";
 import VirtualState from "../../Components/VirtualState";
 import * as S from "./style";
 
@@ -39,17 +40,18 @@ export default function Home({
         language={language}
         settingsData={settingsData}
       />
-      {/* <AboutVGS homeData={homeData} settingsData={settingsData} /> */}
       <PopularDiscussions
         homeData={homeData}
         language={language}
         settingsData={settingsData}
       />
+      <Testimonials homeData={homeData} />
       <AnswerQuestions
         settingsData={settingsData}
         homeData={homeData}
         language={language}
       />
+
       <Footer settingsData={settingsData} language={language} />
     </S.headerContainer>
   );
