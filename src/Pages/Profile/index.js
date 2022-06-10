@@ -98,7 +98,7 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                     src={profileInformation?.user?.image}
                     alt="user img"
                   />
-                  <S.boxInformation>
+                  <S.boxInformation className="email">
                     <label>{settingsData?.items?.translation?.email}</label>
                     <h4>{profileInformation?.user?.email}</h4>
                   </S.boxInformation>

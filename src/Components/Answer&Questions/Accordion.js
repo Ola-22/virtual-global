@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./style";
 
-function Accordion({ homeData }) {
+function Accordion({ homeData, language }) {
   const [show, setShow] = useState(-1);
 
   function handleToggle(index) {
@@ -26,7 +26,13 @@ function Accordion({ homeData }) {
               <h3>{item.question}</h3>
 
               <div>
-                <img src="/images/Accordion.png" alt="Accordion" />
+                <img
+                  src="/images/Accordion.png"
+                  alt="Accordion"
+                  style={{
+                    transform: language === "ar" ? "rotate(180deg)" : "",
+                  }}
+                />
               </div>
             </div>
 

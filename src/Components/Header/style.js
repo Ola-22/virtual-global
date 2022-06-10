@@ -2,20 +2,22 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #2d98da;
   min-height: 71px;
   position: relative;
   width: 100%;
-  @media (max-width: 970px) {
+
+  @media (max-width: 981px) {
     flex-wrap: wrap;
+    justify-content: space-around;
   }
-  & > .rightNav {
+  & .rightNav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-inline-end: 5px;
+    /* padding-inline-end: 5px; */
     & > a {
       display: flex;
       align-items: center;
@@ -68,6 +70,13 @@ export const HeaderContainer = styled.div`
         width: 0;
       }
     }
+
+    & .logout,
+    .forum {
+      @media (max-width: 450px) {
+        display: none;
+      }
+    }
   }
   & .modal-wrapper {
     width: 50%;
@@ -77,14 +86,16 @@ export const HeaderContainer = styled.div`
     height: 208px;
     & .modal-header {
       justify-content: flex-end;
+      padding: 8px;
     }
     & .modal-body {
       display: flex;
-      justify-content: space-evenly;
       align-items: center;
+      flex-direction: column;
+      height: 68%;
+      justify-content: space-around;
       & button {
-        max-width: 112px;
-        width: 100%;
+        width: 112px;
         min-height: 50px;
         height: 100%;
         background-color: rgba(35, 149, 219, 0.15);
@@ -94,7 +105,23 @@ export const HeaderContainer = styled.div`
         color: #2d98da;
         font-size: 14px;
       }
+
+      & h1 {
+        text-align: center;
+        font-size: 16px;
+      }
     }
+
+    @media (max-width: 450px) {
+      width: 90%;
+    }
+  }
+
+  & .container-box {
+    width: 91%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 `;
 
@@ -103,9 +130,10 @@ export const Nav = styled.nav`
   min-height: 71px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   color: white;
   width: 75%;
+  margin-inline-end: -55px;
   @media (max-width: 980px) {
     width: auto;
   }
@@ -116,17 +144,20 @@ export const Nav = styled.nav`
   }
   & .menus {
     height: 100%;
-    min-height: 71px;
+    max-height: 71px;
     display: flex;
     align-items: center;
     @media (max-width: 980px) {
       justify-content: space-around;
       align-items: center;
       padding: 0;
+      max-height: 100vh;
+      overflow: hidden;
     }
-    & > li > a {
-      min-height: 71px;
-      height: 100%;
+    & > li {
+      max-height: 71px;
+      /* height: 72px; */
+      /* height: 100%; */
     }
     & .dropdown {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
@@ -141,7 +172,7 @@ export const Nav = styled.nav`
 
       & .menu-items {
         text-transform: capitalize;
-        height: 53px;
+        /* height: 53px; */
         width: 100%;
 
         &:not(:last-of-type) {
@@ -175,7 +206,7 @@ export const Nav = styled.nav`
         color: #000;
         justify-content: center;
         display: flex;
-
+        text-align: center;
         & :not(:last-of-type) {
           &::after {
             content: "";
@@ -213,6 +244,7 @@ export const Nav = styled.nav`
     }
     & a {
       height: 100%;
+      min-height: 73px;
       display: flex;
       align-items: center;
       color: white;
@@ -234,6 +266,7 @@ export const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
+
   .li {
     font-size: 14px;
     text-decoration: none;
@@ -287,6 +320,13 @@ export const Ul = styled.ul`
       open ? "transform 0.3s ease-in-out" : "translateX(100%)"};
     z-index: 222;
   }
+
+  & .logout,
+  .forum {
+    @media (min-width: 450px) {
+      display: none;
+    }
+  }
 `;
 
 export const profileInformation = styled.div`
@@ -315,4 +355,10 @@ export const profileInformation = styled.div`
       text-transform: capitalize;
     }
   }
+`;
+
+export const ContainerBtn = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
 `;

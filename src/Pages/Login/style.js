@@ -14,23 +14,32 @@ export const loginContainer = styled.div`
     align-items: center;
     color: #ffffff;
     font-size: 24px;
-    width: 45%;
-    height: 100%;
-    min-height: 100vh;
+    width: 100%;
+    max-width: 530px;
+    height: auto;
+    /* min-height: 100vh; */
 
     @media (max-width: 800px) {
       display: none;
     }
     & img {
       width: 151px;
+      height: 90px;
     }
 
+    & h6 {
+      margin-top: 33px;
+      font-weight: normal;
+    }
+    & h2 {
+      margin-top: 17px;
+      font-weight: bold;
+    }
     & h6,
     h2 {
-      font-weight: normal;
       font-size: 24px;
       text-transform: uppercase;
-      margin-top: 14px;
+      /* margin-top: 14px; */
       text-align: center;
     }
     & p {
@@ -39,6 +48,7 @@ export const loginContainer = styled.div`
       line-height: 1.5;
       text-align: center;
       margin-top: 17px;
+      min-height: 130px;
     }
   }
 
@@ -52,7 +62,8 @@ export const loginContainer = styled.div`
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
     & img {
       margin-inline-start: 30px;
       margin-bottom: 10px;
@@ -82,12 +93,13 @@ export const LoginBox = styled.div`
   & h2 {
     font-size: 24px;
     text-transform: uppercase;
-    margin-top: 34px;
+    /* margin-top: 34px; */
   }
   & h6 {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.62);
     font-weight: normal;
+    margin-top: 9px;
   }
 
   & input {
@@ -96,10 +108,16 @@ export const LoginBox = styled.div`
     min-height: 55px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
-    padding-inline-start: 10px;
+    padding-inline-start: 24px;
+    &::placeholder {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: capitalize;
+      opacity: 0.3;
+    }
   }
   & label {
-    margin-top: 29px;
+    margin-top: 30px;
     margin-bottom: 10px;
     text-transform: capitalize;
   }
@@ -107,7 +125,7 @@ export const LoginBox = styled.div`
   & .forget-pass {
     text-align: right;
     margin-inline-end: 10%;
-    margin-top: 11px;
+    margin-top: 12px;
     & a {
       font-size: 14px;
       text-transform: capitalize;
@@ -120,12 +138,13 @@ export const FooterLogin = styled.div`
   align-self: center;
   & button {
     margin-top: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
   }
 `;
 
 export const citizenshipBox = styled.div`
   font-size: 14px;
+  font-weight: bold;
 
   & a {
     color: #2d98da;

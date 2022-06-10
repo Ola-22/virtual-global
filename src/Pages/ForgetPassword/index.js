@@ -54,6 +54,7 @@ function ForgetPassword({ settingsData }) {
               type="email"
               value={email ?? ""}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
 
             <h3 className="error"> {forgetData?.message}</h3>

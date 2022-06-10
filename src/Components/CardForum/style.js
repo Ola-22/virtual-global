@@ -21,8 +21,11 @@ export const CardForum = styled.div`
     font-size: 22px;
     color: #2d98da;
     text-transform: capitalize;
-    margin: 33px 0 30.5px 22px;
-    align-self: flex-start;
+    margin-top: 33px;
+    margin-inline-end: 0;
+    margin-bottom: 30.5px;
+    margin-inline-start: 22px;
+    width: 90%;
   }
 
   & .boxCard {

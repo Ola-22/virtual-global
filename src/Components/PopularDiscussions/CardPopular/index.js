@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-function CardPolular({ link, title, text, likesCount, commentCount, key }) {
+function CardPolular({
+  link,
+  title,
+  text,
+  likesCount,
+  commentCount,
+  key,
+  language,
+}) {
   return (
     <S.CardContainer key={key}>
-      <div className="card-box">
+      <div
+        className="card-box"
+        style={{
+          direction: language === "ar" ? "rtl" : "ltr",
+        }}
+      >
         <h3>{title}</h3>
         <p
           dangerouslySetInnerHTML={{

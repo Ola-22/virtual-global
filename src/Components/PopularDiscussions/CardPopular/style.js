@@ -6,10 +6,11 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   /* margin-bottom: 121px; */
   /* width: 90%; */
-
+  /* margin-inline-end: 9%; */
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
+
   /* 
   &:nth-of-type(2) {
     position: absolute;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ForumContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
   background: #f8f8f8;
@@ -98,6 +98,11 @@ export const MainTopic = styled.div`
 
 export const Main = styled.div`
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   & .box-virtual {
     max-width: 840px;
     width: 100%;

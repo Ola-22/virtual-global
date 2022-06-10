@@ -1,10 +1,9 @@
-// import filepath from "./music/background-music.mp3";
 // const context = new window.AudioContext();
 
 // export function PlayAudio(filepath) {
 //   console.log("play audio");
 
-//   fetch("./music/background-music.mp3")
+//   fetch("./music/music.mp3")
 //     .then((response) => response.arrayBuffer(filepath))
 //     .then((arrayBuffer) => context.decodeAudioData(arrayBuffer))
 //     .then((audioBuffer) => {

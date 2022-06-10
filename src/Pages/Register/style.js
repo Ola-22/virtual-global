@@ -15,6 +15,8 @@ export const RegisterContainer = styled.div`
   padding-top: 2%;
   & .modal-wrapper {
     max-width: 930px;
+    top: 10%;
+    max-height: 547px;
     & .close {
       justify-content: flex-end;
     }
@@ -48,7 +50,7 @@ export const RegisterContainer = styled.div`
         & button {
           max-width: 112px;
           width: 100%;
-          min-height: 50px;
+          max-height: 50px;
           height: 100%;
           background-color: rgba(35, 149, 219, 0.15);
           border-radius: 28px;
@@ -58,6 +60,7 @@ export const RegisterContainer = styled.div`
           font-size: 14px;
           text-transform: capitalize;
           font-weight: bold;
+          margin-top: 0;
         }
       }
       & .answer {
@@ -120,6 +123,7 @@ export const RegisterBox = styled.div`
     font-size: 24px;
     padding-top: 24px;
     color: #000000;
+    margin-bottom: 37px;
     @media (max-width: 500px) {
       font-size: 14px;
     }
@@ -222,6 +226,10 @@ export const RegisterContent = styled.div`
       color: rgba(0, 0, 0);
     }
   }
+
+  &:not(:first-of-type) {
+    margin-top: 21px;
+  }
 `;
 export const wrapperEmail = styled.div`
   width: 100%;
@@ -230,6 +238,7 @@ export const wrapperEmail = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 21px;
   & label {
     width: 90%;
     margin-bottom: 10px;
@@ -240,6 +249,7 @@ export const wrapperEmail = styled.div`
 export const RegisterGender = styled.div`
   max-width: 739px;
   width: 90%;
+  margin-top: 21px;
   & div {
     display: flex;
     & input {
@@ -267,6 +277,7 @@ export const AnchorTag = styled.span`
 
 export const loginAccount = styled.div`
   font-size: 14px;
+  margin-bottom: 10px;
   & a {
     color: #2d98da;
     font-weight: bold;
@@ -280,6 +291,10 @@ export const MainRegister = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  & button {
+    margin-top: 38px;
+    margin-bottom: 28px;
+  }
 `;
 
 export const HeaderRegister = styled.div`
@@ -288,6 +303,9 @@ export const HeaderRegister = styled.div`
   width: 80%;
   display: flex;
   align-items: center;
+  & a {
+    z-index: 22;
+  }
 `;
 
 export const Main = styled.div`
@@ -296,4 +314,8 @@ export const Main = styled.div`
   width: 100%;
   min-height: 100vh;
   align-items: center;
+`;
+
+export const Captcha = styled.div`
+  margin-top: 21px;
 `;

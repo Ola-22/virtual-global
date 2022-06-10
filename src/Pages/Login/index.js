@@ -38,7 +38,7 @@ function Login({ settingsData }) {
   return (
     <S.loginContainer>
       <div>
-        <img src="/images/logo.png" alt="logo of the VGS" />
+        <img src="/images/FlagLogo.png" alt="logo of the VGS" />
         <h6>{settingsData?.items?.translation?.welcome_to}</h6>
         <h2>{settingsData?.items?.translation?.virtual_global_login}</h2>
         <p>{settingsData?.items?.translation?.join_login}</p>
@@ -56,12 +56,14 @@ function Login({ settingsData }) {
             type="email"
             value={email ?? ""}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder={settingsData?.items?.translation?.placeholder_pages}
           />
           <label>{settingsData?.items?.translation?.password}</label>
           <input
             type="password"
             value={password ?? ""}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder={settingsData?.items?.translation?.placeholder_pages}
           />
 
           <div className="forget-pass">

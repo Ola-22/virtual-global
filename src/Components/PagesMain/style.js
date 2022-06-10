@@ -19,12 +19,13 @@ export const AboutContainer = styled.div`
     border-radius: 10px;
     margin-top: 27px;
     & img {
-      max-height: 300px;
+      min-height: 300px;
       height: 100%;
+      width: 100%;
     }
     & h1 {
       font-size: 22px;
-      margin-top: 2%;
+      margin-top: 58px;
       width: 100%;
       margin-bottom: 42px;
     }
@@ -43,12 +44,12 @@ export const AboutContainer = styled.div`
         margin-bottom: 15%;
       }
     }
-    @media (max-width: 1200px) {
+    /* @media (max-width: 1200px) {
       width: 95%;
-    }
+    } */
 
     & .container {
-      width: 95%;
+      width: 92%;
     }
   }
 
@@ -70,7 +71,7 @@ export const BoxAbout = styled.div`
 
   & img {
     /* max-width: 756px; */
-    width: 80%;
+    width: 100%;
     min-height: 375px;
     height: 100%;
   }

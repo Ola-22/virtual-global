@@ -5,7 +5,7 @@ import Typed from "react-typed";
 import { useEffect, useState } from "react";
 
 export default function SliderComponent({ homeData, settingsData }) {
-  const [data, setData] = useState("&nbsp;");
+  const [data, setData] = useState(`${" "}`);
   useEffect(() => {
     setData(homeData);
   }, [homeData]);
@@ -13,11 +13,11 @@ export default function SliderComponent({ homeData, settingsData }) {
   console.log(data);
   const textLines = [
     `${" "}`,
-    `${data?.items?.sliders[0]?.text}`,
-    `${data?.items?.sliders[1]?.text}`,
-    `${data?.items?.sliders[2]?.text}`,
-    `${data?.items?.sliders[3]?.text}`,
-    `${data?.items?.sliders[4]?.text}`,
+    `${homeData?.items?.sliders[0]?.text}`,
+    `${homeData?.items?.sliders[1]?.text}`,
+    `${homeData?.items?.sliders[2]?.text}`,
+    `${homeData?.items?.sliders[3]?.text}`,
+    `${homeData?.items?.sliders[4]?.text}`,
   ];
   return (
     <S.sliderMain>
@@ -37,6 +37,9 @@ export default function SliderComponent({ homeData, settingsData }) {
             cursorChar="|"
           />
         </div>
+        <S.BackGround>
+          <span></span>
+        </S.BackGround>
         <S.ContainerBanner>
           <div className="slider">
             <div className="slide">

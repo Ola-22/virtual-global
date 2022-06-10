@@ -6,6 +6,8 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+// import { Captcha } from "2captcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Register({ language, settingsData }) {
   const [gender, setGender] = useState();
@@ -53,7 +55,7 @@ export default function Register({ language, settingsData }) {
     axiosInstance
       .get("/api/web-site/pages/terms", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -62,13 +64,13 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/pages/privacy_policy", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -77,13 +79,13 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/pages/constitution_terms", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -92,13 +94,13 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/categories/academic_levels", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -107,13 +109,13 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/categories/specializations", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -122,13 +124,13 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/categories/countries", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -137,7 +139,7 @@ export default function Register({ language, settingsData }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   const navigate = useNavigate();
 
@@ -145,7 +147,7 @@ export default function Register({ language, settingsData }) {
   const [token, setToken] = useState("");
   const captchaRef = useRef(null);
 
-  // console.log(captchaRef);
+  console.log(captchaRef);
 
   const onSubmit = () => {
     captchaRef.current.execute();
@@ -210,7 +212,7 @@ export default function Register({ language, settingsData }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance
@@ -221,9 +223,13 @@ export default function Register({ language, settingsData }) {
       });
   }
 
-  useEffect(() => {
-    sendRequestMember();
-  });
+  // useEffect(() => {
+  //   sendRequestMember();
+  // });
+
+  const onChange = (value) => {
+    console.log(value);
+  };
 
   return (
     <S.Main>
@@ -576,14 +582,19 @@ export default function Register({ language, settingsData }) {
               </div>
             </S.RegisterGender>
 
-            <div>
-              <HCaptcha
+            <S.Captcha>
+              {/* <HCaptcha
                 sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
-                // onLoad={onLoad}
                 onVerify={setToken}
                 ref={captchaRef}
+              /> */}
+              <ReCAPTCHA
+                // ref={captchaRef}
+                // size="invisible"
+                sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
+                onChange={onChange}
               />
-            </div>
+            </S.Captcha>
             <Button
               onClick={(e) => {
                 e.preventDefault();

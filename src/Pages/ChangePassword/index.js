@@ -67,6 +67,7 @@ function ChangePassword({ settingsData, language }) {
               type="password"
               value={currentPassword ?? ""}
               onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
 
             {changetData?.status === false

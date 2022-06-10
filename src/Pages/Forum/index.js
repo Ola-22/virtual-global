@@ -13,6 +13,7 @@ import MostReplies from "./MostReplies";
 import MostVisit from "./MostVisit";
 import RecentReplies from "./RecentReplies";
 import axios from "axios";
+import { NumberFormat } from "../../lib/NumberFormat";
 
 function Forum({
   settingsData,
@@ -53,6 +54,13 @@ function Forum({
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const total = discussion.reduce(
+    (total, currentItem) => (total = total + currentItem.comments_count),
+    0
+  );
+
+  console.log(total, "f");
 
   const [discussionsSearch, setDiscussionsSearch] = useState();
   useEffect(() => {
@@ -96,7 +104,7 @@ function Forum({
             </div>
             <div>
               <h2>{settingsData?.items?.translation?.replies}</h2>
-              <p>1.558.114</p>
+              <p>{NumberFormat(total)}</p>
             </div>
           </div>
           <div>
@@ -133,6 +141,7 @@ function Forum({
           >
             <>
               <Tab
+                language={language}
                 isSelected={
                   selected === settingsData?.items?.translation?.recent_topics
                 }

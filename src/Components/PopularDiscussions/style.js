@@ -8,9 +8,14 @@ export const PopularContainer = styled.div`
       rgba(241, 242, 245, 0.9)
     ),
     url(/images/background.png);
+  background-size: cover;
 
   padding-top: 70px;
   padding-bottom: 121px;
+  & .slider-popular {
+    margin-inline-start: 2%;
+    margin-inline-end: 2%;
+  }
 
   & h1 {
     font-size: 36px;
@@ -28,6 +33,10 @@ export const PopularContainer = styled.div`
       position: absolute;
       margin-inline-start: 47%;
       display: flex;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 30px;
     }
   }
 `;

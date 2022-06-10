@@ -62,6 +62,7 @@ function ResetPassword({ settingsData, language }) {
               type="password"
               value={password ?? ""}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
 
             {/* <h3 className="error"> {ResetData?.message}</h3> */}

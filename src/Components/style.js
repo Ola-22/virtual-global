@@ -7,20 +7,17 @@ export const IDCardContainer = styled.div`
   background-size: cover;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 94%;
   justify-content: space-around;
-  min-height: 375px;
+  min-height: 638px;
   height: 90%;
   border-radius: 9px;
-  padding-bottom: 23px;
+  padding-bottom: 20px;
 
-  @media (max-width: 1200px) {
-    width: 90%;
-  }
-
-  @media (max-width: 400px) {
-    max-height: 420px;
-    width: 96%;
+  @media (max-width: 500px) {
+    padding-bottom: 0;
+    max-height: 480px;
+    min-height: 480px;
   }
 `;
 
@@ -32,7 +29,20 @@ export const IDCardBox = styled.div`
   width: 95%;
   padding-top: 25px;
   & h1 {
-    font-size: 13px;
+    font-size: 21px;
+    text-align: center;
+    @media (min-width: 375px) and (max-width: 1200px) {
+      font-size: 16px;
+    }
+  }
+
+  & .img-flag {
+    max-width: 175px;
+    max-height: 103px;
+    @media (max-width: 500px) {
+      max-width: 100px;
+      max-height: 70px;
+    }
   }
 
   &:after {
@@ -43,16 +53,29 @@ export const IDCardBox = styled.div`
     position: absolute;
     top: calc(100% + 21.5px);
   }
+
+  & .union {
+    align-self: flex-start;
+    margin-top: 9px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 0;
+  }
 `;
 
 export const VirtualID = styled.div`
   width: 95%;
   & h1 {
-    font-size: 13px;
+    font-size: 21px;
     margin-top: 30px;
-    margin-inline-start: 4%;
-    @media (max-width: 375px) {
-      margin-top: 25px;
+    @media (min-width: 375px) and (max-width: 700px) {
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    @media (max-width: 700px) {
+      margin-top: 30px;
     }
   }
 
@@ -68,19 +91,44 @@ export const VirtualID = styled.div`
     & > div:first-of-type {
       & h4 {
         color: #4bb1f1;
-        max-width: 177px;
-        width: 100%;
-        margin-bottom: 6px;
-        @media (max-width: 400px) {
-          font-size: 12px;
+        font-size: 20px;
+        font-weight: normal;
+        margin-top: 34px;
+        margin-bottom: 9px;
+        @media (min-width: 375px) and (max-width: 699px) {
+          font-size: 16px;
+        }
+      }
+
+      & p {
+        font-size: 20px;
+        font-weight: normal;
+
+        @media (min-width: 375px) and (max-width: 699px) {
+          font-size: 16px;
         }
       }
     }
     & .img-user {
       /* border-radius: 50%; */
+      max-width: 240px;
+      height: 265px;
+      padding: 5px;
+      background-color: white;
+
+      @media (min-width: 700px) and (max-width: 1200px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      @media (min-width: 499px) and (max-width: 699px) {
+        width: 150px;
+        height: 150px;
+      }
+
       @media (max-width: 500px) {
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
       }
     }
 
@@ -92,25 +140,60 @@ export const VirtualID = styled.div`
 
 export const boxCard = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   justify-content: space-between;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 76%;
-  margin-inline-start: 10px;
 
-  & h4,
+  & div {
+    margin-bottom: 8px;
+  }
+
+  @media (min-width: 480px) and (max-width: 1200px) {
+    margin-inline-start: 20px;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: row !important;
+  }
+
   & h3 {
-    font-weight: normal;
-    font-size: 14px;
-
-    @media (max-width: 400px) {
-      font-size: 11px;
+    font-size: 20px;
+    font-weight: bold;
+    @media (max-width: 699px) {
+      font-size: 16px;
     }
   }
 
   & h4 {
+    font-size: 18px;
+    font-weight: normal;
     color: rgba(0, 0, 0, 0.7);
-    margin-bottom: 5px;
+
+    @media (max-width: 699px) {
+      font-size: 14px;
+    }
+  }
+
+  & .box-data:last-of-type {
+    @media (max-width: 500px) {
+      margin-inline-start: 20px;
+    }
+  }
+`;
+
+export const QrCode = styled.img`
+  width: 102px;
+  height: 102px;
+
+  @media (min-width: 499px) and (max-width: 699px) {
+    width: 70px;
+    height: 70px;
+  }
+
+  @media (max-width: 500px) {
+    width: 40px;
+    height: 40px;
   }
 `;

@@ -6,15 +6,18 @@ function Nav({ settingsData, language, handleSetLanguage }) {
   console.log(settingsData?.items?.languages);
 
   return (
-    <S.NavContainer>
+    <S.NavContainer className="nav-container">
       <Link className="box-virtual" to="/">
         <div>
-          <img
-            src={settingsData?.items?.logo}
-            alt="logo"
-            width="110"
-            height="65"
-          />
+          <div className="img-container">
+            <img
+              src={settingsData?.items?.logo}
+              alt="logo"
+              width="110"
+              height="65"
+            />
+          </div>
+
           <h3>{settingsData?.items?.title}</h3>
         </div>
       </Link>

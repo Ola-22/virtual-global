@@ -55,7 +55,7 @@ function App() {
       });
   }, [language]);
 
-  // console.log(settingsData);
+  console.log(settingsData, "settings");
 
   useEffect(() => {
     axiosInstance
@@ -95,6 +95,7 @@ function App() {
       .catch((err) => console.log(err));
   }, [language]);
 
+  console.log("first", settingsData);
   return (
     <BrowserRouter>
       <div
@@ -106,6 +107,7 @@ function App() {
         {/* <PlayAudio filepath="./music/background-music.mp3" /> */}
         <Helmet>
           <title>{settingsData?.items?.title}</title>
+          <link rel="icon" href="/images/logo-footer.png" />
         </Helmet>
         <Routes>
           <Route
@@ -175,6 +177,7 @@ function App() {
                   storeLanguageInLocalStorage(language);
                 }}
                 profileInformation={profileInformation}
+                language={language}
               />
             }
           />

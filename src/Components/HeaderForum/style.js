@@ -9,14 +9,15 @@ export const ForumContainer = styled.div`
   min-height: 71px;
   height: 100%;
 
-  & div:first-child {
+  width: 100%;
+
+  /* & div:first-child {
     border: 1px solid #fff;
     border-radius: 20px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    max-width: 320px;
     width: 100%;
     height: 40px;
     & input {
@@ -35,7 +36,7 @@ export const ForumContainer = styled.div`
       width: 90%;
       margin-top: 8px;
     }
-  }
+  } */
 
   & .profile-box {
     display: flex;
@@ -112,5 +113,41 @@ export const ForumContainer = styled.div`
     width: 41px;
     height: 41px;
     border-radius: 50%;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+  }
+  & .input-container {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 320px;
+    height: 40px;
+  }
+  & input {
+    border: none;
+    background-color: #ffffff;
+    max-width: 250px;
+    width: 100%;
+    font-size: 14px;
+    /* @media (max-width: 550px) {
+      width: 90%;
+      max-width: 150px;
+    } */
   }
 `;
