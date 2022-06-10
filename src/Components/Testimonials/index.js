@@ -6,7 +6,7 @@ import Slider from "react-slick";
 function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick}>
+    <div style={{ display: "none" }} className={className} onClick={onClick}>
       <img src="/images/arrowNext.png" alt="" />
     </div>
   );
@@ -15,13 +15,13 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
-    <div className={className} onClick={onClick}>
+    <div style={{ display: "none" }} className={className} onClick={onClick}>
       <img src="/images/arrowPrev.png" alt="" />
     </div>
   );
 }
 
-function Testimonials({ homeData }) {
+function Testimonials({ homeData, language }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -29,6 +29,7 @@ function Testimonials({ homeData }) {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    rtl: language === "ar" && true,
     // appendDots: (dots) => (
     //   <div
     //     style={{
@@ -40,21 +41,21 @@ function Testimonials({ homeData }) {
     //     <ul style={{ margin: "0px" }}> {dots} </ul>
     //   </div>
     // ),
-    // customPaging: (i) => (
-    //   <div
-    //     style={{
-    //       width: "30px",
-    //       color: "blue",
-    //       border: "1px blue solid",
-    //     }}
-    //   >
-    //     {i + 1}
-    //   </div>
-    // ),
+    // customPaging: (i) => <div>.</div>,
 
     responsive: [
       {
         breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+
+      {
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -64,17 +65,7 @@ function Testimonials({ homeData }) {
       },
 
       {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-
-      {
-        breakpoint: 480,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -86,7 +77,7 @@ function Testimonials({ homeData }) {
     <S.Container>
       <h1>Testimonials</h1>
 
-      <div>
+      <S.slideMain>
         <Slider {...settings}>
           {homeData?.items?.testimonials.map((testimonial) => (
             <div>
@@ -95,11 +86,12 @@ function Testimonials({ homeData }) {
                 rating={testimonial.rate}
                 name={testimonial.name}
                 img={testimonial.image}
+                language={language}
               />
             </div>
           ))}
         </Slider>
-      </div>
+      </S.slideMain>
     </S.Container>
   );
 }

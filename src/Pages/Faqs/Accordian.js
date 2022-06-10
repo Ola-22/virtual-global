@@ -24,7 +24,13 @@ function Accordian({ lengthFaqs, language }) {
                 </h3>
               </div>
               <div>
-                <img src="/images/Accordion.png" alt="Accordion" />
+                <img
+                  src="/images/Accordion.png"
+                  alt="Accordion"
+                  style={{
+                    transform: language === "ar" ? "rotate(180deg)" : "",
+                  }}
+                />
               </div>
             </F.AccordianContainer>
 

@@ -44,7 +44,16 @@ function Footer({ settingsData, language }) {
         <div className="top-footer">
           <S.AboutContainer>
             <h6>{settingsData?.items?.translation?.about_footer}</h6>
-            <p>{settingsData?.items?.describe}</p>
+            <div className="box-logo">
+              <div>
+                <img src="/images/logo-footer.png" alt="logo" />
+                <div className="vgs">
+                  <h2>THE VIRTUAL GLOBAL STATE (VGS)</h2>
+                  <p>A Virtual Entity Parallel to The Real-World</p>
+                </div>
+              </div>
+              <p>{settingsData?.items?.describe}</p>
+            </div>
           </S.AboutContainer>
 
           <S.AccessContainer>
@@ -86,7 +95,7 @@ function Footer({ settingsData, language }) {
 
           <div>
             <h6>{settingsData?.items?.translation?.contact_us_footer}</h6>
-
+            {/* 
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />
@@ -96,7 +105,7 @@ function Footer({ settingsData, language }) {
                 {settingsData?.items?.contact_information?.phone},
                 {settingsData?.items?.contact_information?.mobile}
               </li>
-            </div>
+            </div> */}
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />

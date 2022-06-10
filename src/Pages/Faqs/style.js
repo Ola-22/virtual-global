@@ -1,12 +1,7 @@
 import styled from "styled-components";
 
 export const FaqsContainer = styled.div`
-  background: linear-gradient(
-      to right,
-      rgba(248, 248, 248, 0.8),
-      rgba(248, 248, 248, 0.9)
-    ),
-    url(/images/background.png);
+  background: #f8f8f8;
   flex-direction: column;
   min-height: 100vh;
   display: flex;
@@ -39,10 +34,12 @@ export const Main = styled.div`
   & .box-virtual {
     max-width: 1000px;
     width: 100%;
+    @media (max-width: 1200px) {
+      max-width: 820px;
+    }
   }
 
-  & .right {
-    max-width: 110px;
+  & .nav-container {
     width: 100%;
   }
 `;

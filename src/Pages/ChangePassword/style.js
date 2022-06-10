@@ -25,6 +25,8 @@ export const ForgetContainer = styled.div`
     justify-content: center;
 
     & .box {
+      min-height: 403px;
+      max-width: 557px;
       background-color: #fff;
       height: 70%;
       padding: 20px 0;
@@ -39,10 +41,13 @@ export const ForgetContainer = styled.div`
       & h1 {
         text-transform: uppercase;
         text-align: center;
+        font-size: 24px;
       }
       & p {
         width: 90%;
         text-align: center;
+        font-size: 16px;
+        opacity: 0.62;
       }
 
       & button {
@@ -65,12 +70,21 @@ export const InputBox = styled.div`
   justify-content: space-between;
   & label {
     font-weight: bold;
+    text-transform: capitalize;
   }
   & input {
     height: 50px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
-    padding-inline-start: 10px;
+    padding-inline-start: 24px;
+    margin-top: 10px;
+    &::placeholder {
+      text-transform: capitalize;
+      font-weight: bold;
+      color: #000000;
+      opacity: 0.3;
+      font-size: 14px;
+    }
   }
 
   & h3 {

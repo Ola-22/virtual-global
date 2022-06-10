@@ -10,6 +10,7 @@ const StyledMenu = styled.div`
   right: 10%;
   z-index: 20;
   display: none;
+
   @media (max-width: 980px) {
     display: flex;
     justify-content: space-around;
@@ -47,7 +48,7 @@ const Menu = ({ settingsData }) => {
         <div />
         <div />
       </StyledMenu>
-      <Navbar open={open} settingsData={settingsData} />
+      <Navbar open={open} setOpen={setOpen} settingsData={settingsData} />
     </>
   );
 };

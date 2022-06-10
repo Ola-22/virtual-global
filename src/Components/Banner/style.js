@@ -50,36 +50,17 @@ export const BannerContainer = styled.div`
 `;
 
 export const BackGround = styled.div`
-  & > span {
-    position: absolute;
-    width: 419px;
-    max-width: 100%;
-    opacity: 0.4;
-    /* z-index: 2; */
-    height: 410px;
-    border-radius: 20px;
-    background-color: #4bb1f1;
-    transform: rotate(-5deg);
-    margin-inline-start: 5%;
-    margin-top: 11%;
-    @media (max-width: 1200px) {
-      top: 5%;
-      /* left: 45%; */
-      /* margin-inline-start: 5%; */
-    }
-    @media (max-width: 960px) {
-      display: none;
-    }
-    @media (max-width: 960px) {
-      display: none;
-    }
-    @media (max-width: 800px) {
-      display: none;
-    }
-
-    display: none;
-  }
-
+  position: absolute;
+  width: 419px;
+  max-width: 100%;
+  opacity: 0.4;
+  /* z-index: 2; */
+  height: 410px;
+  border-radius: 20px;
+  background-color: #4bb1f1;
+  transform: rotate(-5deg);
+  margin-inline-start: 47%;
+  margin-top: 7.5%;
   @media (max-width: 960px) {
     display: none;
   }
@@ -87,11 +68,12 @@ export const BackGround = styled.div`
   @media (max-width: 800px) {
     display: none;
   }
+  @media (min-width: 960px) and (max-width: 1200px) {
+    margin-inline-start: 44%;
+  }
 
-  & > img {
-    position: sticky;
-    max-width: 100%;
-    height: auto;
+  @media (min-width: 1400px) {
+    margin-inline-start: 48%;
   }
 `;
 
@@ -104,30 +86,36 @@ export const sliderMain = styled.div`
       rgba(248, 248, 248, 0.9)
     ),
     url(/images/background.png);
+  align-items: center;
+  justify-content: center;
   background-size: cover;
   min-height: 600px;
   height: auto;
   justify-content: space-between;
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     min-height: 870px;
   }
 
   & .container-writer {
     display: flex;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-around;
     @media (max-width: 960px) {
       width: 100%;
       justify-content: space-between;
-      flex-direction: row;
     }
-    @media (max-width: 800px) {
-      /* flex-direction: column; */
+    @media (max-width: 900px) {
+      flex-direction: column;
       align-items: center;
+      min-height: 870px;
+      height: 100%;
+      justify-content: space-between;
     }
-    @media (max-width: 500px) {
-      width: 53%;
+    @media (min-width: 450px) and (max-width: 600px) {
+      min-width: 86%;
+      width: 100%;
     }
   }
 `;
@@ -217,13 +205,17 @@ export const NumberVirtual = styled.div`
   @media (max-width: 450px) {
     display: none;
   }
+  @media (max-width: 900px) {
+    margin-top: -32%;
+  }
 `;
 
 export const ContainerBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 960px) {
+  width: 100%;
+  /* @media (max-width: 960px) {
     margin-inline-start: 80%;
-  }
+  } */
 `;

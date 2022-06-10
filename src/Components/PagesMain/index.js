@@ -5,7 +5,12 @@ import Nav from "../Nav";
 import Header from "../Header";
 import * as S from "./style";
 
-function PagesMain({ settingsData, handleSetLanguage, profileInformation }) {
+function PagesMain({
+  settingsData,
+  handleSetLanguage,
+  profileInformation,
+  language,
+}) {
   const slug = useParams();
 
   console.log(slug?.slug);
@@ -21,7 +26,7 @@ function PagesMain({ settingsData, handleSetLanguage, profileInformation }) {
 
         {
           headers: {
-            lang: localStorage.getItem("language"),
+            lang: language,
           },
         }
       )

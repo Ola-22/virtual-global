@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProfileContainer = styled.div`
   background-color: #f8f8f8;
   position: relative;
+  width: 100%;
   & .profile-main {
     padding-bottom: 299px;
     display: flex;
@@ -11,18 +12,18 @@ export const ProfileContainer = styled.div`
   }
 
   & .box {
-    width: 87%;
+    width: 90%;
     padding-top: 28px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     /* flex-wrap: wrap; */
     @media (max-width: 900px) {
       flex-wrap: wrap;
     }
 
-    @media (max-width: 700px) {
+    /* @media (max-width: 700px) {
       width: 100%;
-    }
+    } */
     & .virtual-id {
       display: flex;
       flex-direction: column;
@@ -30,30 +31,26 @@ export const ProfileContainer = styled.div`
       justify-content: center;
       background-color: #ffffff;
       border-radius: 10px;
-      max-width: 709px;
+      max-width: 69%;
       width: 100%;
       padding-bottom: 82px;
-      @media (max-width: 1200px) {
-        width: 60%;
+      @media (max-width: 500px) {
+        padding-bottom: 20px;
       }
 
       @media (max-width: 900px) {
-        width: 100%;
-        max-width: 90%;
-      }
-
-      @media (max-width: 700px) {
         width: 100%;
         max-width: 100%;
       }
 
       & > h3 {
         font-size: 18px;
-        align-self: flex-start;
+        /* align-self: flex-start; */
         text-transform: uppercase;
-        margin-inline-start: 5%;
+        /* margin-inline-start: 5%; */
         margin-top: 32px;
         margin-bottom: 37px;
+        width: 94%;
       }
     }
 
@@ -65,14 +62,15 @@ export const ProfileContainer = styled.div`
       flex-wrap: wrap;
       background-color: #ffffff;
       border-radius: 10px;
-      max-width: 425px;
+      max-width: 30%;
       width: 100%;
+      padding-bottom: 42px;
       @media (max-width: 900px) {
-        width: 90% !important;
-        max-width: 90%;
+        width: 100% !important;
+        max-width: 100%;
         margin-top: 2%;
-        height: 350px;
-        padding-bottom: 20px;
+        height: auto;
+        /* padding-bottom: 20px; */
       }
 
       @media (max-width: 700px) {
@@ -106,6 +104,7 @@ export const ProfileContainer = styled.div`
         cursor: pointer;
         align-self: stretch;
         margin-inline-start: 5%;
+        font-size: 12px;
       }
       @media (max-width: 1200px) {
         width: 36%;
@@ -137,11 +136,25 @@ export const profileInformation = styled.div`
   &.box-profile {
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 30px;
   }
 
   & .changePass {
     width: 130%;
     max-width: 300px;
+  }
+
+  & .email {
+    margin-top: 35px;
+  }
+
+  & h4,
+  label {
+    font-size: 14px;
+  }
+
+  & h4 {
+    opacity: 0.6;
   }
 `;
 
@@ -154,21 +167,21 @@ export const imgUser = styled.img`
 `;
 
 export const lastActivity = styled.div`
-  width: 85%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  @media (max-width: 900px) {
+  /* @media (max-width: 900px) {
     width: 79%;
-  }
+  } */
 
   @media (max-width: 500px) {
     width: 90%;
   }
 
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     max-width: 100%;
     width: 98%;
-  }
+  } */
   & h2 {
     font-size: 18px;
     background-color: #ffffff;
@@ -360,22 +373,23 @@ export const boxInformation = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 90%;
+  margin-bottom: 15px;
 `;
 
 export const containerProfile = styled.div`
-  height: 80%;
+  height: 90%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   flex-direction: column;
   width: 90%;
 `;
 
 export const Main = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  & .box-virtual {
-    max-width: 900px;
-    width: 100%;
+  & .nav-container {
+    justify-content: space-between;
   }
 `;

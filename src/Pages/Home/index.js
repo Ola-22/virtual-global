@@ -45,7 +45,7 @@ export default function Home({
         language={language}
         settingsData={settingsData}
       />
-      <Testimonials homeData={homeData} />
+      <Testimonials homeData={homeData} language={language} />
       <AnswerQuestions
         settingsData={settingsData}
         homeData={homeData}

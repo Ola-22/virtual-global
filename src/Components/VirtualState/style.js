@@ -4,29 +4,10 @@ export const VirtualState = styled.div`
   display: flex;
   background: url(/images/Virtual.png) no-repeat;
   height: auto;
+  background-size: cover;
   width: 100%;
   justify-content: space-around;
   align-items: center;
-
-  @media (max-width: 600px) {
-    background-size: 10000px;
-  }
-
-  @media (max-width: 600px) {
-    background-size: 10000px;
-  }
-
-  @media (max-width: 600px) {
-    background-size: 10000px;
-  }
-
-  @media (max-width: 600px) {
-    background-size: 10000px;
-  }
-
-  @media (max-width: 600px) {
-    background-size: 10000px;
-  }
 
   @media (max-width: 600px) {
     background-size: 10000px;
@@ -92,6 +73,8 @@ export const VirtualState = styled.div`
         height: 50px;
         margin-bottom: 10px;
         margin: auto;
+        margin-top: 6%;
+        margin-bottom: 6%;
       }
       &:hover {
         color: #2395db;

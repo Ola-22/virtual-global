@@ -8,6 +8,7 @@ export const DetailsContainer = styled.div`
   background: #f8f8f8;
   padding-top: 31px;
   padding-bottom: 46px;
+  width: 100%;
 
   @media (max-width: 700px) {
     flex-wrap: wrap;
@@ -30,8 +31,12 @@ export const DetailsBox = styled.div`
 
   @media (max-width: 700px) {
     width: 90%;
-    max-width: 765px;
+    margin: auto;
     margin-top: 5%;
+  }
+
+  @media (min-width: 699px) and (max-width: 960px) {
+    width: 48%;
   }
   & h6 {
     font-size: 16px;
@@ -144,13 +149,13 @@ export const CardForum = styled.div`
   background-color: #ffffff;
   align-items: center;
   /* max-width: 367px; */
-  width: 23%;
+  /* width: 23%; */
   border-radius: 10px;
   min-height: 549px;
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;
-  margin-inline-end: -12%;
+  /* margin-inline-end: -12%; */
 
   @media (max-width: 700px) {
     width: 90%;
@@ -215,7 +220,9 @@ export const CommentsWrapper = styled.div`
 
 export const Main = styled.div`
   width: 100%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   & .box-virtual {
     max-width: 830px;
     width: 100%;
@@ -235,5 +242,9 @@ export const Main = styled.div`
     background: white;
     border: 1px solid #5abbf8;
     margin-top: 10px;
+  }
+
+  & .nav-container {
+    justify-content: space-between;
   }
 `;

@@ -4,6 +4,8 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  width: 100%;
+
   /* justify-content: space-evenly; */
   justify-content: space-evenly;
   background-color: #f3f3f3;
@@ -23,22 +25,32 @@ export const FooterContainer = styled.div`
   }
   & > .top-footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 100%;
+    max-width: 89%;
     width: 100%;
+    padding-top: 54px;
     @media (max-width: 760px) {
-      justify-content: flex-start;
-      padding: 10px;
+      /* padding-top: 54px; */
     }
     & p {
       font-size: 14px;
       max-width: 356px;
       width: 100%;
-      margin-top: 23px;
+      margin-top: 32px;
       line-height: 1.5;
-      @media (max-width: 400px) {
-        width: 90%;
+      /* margin-inline-start: 13.6px; */
+
+      @media (max-width: 500px) {
+        min-width: 90%;
+        width: 100%;
+        align-self: flex-start;
+      }
+    }
+
+    & > div:first-of-type {
+      @media (max-width: 500px) {
+        min-width: 410px;
       }
     }
     & > div:nth-of-type(2) {
@@ -55,8 +67,10 @@ export const FooterContainer = styled.div`
         }
       }
 
-      @media (min-width: 570px) and (max-width: 760px) {
-        padding-inline-start: 8%;
+      @media (max-width: 500px) {
+        min-width: 250px;
+        margin-top: 5%;
+        margin-bottom: 5%;
       }
     }
     & > div:last-of-type {
@@ -77,9 +91,16 @@ export const FooterContainer = styled.div`
         }
       }
 
-      @media (min-width: 570px) and (max-width: 480px) {
+      /* @media (min-width: 570px) and (max-width: 480px) {
         padding-inline-start: 15%;
-      }
+      } */
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      padding-bottom: 2%;
+      /* padding-inline-start: 7%; */
+      padding-top: 8%;
     }
   }
 `;
@@ -141,6 +162,7 @@ export const FooterSocial = styled.div`
     justify-content: center;
     flex-direction: column;
     max-width: 90%;
+    margin-top: 39px;
   }
 `;
 
@@ -149,6 +171,7 @@ export const copyRight = styled.p`
   color: #000000;
   align-self: center;
   margin-top: 5%;
+  margin-bottom: 24px;
 
   @media (max-width: 800px) {
     margin-top: 3%;
@@ -157,7 +180,7 @@ export const copyRight = styled.p`
 `;
 
 export const boxMail = styled.div`
-  background: #ff5858 !important;
+  background: #4bb1f1 !important;
   max-width: 68px;
   width: 100%;
   cursor: pointer;
@@ -198,6 +221,10 @@ export const containerMail = styled.div`
       z-index: 22;
       margin-inline-start: 20px;
     }
+
+    @media (max-width: 500px) {
+      min-width: 100%;
+    }
   }
   & h3 {
     color: red;
@@ -205,14 +232,67 @@ export const containerMail = styled.div`
     font-weight: normal;
     margin-top: 5px;
   }
+
+  @media (max-width: 500px) {
+    min-width: 90%;
+    width: 100%;
+    margin-top: 2%;
+  }
 `;
 
 export const AboutContainer = styled.div`
-  max-width: 35%;
+  max-width: 356px;
   width: 100%;
 
   @media (max-width: 760px) {
-    max-width: 60%;
+    /* max-width: 60%; */
+  }
+
+  & .box-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+    margin-top: 29.5px;
+    margin-bottom: 39px;
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & .vgs {
+        margin-inline-start: 9px;
+      }
+
+      & h2 {
+        font-family: "Bauhaus";
+        font-size: 20px;
+        min-width: 282px;
+        width: 100%;
+
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
+      }
+
+      & p {
+        margin-top: 7px;
+        margin-inline-start: 0;
+        font-size: 11px;
+      }
+
+      @media (max-width: 500px) {
+        max-width: 87%;
+        width: 100%;
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+      /* width: 84%;
+      margin: auto; */
+    }
   }
 `;
 

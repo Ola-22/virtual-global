@@ -6,7 +6,12 @@ import * as S from "./style";
 import Pagination from "../../Components/Pagination";
 import Accordian from "./Accordian";
 
-function Faqs({ settingsData, profileInformation, handleSetLanguage }) {
+function Faqs({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+  language,
+}) {
   const [faqs, setFaqs] = useState();
   useEffect(() => {
     axiosInstance
@@ -47,7 +52,7 @@ function Faqs({ settingsData, profileInformation, handleSetLanguage }) {
         settingsData={settingsData}
       />
       <S.FaqsContainer>
-        <Accordian lengthFaqs={currentPosts} />
+        <Accordian lengthFaqs={currentPosts} language={language} />
 
         <Pagination
           postsPerPage={postsPerPage}

@@ -4,7 +4,7 @@ import axiosInstance from "../../helpers/axios";
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 
-function AnswerQuestions({ homeData, settingsData }) {
+function AnswerQuestions({ homeData, settingsData, language }) {
   const [contactData, setContactData] = useState();
 
   const [state, setState] = useState({
@@ -90,7 +90,7 @@ function AnswerQuestions({ homeData, settingsData }) {
       <div className="accordion">
         <h1>{settingsData?.items?.translation?.answer_questions}</h1>
         <div style={{ cursor: "pointer" }}>
-          <Accordion homeData={homeData} />
+          <Accordion homeData={homeData} language={language} />
         </div>
       </div>
       <div className="main-box">

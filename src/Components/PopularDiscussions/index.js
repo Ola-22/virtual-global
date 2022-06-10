@@ -20,7 +20,11 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function PopularDiscussions({ homeData, settingsData }) {
+export default function PopularDiscussions({
+  homeData,
+  settingsData,
+  language,
+}) {
   const settings = {
     dots: false,
     infinite: true,
@@ -28,6 +32,7 @@ export default function PopularDiscussions({ homeData, settingsData }) {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    rtl: language === "ar" && true,
 
     responsive: [
       {
@@ -75,6 +80,7 @@ export default function PopularDiscussions({ homeData, settingsData }) {
               likesCount={data?.likes_count}
               commentCount={data?.comments_count}
               link={data.id}
+              language={language}
             />
             // </S.MainSlider>
           ))}

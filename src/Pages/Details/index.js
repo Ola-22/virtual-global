@@ -133,6 +133,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
+
       <HeaderForum
         settingsData={settingsData}
         profileInformation={profileInformation}

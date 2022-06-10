@@ -16,6 +16,7 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  text-transform: capitalize;
   &:hover {
     background: #ffffff;
     color: #5abbf8;
