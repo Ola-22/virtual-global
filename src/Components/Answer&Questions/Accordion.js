@@ -20,7 +20,7 @@ function Accordion({ homeData, language }) {
           <S.AccordianContainer>
             <div
               className={
-                show === index ? "accordion_faq active" : "accordion_faq"
+                show === index ? "accordion_faq activeShow" : "accordion_faq"
               }
             >
               <h3>{item.question}</h3>
@@ -36,14 +36,14 @@ function Accordion({ homeData, language }) {
               </div>
             </div>
 
-            <div>
-              <S.AccordianAnswer
+            <S.AccordianAnswer>
+              <p
                 className={show === index ? "active" : "inActive"}
                 dangerouslySetInnerHTML={{
                   __html: item.answer,
                 }}
               />
-            </div>
+            </S.AccordianAnswer>
           </S.AccordianContainer>
         </div>
       ))}

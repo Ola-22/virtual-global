@@ -12,6 +12,11 @@ export const ForgetContainer = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
+    direction: ltr;
+
+    & div {
+      cursor: pointer;
+    }
   }
 
   & .main-box {
@@ -26,7 +31,7 @@ export const ForgetContainer = styled.div`
 
     & .box {
       min-height: 403px;
-      max-width: 557px;
+      min-width: 557px;
       background-color: #fff;
       height: 60%;
       width: 90%;
@@ -56,6 +61,11 @@ export const ForgetContainer = styled.div`
         @media (max-width: 450px) {
           width: 60%;
         }
+      }
+      @media (max-width: 600px) {
+        max-width: 557px;
+        width: 90%;
+        min-width: auto;
       }
     }
   }

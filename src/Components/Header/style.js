@@ -9,6 +9,10 @@ export const HeaderContainer = styled.div`
   position: relative;
   width: 100%;
 
+  & .back-drop {
+    z-index: 10;
+  }
+
   @media (max-width: 981px) {
     flex-wrap: wrap;
     justify-content: space-around;

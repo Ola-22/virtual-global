@@ -7,7 +7,7 @@
  @font-face {
     font-family: "Bauhaus";
    src: local("Bauhaus"),
-    url("../public/fonts/Bauhaus 93 Regular.ttf") format("truetype");
+    url("../public/fonts/Bauhaus-Regular.ttf") format("truetype");
  }
 
 
@@ -40,7 +40,6 @@ input, select{
 
 .active{
   display: block;
-  border-bottom: 1px solid #dfdfdf;
 }
 
 .inActive{

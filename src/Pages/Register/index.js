@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
-// import { Captcha } from "2captcha";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Register({ language, settingsData }) {
@@ -144,14 +142,15 @@ export default function Register({ language, settingsData }) {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState();
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const captchaRef = useRef(null);
 
-  console.log(captchaRef);
+  // const onSubmit = () => {
+  const token = captchaRef.current?.execute();
+  // };
 
-  const onSubmit = () => {
-    captchaRef.current.execute();
-  };
+  const [error, setError] = useState();
+
   const handleSignup = async (e) => {
     // e.preventDefault();
     try {
@@ -168,17 +167,19 @@ export default function Register({ language, settingsData }) {
           categoryMajor,
           gender,
           acceptConstitution,
-          acceptTerms,
-          token
+          acceptTerms
+          // token
         )
         .then(
           (response) => {
-            if (response.status === true) {
+            if (response.status === true || token) {
               setShowCouncil(true);
             }
 
-            if (response) {
-              setToken(response?.data?.items.token);
+            if (!token) {
+              setError("Error in passing CAPTCHA");
+            } else {
+              setError("");
             }
 
             setRegisterData(response);
@@ -223,12 +224,8 @@ export default function Register({ language, settingsData }) {
       });
   }
 
-  // useEffect(() => {
-  //   sendRequestMember();
-  // });
-
   const onChange = (value) => {
-    console.log(value);
+    // console.log(value);
   };
 
   return (
@@ -418,7 +415,7 @@ export default function Register({ language, settingsData }) {
 
             <S.RegisterGender>
               <label>{settingsData?.items?.translation?.Gender}</label>
-              <div>
+              <div className="label-gender">
                 <div>
                   <input
                     type="radio"
@@ -588,18 +585,20 @@ export default function Register({ language, settingsData }) {
                 onVerify={setToken}
                 ref={captchaRef}
               /> */}
+              {/* <CaptchaCom /> */}
               <ReCAPTCHA
-                // ref={captchaRef}
-                // size="invisible"
                 sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
                 onChange={onChange}
               />
             </S.Captcha>
+            <h3 className="error" style={{ justifyContent: "center" }}>
+              {error}
+            </h3>
             <Button
               onClick={(e) => {
                 e.preventDefault();
                 handleSignup();
-                onSubmit();
+                // onSubmit();
                 // setShowCouncil(true);
               }}
               title={settingsData?.items?.translation?.button_join}
@@ -668,7 +667,10 @@ export default function Register({ language, settingsData }) {
 
                     <Button
                       className="send"
-                      onClick={() => navigate("/")}
+                      onClick={() => {
+                        navigate("/");
+                        sendRequestMember();
+                      }}
                       title={settingsData?.items?.translation?.btn_send}
                       img
                     />

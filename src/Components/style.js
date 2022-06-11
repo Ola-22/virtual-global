@@ -96,7 +96,7 @@ export const VirtualID = styled.div`
         margin-top: 34px;
         margin-bottom: 9px;
         @media (min-width: 375px) and (max-width: 699px) {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
 
@@ -105,30 +105,37 @@ export const VirtualID = styled.div`
         font-weight: normal;
 
         @media (min-width: 375px) and (max-width: 699px) {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
     }
     & .img-user {
       /* border-radius: 50%; */
       max-width: 240px;
-      height: 265px;
+      width: 100%;
+      max-height: 265px;
+      height: 100%;
       padding: 5px;
       background-color: white;
 
       @media (min-width: 700px) and (max-width: 1200px) {
-        width: 200px;
-        height: 200px;
+        width: 90%;
+        height: 50%;
       }
 
       @media (min-width: 499px) and (max-width: 699px) {
-        width: 150px;
-        height: 150px;
+        width: 80%;
+        height: 50%;
       }
 
       @media (max-width: 500px) {
         width: 80px;
         height: 80px;
+      }
+
+      @media (max-width: 375px) {
+        width: 70px;
+        height: 70px;
       }
     }
 
@@ -162,7 +169,7 @@ export const boxCard = styled.div`
     font-size: 20px;
     font-weight: bold;
     @media (max-width: 699px) {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 
@@ -172,7 +179,7 @@ export const boxCard = styled.div`
     color: rgba(0, 0, 0, 0.7);
 
     @media (max-width: 699px) {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -195,5 +202,10 @@ export const QrCode = styled.img`
   @media (max-width: 500px) {
     width: 40px;
     height: 40px;
+  }
+
+  @media (max-width: 375px) {
+    width: 35px;
+    height: 35px;
   }
 `;

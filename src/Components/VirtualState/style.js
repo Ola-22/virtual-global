@@ -53,6 +53,11 @@ export const VirtualState = styled.div`
       @media (max-width: 700px) {
         font-size: 15px;
         text-align: center;
+        /* width: 90%; */
+      }
+
+      @media (min-width: 899px) and (max-width: 1100px) {
+        width: 90%;
       }
     }
     & > a {
@@ -82,14 +87,14 @@ export const VirtualState = styled.div`
       }
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     flex-direction: column;
   }
 `;
 
 export const virtualBox = styled.div`
   @media (max-width: 900px) {
-    max-width: 39%;
+    max-width: 90%;
   }
 
   @media (max-width: 600px) {

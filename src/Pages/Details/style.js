@@ -82,6 +82,7 @@ export const DetailsBox = styled.div`
     display: flex;
     flex-direction: column;
     /* position: relative; */
+    padding-bottom: 39px;
 
     & .number-comments {
       font-size: 22px;
@@ -105,14 +106,28 @@ export const DetailsBox = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       padding-bottom: 39px;
       margin-top: 20px;
+
+      @media (max-width: 1000px) {
+        flex-direction: column;
+      }
+      & .box-comment {
+        display: flex;
+        width: 70%;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 1000px) {
+          width: 100%;
+        }
+      }
 
       & input {
         max-width: 461px;
         width: 100%;
-        max-height: 50px;
+        min-height: 50px;
         height: 100%;
         border: 1px solid #e6e6e6;
         border-radius: 25px;
@@ -135,9 +150,16 @@ export const DetailsBox = styled.div`
 
       & button {
         max-width: 149px;
-        @media (max-width: 1200px) {
+        @media (max-width: 1000px) {
           margin-top: 4%;
         }
+      }
+
+      & .comment-user {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        margin-inline-end: 10px;
       }
     }
   }
@@ -171,7 +193,10 @@ export const CardForum = styled.div`
     font-size: 22px;
     color: #2d98da;
     text-transform: capitalize;
-    margin: 33px 0 30.5px 22px;
+    margin-top: 33px;
+    margin-inline-end: 0;
+    margin-bottom: 30.5px;
+    margin-inline-start: 22px;
     align-self: flex-start;
   }
 

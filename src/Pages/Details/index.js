@@ -251,13 +251,19 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                   ))}
 
                 <div className="add-comment">
-                  <img src="/images/user.png" alt="" />
-                  <input
-                    type="text"
-                    placeholder="write here"
-                    value={textComment ?? ""}
-                    onChange={(e) => setTextComment(e.target.value)}
-                  />
+                  <div className="box-comment">
+                    <img
+                      className="comment-user"
+                      src={profileInformation?.user?.image}
+                      alt=""
+                    />
+                    <input
+                      type="text"
+                      placeholder="write here"
+                      value={textComment ?? ""}
+                      onChange={(e) => setTextComment(e.target.value)}
+                    />
+                  </div>
 
                   {!loading && (
                     <Button

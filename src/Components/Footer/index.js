@@ -25,7 +25,7 @@ function Footer({ settingsData, language }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance
@@ -48,8 +48,8 @@ function Footer({ settingsData, language }) {
               <div>
                 <img src="/images/logo-footer.png" alt="logo" />
                 <div className="vgs">
-                  <h2>THE VIRTUAL GLOBAL STATE (VGS)</h2>
-                  <p>A Virtual Entity Parallel to The Real-World</p>
+                  <h2>{settingsData?.items?.title} (VGS)</h2>
+                  <p>{settingsData?.items?.translation?.website_info}</p>
                 </div>
               </div>
               <p>{settingsData?.items?.describe}</p>
@@ -60,35 +60,11 @@ function Footer({ settingsData, language }) {
             <h6>{settingsData?.items?.translation?.quick_access_footer}</h6>
             <div className="box">
               <div>
-                <Link to="/register">
-                  <li>{settingsData?.items?.translation?.link_join}</li>
-                </Link>
-                <Link to="/who-we-are">
-                  <li>{settingsData?.items?.translation?.link_about}</li>
-                </Link>
-                <Link to="/q&a">
-                  <li>{settingsData?.items?.translation?.link_faqs}</li>
-                </Link>
-                <Link to="/about-vgs">
-                  <li>{settingsData?.items?.translation?.link_vgs}</li>
-                </Link>
-                <Link to="/gts">
-                  <li>{settingsData?.items?.translation?.link_gts}</li>
-                </Link>
-              </div>
-              <div>
-                <Link to="/wtm">
-                  <li>{settingsData?.items?.translation?.link_wtm}</li>
-                </Link>
-                <Link to="/vission-giv">
-                  <li>{settingsData?.items?.translation?.link_giv}</li>
-                </Link>
-                <Link to="/ml">
-                  <li>{settingsData?.items?.translation?.link_ml}</li>
-                </Link>
-                <Link to="/mo">
-                  <li>{settingsData?.items?.translation?.link_mo}</li>
-                </Link>
+                {settingsData?.items?.footer_page.map((page, index) => (
+                  <Link to={page.link} key={index}>
+                    <li>{page.title}</li>
+                  </Link>
+                ))}
               </div>
             </div>
           </S.AccessContainer>

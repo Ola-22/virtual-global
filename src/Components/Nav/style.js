@@ -36,7 +36,7 @@ export const NavContainer = styled.div`
   }
   & .right {
     & img {
-      border-left: 1px solid rgba(128, 128, 128, 0.16);
+      border-inline-start: 1px solid rgba(128, 128, 128, 0.16);
       padding-inline-start: 20px;
     }
   }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
@@ -9,6 +9,8 @@ function ForgetPassword({ settingsData }) {
   const [forgetData, setForgetData] = useState();
 
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleClick() {
     setLoading(true);
@@ -40,9 +42,9 @@ function ForgetPassword({ settingsData }) {
   return (
     <S.ForgetContainer>
       <div className="header">
-        <Link to="/">
+        <div onClick={() => navigate(-1)}>
           <img src="/images/Back.png" alt="back pages" />
-        </Link>
+        </div>
       </div>
       <div className="main-box">
         <div className="box">

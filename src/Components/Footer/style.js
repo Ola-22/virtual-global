@@ -42,8 +42,7 @@ export const FooterContainer = styled.div`
       /* margin-inline-start: 13.6px; */
 
       @media (max-width: 500px) {
-        min-width: 90%;
-        width: 100%;
+        width: 90%;
         align-self: flex-start;
       }
     }

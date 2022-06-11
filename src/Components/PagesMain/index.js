@@ -13,8 +13,6 @@ function PagesMain({
 }) {
   const slug = useParams();
 
-  console.log(slug?.slug);
-
   const slugNew = slug?.slug;
 
   const [data, setData] = useState();
@@ -31,7 +29,6 @@ function PagesMain({
         }
       )
       .then((res) => {
-        console.log(res);
         setData(res.data);
       })
       .catch((err) => {
@@ -61,7 +58,9 @@ function PagesMain({
               }}
             />
             <S.BoxAbout>
-              <img src={data?.items?.image} alt="" />
+              {data?.items?.image.length > 0 && (
+                <img src={data?.items?.image} alt="" />
+              )}
             </S.BoxAbout>
           </div>
         </div>
