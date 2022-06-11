@@ -11,8 +11,6 @@ function EditProfile({ settingsData, profileInformation }) {
 
   const navigate = useNavigate();
 
-  console.log(profileInformation);
-
   const [image, setImage] = useState(profileInformation?.user?.image);
 
   function handleChangeImg(e) {
@@ -57,11 +55,7 @@ function EditProfile({ settingsData, profileInformation }) {
     setCategoryDegree(profileInformation?.user?.academic_level_id);
   }, [profileInformation]);
 
-  console.log(categoryCountry);
-  console.log(gender);
   const ref = useRef(null);
-
-  console.log(ref.current?.value);
 
   function handleChange(evt) {
     const value = evt.target.value;
@@ -131,8 +125,6 @@ function EditProfile({ settingsData, profileInformation }) {
         if (res.data.status === true) {
           navigate("/profile");
         }
-
-        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -155,9 +147,9 @@ function EditProfile({ settingsData, profileInformation }) {
   return (
     <S.MainEdit>
       <div className="header">
-        <Link to="/">
+        <div onClick={() => navigate(-1)}>
           <img src="/images/Back.png" alt="back pages" />
-        </Link>
+        </div>
       </div>
       <div className="main-box">
         <div className="box">
@@ -259,6 +251,7 @@ function EditProfile({ settingsData, profileInformation }) {
                   value={date ?? ""}
                   onChange={(e) => setDate(e.target.value)}
                   placeholder="Example NOV 11 1990"
+                  lang="fr"
                 />
                 {editProfile?.status === false &&
                   editProfile?.items?.map(
@@ -314,7 +307,7 @@ function EditProfile({ settingsData, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="male"
-                      checked={gender}
+                      // checked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>{settingsData?.items?.translation?.gender_male}</span>
@@ -324,7 +317,7 @@ function EditProfile({ settingsData, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="female"
-                      checked={gender}
+                      // checked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>

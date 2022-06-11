@@ -21,7 +21,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-function Testimonials({ homeData, language }) {
+function Testimonials({ homeData, language, settingsData }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -75,12 +75,12 @@ function Testimonials({ homeData, language }) {
   };
   return (
     <S.Container>
-      <h1>Testimonials</h1>
+      <h1>{settingsData?.items?.translation?.testimonals}</h1>
 
       <S.slideMain>
         <Slider {...settings}>
           {homeData?.items?.testimonials.map((testimonial) => (
-            <div>
+            <div key={testimonial.id}>
               <TestimonialsCard
                 text={testimonial.text}
                 rating={testimonial.rate}

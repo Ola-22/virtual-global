@@ -60,8 +60,6 @@ function Forum({
     0
   );
 
-  console.log(total, "f");
-
   const [discussionsSearch, setDiscussionsSearch] = useState();
   useEffect(() => {
     const config = {

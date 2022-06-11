@@ -20,24 +20,35 @@ export const AccordianContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-
+    background: #ffffff;
+    border-radius: 10px;
     & h3 {
       width: 80%;
     }
   }
+
+  & .activeShow {
+    border-bottom: 1px solid #dfdfdf;
+    border-radius: 10px 10px 0 0;
+  }
 `;
 
-export const AccordianAnswer = styled.p`
-  font-size: 16px;
-  max-width: 483px;
+export const AccordianAnswer = styled.div`
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
   width: 100%;
-  margin: auto;
-  opacity: 0.5;
-  line-height: 1.4;
-  padding-top: 9px;
+  & p {
+    font-size: 16px;
+    max-width: 483px;
+    width: 100%;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+    padding-top: 9px;
 
-  @media (max-width: 550px) {
-    width: 90%;
+    @media (max-width: 550px) {
+      width: 90%;
+    }
   }
 `;
 
@@ -45,8 +56,17 @@ export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 110px;
-  margin-bottom: 125px;
+  padding-top: 110px;
+  padding-bottom: 125px;
+  background: linear-gradient(
+      to right,
+      rgba(241, 242, 245, 0.9),
+      rgba(241, 242, 245, 0.9)
+    ),
+    url(/images/background.png);
+  background-size: cover;
+
+  /* border-bottom: 2px solid #4bb1f1; */
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
@@ -59,7 +79,7 @@ export const AnswerContainer = styled.div`
   & p {
     width: 90%;
   }
-  & > div:last-of-type {
+  & > .main-box {
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     display: flex;
@@ -70,6 +90,8 @@ export const AnswerContainer = styled.div`
     padding-top: 39px;
     min-height: 589px;
     height: 100%;
+    margin-top: 6.3%;
+    background-color: #ffffff;
     @media (max-width: 700px) {
       max-width: 90%;
     }

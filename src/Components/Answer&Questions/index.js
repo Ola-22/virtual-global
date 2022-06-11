@@ -150,29 +150,6 @@ function AnswerQuestions({ homeData, settingsData, language }) {
                   )
                 : ""}
             </S.container>
-
-            <S.container>
-              <S.animationBox>
-                <label className={isActive ? "Active" : ""} htmlFor="mobile">
-                  {settingsData?.items?.translation?.phone}
-                </label>
-                <input
-                  type="text"
-                  value={state.mobile ?? ""}
-                  name="mobile"
-                  onChange={handleChange}
-                />
-              </S.animationBox>
-
-              {contactData?.status === false
-                ? contactData?.items?.map(
-                    (err, index) =>
-                      err?.field_name === "mobile" && (
-                        <h3 key={index}>{err.message}</h3>
-                      )
-                  )
-                : ""}
-            </S.container>
           </div>
           <label htmlFor="tell-us" className="tell-us">
             {settingsData?.items?.translation?.tell_about}

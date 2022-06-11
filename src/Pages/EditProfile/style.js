@@ -12,6 +12,11 @@ export const MainEdit = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
+    direction: ltr;
+
+    & div {
+      cursor: pointer;
+    }
   }
 
   & .main-box {
@@ -109,6 +114,28 @@ export const boxInput = styled.div`
     & input[type="radio"] {
       width: 20px;
       height: 20px;
+    }
+  }
+
+  & input[type="date"] {
+    /* background: #fff url("/images/calendar.png") 97% 50% no-repeat; */
+
+    &::-webkit-calendar-picker-indicator {
+      /* bottom: 0;
+      cursor: pointer;
+      height: auto;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+      border: 1px solid #dfdfdf; */
+    }
+    &::-webkit-inner-spin-button {
+      /* display: none; */
+    }
+    &::-webkit-calendar-picker-indicator {
+      /* opacity: 0; */
     }
   }
 `;

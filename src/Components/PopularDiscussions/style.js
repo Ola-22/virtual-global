@@ -30,8 +30,7 @@ export const PopularContainer = styled.div`
       height: 5px;
       color: #4bb1f1;
       background-color: #4bb1f1;
-      position: absolute;
-      margin-inline-start: 47%;
+      margin: auto;
       display: flex;
     }
 

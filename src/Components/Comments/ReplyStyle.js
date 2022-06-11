@@ -5,7 +5,7 @@ export const replyComments = styled.div`
   margin-top: 35px;
   display: flex;
   flex-direction: column;
-  border-left: 5px solid rgba(45, 152, 218, 10%);
+  border-inline-start: 5px solid rgba(45, 152, 218, 10%);
 
   & div {
     display: flex;

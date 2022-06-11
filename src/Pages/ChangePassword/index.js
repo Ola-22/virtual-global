@@ -48,14 +48,12 @@ function ChangePassword({ settingsData, language }) {
       });
   }
 
-  console.log(settingsData);
-
   return (
     <S.ForgetContainer>
       <div className="header">
-        <Link to="/">
+        <div onClick={() => navigate(-1)}>
           <img src="/images/Back.png" alt="back pages" />
-        </Link>
+        </div>
       </div>
       <div className="main-box">
         <div className="box">

@@ -20,8 +20,6 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
     settingsData?.items?.translation?.like_discussions_tabs ||
       "like discussions"
   );
-  // console.log(selected, "selected");
-  // console.log(settingsData?.items?.translation?.like_discussions_tabs);
 
   const SelectTab = (tab) => {
     setSelected(tab);

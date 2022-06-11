@@ -38,8 +38,6 @@ function App() {
     languageStoredInLocalStorage ? languageStoredInLocalStorage : "en"
   );
 
-  console.log(language, "D");
-
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/settings", {
@@ -55,7 +53,7 @@ function App() {
       });
   }, [language]);
 
-  console.log(settingsData, "settings");
+  // console.log(settingsData);
 
   useEffect(() => {
     axiosInstance
@@ -95,7 +93,12 @@ function App() {
       .catch((err) => console.log(err));
   }, [language]);
 
-  console.log("first", settingsData);
+  // useEffect(() => {
+  //   <Helmet>
+  //     <title>{settingsData?.items?.title}</title>
+  //     <link rel="icon" href="/images/logo-footer.png" />
+  //   </Helmet>;
+  // });
   return (
     <BrowserRouter>
       <div
@@ -104,7 +107,6 @@ function App() {
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
         }}
       >
-        {/* <PlayAudio filepath="./music/background-music.mp3" /> */}
         <Helmet>
           <title>{settingsData?.items?.title}</title>
           <link rel="icon" href="/images/logo-footer.png" />

@@ -20,7 +20,8 @@ const Navbar = ({ settingsData, open, setOpen }) => {
   const logOut = () => {
     authService.logout();
     localStorage.removeItem("user");
-    // navigate("/");
+    navigate("/");
+    window.location.reload();
   };
 
   const closeModalTerms = () => setShowTerms(false);

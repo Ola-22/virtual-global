@@ -45,7 +45,12 @@ function CardTabs({
 
   return (
     <S.CardMain>
-      <Link to={`/discussion/${id}`}>
+      <Link
+        to={`/discussion/${id}`}
+        style={{
+          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+        }}
+      >
         <h6>
           {settingsData?.items?.translation?.asked_Forum_Details}: {date}
         </h6>
@@ -59,7 +64,12 @@ function CardTabs({
         />
       </Link>
 
-      <div className="box">
+      <div
+        className="box"
+        style={{
+          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+        }}
+      >
         <div>
           <div>
             {is_like === true ? (

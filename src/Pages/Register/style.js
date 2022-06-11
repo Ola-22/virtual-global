@@ -250,6 +250,10 @@ export const RegisterGender = styled.div`
   max-width: 739px;
   width: 90%;
   margin-top: 21px;
+
+  & .label-gender {
+    margin-top: 10px;
+  }
   & div {
     display: flex;
     & input {

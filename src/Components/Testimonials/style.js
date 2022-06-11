@@ -32,8 +32,7 @@ export const Container = styled.div`
       height: 5px;
       color: #4bb1f1;
       background-color: #4bb1f1;
-      position: absolute;
-      margin-inline-start: 46%;
+      margin: auto;
       display: flex;
     }
   }
