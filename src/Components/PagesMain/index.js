@@ -34,7 +34,7 @@ function PagesMain({
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSetLanguage, slugNew]);
+  }, [language, slugNew]);
 
   return (
     <S.Main>
