@@ -17,21 +17,10 @@ import Faqs from "./Pages/Faqs";
 
 import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
-import { PlayAudio } from "./sound";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
-
-  // const [setSongs] = useState("");
-
-  // useEffect(() => {
-  //   songs.play();
-  // }, [songs]);
-
-  // window.onload = function () {
-  //   setSongs(new Audio(song));
-  // };
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(

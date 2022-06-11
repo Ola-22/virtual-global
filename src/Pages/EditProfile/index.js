@@ -2,7 +2,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 import { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile({ settingsData, profileInformation }) {
   const [file, setFile] = useState(

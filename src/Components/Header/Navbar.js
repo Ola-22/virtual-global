@@ -3,7 +3,6 @@ import * as S from "./style";
 import { useEffect, useState } from "react";
 import authService from "../../Pages/Register/Auth";
 import { Link, useNavigate } from "react-router-dom";
-import { Modal } from "../Modal";
 
 const Navbar = ({ settingsData, open, setOpen }) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -23,10 +22,6 @@ const Navbar = ({ settingsData, open, setOpen }) => {
     navigate("/");
     window.location.reload();
   };
-
-  const closeModalTerms = () => setShowTerms(false);
-  const [showTerms, setShowTerms] = useState(false);
-  const [val, setVal] = useState(null);
 
   return (
     <S.Nav>
