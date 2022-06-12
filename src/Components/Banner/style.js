@@ -88,7 +88,9 @@ export const Controls = styled.div`
   display: flex;
   position: absolute;
   bottom: 20px;
-  left: 20px;
+
+  margin-inline-start: 2%;
+
   color: white;
 
   & svg {
