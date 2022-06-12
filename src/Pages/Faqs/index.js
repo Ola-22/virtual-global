@@ -17,7 +17,7 @@ function Faqs({
     axiosInstance
       .get("/api/web-site/faqs", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -26,7 +26,7 @@ function Faqs({
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSetLanguage]);
+  }, [language]);
 
   const lengthFaqs = faqs?.faqs;
   const [currentPage, setCurrentPage] = useState(1);

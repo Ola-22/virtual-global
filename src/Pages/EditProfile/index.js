@@ -65,7 +65,7 @@ function EditProfile({ settingsData, profileInformation }) {
     });
   }
 
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(profileInformation?.user.dob);
 
   useEffect(() => {
     axiosInstance
@@ -125,6 +125,7 @@ function EditProfile({ settingsData, profileInformation }) {
         if (res.data.status === true) {
           navigate("/profile");
         }
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -154,20 +155,37 @@ function EditProfile({ settingsData, profileInformation }) {
       <div className="main-box">
         <div className="box">
           <S.userImage>
-            <img className="user-img" src={image} alt="user img" />
-
-            <input
-              type="file"
-              accept="image/*"
-              name="image-upload"
-              id="input"
-              onChange={handleChangeImg}
-            />
-            <div className="label">
-              <label className="image-upload" htmlFor="input">
-                {settingsData?.items?.translation?.change_pic}
+            <S.ImageContainer>
+              <label className="image" htmlFor="input">
+                <img className="user-img" src={image} alt="user img" />
               </label>
-            </div>
+              <input
+                type="file"
+                accept="image/*"
+                name="image-upload"
+                id="input"
+                onChange={handleChangeImg}
+              />
+              <div className="label">
+                <label className="image-upload" htmlFor="input">
+                  {settingsData?.items?.translation?.change_pic}
+                </label>
+              </div>
+
+              {editProfile?.status === false &&
+                editProfile?.items?.map(
+                  (err, index) =>
+                    err?.field_name === "image" && (
+                      <h3
+                        style={{ textAlign: "center" }}
+                        className="error"
+                        key={index}
+                      >
+                        {err.message}
+                      </h3>
+                    )
+                )}
+            </S.ImageContainer>
           </S.userImage>
 
           <div className="box-inputs">
@@ -252,6 +270,7 @@ function EditProfile({ settingsData, profileInformation }) {
                   onChange={(e) => setDate(e.target.value)}
                   placeholder="Example NOV 11 1990"
                   lang="fr"
+                  className="date"
                 />
                 {editProfile?.status === false &&
                   editProfile?.items?.map(
@@ -300,7 +319,7 @@ function EditProfile({ settingsData, profileInformation }) {
               </div>
 
               <div>
-                <label>{settingsData?.items?.translation?.gender}</label>
+                <label>{settingsData?.items?.translation?.Gender}</label>
                 <div className="gender">
                   <div>
                     <input
@@ -308,6 +327,7 @@ function EditProfile({ settingsData, profileInformation }) {
                       name="gender"
                       value="male"
                       // checked={gender}
+                      defaultChecked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>{settingsData?.items?.translation?.gender_male}</span>
@@ -318,6 +338,7 @@ function EditProfile({ settingsData, profileInformation }) {
                       name="gender"
                       value="female"
                       // checked={gender}
+                      defaultChecked={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>

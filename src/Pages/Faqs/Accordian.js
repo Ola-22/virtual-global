@@ -17,11 +17,11 @@ function Accordian({ lengthFaqs, language }) {
       <div className="box">
         {lengthFaqs?.map((item, index) => (
           <div key={index} onClick={() => handleToggle(index)}>
-            <F.AccordianContainer className="accordian">
+            <F.AccordianContainer
+              className={show === index ? "activeShow accordian" : "accordian"}
+            >
               <div className="accordion_faq">
-                <h3 className={show === index ? "active" : ""}>
-                  {item.question}
-                </h3>
+                <h3>{item.question}</h3>
               </div>
               <div>
                 <img
@@ -36,7 +36,11 @@ function Accordian({ lengthFaqs, language }) {
 
             <div>
               <F.AccordianAnswer
-                className={show === index ? "active" : "inActive"}
+                className={
+                  show === index
+                    ? "active accordian-answer"
+                    : "inActive accordian-answer"
+                }
                 dangerouslySetInnerHTML={{
                   __html: item.answer,
                 }}

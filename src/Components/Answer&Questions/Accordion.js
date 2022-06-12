@@ -14,7 +14,7 @@ function Accordion({ homeData, language }) {
   }
 
   return (
-    <div>
+    <div className="d">
       {homeData?.items?.faqs?.slice(0, 4)?.map((item, index) => (
         <div key={index} onClick={() => handleToggle(index)}>
           <S.AccordianContainer>

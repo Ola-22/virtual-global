@@ -27,6 +27,7 @@ export const MainEdit = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
 
     & .box {
       background-color: #fff;
@@ -71,20 +72,11 @@ export const userImage = styled.div`
   align-items: center;
   height: 10%;
   top: 10%;
-  & img {
-    width: 90px;
-    height: 90px;
-    margin: 0;
-    border: 5px solid white;
-    padding: 3px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-  }
+
   input[type="file"] {
     display: none;
   }
-  & .label {
+  /* & .label {
     display: flex;
     flex-flow: column;
     margin-top: 84%;
@@ -93,7 +85,7 @@ export const userImage = styled.div`
     & .image-upload {
       cursor: pointer;
     }
-  }
+  } */
 `;
 
 export const boxInput = styled.div`
@@ -115,13 +107,17 @@ export const boxInput = styled.div`
       width: 20px;
       height: 20px;
     }
+
+    & span {
+      font-size: 14px;
+    }
   }
 
-  & input[type="date"] {
-    /* background: #fff url("/images/calendar.png") 97% 50% no-repeat; */
-
+  & .date {
+    background: #fff url("/images/calendar.png") 97% 50% no-repeat;
+    position: relative;
     &::-webkit-calendar-picker-indicator {
-      /* bottom: 0;
+      bottom: 0;
       cursor: pointer;
       height: auto;
       left: 0;
@@ -129,13 +125,45 @@ export const boxInput = styled.div`
       right: 0;
       top: 0;
       width: auto;
-      border: 1px solid #dfdfdf; */
+      border: 1px solid #dfdfdf;
     }
     &::-webkit-inner-spin-button {
-      /* display: none; */
+      display: none;
     }
     &::-webkit-calendar-picker-indicator {
-      /* opacity: 0; */
+      opacity: 0;
     }
+  }
+
+  & select {
+    background: #fff url("/images/arrow.png") 97% 50% no-repeat;
+    color: rgba(0, 0, 0, 0.3);
+    appearance: none;
+    & option {
+      color: rgba(0, 0, 0);
+    }
+  }
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  & img {
+    width: 90px;
+    height: 90px;
+    border: 5px solid white;
+    padding: 3px;
+    border-radius: 50%;
+  }
+
+  & .label {
+    cursor: pointer;
+  }
+
+  & label {
+    cursor: pointer;
   }
 `;

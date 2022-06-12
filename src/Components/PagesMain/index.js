@@ -36,6 +36,8 @@ function PagesMain({
       });
   }, [language, slugNew]);
 
+  // console.log(data?.items?.image.length);
+
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -58,9 +60,9 @@ function PagesMain({
               }}
             />
             <S.BoxAbout>
-              {data?.items?.image.length > 0 && (
+              {/* {data?.items?.image.length > 0 && (
                 <img src={data?.items?.image} alt="" />
-              )}
+              )} */}
             </S.BoxAbout>
           </div>
         </div>
