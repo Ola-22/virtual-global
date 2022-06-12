@@ -91,6 +91,10 @@ export const AnswerContainer = styled.div`
     height: 100%;
     /* margin-top: 5.3%; */
     background-color: #ffffff;
+    @media (max-width: 700px) {
+      max-width: 90%;
+      margin-top: 20px;
+    }
     /* @media (max-width: 700px) {
       max-width: 90%;
     }
@@ -105,8 +109,8 @@ export const AnswerContainer = styled.div`
 
     @media (min-width: 1100px) and (max-width: 1200px) {
       margin-top: 6.3%;
-    } */
-
+    }
+    */
     & form {
       display: flex;
       flex-direction: column;

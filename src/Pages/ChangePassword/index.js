@@ -42,6 +42,8 @@ function ChangePassword({ settingsData, language }) {
         if (res.data.status === true) {
           navigate("/profile");
         }
+
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -86,6 +88,7 @@ function ChangePassword({ settingsData, language }) {
               type="password"
               value={password ?? ""}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
           </S.InputBox>
 
@@ -95,6 +98,7 @@ function ChangePassword({ settingsData, language }) {
               type="password"
               value={confirmPassword ?? ""}
               onChange={(e) => setCofirmPassword(e.target.value)}
+              placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
             {changetData?.status === false
               ? changetData?.items?.map(

@@ -18,6 +18,7 @@ function Login({ settingsData }) {
         (response) => {
           if (response.status === true) {
             navigate("/");
+            window.location.reload();
           }
 
           if (response.status === false) {

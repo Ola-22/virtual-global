@@ -78,10 +78,6 @@ export const NumberVirtual = styled.div`
   @media (max-width: 450px) {
     margin-inline-start: 71%;
   }
-  /* 
-  @media (max-width: 900px) {
-    margin-top: -32%;
-  } */
 `;
 
 export const Controls = styled.div`

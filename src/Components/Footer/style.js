@@ -240,7 +240,7 @@ export const containerMail = styled.div`
 `;
 
 export const AboutContainer = styled.div`
-  max-width: 356px;
+  max-width: 440px;
   width: 100%;
 
   @media (max-width: 760px) {
@@ -249,7 +249,7 @@ export const AboutContainer = styled.div`
 
   & .box-logo {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     flex-direction: column;
 
@@ -273,6 +273,7 @@ export const AboutContainer = styled.div`
 
         @media (max-width: 500px) {
           font-size: 16px;
+          width: 90%;
         }
       }
 
