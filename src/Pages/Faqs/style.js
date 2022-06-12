@@ -19,12 +19,20 @@ export const FaqsContainer = styled.div`
     & .accordian {
       background: white;
       max-width: 100%;
+      cursor: pointer;
+    }
+    & .activeShow {
+      border-radius: 10px 10px 0 0;
     }
   }
 
   & .accordion_faq {
     max-width: 90%;
     justify-content: space-between;
+  }
+
+  & .accordian-answer {
+    border: 1px solid #dfdfdf;
   }
 `;
 

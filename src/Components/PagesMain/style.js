@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
   background-color: #f8f8f8;
   min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +19,7 @@ export const AboutContainer = styled.div`
     align-items: center;
     border-radius: 10px;
     margin-top: 27px;
+    /* padding-bottom: 92px; */
     & img {
       min-height: 300px;
       height: 100%;
@@ -60,7 +62,7 @@ export const AboutContainer = styled.div`
 
 export const BoxAbout = styled.div`
   width: 100%;
-  min-height: 443px;
+  /* min-height: 443px; */
   border-radius: 10px;
   display: flex;
   align-items: center;

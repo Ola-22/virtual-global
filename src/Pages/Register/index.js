@@ -670,6 +670,7 @@ export default function Register({ language, settingsData }) {
                       onClick={() => {
                         navigate("/");
                         sendRequestMember();
+                        window.location.reload();
                       }}
                       title={settingsData?.items?.translation?.btn_send}
                       img

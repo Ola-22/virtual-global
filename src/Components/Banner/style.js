@@ -83,3 +83,15 @@ export const NumberVirtual = styled.div`
     margin-top: -32%;
   } */
 `;
+
+export const Controls = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+
+  & svg {
+    cursor: pointer;
+  }
+`;

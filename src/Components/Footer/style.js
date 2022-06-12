@@ -265,7 +265,7 @@ export const AboutContainer = styled.div`
       }
 
       & h2 {
-        font-family: "Bauhaus";
+        /* font-family: "Bauhaus"; */
         font-size: 20px;
         min-width: 282px;
         width: 100%;
