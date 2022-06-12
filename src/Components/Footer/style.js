@@ -107,14 +107,16 @@ export const FooterContainer = styled.div`
 export const FooterSocial = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 89%;
   width: 100%;
   &::after {
     content: "";
-    width: 89%;
+    width: 100%;
+    max-width: 100%;
+
     height: 1px;
     background: rgba(101, 101, 101, 0.46);
     border-radius: 25px;
@@ -157,7 +159,7 @@ export const FooterSocial = styled.div`
       flex-wrap: wrap;
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     justify-content: center;
     flex-direction: column;
     max-width: 90%;
