@@ -50,9 +50,9 @@ function Footer({ settingsData, language }) {
                 <div className="vgs">
                   <h2>{settingsData?.items?.title} (VGS)</h2>
                   <p>{settingsData?.items?.translation?.website_info}</p>
+                  <p>{settingsData?.items?.describe}</p>
                 </div>
               </div>
-              <p>{settingsData?.items?.describe}</p>
             </div>
           </S.AboutContainer>
 

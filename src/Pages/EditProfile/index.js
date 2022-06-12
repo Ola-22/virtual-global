@@ -5,9 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function EditProfile({ settingsData, profileInformation }) {
-  const [file, setFile] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-  );
+  const [file, setFile] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,6 +22,7 @@ function EditProfile({ settingsData, profileInformation }) {
     setFile(e.target.files[0]);
   }
 
+  console.log(file);
   const [category, setCategory] = useState();
   const [specializations, setSpecializations] = useState();
   const [country, setCountry] = useState();
@@ -32,7 +31,7 @@ function EditProfile({ settingsData, profileInformation }) {
 
   const [categoryCountry, setCategoryCountry] = useState("");
   const [categoryMajor, setCategoryMajor] = useState("");
-  const [gender, setGender] = useState();
+  const [gender, setGender] = useState(profileInformation?.user.gender);
 
   const [state, setState] = useState({
     fname: profileInformation?.user.first_name,
@@ -65,6 +64,7 @@ function EditProfile({ settingsData, profileInformation }) {
     });
   }
 
+  console.log(profileInformation?.user?.image);
   const [date, setDate] = useState(profileInformation?.user.dob);
 
   useEffect(() => {
@@ -97,10 +97,14 @@ function EditProfile({ settingsData, profileInformation }) {
       });
   }, []);
 
+  console.log(file, "file");
   const [editProfile, setEditProfile] = useState();
   async function UpdateProfile() {
     const dataImg = new FormData();
-    dataImg.append("image", file);
+    if (file !== "") {
+      dataImg.append("image", file);
+    }
+
     dataImg.append("f_name", state.fname);
     dataImg.append("l_name", state.lname);
     dataImg.append("email", state.email);
@@ -124,8 +128,9 @@ function EditProfile({ settingsData, profileInformation }) {
         setEditProfile(res.data);
         if (res.data.status === true) {
           navigate("/profile");
+          window.location.reload();
         }
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }

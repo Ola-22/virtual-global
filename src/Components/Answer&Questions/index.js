@@ -110,7 +110,7 @@ function AnswerQuestions({ homeData, settingsData, language }) {
             <S.container>
               <S.animationBox>
                 <label className={isActive ? "Active" : ""} htmlFor="name">
-                  {settingsData?.items?.translation?.first_name}
+                  {settingsData?.items?.translation?.name}
                 </label>
                 <input
                   type="text"
