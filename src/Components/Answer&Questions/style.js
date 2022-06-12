@@ -11,7 +11,10 @@ export const AccordianContainer = styled.div`
   border-radius: 10px;
   height: auto;
   margin-top: 10px;
-  margin-bottom: 20px;
+
+  @media (max-width: 700px) {
+    max-width: 100%;
+  }
 
   & .accordion_faq {
     min-height: 66px;
@@ -36,11 +39,14 @@ export const AccordianContainer = styled.div`
 export const AccordianAnswer = styled.div`
   background-color: #ffffff;
   border-radius: 0 0 10px 10px;
+  /* background-color: #ffffff;
+  border-radius: 0 0 10px 10px; */
   width: 100%;
+  /* border: 1px solid #dfdfdf; */
   & p {
     font-size: 16px;
-    max-width: 483px;
-    width: 100%;
+    /* max-width: 483px; */
+    width: 90%;
     margin: auto;
     color: rgba(0, 0, 0, 0.5);
     line-height: 1.4;
@@ -56,15 +62,8 @@ export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding-top: 110px;
+  /* padding-top: 110px; */
   padding-bottom: 125px;
-  background: linear-gradient(
-      to right,
-      rgba(241, 242, 245, 0.9),
-      rgba(241, 242, 245, 0.9)
-    ),
-    url(/images/background.png);
-  background-size: cover;
 
   /* border-bottom: 2px solid #4bb1f1; */
   @media (max-width: 970px) {
@@ -90,11 +89,23 @@ export const AnswerContainer = styled.div`
     padding-top: 39px;
     min-height: 589px;
     height: 100%;
-    margin-top: 6.3%;
+    /* margin-top: 5.3%; */
     background-color: #ffffff;
-    @media (max-width: 700px) {
+    /* @media (max-width: 700px) {
       max-width: 90%;
     }
+
+    @media (min-width: 700px) and (max-width: 800px) {
+      margin-top: 9%;
+    }
+
+    @media (min-width: 800px) and (max-width: 1000px) {
+      margin-top: 7.5%;
+    }
+
+    @media (min-width: 1100px) and (max-width: 1200px) {
+      margin-top: 6.3%;
+    } */
 
     & form {
       display: flex;
@@ -202,6 +213,7 @@ export const container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
+  width: 100%;
   & h3 {
     color: red;
     font-size: 13px;
@@ -236,5 +248,25 @@ export const animationBox = styled.div`
   }
   .Active {
     transform: translate(0, 12px) scale(0.75);
+  }
+`;
+
+export const Main = styled.div`
+  background: linear-gradient(
+      to right,
+      rgba(241, 242, 245, 0.9),
+      rgba(241, 242, 245, 0.9)
+    ),
+    url(/images/background.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & .title {
+    width: 90%;
+    margin-bottom: 20px;
+    padding-top: 110px;
   }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const paginationContainer = styled.div`
   display: flex;
+  margin-top: 20px;
 
   /* position: fixed;
   bottom: 6%; */

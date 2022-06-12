@@ -86,10 +86,13 @@ export const RegisterContainer = styled.div`
       }
       & .send {
         max-width: 201px;
-        justify-content: space-evenly;
-        padding-inline-start: 8%;
+        /* justify-content: space-evenly; */
+        /* padding-inline-start: 8%; */
+
         & > svg {
           fill: white;
+          margin-inline-start: 18%;
+          position: absolute;
         }
         &:hover {
           & > svg {
