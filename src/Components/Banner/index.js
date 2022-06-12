@@ -43,7 +43,7 @@ export default function SliderComponent({ homeData, settingsData }) {
       videoRef.current.defaultMuted = true;
       videoRef.current.muted = true;
     }
-  }, []);
+  }, [playing]);
 
   return (
     <S.sliderMain>
