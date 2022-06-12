@@ -269,6 +269,7 @@ export const AboutContainer = styled.div`
         font-size: 20px;
         min-width: 282px;
         width: 100%;
+        font-weight: normal;
 
         @media (max-width: 500px) {
           font-size: 16px;

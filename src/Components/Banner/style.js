@@ -91,7 +91,7 @@ export const Controls = styled.div`
 
   margin-inline-start: 2%;
 
-  color: white;
+  color: rgb(45, 152, 218);
 
   & svg {
     cursor: pointer;
