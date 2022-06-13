@@ -253,6 +253,9 @@ export const AboutContainer = styled.div`
       align-items: center;
       justify-content: space-between;
 
+      & img {
+        align-self: flex-start;
+      }
       & .vgs {
         margin-inline-start: 9px;
       }
