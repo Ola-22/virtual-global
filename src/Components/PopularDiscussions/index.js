@@ -71,7 +71,6 @@ export default function PopularDiscussions({
       <div className="slider-popular">
         <Slider {...settings}>
           {homeData?.items?.discussions?.map((data) => (
-            // <S.MainSlider>
             <CardPolular
               key={data?.id}
               text={data?.text}
@@ -82,7 +81,6 @@ export default function PopularDiscussions({
               link={data.id}
               language={language}
             />
-            // </S.MainSlider>
           ))}
         </Slider>
       </div>

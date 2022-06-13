@@ -22,7 +22,6 @@ export default function SliderComponent({ homeData, settingsData }) {
 
   const videoHandler = (control) => {
     if (control === "play") {
-      // videoRef.current.pause();
       videoRef.current.muted = true;
 
       setPlaying(true);

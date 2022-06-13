@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
-// import { FaSpinner } from "react-icons/fa";
 
 function Details({ settingsData, profileInformation, handleSetLanguage }) {
   const { id } = useParams();
@@ -244,8 +243,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                       src={comment?.user_image}
                       onClick={() => {
                         setParentId(comment.id);
-                        //  setShowInput(!showInput);
-                        //  setUserName(comment.user_name);
                       }}
                     />
                   ))}
@@ -270,7 +267,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                       title="comment"
                       onClick={(e) => {
                         e.preventDefault();
-                        // window.location.reload(false);
                         sendComment();
                         handleClick();
                       }}
@@ -282,7 +278,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                       className="disabled"
                       title="comment"
                       onClick={(e) => {
-                        // window.location.reload(false);
                         e.preventDefault();
                         sendComment();
                         handleClick();

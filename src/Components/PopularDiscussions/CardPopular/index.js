@@ -41,60 +41,6 @@ function CardPolular({
           </Link>
         </S.LikeCard>
       </div>
-
-      {/* <div>
-        <div
-          className="card-box two"
-          style={{ backgroundColor: " #fff", marginBottom: "10px" }}
-        >
-          <h3>{title}</h3>
-          <p>{text}</p>
-          <S.LikeCard>
-            <div>
-              <div>
-                <img
-                  src="/images/like.png"
-                  alt="like the popular discussions"
-                />
-                <h6>{likesCount}</h6>
-              </div>
-              <div>
-                <img
-                  src="/images/chat.png"
-                  alt="like the popular discussions"
-                />
-                <h6>{commentCount}</h6>
-              </div>
-            </div>
-
-            <img src="/images/slideMore.png" alt="slide more of the popular" />
-          </S.LikeCard>
-        </div>
-        <div className="card-box" style={{ backgroundColor: " #fff" }}>
-          <h3>{title}</h3>
-          <p>{text}</p>
-          <S.LikeCard>
-            <div>
-              <div>
-                <img
-                  src="/images/like.png"
-                  alt="like the popular discussions"
-                />
-                <h6>{likesCount}</h6>
-              </div>
-              <div>
-                <img
-                  src="/images/chat.png"
-                  alt="like the popular discussions"
-                />
-                <h6>{commentCount}</h6>
-              </div>
-            </div>
-
-            <img src="/images/slideMore.png" alt="slide more of the popular" />
-          </S.LikeCard>
-        </div>
-      </div> */}
     </S.CardContainer>
   );
 }

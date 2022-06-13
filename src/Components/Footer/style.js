@@ -5,8 +5,6 @@ export const FooterContainer = styled.div`
   flex-direction: column;
 
   width: 100%;
-
-  /* justify-content: space-evenly; */
   justify-content: space-evenly;
   background-color: #f3f3f3;
   flex-wrap: wrap;
@@ -18,6 +16,9 @@ export const FooterContainer = styled.div`
     color: #4bb1f1;
     font-size: 16px;
     font-weight: normal;
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
   }
   & li {
     list-style: none;
@@ -30,16 +31,13 @@ export const FooterContainer = styled.div`
     max-width: 89%;
     width: 100%;
     padding-top: 54px;
-    @media (max-width: 760px) {
-      /* padding-top: 54px; */
-    }
+
     & p {
       font-size: 14px;
       max-width: 356px;
       width: 100%;
       margin-top: 32px;
       line-height: 1.5;
-      /* margin-inline-start: 13.6px; */
 
       @media (max-width: 500px) {
         width: 90%;
@@ -89,16 +87,11 @@ export const FooterContainer = styled.div`
           margin-inline-end: 5px;
         }
       }
-
-      /* @media (min-width: 570px) and (max-width: 480px) {
-        padding-inline-start: 15%;
-      } */
     }
 
     @media (max-width: 500px) {
       flex-direction: column;
       padding-bottom: 2%;
-      /* padding-inline-start: 7%; */
       padding-top: 8%;
     }
   }
@@ -116,12 +109,10 @@ export const FooterSocial = styled.div`
     content: "";
     width: 100%;
     max-width: 100%;
-
     height: 1px;
     background: rgba(101, 101, 101, 0.46);
     border-radius: 25px;
-    position: absolute;
-    bottom: -50%;
+    margin-top: 37px;
 
     @media (max-width: 800px) {
       display: none;
@@ -171,13 +162,13 @@ export const copyRight = styled.p`
   font-size: 14px;
   color: #000000;
   align-self: center;
-  margin-top: 5%;
+  margin-top: 2.1%;
   margin-bottom: 24px;
 
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     margin-top: 3%;
     margin-bottom: 20px;
-  }
+  } */
 `;
 
 export const boxMail = styled.div`
@@ -267,14 +258,13 @@ export const AboutContainer = styled.div`
       }
 
       & h2 {
-        /* font-family: "Bauhaus"; */
         font-size: 20px;
         min-width: 282px;
         width: 100%;
         font-weight: normal;
 
         @media (max-width: 500px) {
-          font-size: 16px;
+          font-size: 14px;
           width: 90%;
         }
       }
@@ -290,11 +280,6 @@ export const AboutContainer = styled.div`
         width: 100%;
         align-self: flex-start;
       }
-    }
-
-    @media (max-width: 500px) {
-      /* width: 84%;
-      margin: auto; */
     }
   }
 `;

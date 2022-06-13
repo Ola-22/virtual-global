@@ -21,7 +21,6 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* padding-inline-end: 5px; */
     & > a {
       display: flex;
       align-items: center;
@@ -41,9 +40,6 @@ export const HeaderContainer = styled.div`
         & img {
           margin-inline-end: 8px;
         }
-      }
-      @media (max-width: 768px) {
-        width: 70px;
       }
     }
     & .login {
@@ -191,9 +187,9 @@ export const Nav = styled.nav`
             top: 100%;
           }
         }
-        &:hover {
+        /* &:hover {
           background: #5cabff;
-        }
+        } */
       }
 
       & .dropdown-submenu {
@@ -224,7 +220,7 @@ export const Nav = styled.nav`
           }
         }
         &:hover {
-          background: #5cabff;
+          color: #5cabff;
         }
       }
     }

@@ -6,9 +6,6 @@ export const sliderMain = styled.div`
 
   align-items: center;
   justify-content: center;
-  /* background-size: cover;
-  min-height: 600px;
-  height: auto; */
   justify-content: space-between;
 
   & .video {
@@ -26,30 +23,26 @@ export const NumberVirtual = styled.div`
   position: absolute;
   margin-inline-start: 83%;
   top: 0;
+  width: 12%;
+  @media (min-width: 750px) and (max-width: 1100) {
+    margin-inline-start: 86%;
+  }
   & .box-number {
     margin-top: 15px;
-    margin-inline-end: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 212px;
-    width: 100%;
+    width: 212px;
     height: 71px;
     background-color: #ffffff;
     border-radius: 7px;
-    @media (max-width: 1100px) {
-      max-width: 152px;
-      font-size: 12px;
-    }
-
-    @media (max-width: 1060px) {
-      width: 100px;
-      font-size: 10px;
+    @media (max-width: 900px) {
+      width: 150px;
     }
   }
   & .social {
-    margin-inline-end: 1rem;
+    /* margin-inline-end: 1rem; */
     & a {
       @media (max-width: 1060px) {
         width: 36px;
@@ -75,8 +68,9 @@ export const NumberVirtual = styled.div`
       font-size: 10px;
     }
   }
-  @media (max-width: 450px) {
-    margin-inline-start: 71%;
+
+  @media (max-width: 500px) {
+    display: none;
   }
 `;
 

@@ -29,7 +29,7 @@ export const IDCardBox = styled.div`
   width: 95%;
   padding-top: 25px;
   & h1 {
-    font-size: 21px;
+    font-size: 20px;
     text-align: center;
     @media (min-width: 375px) and (max-width: 1200px) {
       font-size: 16px;
@@ -91,7 +91,7 @@ export const VirtualID = styled.div`
     & > div:first-of-type {
       & h4 {
         color: #4bb1f1;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: normal;
         margin-top: 34px;
         margin-bottom: 9px;
@@ -110,7 +110,6 @@ export const VirtualID = styled.div`
       }
     }
     & .img-user {
-      /* border-radius: 50%; */
       max-width: 240px;
       width: 100%;
       max-height: 265px;
@@ -138,10 +137,6 @@ export const VirtualID = styled.div`
         height: 70px;
       }
     }
-
-    @media (max-width: 650px) {
-      /* flex-direction: column; */
-    }
   }
 `;
 
@@ -150,7 +145,6 @@ export const boxCard = styled.div`
   flex-direction: column !important;
   justify-content: space-between;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   width: 76%;
 
   & div {

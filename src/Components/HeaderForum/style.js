@@ -8,41 +8,12 @@ export const ForumContainer = styled.div`
   flex-wrap: wrap;
   min-height: 71px;
   height: 100%;
-
   width: 100%;
-
-  /* & div:first-child {
-    border: 1px solid #fff;
-    border-radius: 20px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 40px;
-    & input {
-      border: none;
-      background-color: inherit;
-      max-width: 250px;
-      width: 100%;
-      font-size: 14px;
-      @media (max-width: 550px) {
-        width: 90%;
-        max-width: 150px;
-      }
-    }
-
-    @media (max-width: 550px) {
-      width: 90%;
-      margin-top: 8px;
-    }
-  } */
 
   & .profile-box {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* flex-wrap: wrap; */
     width: 40%;
 
     & div {
@@ -145,9 +116,5 @@ export const Container = styled.div`
     max-width: 250px;
     width: 100%;
     font-size: 14px;
-    /* @media (max-width: 550px) {
-      width: 90%;
-      max-width: 150px;
-    } */
   }
 `;

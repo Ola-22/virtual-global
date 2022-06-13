@@ -12,7 +12,6 @@ function Login({ settingsData }) {
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
-    // e.preventDefault();
     try {
       await authService.SignIn(email, password).then(
         (response) => {

@@ -43,9 +43,7 @@ function Faqs({
       <Nav
         profileInformation={profileInformation}
         settingsData={settingsData}
-        // language={language}
         handleSetLanguage={handleSetLanguage}
-        // setLanguage={setLanguage}
       />
       <Header
         profileInformation={profileInformation}

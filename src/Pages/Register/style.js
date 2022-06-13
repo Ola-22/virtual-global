@@ -34,12 +34,9 @@ export const RegisterContainer = styled.div`
       align-items: center;
       height: 80%;
       justify-content: space-around;
-      /* flex-wrap: wrap; */
       & p {
-        min-height: 62px !important;
         max-width: 60%;
         text-align: center;
-        overflow-y: hidden !important;
         font-size: 20px;
       }
       & .container {
@@ -47,6 +44,7 @@ export const RegisterContainer = styled.div`
         justify-content: space-evenly;
         align-items: center;
         width: 55%;
+        margin-top: 5%;
         & button {
           max-width: 112px;
           width: 100%;
@@ -86,8 +84,6 @@ export const RegisterContainer = styled.div`
       }
       & .send {
         max-width: 201px;
-        /* justify-content: space-evenly; */
-        /* padding-inline-start: 8%; */
 
         & > svg {
           fill: white;
@@ -139,7 +135,6 @@ export const RegisterBox = styled.div`
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
-    /* color: rgba(0, 0, 0, 0.3); */
 
     &[type="email"] {
       max-width: 739px;
@@ -162,10 +157,6 @@ export const RegisterBox = styled.div`
       text-transform: capitalize;
     }
   }
-
-  & button {
-    /* margin: 10px; */
-  }
 `;
 
 export const RegisterContent = styled.div`
@@ -174,7 +165,6 @@ export const RegisterContent = styled.div`
   flex-wrap: wrap;
   max-width: 739px;
   width: 90%;
-  /* margin-top: 5px; */
   & div {
     display: flex;
     flex-direction: column;
@@ -192,8 +182,6 @@ export const RegisterContent = styled.div`
 
   & input[type="date"] {
     background: #fff url("/images/calendar.png") 97% 50% no-repeat;
-
-    /* border: none; */
     border: 1px solid #dfdfdf;
     box-sizing: border-box;
     outline: 0;
@@ -202,9 +190,7 @@ export const RegisterContent = styled.div`
     width: 100%;
 
     &::-webkit-calendar-picker-indicator {
-      /* background: transparent; */
       bottom: 0;
-      /* color: transparent; */
       cursor: pointer;
       height: auto;
       left: 0;

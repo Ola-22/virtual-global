@@ -12,7 +12,6 @@ export const MainEdit = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
-    direction: ltr;
 
     & div {
       cursor: pointer;
@@ -57,7 +56,7 @@ export const MainEdit = styled.div`
       height: 40px;
       border-radius: 8px;
       border: 1px solid #dfdfdf;
-      padding-inline-start: 15px;
+      padding-inline-start: 24px;
     }
     & label {
       font-size: 13px;
@@ -76,16 +75,6 @@ export const userImage = styled.div`
   input[type="file"] {
     display: none;
   }
-  /* & .label {
-    display: flex;
-    flex-flow: column;
-    margin-top: 84%;
-    justify-content: center;
-    align-items: center;
-    & .image-upload {
-      cursor: pointer;
-    }
-  } */
 `;
 
 export const boxInput = styled.div`

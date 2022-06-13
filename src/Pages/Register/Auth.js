@@ -84,12 +84,7 @@ const logout = async () => {
     .then((res) => {
       localStorage.removeItem("user");
     })
-    .catch((err) => {
-      // localStorage.removeItem("user");
-      // if (err.response.status === 401) {
-      //   localStorage.removeItem("user");
-      // }
-    });
+    .catch((err) => {});
 };
 
 const getCurrentUser = () => {

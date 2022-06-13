@@ -27,6 +27,10 @@ export const AccordianContainer = styled.div`
     border-radius: 10px;
     & h3 {
       width: 80%;
+      font-size: 16px;
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -39,13 +43,9 @@ export const AccordianContainer = styled.div`
 export const AccordianAnswer = styled.div`
   background-color: #ffffff;
   border-radius: 0 0 10px 10px;
-  /* background-color: #ffffff;
-  border-radius: 0 0 10px 10px; */
   width: 100%;
-  /* border: 1px solid #dfdfdf; */
   & p {
     font-size: 16px;
-    /* max-width: 483px; */
     width: 90%;
     margin: auto;
     color: rgba(0, 0, 0, 0.5);
@@ -62,10 +62,8 @@ export const AnswerContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  /* padding-top: 110px; */
   padding-bottom: 125px;
 
-  /* border-bottom: 2px solid #4bb1f1; */
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
@@ -73,10 +71,18 @@ export const AnswerContainer = styled.div`
     font-size: 34px;
     margin-bottom: 21px;
     width: 90%;
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
   }
 
   & p {
     width: 90%;
+    font-size: 18px;
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
   }
   & > .main-box {
     border: 1px solid #dfdfdf;
@@ -89,28 +95,12 @@ export const AnswerContainer = styled.div`
     padding-top: 39px;
     min-height: 589px;
     height: 100%;
-    /* margin-top: 5.3%; */
     background-color: #ffffff;
     @media (max-width: 700px) {
       max-width: 90%;
       margin-top: 20px;
     }
-    /* @media (max-width: 700px) {
-      max-width: 90%;
-    }
 
-    @media (min-width: 700px) and (max-width: 800px) {
-      margin-top: 9%;
-    }
-
-    @media (min-width: 800px) and (max-width: 1000px) {
-      margin-top: 7.5%;
-    }
-
-    @media (min-width: 1100px) and (max-width: 1200px) {
-      margin-top: 6.3%;
-    }
-    */
     & form {
       display: flex;
       flex-direction: column;
@@ -159,10 +149,13 @@ export const AnswerContainer = styled.div`
         display: flex;
         align-items: center;
         font-weight: bold;
-
         text-transform: capitalize;
         justify-content: center;
         position: relative;
+
+        @media (max-width: 500px) {
+          width: 130px;
+        }
 
         & img {
           position: absolute;
@@ -238,7 +231,7 @@ export const animationBox = styled.div`
     font-size: 14px;
   }
   & label {
-    font-size: 16px;
+    font-size: 14px;
     padding: 0 12px;
     color: #999;
     pointer-events: none;
@@ -272,5 +265,10 @@ export const Main = styled.div`
     width: 90%;
     margin-bottom: 20px;
     padding-top: 110px;
+    font-size: 34px;
+
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
   }
 `;

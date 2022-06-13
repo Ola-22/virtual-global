@@ -35,7 +35,7 @@ export const PopularContainer = styled.div`
     }
 
     @media (max-width: 500px) {
-      font-size: 30px;
+      font-size: 20px;
     }
   }
 `;
@@ -73,6 +73,4 @@ export const MainSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* height: 543px;
-  background: #fff; */
 `;
