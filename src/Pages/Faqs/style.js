@@ -15,6 +15,9 @@ export const FaqsContainer = styled.div`
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 500px) {
+      width: 90%;
+    }
     & .accordian {
       background: white;
       max-width: 100%;
@@ -22,6 +25,13 @@ export const FaqsContainer = styled.div`
     }
     & .activeShow {
       border-radius: 10px 10px 0 0;
+    }
+
+    & .accordion_faq {
+      padding: 10px;
+      & h3 {
+        width: 100%;
+      }
     }
   }
 
