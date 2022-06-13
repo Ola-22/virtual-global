@@ -71,17 +71,7 @@ function Footer({ settingsData, language }) {
 
           <div>
             <h6>{settingsData?.items?.translation?.contact_us_footer}</h6>
-            {/* 
-            <div className="contact-box">
-              <div>
-                <img src="/images/phone.png" alt="contact us with phone" />
-                <li>{settingsData?.items?.translation?.phone}</li>
-              </div>
-              <li>
-                {settingsData?.items?.contact_information?.phone},
-                {settingsData?.items?.contact_information?.mobile}
-              </li>
-            </div> */}
+
             <div className="contact-box">
               <div>
                 <img src="/images/phone.png" alt="contact us with phone" />

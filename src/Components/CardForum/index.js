@@ -6,14 +6,9 @@ import { Link } from "react-router-dom";
 
 function CardForum({
   title,
-  paragraph,
-  totalLikes,
-  totalComments,
   title_Box,
-  text_Box,
   participated_discussions,
   special_discussions,
-  language,
 }) {
   const [special, setSpecial] = useState();
 
@@ -40,9 +35,7 @@ function CardForum({
   return (
     <S.CardForum>
       <h3>{title}</h3>
-      {/* {[...Array(3)].map(() => (
-        )
-      )]} */}
+
       <>
         {participated_discussions &&
           special?.participated_discussions?.map((disc) => (
@@ -67,7 +60,6 @@ function CardForum({
             </Link>
           ))}
       </>
-      {/* ) })} */}
     </S.CardForum>
   );
 }

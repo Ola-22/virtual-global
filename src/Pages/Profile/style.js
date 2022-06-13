@@ -16,14 +16,10 @@ export const ProfileContainer = styled.div`
     padding-top: 28px;
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
     @media (max-width: 900px) {
       flex-wrap: wrap;
     }
 
-    /* @media (max-width: 700px) {
-      width: 100%;
-    } */
     & .virtual-id {
       display: flex;
       flex-direction: column;
@@ -45,9 +41,7 @@ export const ProfileContainer = styled.div`
 
       & > h3 {
         font-size: 18px;
-        /* align-self: flex-start; */
         text-transform: uppercase;
-        /* margin-inline-start: 5%; */
         margin-top: 32px;
         margin-bottom: 37px;
         width: 94%;
@@ -70,7 +64,6 @@ export const ProfileContainer = styled.div`
         max-width: 100%;
         margin-top: 2%;
         height: auto;
-        /* padding-bottom: 20px; */
       }
 
       @media (max-width: 700px) {
@@ -170,18 +163,11 @@ export const lastActivity = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  /* @media (max-width: 900px) {
-    width: 79%;
-  } */
 
   @media (max-width: 500px) {
     width: 90%;
   }
 
-  /* @media (max-width: 700px) {
-    max-width: 100%;
-    width: 98%;
-  } */
   & h2 {
     font-size: 18px;
     background-color: #ffffff;
@@ -192,10 +178,6 @@ export const lastActivity = styled.div`
     padding-inline-start: 4%;
     text-transform: capitalize;
     border-radius: 10px;
-
-    /* @media (max-width: 1200px) {
-      width: 90%;
-    } */
   }
 `;
 

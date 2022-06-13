@@ -53,7 +53,6 @@ export const VirtualState = styled.div`
       @media (max-width: 700px) {
         font-size: 15px;
         text-align: center;
-        /* width: 90%; */
       }
 
       @media (min-width: 899px) and (max-width: 1100px) {

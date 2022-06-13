@@ -6,8 +6,6 @@ export const commentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 44px;
-  /* border-bottom: 1px solid;
-  padding-bottom: 20px; */
   & div {
     display: flex;
     & .user {
@@ -27,17 +25,16 @@ export const commentContainer = styled.div`
     background-color: #f9f9f9;
     max-width: 689px;
     width: 100%;
-    /* min-height: 94px; */
     border-radius: 10px;
     display: flex;
-    /* overflow-y: scroll;
-    height: 20px; */
     height: auto;
     word-break: break-all;
-    /* align-items: center; */
     margin-top: 17px;
     margin-bottom: 17.5px;
-    padding: 2% 2% 2% 5%;
+    padding-top: 2%;
+    padding-inline-end: 2%;
+    padding-bottom: 2%;
+    padding-inline-start: 5%;
     & p {
       max-width: 633px;
       align-self: center;

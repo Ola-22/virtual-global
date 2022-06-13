@@ -43,7 +43,16 @@ function ForgetPassword({ settingsData }) {
     <S.ForgetContainer>
       <div className="header">
         <div onClick={() => navigate(-1)}>
-          <img src="/images/Back.png" alt="back pages" />
+          <img
+            style={{
+              transform:
+                localStorage.getItem("language") === "ar"
+                  ? "rotate(180deg)"
+                  : "",
+            }}
+            src="/images/Back.png"
+            alt="back pages"
+          />
         </div>
       </div>
       <div className="main-box">

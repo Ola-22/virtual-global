@@ -17,7 +17,6 @@ export const loginContainer = styled.div`
     width: 100%;
     max-width: 530px;
     height: auto;
-    /* min-height: 100vh; */
 
     @media (max-width: 800px) {
       display: none;
@@ -39,7 +38,6 @@ export const loginContainer = styled.div`
     h2 {
       font-size: 24px;
       text-transform: uppercase;
-      /* margin-top: 14px; */
       text-align: center;
     }
     & p {
@@ -71,7 +69,6 @@ export const loginContainer = styled.div`
 
     & a {
       width: 96%;
-      /* margin-bottom: 72px; */
     }
   }
 
@@ -84,7 +81,6 @@ export const loginContainer = styled.div`
 export const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 492px; */
   max-width: 557px;
   width: 90%;
   background-color: #fff;

@@ -31,7 +31,12 @@ const Navbar = ({ settingsData, open, setOpen }) => {
           {settingsData?.items?.header?.map((menu, index) => {
             const depthLevel = 0;
             return (
-              <MenuItems items={menu} key={index} depthLevel={depthLevel} />
+              <MenuItems
+                setOpen={setOpen}
+                items={menu}
+                key={index}
+                depthLevel={depthLevel}
+              />
             );
           })}
           <li

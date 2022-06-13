@@ -12,9 +12,6 @@ import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import ChangePassword from "./Pages/ChangePassword";
 import Faqs from "./Pages/Faqs";
-
-// import song from "./music/background-music.mp3";
-
 import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
 
@@ -42,8 +39,6 @@ function App() {
       });
   }, [language]);
 
-  // console.log(settingsData);
-
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/home-page", {
@@ -59,7 +54,6 @@ function App() {
       });
   }, [language]);
 
-  // console.log(localStorage.getItem("language"));
   const [profileInformation, setProfileInformation] = useState();
   useEffect(() => {
     const config = {
@@ -82,12 +76,6 @@ function App() {
       .catch((err) => console.log(err));
   }, [language]);
 
-  // useEffect(() => {
-  //   <Helmet>
-  //     <title>{settingsData?.items?.title}</title>
-  //     <link rel="icon" href="/images/logo-footer.png" />
-  //   </Helmet>;
-  // });
   return (
     <BrowserRouter>
       <div
@@ -210,7 +198,7 @@ function App() {
 
           <Route
             path="/reset-password/:token/:emailRequest"
-            element={<ResetPassword />}
+            element={<ResetPassword settingsData={settingsData} />}
           />
 
           <Route

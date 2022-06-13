@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
-const MenuItems = ({ items, depthLevel }) => {
+const MenuItems = ({ items, depthLevel, setOpen }) => {
   const [dropdown, setDropdown] = useState(false);
-
+  const navigate = useNavigate();
   let ref = useRef();
 
   useEffect(() => {
@@ -51,10 +51,18 @@ const MenuItems = ({ items, depthLevel }) => {
             depthLevel={depthLevel}
             submenus={items.sub_menu}
             dropdown={dropdown}
+            setOpen={setOpen}
           />
         </>
       ) : (
-        <NavLink to={items.link}>{items.title}</NavLink>
+        <div
+          onClick={() => {
+            navigate(items.link);
+            setOpen(false);
+          }}
+        >
+          <NavLink to={items.link}>{items.title}</NavLink>
+        </div>
       )}
     </li>
   );

@@ -3,17 +3,11 @@ import styled from "styled-components";
 export const paginationContainer = styled.div`
   display: flex;
   margin-top: 20px;
-
-  /* position: fixed;
-  bottom: 6%; */
-
   & a {
     cursor: pointer;
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    /* background: white;
-    color: #2d98da; */
     background: #000;
     color: white;
     display: flex;

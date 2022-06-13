@@ -6,7 +6,6 @@ function VirtualState({ homeData, settingsData }) {
     <S.VirtualState>
       <div>
         <img
-          //   width="343"
           src={homeData?.items?.register_now_section?.image}
           alt="join the virtual global"
         />

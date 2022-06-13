@@ -25,22 +25,5 @@ export const SocialContainer = styled.div`
     & svg {
       color: #1976d2;
     }
-    & svg[data-icon="instagram"] {
-      /* font-size: 30px;
-      color: white;
-      background: linear-gradient(#ffc107, #9c27b0);
-      background: radial-gradient(
-        circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #fff 90%
-      ); */
-      /* border-radius: 5px 5px 15px 15px; */
-    }
-  }
-  @media (max-width: 900px) {
-    /* display: none; */
   }
 `;

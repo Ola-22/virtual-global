@@ -4,18 +4,9 @@ export const CardContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  /* margin-bottom: 121px; */
-  /* width: 90%; */
-  /* margin-inline-end: 9%; */
   @media (max-width: 970px) {
     flex-wrap: wrap;
   }
-
-  /* 
-  &:nth-of-type(2) {
-    position: absolute;
-    top: 74px;
-  } */
 
   & .card-box {
     background-color: #fff;
@@ -25,14 +16,15 @@ export const CardContainer = styled.div`
     min-height: 300px;
     justify-content: space-around;
     padding: 42px;
-    /* max-/: 565px; */
     width: 100%;
-    /* height: 280px; */
     max-width: 80%;
     & h3 {
       font-size: 22px;
       text-transform: capitalize;
       margin-bottom: 2%;
+      @media (max-width: 500px) {
+        font-size: 18px;
+      }
     }
     & p {
       font-size: 16px;
@@ -40,6 +32,9 @@ export const CardContainer = styled.div`
       font-weight: bold;
       height: 98px;
       overflow: hidden;
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
     }
 
     @media (max-width: 1200px) {
@@ -72,10 +67,21 @@ export const LikeCard = styled.div`
       font-size: 18px;
       font-weight: normal;
       margin-inline-start: 11px;
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
     }
 
     &:last-child {
       margin-inline-start: 40px;
+    }
+  }
+
+  & a > img {
+    @media (max-width: 500px) {
+      width: 35px;
+      height: 35px;
     }
   }
 `;

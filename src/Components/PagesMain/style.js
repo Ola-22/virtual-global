@@ -24,12 +24,18 @@ export const AboutContainer = styled.div`
       min-height: 300px;
       height: 100%;
       width: 100%;
+      max-width: 375px;
+      object-fit: contain;
     }
     & h1 {
       font-size: 22px;
       margin-top: 58px;
       width: 100%;
       margin-bottom: 42px;
+
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
 
     & > p {
@@ -72,7 +78,6 @@ export const BoxAbout = styled.div`
   margin-bottom: 92px;
 
   & img {
-    /* max-width: 756px; */
     width: 100%;
     min-height: 375px;
     height: 100%;

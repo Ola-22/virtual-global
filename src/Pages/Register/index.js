@@ -151,6 +151,8 @@ export default function Register({ language, settingsData }) {
 
   const [error, setError] = useState();
 
+  console.log(gender);
+
   const handleSignup = async (e) => {
     // e.preventDefault();
     try {
@@ -168,7 +170,6 @@ export default function Register({ language, settingsData }) {
           gender,
           acceptConstitution,
           acceptTerms
-          // token
         )
         .then(
           (response) => {
@@ -183,6 +184,8 @@ export default function Register({ language, settingsData }) {
             }
 
             setRegisterData(response);
+
+            console.log(response);
           },
           (error) => {
             console.log(error);
@@ -232,7 +235,16 @@ export default function Register({ language, settingsData }) {
     <S.Main>
       <S.HeaderRegister>
         <Link to="/">
-          <img src="/images/Back.png" alt="back pages" />
+          <img
+            style={{
+              transform:
+                localStorage.getItem("language") === "ar"
+                  ? "rotate(180deg)"
+                  : "",
+            }}
+            src="/images/Back.png"
+            alt="back pages"
+          />
         </Link>
       </S.HeaderRegister>
       <S.RegisterContainer>
@@ -421,7 +433,7 @@ export default function Register({ language, settingsData }) {
                     type="radio"
                     name="gender"
                     value={settingsData?.items?.translation?.gender_male}
-                    onChange={(e) => setGender(e.target.value)}
+                    onChange={(e) => setGender("male")}
                   />
                   <span>{settingsData?.items?.translation?.gender_male}</span>
                 </div>
@@ -430,7 +442,7 @@ export default function Register({ language, settingsData }) {
                     type="radio"
                     name="gender"
                     value={settingsData?.items?.translation?.gender_female}
-                    onChange={(e) => setGender(e.target.value)}
+                    onChange={(e) => setGender("female")}
                   />
                   <span>{settingsData?.items?.translation?.gender_female}</span>
                 </div>

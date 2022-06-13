@@ -12,7 +12,6 @@ export const ForgetContainer = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
-    direction: ltr;
 
     & div {
       cursor: pointer;

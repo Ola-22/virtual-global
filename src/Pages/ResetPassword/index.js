@@ -40,7 +40,9 @@ function ResetPassword({ settingsData, language }) {
 
         config
       )
-      .then((res) => {})
+      .then((res) => {
+        console.log(res);
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -50,7 +52,16 @@ function ResetPassword({ settingsData, language }) {
     <S.ForgetContainer>
       <div className="header">
         <div onClick={() => navigate(-1)}>
-          <img src="/images/Back.png" alt="back pages" />
+          <img
+            style={{
+              transform:
+                localStorage.getItem("language") === "ar"
+                  ? "rotate(180deg)"
+                  : "",
+            }}
+            src="/images/Back.png"
+            alt="back pages"
+          />
         </div>
       </div>
       <div className="main-box">
@@ -65,8 +76,6 @@ function ResetPassword({ settingsData, language }) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder={settingsData?.items?.translation?.placeholder_pages}
             />
-
-            {/* <h3 className="error"> {ResetData?.message}</h3> */}
           </S.InputBox>
 
           <S.InputBox>
@@ -76,8 +85,6 @@ function ResetPassword({ settingsData, language }) {
               value={password_confirmation ?? ""}
               onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
-
-            {/* <h3 className="error"> {ResetData?.message}</h3> */}
           </S.InputBox>
           {!loading && (
             <Button
