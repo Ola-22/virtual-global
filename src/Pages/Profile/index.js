@@ -1,18 +1,13 @@
 import Footer from "../../Components/Footer";
 import Nav from "../../Components/Nav";
 import * as S from "./style";
-import { useState, useEffect, useRef, createRef } from "react";
+import { useState, useEffect, createRef } from "react";
 import LikeTopic from "../../Components/LikeTopic";
 import IDCard from "../../Components/IDCard";
 import axiosInstance from "../../helpers/axios";
 import Tab from "../../Components/Tabs/Tab";
 import TabNav from "../../Components/Tabs/TabNav";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  exportComponentAsJPEG,
-  exportComponentAsPDF,
-  exportComponentAsPNG,
-} from "react-component-export-image";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
