@@ -25,6 +25,7 @@ export const NavContainer = styled.div`
 
       @media (max-width: 450px) {
         font-size: 15px;
+        text-align: center;
       }
     }
 
@@ -37,6 +38,14 @@ export const NavContainer = styled.div`
     & img {
       border-inline-start: 1px solid rgba(128, 128, 128, 0.16);
       padding-inline-start: 20px;
+
+      @media (max-width: 450px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      width: 10%;
     }
   }
 
@@ -48,7 +57,16 @@ export const NavContainer = styled.div`
       border-radius: 6px;
       & img {
         border-radius: 6px;
+        @media (max-width: 450px) {
+          width: 80px;
+          height: 50px;
+        }
       }
+    }
+
+    @media (max-width: 450px) {
+      max-width: 90%;
+      width: 100%;
     }
   }
 `;

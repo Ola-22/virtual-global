@@ -73,7 +73,9 @@ function Header({ settingsData, profileInformation }) {
               {settingsData?.items?.translation?.log_out}
             </Link>
           ) : (
-            <Link to="/register">Register</Link>
+            <Link to="/register">
+              {settingsData?.items?.translation?.register}
+            </Link>
           )}
 
           {showTerms ? (
@@ -83,7 +85,15 @@ function Header({ settingsData, profileInformation }) {
           <Modal
             content={
               <>
-                <div className="modal-header">
+                <div
+                  className="modal-header"
+                  style={{
+                    justifyContent:
+                      localStorage.getItem("language") === "ar"
+                        ? "flex-start"
+                        : "",
+                  }}
+                >
                   <span onClick={closeModalTerms} className="close-modal-btn">
                     <img src="/images/close.png" alt="close the Modal" />
                   </span>

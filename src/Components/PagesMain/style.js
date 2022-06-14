@@ -24,8 +24,12 @@ export const AboutContainer = styled.div`
       min-height: 300px;
       height: 100%;
       width: 100%;
-      max-width: 375px;
-      object-fit: contain;
+
+      @media (max-width: 700px) {
+        max-width: 375px;
+        object-fit: contain;
+        width: 100%;
+      }
     }
     & h1 {
       font-size: 22px;
