@@ -71,6 +71,7 @@ export const VirtualState = styled.div`
       color: #000000;
       margin-top: 33px;
       text-transform: capitalize;
+      text-align: center;
       @media (max-width: 900px) {
         margin-top: 10px;
         width: 150px;
