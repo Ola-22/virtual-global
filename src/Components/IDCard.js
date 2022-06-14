@@ -11,9 +11,10 @@ function IDCard({
   settingsData,
   serial,
   data_register,
+  ref,
 }) {
   return (
-    <S.IDCardContainer>
+    <S.IDCardContainer ref={ref} id="Canvas">
       <S.IDCardBox>
         <img className="img-flag" src="/images/LogoImg.png" alt="" />
         <h1>{settingsData?.items?.translation?.virtual_global_card}</h1>

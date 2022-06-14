@@ -1,15 +1,39 @@
 import Footer from "../../Components/Footer";
 import Nav from "../../Components/Nav";
 import * as S from "./style";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, createRef } from "react";
 import LikeTopic from "../../Components/LikeTopic";
 import IDCard from "../../Components/IDCard";
 import axiosInstance from "../../helpers/axios";
 import Tab from "../../Components/Tabs/Tab";
 import TabNav from "../../Components/Tabs/TabNav";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  exportComponentAsJPEG,
+  exportComponentAsPDF,
+  exportComponentAsPNG,
+} from "react-component-export-image";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function Profile({ settingsData, profileInformation, handleSetLanguage }) {
+  const componentRef = createRef();
+
+  const exportPdf = () => {
+    const input = document.getElementById("Canvas");
+    html2canvas(input, {
+      logging: true,
+      letterRendering: 1,
+      useCORS: true,
+    }).then((canvas) => {
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const imgData = canvas.toDataURL("img/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.save("card.pdf");
+    });
+  };
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
 
@@ -49,6 +73,7 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
   return (
     <S.Main id="profile-main">
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
+
       <S.ProfileContainer>
         <div className="profile-main">
           <div className="box">
@@ -65,7 +90,9 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                 settingsData={settingsData}
                 serial={profileInformation?.user?.serial}
                 data_register={profileInformation?.user?.created_at}
+                ref={componentRef.current}
               />
+              <button onClick={() => exportPdf()}>Export As PDF</button>
             </div>
             <div className="profile-information">
               <S.containerProfile>
