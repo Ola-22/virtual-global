@@ -1,9 +1,8 @@
 import * as S from "./style";
 import Social from "../Social";
 import { NumberFormat } from "../../lib/NumberFormat";
-import videoBg from "../../music/videoBackground.mp4";
+import { videoLangAr, videoLangEn, videoLangFr } from "../Video";
 import { useRef, useState, useEffect } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -15,7 +14,7 @@ import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fas, faVolumeLow, faVolumeMute, faFontAwesome);
 
-export default function SliderComponent({ homeData, settingsData }) {
+export default function SliderComponent({ homeData, settingsData, language }) {
   const [playing, setPlaying] = useState(true);
 
   const videoRef = useRef(null);
@@ -46,15 +45,39 @@ export default function SliderComponent({ homeData, settingsData }) {
 
   return (
     <S.sliderMain>
-      <video
-        ref={videoRef}
-        className="video"
-        src={videoBg}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+      {language === "en" ? (
+        <video
+          ref={videoRef}
+          className="video"
+          src={videoLangEn}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      ) : language === "ar" ? (
+        <video
+          ref={videoRef}
+          className="video"
+          src={videoLangAr}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      ) : language === "fr" ? (
+        <video
+          ref={videoRef}
+          className="video"
+          src={videoLangFr}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      ) : (
+        ""
+      )}
 
       <S.NumberVirtual>
         <div className="box-number">
