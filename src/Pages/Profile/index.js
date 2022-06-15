@@ -87,7 +87,9 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                 data_register={profileInformation?.user?.created_at}
                 ref={componentRef.current}
               />
-              <button onClick={() => exportPdf()}>Export As PDF</button>
+              <button className="export-pdf" onClick={() => exportPdf()}>
+                Export As PDF
+              </button>
             </div>
             <div className="profile-information">
               <S.containerProfile>

@@ -46,6 +46,25 @@ export const ProfileContainer = styled.div`
         margin-bottom: 37px;
         width: 94%;
       }
+
+      & .export-pdf {
+        width: 130px;
+        min-height: 36px;
+        border-radius: 88px;
+        border: 1px solid #2d98da;
+        background-color: inherit;
+        color: #2d98da;
+        text-transform: capitalize;
+        cursor: pointer;
+        font-size: 12px;
+        margin-top: 20px;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          background-color: #2d98da;
+          color: #fff;
+          border: 1px solid #fff;
+        }
+      }
     }
 
     & .profile-information {
@@ -98,6 +117,13 @@ export const ProfileContainer = styled.div`
         align-self: stretch;
         margin-inline-start: 5%;
         font-size: 12px;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+          background-color: #2d98da;
+          color: #fff;
+          border: 1px solid #fff;
+        }
       }
       @media (max-width: 1200px) {
         width: 36%;

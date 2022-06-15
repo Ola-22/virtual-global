@@ -41,7 +41,7 @@ function ResetPassword({ settingsData, language }) {
         config
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);

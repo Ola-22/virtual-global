@@ -20,12 +20,9 @@ export default function Register({ language, settingsData }) {
   const [category, setCategory] = useState();
   const [specializations, setSpecializations] = useState();
   const [country, setCountry] = useState();
-
   const [categoryDegree, setCategoryDegree] = useState("");
-
   const [categoryCountry, setCategoryCountry] = useState("");
   const [categoryMajor, setCategoryMajor] = useState("");
-
   const [acceptConstitution, setAcceptConstitution] = useState("");
   const [acceptTerms, setAcceptTerms] = useState("");
 
@@ -151,7 +148,7 @@ export default function Register({ language, settingsData }) {
 
   const [error, setError] = useState();
 
-  console.log(gender);
+  // console.log(gender);
 
   const handleSignup = async (e) => {
     // e.preventDefault();
@@ -185,7 +182,7 @@ export default function Register({ language, settingsData }) {
 
             setRegisterData(response);
 
-            console.log(response);
+            // console.log(response);
           },
           (error) => {
             console.log(error);
