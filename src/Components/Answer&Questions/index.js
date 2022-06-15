@@ -44,7 +44,6 @@ function AnswerQuestions({ homeData, settingsData, language }) {
       .post("/api/web-site/contact-us", data, config)
       .then((res) => {
         setContactData(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

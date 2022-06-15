@@ -48,4 +48,8 @@ export const topicContainer = styled.div`
       width: 95%;
     }
   }
+
+  & .paragraph {
+    width: 97%;
+  }
 `;

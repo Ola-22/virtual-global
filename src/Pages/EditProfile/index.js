@@ -64,7 +64,7 @@ function EditProfile({ settingsData, profileInformation }) {
     });
   }
 
-  console.log(profileInformation?.user?.image);
+  // console.log(profileInformation?.user?.image);
   const [date, setDate] = useState(profileInformation?.user.dob);
 
   useEffect(() => {

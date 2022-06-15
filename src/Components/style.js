@@ -17,7 +17,7 @@ export const IDCardContainer = styled.div`
   @media (max-width: 500px) {
     padding-bottom: 0;
     max-height: 480px;
-    min-height: 480px;
+    min-height: 445px;
   }
 `;
 
@@ -31,8 +31,12 @@ export const IDCardBox = styled.div`
   & h1 {
     font-size: 20px;
     text-align: center;
-    @media (min-width: 375px) and (max-width: 1200px) {
+    @media (min-width: 500px) and (max-width: 1200px) {
       font-size: 16px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 12px;
     }
   }
 
@@ -40,7 +44,7 @@ export const IDCardBox = styled.div`
     max-width: 175px;
     max-height: 103px;
     @media (max-width: 500px) {
-      max-width: 100px;
+      max-width: 80px;
       max-height: 70px;
     }
   }
@@ -57,6 +61,11 @@ export const IDCardBox = styled.div`
   & .union {
     align-self: flex-start;
     margin-top: 9px;
+
+    @media (max-width: 500px) {
+      width: 50px;
+      height: 30px;
+    }
   }
 
   @media (max-width: 500px) {
@@ -73,10 +82,10 @@ export const VirtualID = styled.div`
       font-size: 16px;
       margin-top: 0;
     }
-
+    /* 
     @media (max-width: 700px) {
       margin-top: 30px;
-    }
+    } */
   }
 
   & .virtual-box {

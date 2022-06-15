@@ -14,6 +14,7 @@ function LikeTopic({
         {settingsData?.items?.translation?.asked_Forum_Details}: {date}
       </h6>
       <span
+        className="paragraph"
         dangerouslySetInnerHTML={{
           __html: paragraph,
         }}
