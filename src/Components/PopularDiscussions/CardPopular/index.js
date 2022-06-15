@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
+import authService from "../../../Pages/Register/Auth";
+import { useState, useEffect } from "react";
 
 function CardPolular({
   link,
@@ -10,6 +12,15 @@ function CardPolular({
   key,
   language,
 }) {
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = authService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
   return (
     <S.CardContainer key={key}>
       <div
@@ -36,7 +47,7 @@ function CardPolular({
             </div>
           </div>
 
-          <Link to={`/discussion/${link}`}>
+          <Link to={`${!currentUser ? "/login" : `/discussion/${link}`}`}>
             <img src="/images/slideMore.png" alt="slide more of the popular" />
           </Link>
         </S.LikeCard>

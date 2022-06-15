@@ -22,7 +22,6 @@ function EditProfile({ settingsData, profileInformation }) {
     setFile(e.target.files[0]);
   }
 
-  console.log(file);
   const [category, setCategory] = useState();
   const [specializations, setSpecializations] = useState();
   const [country, setCountry] = useState();
@@ -64,7 +63,6 @@ function EditProfile({ settingsData, profileInformation }) {
     });
   }
 
-  // console.log(profileInformation?.user?.image);
   const [date, setDate] = useState(profileInformation?.user.dob);
 
   useEffect(() => {
@@ -97,7 +95,6 @@ function EditProfile({ settingsData, profileInformation }) {
       });
   }, []);
 
-  console.log(file, "file");
   const [editProfile, setEditProfile] = useState();
   async function UpdateProfile() {
     const dataImg = new FormData();

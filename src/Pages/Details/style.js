@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const DetailsContainer = styled.div`
   display: flex;
@@ -8,8 +9,12 @@ export const DetailsContainer = styled.div`
   padding-bottom: 46px;
   width: 100%;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     flex-wrap: wrap;
+  }
+
+  & a {
+    color: #000;
   }
 `;
 
@@ -170,13 +175,19 @@ export const CardForum = styled.div`
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;
-
-  @media (max-width: 700px) {
+  padding-bottom: 20px;
+  min-width: 367px;
+  @media (max-width: 800px) {
     width: 90%;
     max-height: auto !important;
     height: auto;
     margin-inline-end: 0;
   }
+
+  @media (min-width: 950px) and (max-width: 1050px) {
+    min-width: 200px;
+  }
+
   &:last-child {
     padding-bottom: 34.5px;
   }
@@ -204,6 +215,11 @@ export const CardForum = styled.div`
       align-items: center;
       margin-inline-end: 13px;
     }
+
+    & .box-like {
+      color: #000000;
+      margin-top: 11px;
+    }
     & p {
       font-size: 16px;
       max-width: 290px;
@@ -225,8 +241,8 @@ export const CardForum = styled.div`
     }
   }
   & .card-box {
-    max-width: 90%;
-    width: 90%;
+    max-width: 100%;
+    width: 100%;
   }
 `;
 
@@ -257,11 +273,14 @@ export const Main = styled.div`
     border: navajowhite;
     color: #5abbf8;
     background: white;
-    border: 1px solid #5abbf8;
     margin-top: 10px;
   }
 
   & .nav-container {
     justify-content: space-between;
   }
+`;
+
+export const LinkContainer = styled(Link)`
+  width: 100%;
 `;

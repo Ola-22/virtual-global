@@ -8,9 +8,11 @@ export const VirtualState = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  /*  */
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     background-size: 10000px;
+    padding-bottom: 52px;
   }
 
   & > div:first-of-type {
@@ -79,7 +81,6 @@ export const VirtualState = styled.div`
         margin-bottom: 10px;
         margin: auto;
         margin-top: 6%;
-        margin-bottom: 6%;
       }
       &:hover {
         color: #2395db;
