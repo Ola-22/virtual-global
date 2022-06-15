@@ -27,11 +27,11 @@ function VirtualState({ homeData, settingsData }) {
             __html: homeData?.items?.register_now_section?.text,
           }}
         />
-        {/* {!currentUser && ( */}
-        <Link to="/register">
-          {settingsData?.items?.translation?.button_join}
-        </Link>
-        {/* )} */}
+        {!currentUser && (
+          <Link to="/register">
+            {settingsData?.items?.translation?.button_join}
+          </Link>
+        )}
       </S.virtualBox>
     </S.VirtualState>
   );
