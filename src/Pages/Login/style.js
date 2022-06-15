@@ -89,7 +89,6 @@ export const LoginBox = styled.div`
   & h2 {
     font-size: 24px;
     text-transform: uppercase;
-    /* margin-top: 34px; */
   }
   & h6 {
     font-size: 14px;
@@ -98,9 +97,13 @@ export const LoginBox = styled.div`
     margin-top: 9px;
   }
 
+  & form {
+    display: flex;
+    flex-direction: column;
+  }
   & input {
     max-width: 480px;
-    width: 90%;
+    width: 100%;
     min-height: 55px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;

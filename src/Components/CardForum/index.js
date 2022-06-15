@@ -32,6 +32,7 @@ function CardForum({
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <S.CardForum>
       <h3>{title}</h3>
@@ -42,7 +43,7 @@ function CardForum({
             <Link to={`/discussion/${disc.id}`} key={disc.id}>
               <CardBox
                 title={title_Box}
-                paragraph={disc.text}
+                paragraph={disc.title}
                 totalComments={disc.comments_count}
                 totalLikes={disc.likes_count}
               />
@@ -53,7 +54,7 @@ function CardForum({
             <Link to={`/discussion/${disc.id}`} key={disc.id}>
               <CardBox
                 title={title_Box}
-                paragraph={disc.text}
+                paragraph={disc.title}
                 totalComments={disc.comments_count}
                 totalLikes={disc.likes_count}
               />

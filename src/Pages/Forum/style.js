@@ -12,9 +12,9 @@ export const ForumContainer = styled.div`
 
   & .topForum {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 21.5px;
-    @media (min-width: 700px) and (max-width: 800px) {
+    @media (max-width: 700px) {
       flex-wrap: wrap;
     }
 
@@ -50,7 +50,7 @@ export const ForumContainer = styled.div`
           text-transform: capitalize;
         }
 
-        @media (min-width: 700px) and (max-width: 800px) {
+        @media (max-width: 700px) {
           margin-inline-start: 0px;
           margin-top: 15px;
         }
@@ -67,13 +67,17 @@ export const ForumContainer = styled.div`
   }
 
   & .box-one {
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     margin-inline-end: -7%;
     @media (max-width: 700px) {
       width: 90%;
       margin-inline-end: 0;
+    }
+
+    @media (min-width: 1150px) {
+      min-width: 367px;
     }
   }
   & .tab {
@@ -87,8 +91,9 @@ export const MainTopic = styled.div`
   flex-direction: column;
   width: 56%;
   flex-wrap: wrap;
-  @media (max-width: 1200px) {
-    width: 56%;
+  @media (min-width: 1150px) {
+    /* width: 56%; */
+    min-width: 765px;
   }
 
   @media (max-width: 700px) {
@@ -107,4 +112,10 @@ export const Main = styled.div`
     max-width: 840px;
     width: 100%;
   }
+`;
+
+export const CardFormContainer = styled.div`
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
 `;

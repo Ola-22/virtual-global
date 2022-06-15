@@ -139,19 +139,13 @@ export default function Register({ language, settingsData }) {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState();
-  // const [token, setToken] = useState("");
   const captchaRef = useRef(null);
 
-  // const onSubmit = () => {
   const token = captchaRef.current?.execute();
-  // };
 
   const [error, setError] = useState();
 
-  // console.log(gender);
-
   const handleSignup = async (e) => {
-    // e.preventDefault();
     try {
       await authService
         .SignUp(
@@ -589,12 +583,6 @@ export default function Register({ language, settingsData }) {
             </S.RegisterGender>
 
             <S.Captcha>
-              {/* <HCaptcha
-                sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
-                onVerify={setToken}
-                ref={captchaRef}
-              /> */}
-              {/* <CaptchaCom /> */}
               <ReCAPTCHA
                 sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
                 onChange={onChange}
@@ -607,8 +595,6 @@ export default function Register({ language, settingsData }) {
               onClick={(e) => {
                 e.preventDefault();
                 handleSignup();
-                // onSubmit();
-                // setShowCouncil(true);
               }}
               title={settingsData?.items?.translation?.button_join}
             />

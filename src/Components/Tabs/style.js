@@ -19,8 +19,12 @@ export const TabsContainer = styled.div`
 
   & .tab-link {
     position: relative;
+    @media (max-width: 1000px) {
+      font-size: 12px;
+    }
     &.activeSelect {
       color: #2d98da;
+
       &::after {
         content: "";
         width: 90px;
@@ -32,6 +36,10 @@ export const TabsContainer = styled.div`
 
         @media (max-width: 500px) {
           display: none;
+        }
+
+        @media (max-width: 800px) {
+          bottom: -90%;
         }
       }
     }

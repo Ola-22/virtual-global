@@ -106,13 +106,16 @@ function Forum({
             </div>
           </div>
           <div>
-            <CardForum
-              title={settingsData?.items?.translation?.hot_discussions}
-              special_discussions
-              language={language}
-              settingsData={settingsData}
-            />
-            <div style={{ marginTop: "14px" }}>
+            <S.CardFormContainer>
+              <CardForum
+                title={settingsData?.items?.translation?.hot_discussions}
+                special_discussions
+                language={language}
+                settingsData={settingsData}
+              />
+            </S.CardFormContainer>
+
+            <S.CardFormContainer style={{ marginTop: "14px" }}>
               <CardForum
                 title={
                   settingsData?.items?.translation?.Participated_Discussions
@@ -121,7 +124,7 @@ function Forum({
                 language={language}
                 settingsData={settingsData}
               />
-            </div>
+            </S.CardFormContainer>
           </div>
         </div>
         <S.MainTopic>

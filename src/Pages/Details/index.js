@@ -23,6 +23,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       setLoading(false);
     }, 1500);
   }
+  const [parentId, setParentId] = useState();
 
   useEffect(() => {
     const config = {
@@ -46,7 +47,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   }, [id]);
 
   const [textComment, setTextComment] = useState();
-  const [parentId, setParentId] = useState("0");
+
   const [commentStatus, setCommentStatus] = useState();
   async function sendComment() {
     const data = {
@@ -79,7 +80,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   async function loadMoreComment() {
     const data = {
       count: lengthComment,
-      parent_id: parentId,
+      parent_id: 0,
     };
     const config = {
       headers: {
@@ -129,6 +130,28 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       });
   }
 
+  const [discussionsSearch, setDiscussionsSearch] = useState();
+  const [searchQuery, setSearchQuery] = useState();
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: localStorage.getItem("language"),
+      },
+    };
+    axiosInstance
+      .get(
+        `/api/user/discussions/all?title=${searchQuery}`,
+
+        config
+      )
+      .then((res) => {
+        setDiscussionsSearch(res.data.items.discussions);
+      })
+      .catch((err) => console.log(err));
+  }, [searchQuery]);
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -136,18 +159,36 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       <HeaderForum
         settingsData={settingsData}
         profileInformation={profileInformation}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery || ""}
       />
       <S.DetailsContainer>
         <S.CardForum>
           <h3>{settingsData?.items?.translation?.title_special}</h3>
-          {result?.related_topics?.map((topic) => (
-            <CardBox
-              paragraph={topic?.text}
-              totalLikes={topic?.likes_count}
-              totalComments={topic?.comments_count}
-              id={id}
-            />
-          ))}
+
+          {discussionsSearch?.length !== 0
+            ? discussionsSearch?.map((topic) => (
+                <S.LinkContainer to={`/discussion/${topic?.id}`}>
+                  <CardBox
+                    paragraph={topic?.title}
+                    totalLikes={topic?.likes_count}
+                    totalComments={topic?.comments_count}
+                    id={id}
+                    discussionsSearch={discussionsSearch}
+                  />
+                </S.LinkContainer>
+              ))
+            : result?.related_topics?.map((topic) => (
+                <S.LinkContainer to={`/discussion/${topic?.id}`}>
+                  <CardBox
+                    paragraph={topic?.title}
+                    totalLikes={topic?.likes_count}
+                    totalComments={topic?.comments_count}
+                    id={id}
+                    discussionsSearch={discussionsSearch}
+                  />
+                </S.LinkContainer>
+              ))}
         </S.CardForum>
 
         <S.DetailsBox>
