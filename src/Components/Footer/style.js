@@ -58,7 +58,7 @@ export const FooterContainer = styled.div`
         display: flex;
         justify-content: space-between;
         line-height: 2;
-        margin-top: 22px;
+        /* margin-top: 22px; */
         & a {
           color: #4b4b4b;
         }
