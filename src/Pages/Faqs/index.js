@@ -28,6 +28,8 @@ function Faqs({
       });
   }, [language]);
 
+  console.log(faqs);
+
   const lengthFaqs = faqs?.faqs;
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
