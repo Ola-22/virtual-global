@@ -116,5 +116,6 @@ export const Container = styled.div`
     max-width: 250px;
     width: 100%;
     font-size: 14px;
+    text-transform: capitalize;
   }
 `;

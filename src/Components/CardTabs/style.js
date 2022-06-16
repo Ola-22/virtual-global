@@ -5,7 +5,7 @@ export const CardMain = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 765px;
+  /* max-width: 765px; */
   width: 100%;
   min-height: 287px;
   background-color: #ffffff;
@@ -26,6 +26,10 @@ export const CardMain = styled.div`
   & p {
     font-size: 16px;
     color: rgba(0, 0, 0, 0.6);
+    max-height: 58px;
+    overflow: hidden;
+    width: 90%;
+    text-overflow: ellips;
   }
 
   & .box {

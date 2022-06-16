@@ -12,6 +12,7 @@ export const topicContainer = styled.div`
   padding-inline-start: 32px;
   padding-bottom: 20px;
   padding-top: 20px;
+  color: #000;
   & h5 {
     font-size: 18px;
     font-weight: normal;
@@ -37,10 +38,13 @@ export const topicContainer = styled.div`
   & .text {
     max-width: 1066px;
     background-color: #f9f9f9;
-    min-height: 94px;
+    min-height: 50px;
+    word-break: break-all;
+    overflow: hidden;
     display: flex;
     align-items: center;
     padding-inline-start: 22px;
+    padding-inline-end: 22px;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -51,5 +55,7 @@ export const topicContainer = styled.div`
 
   & .paragraph {
     width: 97%;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 `;

@@ -12,18 +12,27 @@ import ReplyComment from "../../Components/Comments/ReplyComment";
 
 function Details({ settingsData, profileInformation, handleSetLanguage }) {
   const { id } = useParams();
-
   const [result, setResult] = useState([]);
-
   const [loading, setLoading] = useState(false);
+  const [textComment, setTextComment] = useState();
+  const [parentId, setParentId] = useState();
+  const [commentStatus, setCommentStatus] = useState();
+  const [showInput, setShowInput] = useState(false);
+  const [setUserName] = useState("");
+  const [lengthComment, setLengthComment] = useState(0);
+  const [loadComment, setLoadComment] = useState();
+  const [showComments, setShowComments] = useState(false);
+  const [likeData, setLikeData] = useState();
+  const [discussionsSearch, setDiscussionsSearch] = useState();
+  const [searchQuery, setSearchQuery] = useState();
 
   function handleClick() {
     setLoading(true);
+    setTextComment("");
     setTimeout(() => {
       setLoading(false);
     }, 1500);
   }
-  const [parentId, setParentId] = useState();
 
   useEffect(() => {
     const config = {
@@ -46,9 +55,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       .catch((err) => console.log(err));
   }, [id]);
 
-  const [textComment, setTextComment] = useState();
-
-  const [commentStatus, setCommentStatus] = useState();
   async function sendComment() {
     const data = {
       text: textComment,
@@ -69,13 +75,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         console.log(err);
       });
   }
-
-  const [showInput, setShowInput] = useState(false);
-  const [setUserName] = useState("");
-
-  const [lengthComment, setLengthComment] = useState(0);
-  const [loadComment, setLoadComment] = useState();
-  const [showComments, setShowComments] = useState(false);
 
   async function loadMoreComment() {
     const data = {
@@ -103,7 +102,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
     setLengthComment(result?.discussion?.comments.length);
   }, [result?.discussion?.comments.length]);
 
-  const [likeData, setLikeData] = useState();
   async function sendLike() {
     const config = {
       headers: {
@@ -129,9 +127,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         console.log(err);
       });
   }
-
-  const [discussionsSearch, setDiscussionsSearch] = useState();
-  const [searchQuery, setSearchQuery] = useState();
 
   useEffect(() => {
     const config = {
