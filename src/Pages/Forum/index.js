@@ -25,8 +25,6 @@ function Forum({
     settingsData?.items?.translation?.recent_topics || "Recent Topics"
   );
 
-  console.log(selected);
-
   const [discussion, setDiscussions] = useState([]);
 
   const SelectTab = (tab) => {
@@ -98,7 +96,7 @@ function Forum({
           <div className="topForum">
             <div>
               <h2> {settingsData?.items?.translation?.topics}</h2>
-              <p>{discussion?.length}</p>
+              <p>{NumberFormat(discussion?.length)}</p>
             </div>
             <div>
               <h2>{settingsData?.items?.translation?.replies}</h2>

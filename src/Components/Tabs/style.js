@@ -27,7 +27,8 @@ export const TabsContainer = styled.div`
 
       &::after {
         content: "";
-        width: 90px;
+        max-width: 90px;
+        width: 100%;
         height: 3px;
         background-color: #2d98da;
         display: flex;

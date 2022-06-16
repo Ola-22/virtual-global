@@ -29,6 +29,10 @@ export const ForumContainer = styled.div`
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+
+      @media (max-width: 420px) {
+        width: 156px;
+      }
       & p {
         font-size: 29px;
         margin-top: 16px;
@@ -42,7 +46,10 @@ export const ForumContainer = styled.div`
       }
 
       &:last-of-type {
-        margin-inline-start: 15px;
+        /* margin-inline-start: 15px; */
+        @media (min-width: 700px) {
+          margin-inline-start: 15px;
+        }
 
         & h2 {
           font-size: 16px;
@@ -52,7 +59,7 @@ export const ForumContainer = styled.div`
 
         @media (max-width: 700px) {
           margin-inline-start: 0px;
-          margin-top: 15px;
+          /* margin-top: 15px; */
         }
       }
     }
@@ -108,10 +115,10 @@ export const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  & .box-virtual {
+  /* & .box-virtual {
     max-width: 840px;
     width: 100%;
-  }
+  } */
 `;
 
 export const CardFormContainer = styled.div`

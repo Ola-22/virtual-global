@@ -85,6 +85,7 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                 settingsData={settingsData}
                 serial={profileInformation?.user?.serial}
                 data_register={profileInformation?.user?.created_at}
+                end_register={profileInformation?.user?.expiry_date}
                 ref={componentRef.current}
               />
               <button className="export-pdf" onClick={() => exportPdf()}>
@@ -161,12 +162,14 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                   }
                 >
                   {lastActivity?.last_likes_discussions?.map((activity) => (
-                    <LikeTopic
-                      key={activity.id}
-                      date={activity?.created_at}
-                      paragraph={activity?.text}
-                      settingsData={settingsData}
-                    />
+                    <Link to={`/discussion/${activity.id}`} key={activity.id}>
+                      <LikeTopic
+                        key={activity.id}
+                        date={activity?.created_at}
+                        paragraph={activity?.title}
+                        settingsData={settingsData}
+                      />
+                    </Link>
                   ))}
                 </Tab>
 
@@ -177,14 +180,19 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                   }
                 >
                   {lastActivity?.last_comments_discussions?.map((activity) => (
-                    <LikeTopic
+                    <Link
+                      to={`/discussion/${activity.discussion.id}`}
                       key={activity.id}
-                      date={activity?.created_at}
-                      paragraph={activity?.comment}
-                      comment={activity.discussion.text}
-                      settingsData={settingsData}
-                      commentText
-                    />
+                    >
+                      <LikeTopic
+                        key={activity.id}
+                        date={activity?.created_at}
+                        paragraph={activity?.discussion.title}
+                        comment={activity.comment}
+                        settingsData={settingsData}
+                        commentText
+                      />
+                    </Link>
                   ))}
                 </Tab>
               </>

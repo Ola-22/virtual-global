@@ -21,7 +21,7 @@ export const DetailsContainer = styled.div`
 export const DetailsBox = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 58%;
   margin-inline-start: -5%;
   min-height: 287px;

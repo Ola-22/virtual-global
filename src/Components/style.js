@@ -15,7 +15,6 @@ export const IDCardContainer = styled.div`
   padding-bottom: 20px;
 
   @media (max-width: 500px) {
-    padding-bottom: 0;
     max-height: 480px;
     min-height: 445px;
   }
@@ -79,12 +78,17 @@ export const IDCardBox = styled.div`
 
 export const VirtualID = styled.div`
   width: 95%;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
   & h1 {
     font-size: 21px;
     margin-top: 30px;
     @media (min-width: 375px) and (max-width: 700px) {
       font-size: 16px;
-      margin-top: 0;
+      /* margin-top: 0; */
     }
   }
 
@@ -94,8 +98,8 @@ export const VirtualID = styled.div`
     margin-top: 30px;
     @media (max-width: 400px) {
       margin-top: 15px;
-      max-height: 226px;
       height: 100%;
+      width: 84%;
     }
     & > div:first-of-type {
       & h4 {
@@ -137,8 +141,8 @@ export const VirtualID = styled.div`
       }
 
       @media (max-width: 500px) {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
       }
 
       @media (max-width: 375px) {
@@ -156,16 +160,19 @@ export const boxCard = styled.div`
   flex-direction: row;
   width: 76%;
 
-  & div {
-    margin-bottom: 8px;
+  @media (min-width: 480px) and (max-width: 1200px) {
+    margin-inline-start: 20px;
   }
 
-  @media (min-width: 480px) and (max-width: 1200px) {
+  @media (min-width: 1200px) {
     margin-inline-start: 20px;
   }
 
   @media (max-width: 500px) {
     flex-direction: row !important;
+    max-height: 100%;
+    /* height: 300px; */
+    width: 80%;
   }
 
   & h3 {
@@ -187,17 +194,30 @@ export const boxCard = styled.div`
   }
 
   & .box-data {
+    margin-top: 7px;
     @media (max-width: 500px) {
       height: 265px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-inline-start: 10px;
+    }
+
+    & div:not(:first-of-type) {
+      margin-top: 7px;
     }
 
     &:last-of-type {
-      @media (max-width: 500px) {
-        margin-inline-start: 20px;
+      & h4 {
+        @media (max-width: 500px) {
+          min-width: 125px;
+        }
       }
+    }
+
+    & .national {
+      color: #2d98da;
+      text-transform: uppercase;
     }
   }
 `;
@@ -212,12 +232,18 @@ export const QrCode = styled.img`
   }
 
   @media (max-width: 500px) {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   @media (max-width: 375px) {
     width: 35px;
     height: 35px;
   }
+`;
+
+export const boxImageUser = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

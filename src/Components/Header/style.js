@@ -244,7 +244,7 @@ export const Nav = styled.nav`
     }
     & a {
       height: 100%;
-      min-height: 73px;
+      min-height: 71px;
       display: flex;
       align-items: center;
       color: white;
