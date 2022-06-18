@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const IDCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(/images/background-pro.png) no-repeat;
+  background: url(/images/background-card.png) no-repeat;
   background-size: cover;
   align-items: center;
   justify-content: center;
@@ -15,8 +15,7 @@ export const IDCardContainer = styled.div`
   padding-bottom: 20px;
 
   @media (max-width: 500px) {
-    max-height: 480px;
-    min-height: 445px;
+    height: 500px;
   }
 `;
 
@@ -90,6 +89,10 @@ export const VirtualID = styled.div`
       font-size: 16px;
       /* margin-top: 0; */
     }
+
+    @media (max-width: 500px) {
+      margin-top: 0;
+    }
   }
 
   & .virtual-box {
@@ -100,6 +103,9 @@ export const VirtualID = styled.div`
       margin-top: 15px;
       height: 100%;
       width: 84%;
+    }
+    @media (max-width: 500px) {
+      margin-top: 0px;
     }
     & > div:first-of-type {
       & h4 {
@@ -141,8 +147,8 @@ export const VirtualID = styled.div`
       }
 
       @media (max-width: 500px) {
-        width: 70px;
-        height: 70px;
+        width: 120px;
+        height: 160px;
       }
 
       @media (max-width: 375px) {
@@ -156,7 +162,7 @@ export const VirtualID = styled.div`
 export const boxCard = styled.div`
   display: flex;
   flex-direction: column !important;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
   width: 76%;
 
@@ -169,8 +175,8 @@ export const boxCard = styled.div`
   }
 
   @media (max-width: 500px) {
-    flex-direction: row !important;
-    max-height: 100%;
+    /* flex-direction: row !important;
+    max-height: 100%; */
     /* height: 300px; */
     width: 80%;
   }
@@ -196,7 +202,7 @@ export const boxCard = styled.div`
   & .box-data {
     margin-top: 7px;
     @media (max-width: 500px) {
-      height: 265px;
+      /* height: 265px; */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -216,7 +222,6 @@ export const boxCard = styled.div`
     }
 
     & .national {
-      color: #2d98da;
       text-transform: uppercase;
     }
   }
@@ -232,8 +237,9 @@ export const QrCode = styled.img`
   }
 
   @media (max-width: 500px) {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    margin-inline-end: 30px;
   }
 
   @media (max-width: 375px) {
@@ -246,4 +252,8 @@ export const boxImageUser = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 500px) {
+    margin-inline-start: 20px;
+    margin-top: 8%;
+  }
 `;
