@@ -632,6 +632,7 @@ export default function Register({ language, settingsData }) {
                         className={val === "no" ? "activeBtn" : ""}
                         onClick={() => {
                           setVal("no");
+                          navigate("/");
                           setClickYes(false);
                         }}
                       >

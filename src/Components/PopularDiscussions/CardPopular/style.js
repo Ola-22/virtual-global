@@ -22,6 +22,7 @@ export const CardContainer = styled.div`
       font-size: 22px;
       text-transform: capitalize;
       margin-bottom: 2%;
+      height: 50px;
       @media (max-width: 500px) {
         font-size: 18px;
       }

@@ -87,7 +87,7 @@ export const RegisterContainer = styled.div`
 
         & > svg {
           fill: white;
-          margin-inline-start: 18%;
+          margin-inline-start: 15%;
           position: absolute;
         }
         &:hover {

@@ -83,7 +83,7 @@ function IDCard({
             </div>
           </S.boxCard>
           <div style={{ alignSelf: "flex-end" }}>
-            <S.QrCode src="/images/QR-Code.png" alt="QR code of the user" />
+            <S.QrCode src="/images/QRCode.png" alt="QR code of the user" />
           </div>
         </div>
       </S.VirtualID>
