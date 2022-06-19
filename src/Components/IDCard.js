@@ -52,20 +52,22 @@ function IDCard({
 
               <div>
                 <h4>{settingsData?.items?.translation?.Gender}</h4>
-                <h3>{gender}</h3>
+                {localStorage.getItem("language") === "ar" ? (
+                  <h3>{gender === "female" ? "أنثى" : "ذكر"}</h3>
+                ) : (
+                  <h3>{gender}</h3>
+                )}
               </div>
-              <div>
-                <h4>{settingsData?.items?.translation?.date_birth}</h4>
-                <h3>{date}</h3>
-              </div>
-            </div>
 
-            <div className="box-data">
               <div>
                 <h4>{settingsData?.items?.translation?.virtual_nationality}</h4>
                 <h3 className="national">{national}</h3>
               </div>
 
+              <div>
+                <h4>{settingsData?.items?.translation?.date_birth}</h4>
+                <h3>{date}</h3>
+              </div>
               <div>
                 <h4>{settingsData?.items?.translation?.place_birth}</h4>
                 <h3>{country}</h3>
@@ -82,7 +84,7 @@ function IDCard({
               </div>
             </div>
           </S.boxCard>
-          <div style={{ alignSelf: "flex-end" }}>
+          <div style={{ alignSelf: "flex-end", width: "15%" }}>
             <S.QrCode src="/images/QRCode.png" alt="QR code of the user" />
           </div>
         </div>

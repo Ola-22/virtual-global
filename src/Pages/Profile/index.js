@@ -11,7 +11,12 @@ import { Link, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-function Profile({ settingsData, profileInformation, handleSetLanguage }) {
+function Profile({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+  language,
+}) {
   const componentRef = createRef();
 
   const exportPdf = () => {
@@ -80,7 +85,7 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
                 fname={profileInformation?.user?.first_name}
                 lname={profileInformation?.user?.last_name}
                 gender={profileInformation?.user?.gender}
-                national="Virlan"
+                national={settingsData?.items?.translation?.virlan}
                 country={profileInformation?.user?.country_birth}
                 date={profileInformation?.user?.dob}
                 settingsData={settingsData}

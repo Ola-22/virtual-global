@@ -152,7 +152,7 @@ export const Nav = styled.nav`
       align-items: center;
       padding: 0;
       max-height: 100vh;
-      overflow: hidden;
+      overflow: scroll;
     }
     & > li {
       max-height: 71px;
