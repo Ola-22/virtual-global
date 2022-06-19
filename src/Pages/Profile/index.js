@@ -27,7 +27,7 @@ function Profile({
       useCORS: true,
     }).then((canvas) => {
       const imgWidth = 208;
-      const imgHeight = 250;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
       const imgData = canvas.toDataURL("img/jpg");
       const pdf = new jsPDF("p", "mm", "a4");
       pdf.addImage(imgData, "JPG", 0, 0, imgWidth, imgHeight);
