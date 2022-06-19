@@ -43,6 +43,9 @@ export const NumberVirtual = styled.div`
   }
   & .social {
     /* margin-inline-end: 1rem; */
+    @media (max-width: 500px) {
+      display: none;
+    }
     & a {
       @media (max-width: 1060px) {
         width: 36px;
@@ -67,10 +70,6 @@ export const NumberVirtual = styled.div`
     @media (max-width: 450px) {
       font-size: 10px;
     }
-  }
-
-  @media (max-width: 500px) {
-    display: none;
   }
 `;
 

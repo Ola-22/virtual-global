@@ -21,11 +21,12 @@ function Profile({ settingsData, profileInformation, handleSetLanguage }) {
       letterRendering: 1,
       useCORS: true,
     }).then((canvas) => {
-      const imgWidth = 210;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const imgData = canvas.toDataURL("img/png");
+      const imgWidth = 208;
+      const imgHeight = 250;
+      const imgData = canvas.toDataURL("img/jpg");
       const pdf = new jsPDF("p", "mm", "a4");
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.addImage(imgData, "JPG", 0, 0, imgWidth, imgHeight);
+
       pdf.save("card.pdf");
     });
   };
