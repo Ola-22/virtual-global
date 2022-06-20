@@ -137,6 +137,7 @@ export const VirtualID = styled.div`
 
         @media (max-width: 500px) {
           font-size: 10px;
+          text-align: center;
         }
       }
 
@@ -145,7 +146,7 @@ export const VirtualID = styled.div`
         font-weight: bold;
 
         @media (min-width: 375px) and (max-width: 699px) {
-          font-size: 14px;
+          font-size: 12px;
         }
       }
     }
@@ -163,7 +164,6 @@ export const VirtualID = styled.div`
       }
 
       @media (min-width: 499px) and (max-width: 699px) {
-        width: 80%;
         height: 50%;
       }
 
@@ -264,8 +264,8 @@ export const QrCode = styled.img`
   }
 
   @media (max-width: 500px) {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin-inline-end: 30px;
   }
 
