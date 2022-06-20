@@ -78,7 +78,6 @@ export const IDCardBox = styled.div`
 
   @media (max-width: 500px) {
     padding-top: 10%;
-    /* margin-top: 10%; */
   }
 `;
 
@@ -99,7 +98,6 @@ export const VirtualID = styled.div`
     margin-top: 30px;
     @media (min-width: 375px) and (max-width: 700px) {
       font-size: 16px;
-      /* margin-top: 0; */
     }
 
     @media (max-width: 500px) {
@@ -116,17 +114,17 @@ export const VirtualID = styled.div`
     margin-top: 30px;
     max-width: 100%;
     width: 100%;
+
     @media (max-width: 400px) {
       margin-top: 15px;
       height: 100%;
-      width: 90%;
+      width: 100%;
     }
     @media (max-width: 500px) {
       margin-top: 0px;
     }
     & > div:first-of-type {
       & h4 {
-        /* color: #4bb1f1; */
         font-size: 18px;
         font-weight: normal;
         margin-top: 34px;
@@ -222,7 +220,6 @@ export const boxCard = styled.div`
   & .box-data {
     margin-top: 7px;
     @media (max-width: 500px) {
-      /* height: 265px; */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -280,7 +277,4 @@ export const boxImageUser = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  /* @media (max-width: 500px) {
-    margin-top: 3%;
-  } */
 `;
