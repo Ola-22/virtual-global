@@ -134,7 +134,7 @@ export const VirtualID = styled.div`
         }
 
         @media (max-width: 500px) {
-          font-size: 10px;
+          font-size: 9px;
           text-align: center;
         }
       }
@@ -144,7 +144,7 @@ export const VirtualID = styled.div`
         font-weight: bold;
 
         @media (min-width: 375px) and (max-width: 699px) {
-          font-size: 12px;
+          font-size: 10px;
         }
       }
     }
@@ -194,7 +194,7 @@ export const boxCard = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: 80%;
+    width: 60%;
   }
 
   & h3 {
@@ -263,7 +263,7 @@ export const QrCode = styled.img`
   @media (max-width: 500px) {
     width: 45px;
     height: 45px;
-    margin-inline-end: 30px;
+    /* margin-inline-end: 30px; */
   }
 
   @media (max-width: 375px) {
