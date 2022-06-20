@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const sliderMain = styled.div`
   position: relative;
   display: flex;
-
+  direction: ltr;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
@@ -22,6 +22,7 @@ export const NumberVirtual = styled.div`
   align-items: flex-end;
   position: absolute;
   margin-inline-start: 83%;
+  direction: ltr;
   top: 0;
   width: 12%;
   @media (min-width: 750px) and (max-width: 1100) {
@@ -38,7 +39,15 @@ export const NumberVirtual = styled.div`
     background-color: #ffffff;
     border-radius: 7px;
     @media (max-width: 900px) {
-      width: 150px;
+      width: 115px;
+      height: 50px;
+      margin-top: 5px;
+    }
+
+    & h2 {
+      @media (max-width: 900px) {
+        font-size: 18px;
+      }
     }
   }
   & .social {
@@ -84,5 +93,9 @@ export const Controls = styled.div`
 
   & svg {
     cursor: pointer;
+
+    &:last-of-type {
+      margin-inline-start: 8px;
+    }
   }
 `;
