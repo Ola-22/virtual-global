@@ -37,9 +37,18 @@ export const HeaderContainer = styled.div`
         width: 113px;
         background-color: white;
         color: black;
+
         & img {
           margin-inline-end: 8px;
         }
+
+        @media (min-width: 980px) and (max-width: 1200px) {
+          width: 80px;
+        }
+      }
+
+      @media (min-width: 980px) and (max-width: 1200px) {
+        width: 60px;
       }
     }
     & .login {
@@ -132,14 +141,11 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: flex-start;
   color: white;
-  width: 75%;
+  width: auto;
   margin-inline-end: -55px;
-  @media (max-width: 980px) {
-    width: auto;
-  }
 
   @media (min-width: 980px) and (max-width: 1200px) {
-    width: 60%;
+    width: auto;
     max-height: 71px;
   }
   & .menus {
@@ -257,7 +263,7 @@ export const Nav = styled.nav`
     }
 
     @media (min-width: 980px) and (max-width: 1200px) {
-      font-size: 10px;
+      font-size: 9px;
     }
   }
 `;
@@ -334,6 +340,8 @@ export const profileInformation = styled.div`
   align-items: center;
   justify-content: center;
   margin-inline-end: 10px;
+  /* max-width: 103px;
+  word-break: break-all; */
   & img {
     width: 41px;
     height: 41px;

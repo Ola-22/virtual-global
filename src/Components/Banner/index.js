@@ -9,6 +9,8 @@ import {
   fas,
   faVolumeLow,
   faVolumeMute,
+  faPlay,
+  faPause,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 
@@ -16,8 +18,10 @@ library.add(fas, faVolumeLow, faVolumeMute, faFontAwesome);
 
 export default function SliderComponent({ homeData, settingsData, language }) {
   const [playing, setPlaying] = useState(true);
+  const [playingStop, setPlayingStop] = useState(true);
 
   const videoRef = useRef(null);
+  const videoStopRef = useRef(null);
 
   const videoHandler = (control) => {
     if (control === "play") {
@@ -43,11 +47,25 @@ export default function SliderComponent({ homeData, settingsData, language }) {
     }
   }, [playing]);
 
+  const videoStop = (control) => {
+    if (control === "play") {
+      videoRef.current.play();
+
+      setPlayingStop(true);
+    } else if (control === "pause") {
+      videoRef.current.pause();
+      setPlayingStop(false);
+    }
+  };
+
   return (
     <S.sliderMain>
       {language === "en" ? (
         <video
-          ref={videoRef}
+          ref={(video) => {
+            videoRef.current = video;
+            videoStopRef.current = video;
+          }}
           className="video"
           src={videoLangEn}
           autoPlay
@@ -57,7 +75,10 @@ export default function SliderComponent({ homeData, settingsData, language }) {
         />
       ) : language === "ar" ? (
         <video
-          ref={videoRef}
+          ref={(video) => {
+            videoRef.current = video;
+            videoStopRef.current = video;
+          }}
           className="video"
           src={videoLangAr}
           autoPlay
@@ -67,7 +88,10 @@ export default function SliderComponent({ homeData, settingsData, language }) {
         />
       ) : language === "fr" ? (
         <video
-          ref={videoRef}
+          ref={(video) => {
+            videoRef.current = video;
+            videoStopRef.current = video;
+          }}
           className="video"
           src={videoLangFr}
           autoPlay
@@ -99,6 +123,12 @@ export default function SliderComponent({ homeData, settingsData, language }) {
             icon={faVolumeLow}
             onClick={() => videoHandler("play")}
           />
+        )}
+
+        {playingStop ? (
+          <FontAwesomeIcon icon={faPause} onClick={() => videoStop("pause")} />
+        ) : (
+          <FontAwesomeIcon icon={faPlay} onClick={() => videoStop("play")} />
         )}
       </S.Controls>
     </S.sliderMain>

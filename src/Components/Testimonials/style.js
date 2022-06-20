@@ -82,6 +82,9 @@ export const CardContainer = styled.div`
       text-align: center;
       font-size: 16px;
       font-weight: normal;
+      max-width: 100%;
+      width: 100%;
+      word-break: break-all;
 
       @media (max-width: 500px) {
         font-size: 14px;

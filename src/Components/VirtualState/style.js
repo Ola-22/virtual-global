@@ -47,7 +47,7 @@ export const VirtualState = styled.div`
     }
     & h6 {
       font-size: 25px;
-      color: #ffffff;
+      color: #222222;
       word-wrap: break-word;
       width: 100%;
       max-width: 622px;

@@ -95,6 +95,7 @@ export const VirtualID = styled.div`
   }
   & h1 {
     font-size: 21px;
+    width: 100%;
     margin-top: 30px;
     @media (min-width: 375px) and (max-width: 700px) {
       font-size: 16px;
@@ -113,6 +114,8 @@ export const VirtualID = styled.div`
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+    max-width: 100%;
+    width: 100%;
     @media (max-width: 400px) {
       margin-top: 15px;
       height: 100%;
@@ -139,7 +142,7 @@ export const VirtualID = styled.div`
 
       & p {
         font-size: 20px;
-        font-weight: normal;
+        font-weight: bold;
 
         @media (min-width: 375px) and (max-width: 699px) {
           font-size: 14px;
@@ -276,7 +279,8 @@ export const boxImageUser = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* @media (max-width: 400px) {
-    margin-inline-start: 30px;
+  justify-content: space-around;
+  /* @media (max-width: 500px) {
+    margin-top: 3%;
   } */
 `;
