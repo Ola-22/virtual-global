@@ -20,7 +20,7 @@ function Nav({ settingsData, language, handleSetLanguage }) {
       </Link>
 
       <div className="right">
-        <img src="/images/language.png" alt="language" />
+        <img src="./images/language.png" alt="language" />
 
         <select
           className="custom-select"

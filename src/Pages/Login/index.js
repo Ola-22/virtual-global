@@ -40,14 +40,14 @@ function Login({ settingsData }) {
   return (
     <S.loginContainer>
       <div>
-        <img src="/images/FlagLogo.png" alt="logo of the VGS" />
+        <img src="./images/FlagLogo.png" alt="logo of the VGS" />
         <h6>{settingsData?.items?.translation?.welcome_to}</h6>
         <h2>{settingsData?.items?.translation?.virtual_global_login}</h2>
         <p>{settingsData?.items?.translation?.join_login}</p>
       </div>
       <div className="right-login">
         <Link to="/" style={{ alignSelf: "flex-start" }}>
-          <img src="/images/Back.png" alt="back to the home page" />
+          <img src="./images/Back.png" alt="back to the home page" />
         </Link>
         <S.LoginBox>
           <h2>{settingsData?.items?.translation?.login}</h2>

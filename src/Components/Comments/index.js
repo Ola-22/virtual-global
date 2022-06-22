@@ -28,13 +28,13 @@ function Comments({
 
       <div className="likeComment">
         <div>
-          <img src="/images/like.png" alt="likes of the content" />
+          <img src="./images/like.png" alt="likes of the content" />
           <span>{likes_count}</span>
         </div>
         <div>
           <img
             onClick={onClick}
-            src="/images/chat.png"
+            src="./images/chat.png"
             alt="likes of the content"
           />
           <span>{comments_count}</span>

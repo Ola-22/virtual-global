@@ -7,7 +7,7 @@ export const PopularContainer = styled.div`
       rgba(241, 242, 245, 0.9),
       rgba(241, 242, 245, 0.9)
     ),
-    url(/images/background.png);
+    url(./images/background.png);
   background-size: cover;
 
   padding-top: 70px;

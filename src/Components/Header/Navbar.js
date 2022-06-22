@@ -46,7 +46,7 @@ const Navbar = ({ settingsData, open, setOpen }) => {
             {currentUser && (
               <Link to="/discussion">
                 <img
-                  src="/images/forum.png"
+                  src="./images/forum.png"
                   alt="form button"
                   width="15"
                   height="15"

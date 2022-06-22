@@ -181,7 +181,7 @@ export const RegisterContent = styled.div`
   }
 
   & input[type="date"] {
-    background: #fff url("/images/calendar.png") 97% 50% no-repeat;
+    background: #fff url("./images/calendar.png") 97% 50% no-repeat;
     border: 1px solid #dfdfdf;
     box-sizing: border-box;
     outline: 0;
@@ -209,7 +209,7 @@ export const RegisterContent = styled.div`
   }
 
   & select {
-    background: #fff url("/images/arrow.png") 97% 50% no-repeat;
+    background: #fff url("./images/arrow.png") 97% 50% no-repeat;
     color: rgba(0, 0, 0, 0.3);
     & option {
       color: rgba(0, 0, 0);

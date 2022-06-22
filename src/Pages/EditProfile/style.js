@@ -103,7 +103,7 @@ export const boxInput = styled.div`
   }
 
   & .date {
-    background: #fff url("/images/calendar.png") 97% 50% no-repeat;
+    background: #fff url("./images/calendar.png") 97% 50% no-repeat;
     position: relative;
     &::-webkit-calendar-picker-indicator {
       bottom: 0;
@@ -125,7 +125,7 @@ export const boxInput = styled.div`
   }
 
   & select {
-    background: #fff url("/images/arrow.png") 97% 50% no-repeat;
+    background: #fff url("./images/arrow.png") 97% 50% no-repeat;
     color: rgba(0, 0, 0, 0.3);
     appearance: none;
     & option {

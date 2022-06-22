@@ -38,17 +38,17 @@ function CardPolular({
         <S.LikeCard>
           <div>
             <div>
-              <img src="/images/like.png" alt="like the popular discussions" />
+              <img src="./images/like.png" alt="like the popular discussions" />
               <h6>{likesCount}</h6>
             </div>
             <div>
-              <img src="/images/chat.png" alt="like the popular discussions" />
+              <img src="./images/chat.png" alt="like the popular discussions" />
               <h6>{commentCount}</h6>
             </div>
           </div>
 
           <Link to={`${!currentUser ? "/login" : `/discussion/${link}`}`}>
-            <img src="/images/slideMore.png" alt="slide more of the popular" />
+            <img src="./images/slideMore.png" alt="slide more of the popular" />
           </Link>
         </S.LikeCard>
       </div>

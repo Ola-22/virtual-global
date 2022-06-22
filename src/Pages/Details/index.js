@@ -205,13 +205,13 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                 <div>
                   {likeData?.items?.is_like === false ? (
                     <img
-                      src="/images/like.png"
+                      src="./images/like.png"
                       alt="likes of the content"
                       onClick={() => sendLike()}
                     />
                   ) : (
                     <img
-                      src="/images/unlike.png"
+                      src="./images/unlike.png"
                       alt="likes of the content"
                       onClick={() => sendLike()}
                     />
@@ -220,7 +220,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                   <span>{result?.discussion?.likes_count}</span>
                 </div>
                 <div>
-                  <img src="/images/chat.png" alt="likes of the content" />
+                  <img src="./images/chat.png" alt="likes of the content" />
                   <span>{result?.discussion?.comments_count}</span>
                 </div>
               </div>

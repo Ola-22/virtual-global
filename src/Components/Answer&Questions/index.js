@@ -206,7 +206,7 @@ function AnswerQuestions({ homeData, settingsData, language }) {
                 }}
               >
                 {settingsData?.items?.translation?.btn_send}
-                <img src="/images/send.png" alt="send data form" />
+                <img src="./images/send.png" alt="send data form" />
               </button>
             )}
 
