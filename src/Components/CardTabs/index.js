@@ -73,14 +73,14 @@ function CardTabs({
         <div>
           <div>
             {is_like === true ? (
-              <img src="/images/unlike.png" alt="likes of the content" />
+              <img src="./images/unlike.png" alt="likes of the content" />
             ) : (
-              <img src="/images/like.png" alt="likes of the content" />
+              <img src="./images/like.png" alt="likes of the content" />
             )}
             <span>{totalLikes}</span>
           </div>
           <div className="chat">
-            <img src="/images/chat.png" alt="likes of the content" />
+            <img src="./images/chat.png" alt="likes of the content" />
             <span>{totalComment}</span>
           </div>
         </div>

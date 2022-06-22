@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const IDCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(/images/background-card.png) no-repeat;
+  background: url(./images/background-card.png) no-repeat;
   background-size: cover;
   align-items: center;
   justify-content: center;

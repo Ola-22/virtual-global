@@ -254,7 +254,7 @@ export const Main = styled.div`
       rgba(241, 242, 245, 0.9),
       rgba(241, 242, 245, 0.9)
     ),
-    url(/images/background.png);
+    url(./images/background.png);
   background-size: cover;
   display: flex;
   flex-direction: column;

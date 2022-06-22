@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
@@ -73,11 +73,15 @@ function App() {
       .then((res) => {
         setProfileInformation(res.data.items);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err, "rrr"));
+
+    return () => {
+      setProfileInformation();
+    };
   }, [language]);
 
   return (
-    <BrowserRouter>
+    <Router>
       <div
         className="App"
         style={{
@@ -86,7 +90,7 @@ function App() {
       >
         <Helmet>
           <title>{settingsData?.items?.title}</title>
-          <link rel="icon" href="/images/logo-footer.png" />
+          <link rel="icon" href="./images/logo-footer.png" />
         </Helmet>
         <Routes>
           <Route
@@ -224,7 +228,7 @@ function App() {
           />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

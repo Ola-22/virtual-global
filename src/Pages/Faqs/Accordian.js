@@ -25,7 +25,7 @@ function Accordian({ lengthFaqs, language }) {
               </div>
               <div>
                 <img
-                  src="/images/Accordion.png"
+                  src="./images/Accordion.png"
                   alt="Accordion"
                   style={{
                     transform: language === "ar" ? "rotate(180deg)" : "",

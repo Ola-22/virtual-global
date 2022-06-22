@@ -233,7 +233,7 @@ export default function Register({ language, settingsData }) {
                   ? "rotate(180deg)"
                   : "",
             }}
-            src="/images/Back.png"
+            src="./images/Back.png"
             alt="back pages"
           />
         </Link>
@@ -611,12 +611,12 @@ export default function Register({ language, settingsData }) {
                       onClick={closeModalCouncil}
                       className="close-modal-btn"
                     >
-                      <img src="/images/close.png" alt="close the Modal" />
+                      <img src="./images/close.png" alt="close the Modal" />
                     </span>
                   </div>
 
                   <div className="modal-body council">
-                    <img width="112" src="/images/council.png" alt="council" />
+                    <img width="112" src="./images/council.png" alt="council" />
                     <p>{settingsData?.items?.translation?.question}</p>
                     <div className="container">
                       <button
@@ -695,7 +695,7 @@ export default function Register({ language, settingsData }) {
               <div className="modal-header">
                 <p>{dataTerms?.items?.title}</p>
                 <span onClick={closeModalTerms} className="close-modal-btn">
-                  <img src="/images/close.png" alt="close the Modal" />
+                  <img src="./images/close.png" alt="close the Modal" />
                 </span>
               </div>
 
@@ -719,7 +719,7 @@ export default function Register({ language, settingsData }) {
               <div className="modal-header">
                 <p>{dataPrivacy?.items?.title}</p>
                 <span onClick={closeModalPrivacy} className="close-modal-btn">
-                  <img src="/images/close.png" alt="close the Modal" />
+                  <img src="./images/close.png" alt="close the Modal" />
                 </span>
               </div>
 
@@ -746,7 +746,7 @@ export default function Register({ language, settingsData }) {
                 <p>{constitutionTerms?.items?.title}</p>
 
                 <span onClick={closeModalVirtual} className="close-modal-btn">
-                  <img src="/images/close.png" alt="close the Modal" />
+                  <img src="./images/close.png" alt="close the Modal" />
                 </span>
               </div>
 

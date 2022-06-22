@@ -46,7 +46,7 @@ function Footer({ settingsData, language }) {
             <h6>{settingsData?.items?.translation?.about_footer}</h6>
             <div className="box-logo">
               <div>
-                <img src="/images/logo-footer.png" alt="logo" />
+                <img src="./images/logo-footer.png" alt="logo" />
                 <div className="vgs">
                   <h2>{settingsData?.items?.title} (VGS)</h2>
                   <p>{settingsData?.items?.translation?.website_info}</p>
@@ -74,7 +74,7 @@ function Footer({ settingsData, language }) {
 
             <div className="contact-box">
               <div>
-                <img src="/images/phone.png" alt="contact us with phone" />
+                <img src="./images/phone.png" alt="contact us with phone" />
                 <li>{settingsData?.items?.translation?.email}</li>
               </div>
               <li>{settingsData?.items?.contact_information?.email}</li>
@@ -99,7 +99,7 @@ function Footer({ settingsData, language }) {
                     handleClick();
                   }}
                 >
-                  <img src="/images/send.png" alt="send email" />
+                  <img src="./images/send.png" alt="send email" />
                 </S.boxMail>
               )}
 
@@ -112,7 +112,7 @@ function Footer({ settingsData, language }) {
                     handleClick();
                   }}
                 >
-                  <img src="/images/send.png" alt="send email" />
+                  <img src="./images/send.png" alt="send email" />
                   <FaSpinner icon="spinner" />
                 </S.boxMail>
               )}

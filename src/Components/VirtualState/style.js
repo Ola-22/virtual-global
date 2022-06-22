@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const VirtualState = styled.div`
   display: flex;
-  background: url(/images/Virtual.png) no-repeat;
+  background: url(./images/Virtual.png) no-repeat;
   height: auto;
   background-size: cover;
   width: 100%;

@@ -12,7 +12,7 @@ function CardBox({ paragraph, totalLikes, totalComments, onClick }) {
         <div>
           <div>
             <img
-              src="/images/like.png"
+              src="./images/like.png"
               onClick={onClick}
               alt="like the discussions"
             />
@@ -20,7 +20,7 @@ function CardBox({ paragraph, totalLikes, totalComments, onClick }) {
           </div>
 
           <div>
-            <img src="/images/chat.png" alt="like the discussions" />
+            <img src="./images/chat.png" alt="like the discussions" />
             <span>{totalComments}</span>
           </div>
         </div>

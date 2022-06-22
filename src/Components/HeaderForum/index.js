@@ -6,7 +6,7 @@ function HeaderForum({ profileInformation, settingsData, onChange, value }) {
     <S.ForumContainer>
       <S.Container>
         <div className="input-container">
-          <img src="/images/searchPage.png" alt="search of the page" />
+          <img src="./images/searchPage.png" alt="search of the page" />
           <input
             type="text"
             placeholder="search here"
@@ -28,11 +28,11 @@ function HeaderForum({ profileInformation, settingsData, onChange, value }) {
             <h6>{profileInformation?.user.first_name}</h6>
           </div>
           <span>
-            <img src="/images/view.png" alt="view the profile of the user" />
+            <img src="./images/view.png" alt="view the profile of the user" />
           </span>
           <span>
             <img
-              src="/images/notifications.png"
+              src="./images/notifications.png"
               alt="notifications of the user"
             />
           </span>

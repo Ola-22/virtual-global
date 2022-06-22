@@ -1,7 +1,6 @@
 import * as S from "./style";
 import Social from "../Social";
 import { NumberFormat } from "../../lib/NumberFormat";
-import { videoLangAr, videoLangEn, videoLangFr } from "../Video";
 import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -67,7 +66,7 @@ export default function SliderComponent({ homeData, settingsData, language }) {
             videoStopRef.current = video;
           }}
           className="video"
-          src={videoLangEn}
+          src="./music/videoLangEn.mp4"
           autoPlay
           loop
           muted
@@ -80,7 +79,7 @@ export default function SliderComponent({ homeData, settingsData, language }) {
             videoStopRef.current = video;
           }}
           className="video"
-          src={videoLangAr}
+          src="./music/videoLangAr.mp4"
           autoPlay
           loop
           muted
@@ -93,7 +92,7 @@ export default function SliderComponent({ homeData, settingsData, language }) {
             videoStopRef.current = video;
           }}
           className="video"
-          src={videoLangFr}
+          src="./music/videoLangFr.mp4"
           autoPlay
           loop
           muted

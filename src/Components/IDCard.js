@@ -17,13 +17,13 @@ function IDCard({
   return (
     <S.IDCardContainer ref={ref} id="Canvas">
       <S.IDCardBox>
-        <img className="img-flag" src="/images/LogoImg.png" alt="" />
+        <img className="img-flag" src="./images/LogoImg.png" alt="" />
         <h1>{settingsData?.items?.translation?.virtual_global_card}</h1>
         <img
           className="union"
           width="66"
           height="44"
-          src="/images/Union.png"
+          src="./images/Union.png"
           alt=""
         />
       </S.IDCardBox>
@@ -85,7 +85,7 @@ function IDCard({
             </div>
           </S.boxCard>
           <div style={{ alignSelf: "flex-end", width: "15%" }}>
-            <S.QrCode src="/images/QRCode.png" alt="QR code of the user" />
+            <S.QrCode src="./images/QRCode.png" alt="QR code of the user" />
           </div>
         </div>
       </S.VirtualID>

@@ -58,7 +58,7 @@ function Header({ settingsData, profileInformation }) {
 
               <Link to="/discussion" className="forum">
                 <img
-                  src="/images/forum.png"
+                  src="./images/forum.png"
                   alt="form button"
                   width="15"
                   height="15"
@@ -95,7 +95,7 @@ function Header({ settingsData, profileInformation }) {
                   }}
                 >
                   <span onClick={closeModalTerms} className="close-modal-btn">
-                    <img src="/images/close.png" alt="close the Modal" />
+                    <img src="./images/close.png" alt="close the Modal" />
                   </span>
                 </div>
 

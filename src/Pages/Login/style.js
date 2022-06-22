@@ -6,7 +6,7 @@ export const loginContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   & div:first-child {
-    background: url(/images/VirtualBack.png) no-repeat;
+    background: url(./images/VirtualBack.png) no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

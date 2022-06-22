@@ -158,7 +158,7 @@ function EditProfile({ settingsData, profileInformation }) {
                   ? "rotate(180deg)"
                   : "",
             }}
-            src="/images/Back.png"
+            src="./images/Back.png"
             alt="back pages"
           />
         </div>

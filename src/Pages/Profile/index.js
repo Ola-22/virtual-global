@@ -110,7 +110,7 @@ function Profile({
                     </h2>
                     <img
                       className="edit"
-                      src="/images/edit.png"
+                      src="./images/edit.png"
                       alt="edit your profile"
                       onClick={() => navigate("/edit-profile")}
                     />
