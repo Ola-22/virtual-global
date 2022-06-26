@@ -32,6 +32,8 @@ function EditProfile({ settingsData, profileInformation }) {
   const [categoryMajor, setCategoryMajor] = useState("");
   const [gender, setGender] = useState(profileInformation?.user.gender);
 
+  console.log(profileInformation?.user.gender, "F");
+
   const [state, setState] = useState({
     fname: profileInformation?.user.first_name,
     lname: profileInformation?.user?.last_name,
@@ -96,6 +98,8 @@ function EditProfile({ settingsData, profileInformation }) {
   }, []);
 
   const [editProfile, setEditProfile] = useState();
+
+  console.log(gender);
   async function UpdateProfile() {
     const dataImg = new FormData();
     if (file !== "") {
@@ -333,7 +337,8 @@ function EditProfile({ settingsData, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="male"
-                      defaultChecked={gender}
+                      // defaultChecked={gender}
+                      checked={gender === "male" && true}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>{settingsData?.items?.translation?.gender_male}</span>
@@ -343,7 +348,8 @@ function EditProfile({ settingsData, profileInformation }) {
                       type="radio"
                       name="gender"
                       value="female"
-                      defaultChecked={gender}
+                      // defaultChecked={gender}
+                      checked={gender === "female" && true}
                       onChange={(e) => setGender(e.target.value)}
                     />
                     <span>

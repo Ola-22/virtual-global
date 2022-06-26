@@ -84,7 +84,7 @@ function IDCard({
               </div>
             </div>
           </S.boxCard>
-          <div style={{ alignSelf: "flex-end", width: "15%" }}>
+          <div style={{ alignSelf: "flex-end" }}>
             <S.QrCode src="./images/QRCode.png" alt="QR code of the user" />
           </div>
         </div>

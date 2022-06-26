@@ -24,3 +24,14 @@ export const headerContainer = styled.div`
     }
   }
 `;
+
+export const HomeContainer = styled.div`
+  background: linear-gradient(
+      to right,
+      rgba(241, 242, 245, 0.9),
+      rgba(241, 242, 245, 0.9)
+    ),
+    url(./images/background.png);
+  background-size: contain;
+  background-repeat: round;
+`;

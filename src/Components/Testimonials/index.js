@@ -24,24 +24,12 @@ function SamplePrevArrow(props) {
 function Testimonials({ homeData, language, settingsData }) {
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     rtl: language === "ar" && true,
-    // appendDots: (dots) => (
-    //   <div
-    //     style={{
-    //       backgroundColor: "transparent",
-    //       borderRadius: "10px",
-    //       padding: "10px",
-    //     }}
-    //   >
-    //     <ul style={{ margin: "0px" }}> {dots} </ul>
-    //   </div>
-    // ),
-    // customPaging: (i) => <div>.</div>,
 
     responsive: [
       {
@@ -49,7 +37,7 @@ function Testimonials({ homeData, language, settingsData }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: homeData?.items?.testimonials.length < 2 ? false : true,
           dots: true,
         },
       },
@@ -59,7 +47,7 @@ function Testimonials({ homeData, language, settingsData }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: homeData?.items?.testimonials.length < 2 ? false : true,
           dots: false,
         },
       },
@@ -69,6 +57,8 @@ function Testimonials({ homeData, language, settingsData }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: true,
+          dots: false,
         },
       },
     ],

@@ -11,8 +11,8 @@ export const sliderMain = styled.div`
   & .video {
     width: 100%;
     height: auto;
-    min-height: 500px;
-    object-fit: inherit;
+    /* min-height: 500px;
+    object-fit: inherit; */
   }
 `;
 
@@ -34,25 +34,25 @@ export const NumberVirtual = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 212px;
+    width: 170px;
     height: 71px;
     background-color: #ffffff;
     border-radius: 7px;
     @media (max-width: 900px) {
-      width: 115px;
+      width: 80px;
       height: 50px;
       margin-top: 5px;
     }
 
     & h2 {
       @media (max-width: 900px) {
-        font-size: 18px;
+        font-size: 9px;
       }
     }
   }
   & .social {
     /* margin-inline-end: 1rem; */
-    @media (max-width: 500px) {
+    @media (max-width: 850px) {
       display: none;
     }
     & a {
@@ -75,9 +75,10 @@ export const NumberVirtual = styled.div`
     font-size: 11px;
     text-transform: uppercase;
     text-align: center;
+    font-family: tahoma;
 
-    @media (max-width: 450px) {
-      font-size: 10px;
+    @media (max-width: 900px) {
+      font-size: 8px;
     }
   }
 `;
@@ -85,7 +86,7 @@ export const NumberVirtual = styled.div`
 export const Controls = styled.div`
   display: flex;
   position: absolute;
-  bottom: 20px;
+  bottom: 5px;
 
   margin-inline-start: 2%;
 

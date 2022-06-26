@@ -4,13 +4,10 @@ export const Container = styled.div`
   position: relative;
   padding-top: 70px;
   padding-bottom: 121px;
-  background: linear-gradient(
-      to right,
-      rgba(241, 242, 245, 0.9),
-      rgba(241, 242, 245, 0.9)
-    ),
-    url(./images/background.png);
-  background-size: cover;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
 
   & h1 {
     font-size: 36px;
@@ -43,6 +40,12 @@ export const CardContainer = styled.div`
   margin-bottom: 10% !important;
   background: #fff;
 
+  max-width: 361px;
+
+  @media (max-width: 400px) {
+    max-width: 300px;
+  }
+  margin: auto !important;
   margin-inline-start: 28px;
   margin-inline-end: 28px;
 
@@ -114,13 +117,8 @@ export const RatingContainer = styled.div`
 `;
 
 export const slideMain = styled.div`
-  margin-inline-start: 5%;
-  &:last-of-type {
-    margin-inline-end: 5%;
-  }
-
-  &:first-child {
-    margin-inline-start: 0px;
+  & .slick-track {
+    margin: auto;
   }
 
   & .slick-dots {

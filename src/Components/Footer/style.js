@@ -23,6 +23,9 @@ export const FooterContainer = styled.div`
   & li {
     list-style: none;
     font-size: 14px;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
   }
   & > .top-footer {
     display: flex;
@@ -267,7 +270,7 @@ export const AboutContainer = styled.div`
         font-weight: normal;
 
         @media (max-width: 500px) {
-          font-size: 14px;
+          font-size: 12px;
           width: 90%;
         }
       }
@@ -276,6 +279,10 @@ export const AboutContainer = styled.div`
         margin-top: 7px;
         margin-inline-start: 0;
         font-size: 11px;
+
+        @media (max-width: 500px) {
+          font-size: 9px;
+        }
       }
 
       @media (max-width: 500px) {
