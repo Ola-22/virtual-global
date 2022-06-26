@@ -40,21 +40,23 @@ export default function Home({
         language={language}
         settingsData={settingsData}
       />
-      <PopularDiscussions
-        homeData={homeData}
-        language={language}
-        settingsData={settingsData}
-      />
-      <Testimonials
-        homeData={homeData}
-        language={language}
-        settingsData={settingsData}
-      />
-      <AnswerQuestions
-        settingsData={settingsData}
-        homeData={homeData}
-        language={language}
-      />
+      <S.HomeContainer>
+        <PopularDiscussions
+          homeData={homeData}
+          language={language}
+          settingsData={settingsData}
+        />
+        <Testimonials
+          homeData={homeData}
+          language={language}
+          settingsData={settingsData}
+        />
+        <AnswerQuestions
+          settingsData={settingsData}
+          homeData={homeData}
+          language={language}
+        />
+      </S.HomeContainer>
 
       <Footer settingsData={settingsData} language={language} />
     </S.headerContainer>

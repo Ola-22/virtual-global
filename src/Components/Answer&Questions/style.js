@@ -29,7 +29,7 @@ export const AccordianContainer = styled.div`
       width: 80%;
       font-size: 16px;
       @media (max-width: 500px) {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
@@ -72,16 +72,19 @@ export const AnswerContainer = styled.div`
     margin-bottom: 21px;
     width: 90%;
     @media (max-width: 500px) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
   & p {
     width: 90%;
     font-size: 18px;
+  }
 
+  & p,
+  & span {
     @media (max-width: 500px) {
-      font-size: 16px;
+      font-size: 14px !important;
     }
   }
   & > .main-box {
@@ -249,13 +252,6 @@ export const animationBox = styled.div`
 `;
 
 export const Main = styled.div`
-  background: linear-gradient(
-      to right,
-      rgba(241, 242, 245, 0.9),
-      rgba(241, 242, 245, 0.9)
-    ),
-    url(./images/background.png);
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;

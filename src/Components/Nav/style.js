@@ -23,8 +23,8 @@ export const NavContainer = styled.div`
       color: #000000;
       margin-inline-start: 21px;
 
-      @media (max-width: 450px) {
-        font-size: 15px;
+      @media (max-width: 650px) {
+        font-size: 12px;
         text-align: center;
       }
     }

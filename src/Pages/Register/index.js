@@ -139,11 +139,15 @@ export default function Register({ language, settingsData }) {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState();
-  const captchaRef = useRef(null);
+  // const captchaRef = useRef(null);
 
-  const token = captchaRef.current?.execute();
+  const [token, setToken] = useState(null);
+
+  // const token = captchaRef.current;
 
   const [error, setError] = useState();
+
+  const [errorRegister, setErrorRegister] = useState("");
 
   const handleSignup = async (e) => {
     try {
@@ -164,8 +168,14 @@ export default function Register({ language, settingsData }) {
         )
         .then(
           (response) => {
-            if (response.status === true || token) {
+            if (response.status === true && token !== null) {
               setShowCouncil(true);
+            }
+
+            if (response.statusCode === 200) {
+              setErrorRegister(response.message);
+            } else {
+              setErrorRegister("");
             }
 
             if (!token) {
@@ -175,8 +185,6 @@ export default function Register({ language, settingsData }) {
             }
 
             setRegisterData(response);
-
-            // console.log(response);
           },
           (error) => {
             console.log(error);
@@ -219,7 +227,7 @@ export default function Register({ language, settingsData }) {
   }
 
   const onChange = (value) => {
-    // console.log(value);
+    setToken(value);
   };
 
   return (
@@ -586,6 +594,7 @@ export default function Register({ language, settingsData }) {
               <ReCAPTCHA
                 sitekey="6Le2zU0gAAAAAFez5r99oYGbVry3HEt2KbBxURql"
                 onChange={onChange}
+                // ref={captchaRef}
               />
             </S.Captcha>
             <h3 className="error" style={{ justifyContent: "center" }}>
@@ -598,6 +607,10 @@ export default function Register({ language, settingsData }) {
               }}
               title={settingsData?.items?.translation?.button_join}
             />
+
+            <h3 className="error" style={{ justifyContent: "center" }}>
+              {errorRegister}
+            </h3>
 
             {showCouncil ? (
               <div onClick={closeModalCouncil} className="back-drop"></div>

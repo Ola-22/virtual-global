@@ -127,8 +127,8 @@ export const VirtualID = styled.div`
       & h4 {
         font-size: 18px;
         font-weight: normal;
-        margin-top: 34px;
-        margin-bottom: 9px;
+        margin-top: 15px;
+
         @media (min-width: 375px) and (max-width: 699px) {
           font-size: 12px;
         }
@@ -142,9 +142,11 @@ export const VirtualID = styled.div`
       & p {
         font-size: 20px;
         font-weight: bold;
-
+        margin-top: 15px;
         @media (min-width: 375px) and (max-width: 699px) {
-          font-size: 10px;
+          font-size: 8px;
+          font-weight: normal;
+          /* margin-top: 15px; */
         }
       }
     }
@@ -155,6 +157,7 @@ export const VirtualID = styled.div`
       height: 100%;
       padding: 5px;
       background-color: white;
+      margin-top: 10px;
 
       @media (min-width: 700px) and (max-width: 1200px) {
         width: 90%;
@@ -195,6 +198,7 @@ export const boxCard = styled.div`
 
   @media (max-width: 500px) {
     width: 60%;
+    min-height: 183px;
   }
 
   & h3 {
@@ -254,6 +258,8 @@ export const boxCard = styled.div`
 export const QrCode = styled.img`
   width: 102px;
   height: 102px;
+  padding: 5px;
+  background-color: #fff;
 
   @media (min-width: 499px) and (max-width: 699px) {
     width: 70px;
@@ -263,7 +269,7 @@ export const QrCode = styled.img`
   @media (max-width: 500px) {
     width: 45px;
     height: 45px;
-    /* margin-inline-end: 30px; */
+    padding: 3px;
   }
 
   @media (max-width: 375px) {
@@ -276,5 +282,4 @@ export const boxImageUser = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 `;

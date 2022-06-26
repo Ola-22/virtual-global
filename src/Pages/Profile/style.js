@@ -45,6 +45,9 @@ export const ProfileContainer = styled.div`
         margin-top: 32px;
         margin-bottom: 37px;
         width: 94%;
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
       }
 
       & .export-pdf {
@@ -133,6 +136,10 @@ export const ProfileContainer = styled.div`
         text-transform: uppercase;
         font-size: 18px;
         width: 90%;
+
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
       }
 
       & img {
@@ -204,6 +211,9 @@ export const lastActivity = styled.div`
     padding-inline-start: 4%;
     text-transform: capitalize;
     border-radius: 10px;
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
   }
 `;
 

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const PopularContainer = styled.div`
   position: relative;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right,
       rgba(241, 242, 245, 0.9),
       rgba(241, 242, 245, 0.9)
     ),
     url(./images/background.png);
-  background-size: cover;
+  background-size: cover; */
 
   padding-top: 70px;
   padding-bottom: 121px;

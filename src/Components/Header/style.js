@@ -42,10 +42,6 @@ export const HeaderContainer = styled.div`
         & img {
           margin-inline-end: 8px;
         }
-
-        @media (min-width: 980px) and (max-width: 1200px) {
-          width: 80px;
-        }
       }
 
       @media (min-width: 980px) and (max-width: 1200px) {
@@ -53,7 +49,7 @@ export const HeaderContainer = styled.div`
       }
     }
     & .login {
-      max-width: 100px;
+      width: 100px;
       height: 40px;
       border-radius: 8px;
       border: none;
@@ -62,9 +58,9 @@ export const HeaderContainer = styled.div`
       color: #000000;
       text-transform: capitalize;
 
-      @media (max-width: 768px) {
+      /* @media (max-width: 768px) {
         width: 70px;
-      }
+      } */
     }
     & > button {
       width: 50px;
@@ -143,10 +139,12 @@ export const Nav = styled.nav`
   justify-content: flex-start;
   color: white;
   width: auto;
+  max-width: 73%;
   margin-inline-end: -55px;
 
   @media (min-width: 980px) and (max-width: 1200px) {
     width: auto;
+    max-width: 100%;
     max-height: 71px;
   }
   & .menus {
@@ -234,7 +232,7 @@ export const Nav = styled.nav`
   }
   & .menu-items {
     position: relative;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     &::after {
       content: "";
@@ -330,8 +328,9 @@ export const Ul = styled.ul`
 
   & .logout,
   .forum {
-    @media (min-width: 450px) {
-      display: none;
+    display: none;
+    @media (max-width: 980px) {
+      display: flex;
     }
   }
 `;

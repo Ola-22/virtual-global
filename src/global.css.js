@@ -15,9 +15,7 @@ src: local("Montserrat"),
 }
 
   .App{
-
-font-family: "Montserrat";
-
+font-family: Verdana;
 min-height: 100vh;
 display: flex;
 align-items: center;

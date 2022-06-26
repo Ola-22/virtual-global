@@ -136,6 +136,9 @@ export const RegisterBox = styled.div`
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
 
+    @media (max-width: 600px) {
+      padding-inline-start: 10px;
+    }
     &[type="email"] {
       max-width: 739px;
       width: 90%;
@@ -177,7 +180,11 @@ export const RegisterContent = styled.div`
   & label {
     font-size: 14px;
     text-transform: capitalize;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    height: 33px;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
   }
 
   & input[type="date"] {
@@ -243,6 +250,15 @@ export const RegisterGender = styled.div`
   & .label-gender {
     margin-top: 10px;
   }
+
+  & span,
+  label {
+    font-size: 14px;
+
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
+  }
   & div {
     display: flex;
     & input {
@@ -255,6 +271,9 @@ export const RegisterGender = styled.div`
     & span {
       margin-inline-start: 5px;
       font-size: 14px;
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
     }
   }
   & .flex-column {
