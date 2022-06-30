@@ -7,10 +7,10 @@ import Button from "../../Components/Button";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
-import CardBox from "../../Components/CardForum/CardBox";
+// import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 
-function Details({ settingsData, profileInformation, handleSetLanguage }) {
+function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
   const { id } = useParams();
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,8 +22,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   const [lengthComment, setLengthComment] = useState(0);
   const [loadComment, setLoadComment] = useState();
   const [showComments, setShowComments] = useState(false);
-  const [likeData, setLikeData] = useState();
-  const [discussionsSearch, setDiscussionsSearch] = useState();
+  //   const [discussionsSearch, setDiscussionsSearch] = useState();
   const [searchQuery, setSearchQuery] = useState();
 
   function handleClick() {
@@ -45,7 +44,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
 
     axiosInstance
       .get(
-        `/api/user/discussions/${id}`,
+        `/api/posts/${id}`,
 
         config
       )
@@ -55,6 +54,8 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       .catch((err) => console.log(err));
   }, [id]);
 
+  console.log(result);
+
   async function sendComment() {
     const data = {
       text: textComment,
@@ -62,12 +63,12 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
     };
     const config = {
       headers: {
-        Accept: "application/json",
+        Accept: "application/vnd.api+json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
       },
     };
     await axiosInstance
-      .post(`/api/user/discussions/save-comment/${id}`, data, config)
+      .post(`/api/posts/save-comment/${id}`, data, config)
       .then((res) => {
         setCommentStatus(res.data);
       })
@@ -83,13 +84,13 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
     };
     const config = {
       headers: {
-        Accept: "application/json",
+        Accept: "application/vnd.api+json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
         lang: localStorage.getItem("language"),
       },
     };
     await axiosInstance
-      .post(`/api/user/discussions/load-more-comment/${id}`, data, config)
+      .post(`/api/posts/load-more-comment/${id}`, data, config)
       .then((res) => {
         setLoadComment(res.data.items);
       })
@@ -99,54 +100,28 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   }
 
   useEffect(() => {
-    setLengthComment(result?.discussion?.comments.length);
-  }, [result?.discussion?.comments.length]);
+    setLengthComment(result?.post?.comments.length);
+  }, [result?.post?.comments.length]);
 
-  async function sendLike() {
-    const config = {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
-      },
-    };
-    await axiosInstance
-      .post(
-        `/api/user/discussions/like/${id}`,
-        {
-          params: {
-            product: id,
-          },
-        },
-        config
-      )
-      .then((res) => {
-        setLikeData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  //   useEffect(() => {
+  //     const config = {
+  //       headers: {
+  //         Accept: "application/json",
+  //         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+  //         lang: localStorage.getItem("language"),
+  //       },
+  //     };
+  //     axiosInstance
+  //       .get(
+  //         `/api/user/discussions/all?title=${searchQuery}`,
 
-  useEffect(() => {
-    const config = {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
-      },
-    };
-    axiosInstance
-      .get(
-        `/api/user/discussions/all?title=${searchQuery}`,
-
-        config
-      )
-      .then((res) => {
-        setDiscussionsSearch(res.data.items.discussions);
-      })
-      .catch((err) => console.log(err));
-  }, [searchQuery]);
+  //         config
+  //       )
+  //       .then((res) => {
+  //         setDiscussionsSearch(res.data.items.discussions);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }, [searchQuery]);
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -159,11 +134,12 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       />
       <S.DetailsContainer>
         <S.CardForum>
-          <h3>{settingsData?.items?.translation?.title_special}</h3>
+          {/* <h3>{settingsData?.items?.translation?.title_special}</h3> */}
+          <h3>related posts</h3>
 
-          {discussionsSearch?.length !== 0
+          {/* {discussionsSearch?.length !== 0
             ? discussionsSearch?.map((topic) => (
-                <S.LinkContainer to={`/discussion/${topic?.id}`}>
+                <S.LinkContainer to={`/post/${topic?.id}`}>
                   <CardBox
                     paragraph={topic?.title}
                     totalLikes={topic?.likes_count}
@@ -174,7 +150,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                 </S.LinkContainer>
               ))
             : result?.related_topics?.map((topic) => (
-                <S.LinkContainer to={`/discussion/${topic?.id}`}>
+                <S.LinkContainer to={`/post/${topic?.id}`}>
                   <CardBox
                     paragraph={topic?.title}
                     totalLikes={topic?.likes_count}
@@ -183,54 +159,27 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                     discussionsSearch={discussionsSearch}
                   />
                 </S.LinkContainer>
-              ))}
+              ))} */}
         </S.CardForum>
 
         <S.DetailsBox>
           {result && (
             <>
-              <h6>
-                {settingsData?.items?.translation?.asked_Forum_Details} :
-                {result?.discussion?.created_at}
-              </h6>
-              <h3>{result?.discussion?.title}</h3>
+              <h3>{result?.post?.title}</h3>
 
               <p
                 dangerouslySetInnerHTML={{
-                  __html: result?.discussion?.text,
+                  __html: result?.post?.text,
                 }}
               />
 
-              <div className="container">
-                <div>
-                  {likeData?.items?.is_like === false ? (
-                    <img
-                      src="./images/like.png"
-                      alt="likes of the content"
-                      onClick={() => sendLike()}
-                    />
-                  ) : (
-                    <img
-                      src="./images/unlike.png"
-                      alt="likes of the content"
-                      onClick={() => sendLike()}
-                    />
-                  )}
-
-                  <span>{result?.discussion?.likes_count}</span>
-                </div>
-                <div>
-                  <img src="./images/chat.png" alt="likes of the content" />
-                  <span>{result?.discussion?.comments_count}</span>
-                </div>
-              </div>
               <div className="comments">
                 <h5 className="number-comments">
-                  {result?.discussion?.comments?.length}{" "}
+                  {result?.post?.comments?.length}
                   {settingsData?.items?.translation?.comments_count}
                 </h5>
-                {result?.discussion?.comments.length !== 0 &&
-                  result?.discussion?.comments?.map((comment) => (
+                {result?.post?.comments.length !== 0 &&
+                  result?.post?.comments?.map((comment) => (
                     <S.CommentsWrapper>
                       <Comments
                         key={comment.id}
@@ -243,7 +192,6 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                           setShowInput(!showInput);
                           setUserName(comment.user_name);
                         }}
-                        likeComment
                       />
 
                       {comment?.replies?.map((reply) => (
@@ -338,4 +286,4 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   );
 }
 
-export default Details;
+export default BlogDetails;
