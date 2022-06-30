@@ -1,5 +1,5 @@
 import * as S from "./style";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "../../Components/Modal";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button";
