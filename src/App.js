@@ -14,6 +14,8 @@ import ChangePassword from "./Pages/ChangePassword";
 import Faqs from "./Pages/Faqs";
 import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
+import Blog from "./Pages/Blog";
+import BlogDetails from "./Pages/BlogDetails";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
@@ -223,6 +225,36 @@ function App() {
                   setLanguage(language);
                   storeLanguageInLocalStorage(language);
                 }}
+              />
+            }
+          />
+
+          <Route
+            path="/blog"
+            element={
+              <Blog
+                settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
+                profileInformation={profileInformation}
+                language={language}
+              />
+            }
+          />
+
+          <Route
+            path="/blog/:id"
+            element={
+              <BlogDetails
+                settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
+                profileInformation={profileInformation}
+                language={language}
               />
             }
           />

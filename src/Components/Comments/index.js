@@ -8,6 +8,7 @@ function Comments({
   comments_count,
   src,
   onClick,
+  likeComment,
 }) {
   return (
     <S.commentContainer>
@@ -26,20 +27,22 @@ function Comments({
         }}
       />
 
-      <div className="likeComment">
-        <div>
-          <img src="./images/like.png" alt="likes of the content" />
-          <span>{likes_count}</span>
+      {likeComment && (
+        <div className="likeComment">
+          <div>
+            <img src="./images/like.png" alt="likes of the content" />
+            <span>{likes_count}</span>
+          </div>
+          <div>
+            <img
+              onClick={onClick}
+              src="./images/chat.png"
+              alt="likes of the content"
+            />
+            <span>{comments_count}</span>
+          </div>
         </div>
-        <div>
-          <img
-            onClick={onClick}
-            src="./images/chat.png"
-            alt="likes of the content"
-          />
-          <span>{comments_count}</span>
-        </div>
-      </div>
+      )}
     </S.commentContainer>
   );
 }
