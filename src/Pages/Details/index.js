@@ -266,7 +266,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                       setShowComments(!showComments);
                     }}
                   >
-                    load more comment
+                    {settingsData?.items?.translation?.load_more_comment}
                   </button>
                 )}
 

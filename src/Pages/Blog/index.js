@@ -20,7 +20,7 @@ function PagesMain({
       <S.BlogContainer>
         <div className="box">
           <div className="container">
-            <h1>Blog</h1>
+            <h1>{settingsData?.items?.translation?.testimonies_blog}</h1>
 
             <PaginationComponent
               settingsData={settingsData}

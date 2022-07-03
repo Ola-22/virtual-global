@@ -5,7 +5,7 @@ import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
@@ -34,15 +34,14 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
     }, 1500);
   }
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     const config = {
       headers: {
         Accept: "application/json",
         lang: localStorage.getItem("language"),
       },
     };
-
-    axiosInstance
+    const response = axiosInstance
       .get(
         `/api/posts/${id}`,
 
@@ -52,7 +51,13 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
         setResult(res.data.items);
       })
       .catch((err) => console.log(err));
+
+    return response;
   }, [id]);
+
+  useEffect(() => {
+    fetchData();
+  }, [id, fetchData]);
 
   async function sendComment() {
     const data = {
@@ -69,6 +74,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       .post(`/api/posts/save-comment/${id}`, data, config)
       .then((res) => {
         setCommentStatus(res.data);
+        fetchData();
       })
       .catch((err) => {
         console.log(err);
@@ -143,7 +149,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       />
       <S.DetailsContainer>
         <S.CardForum>
-          <h3>related posts</h3>
+          <h3>{settingsData?.items?.translation?.related_posts}</h3>
 
           {postsSearch?.length !== 0
             ? postsSearch?.map((post) => (
@@ -219,7 +225,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                       setShowComments(!showComments);
                     }}
                   >
-                    load more comment
+                    {settingsData?.items?.translation?.load_more_comment}
                   </button>
                 )}
                 {showComments &&
