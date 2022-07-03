@@ -33,7 +33,7 @@ function PaginationComponent({ language }) {
           key={number}
           id={number}
           onClick={handleClick}
-          className={currentPage == number ? "active" : null}
+          className={currentPage === number ? "active" : null}
         >
           {number}
         </li>
@@ -70,7 +70,7 @@ function PaginationComponent({ language }) {
   const handlePrevbtn = () => {
     setcurrentPage(currentPage - 1);
 
-    if ((currentPage - 1) % pageNumberLimit == 0) {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
       setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
       setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
@@ -93,7 +93,7 @@ function PaginationComponent({ language }) {
         <li>
           <button
             onClick={handlePrevbtn}
-            disabled={currentPage == pages[0] ? true : false}
+            disabled={currentPage === pages[0] ? true : false}
           >
             Prev
           </button>
@@ -105,7 +105,7 @@ function PaginationComponent({ language }) {
         <li>
           <button
             onClick={handleNextbtn}
-            disabled={currentPage == pages[pages.length - 1] ? true : false}
+            disabled={currentPage === pages[pages.length - 1] ? true : false}
           >
             Next
           </button>
