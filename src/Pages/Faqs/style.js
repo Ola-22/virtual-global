@@ -8,6 +8,7 @@ export const FaqsContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding-bottom: 29px;
+  width: 100%;
 
   & .box {
     width: 70%;
@@ -47,6 +48,9 @@ export const FaqsContainer = styled.div`
 
 export const Main = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   & .box-virtual {
     max-width: 1000px;
@@ -57,6 +61,6 @@ export const Main = styled.div`
   }
 
   & .nav-container {
-    width: 100%;
+    width: 90%;
   }
 `;

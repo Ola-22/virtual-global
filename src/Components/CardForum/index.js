@@ -46,6 +46,7 @@ function CardForum({
                 paragraph={disc.title}
                 totalComments={disc.comments_count}
                 totalLikes={disc.likes_count}
+                likesCount
               />
             </Link>
           ))}
@@ -57,6 +58,7 @@ function CardForum({
                 paragraph={disc.title}
                 totalComments={disc.comments_count}
                 totalLikes={disc.likes_count}
+                likesCount
               />
             </Link>
           ))}

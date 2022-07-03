@@ -16,10 +16,21 @@ import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
 import Blog from "./Pages/Blog";
 import BlogDetails from "./Pages/BlogDetails";
+import authService from "./Pages/Register/Auth";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
+
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = authService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
 
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
@@ -73,14 +84,16 @@ function App() {
         config
       )
       .then((res) => {
-        setProfileInformation(res.data.items);
+        if (currentUser) {
+          setProfileInformation(res.data.items);
+        }
       })
       .catch((err) => console.log(err, "rrr"));
 
     return () => {
       setProfileInformation();
     };
-  }, [language]);
+  }, [language, currentUser]);
 
   return (
     <Router>

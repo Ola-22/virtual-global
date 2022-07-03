@@ -171,7 +171,7 @@ export const CardForum = styled.div`
   background-color: #ffffff;
   align-items: center;
   border-radius: 10px;
-  min-height: 549px;
+  /* min-height: 549px; */
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;

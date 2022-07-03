@@ -27,18 +27,24 @@ const Navbar = ({ settingsData, open, setOpen }) => {
     <S.Nav>
       <S.Ul className="menus" open={open}>
         <>
-          {" "}
           {settingsData?.items?.header?.map((menu, index) => {
             const depthLevel = 0;
             return (
-              <MenuItems
-                setOpen={setOpen}
-                items={menu}
-                key={index}
-                depthLevel={depthLevel}
-              />
+              <div key={index.toString()}>
+                <MenuItems
+                  setOpen={setOpen}
+                  items={menu}
+                  depthLevel={depthLevel}
+                />
+              </div>
             );
           })}
+          {settingsData?.items?.menus_header &&
+            settingsData?.items?.menus_header.map((menu, index) => (
+              <div key={index.toString()}>
+                <MenuItems setOpen={setOpen} items={menu} />
+              </div>
+            ))}
           <li
             className="menu-items forum"
             style={{ display: !currentUser + "none" }}

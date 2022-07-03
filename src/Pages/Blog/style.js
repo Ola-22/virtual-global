@@ -56,6 +56,38 @@ export const Main = styled.div`
     max-width: 110px;
     width: 100%;
   }
+
+  & .pagination-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10 !important;
+  }
+
+  & .pagination {
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  & .pagination li.page-item.active a.page-link {
+    color: #445565 !important;
+    background-color: #e3e7eb !important;
+    border-color: #ced4da !important;
+  }
+  & .pagination a.page-link {
+    padding: 0.75rem 1rem;
+    min-width: 3.5rem;
+    text-align: center;
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+    color: #6b88a4;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+  & .pagination a.page-link:hover {
+    background-color: #f4f4f4;
+  }
 `;
 
 export const BlogCard = styled.div`
@@ -73,11 +105,17 @@ export const BlogCard = styled.div`
     width: 40px;
     height: 40px;
     object-fit: contain;
+    margin-inline-end: 10px;
   }
 
   & h3 {
     font-size: 20px;
     text-transform: capitalize;
+
+    &:hover {
+      cursor: pointer;
+      color: #2395db;
+    }
   }
 
   & .card-header {
@@ -95,6 +133,21 @@ export const BlogCard = styled.div`
 
     @media (max-width: 500px) {
       width: 100%;
+    }
+
+    & svg {
+      color: rgba(0, 0, 0, 0.4);
+      margin-inline-end: 10px;
+    }
+
+    & span {
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.4);
+      text-transform: capitalize;
+
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -114,5 +167,9 @@ export const BlogCard = styled.div`
       font-size: 16px;
       font-weight: normal;
     }
+  }
+
+  &:not(:first-of-type) {
+    margin-top: 20px;
   }
 `;

@@ -42,6 +42,10 @@ export const HeaderContainer = styled.div`
         & img {
           margin-inline-end: 8px;
         }
+
+        @media (min-width: 980px) and (max-width: 1200px) {
+          width: 70px;
+        }
       }
 
       @media (min-width: 980px) and (max-width: 1200px) {
@@ -154,6 +158,7 @@ export const Nav = styled.nav`
     align-items: center;
     @media (max-width: 980px) {
       justify-content: space-around;
+      padding-top: 21 !important;
       align-items: center;
       padding: 0;
       max-height: 100vh;
@@ -227,6 +232,10 @@ export const Nav = styled.nav`
         &:hover {
           color: #5cabff;
         }
+
+        @media (max-width: 980px) {
+          min-height: 71px;
+        }
       }
     }
   }
@@ -259,10 +268,15 @@ export const Nav = styled.nav`
           background: inherit;
         }
       }
+
+      @media (max-width: 980px) {
+        min-height: 20px;
+        max-height: 30px;
+      }
     }
 
     @media (min-width: 980px) and (max-width: 1200px) {
-      font-size: 9px;
+      font-size: 8px;
     }
   }
 `;

@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
-import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
-import Pagination from "../../Components/Pagination";
-import Accordian from "./Accordian";
+import PaginationComponent from "../../Components/PaginationComponent";
 
 function Faqs({
   settingsData,
@@ -12,34 +9,6 @@ function Faqs({
   handleSetLanguage,
   language,
 }) {
-  const [faqs, setFaqs] = useState();
-  useEffect(() => {
-    axiosInstance
-      .get("/api/web-site/faqs", {
-        headers: {
-          lang: language,
-        },
-      })
-      .then((res) => {
-        setFaqs(res.data.items);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [language]);
-
-  console.log(faqs);
-
-  const lengthFaqs = faqs?.faqs;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = lengthFaqs?.slice(indexOfFirstPost, indexOfLastPost);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <S.Main>
       <Nav
@@ -52,13 +21,7 @@ function Faqs({
         settingsData={settingsData}
       />
       <S.FaqsContainer>
-        <Accordian lengthFaqs={currentPosts} language={language} />
-
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={lengthFaqs?.length}
-          paginate={paginate}
-        />
+        <PaginationComponent language={language} />
       </S.FaqsContainer>
     </S.Main>
   );

@@ -9,7 +9,7 @@ function HeaderForum({ profileInformation, settingsData, onChange, value }) {
           <img src="./images/searchPage.png" alt="search of the page" />
           <input
             type="text"
-            placeholder="search here"
+            placeholder={settingsData?.items?.translation?.placeholder_search}
             onChange={onChange}
             value={value}
           />

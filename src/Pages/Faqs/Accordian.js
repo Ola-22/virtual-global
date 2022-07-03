@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as F from "../../Components/Answer&Questions/style";
 
-function Accordian({ lengthFaqs, language }) {
+function Accordian({ data, language }) {
   const [show, setShow] = useState(-1);
 
   function handleToggle(index) {
@@ -12,10 +12,11 @@ function Accordian({ lengthFaqs, language }) {
 
     setShow(index);
   }
+
   return (
     <>
       <div className="box">
-        {lengthFaqs?.map((item, index) => (
+        {data?.map((item, index) => (
           <div key={index} onClick={() => handleToggle(index)}>
             <F.AccordianContainer
               className={show === index ? "activeShow accordian" : "accordian"}
