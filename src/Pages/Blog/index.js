@@ -1,4 +1,3 @@
-import Header from "../../Components/Header";
 import HeaderForum from "../../Components/HeaderForum";
 import Nav from "../../Components/Nav";
 import PaginationComponent from "./PaginationComponent";
