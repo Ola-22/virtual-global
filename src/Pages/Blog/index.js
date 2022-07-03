@@ -1,6 +1,5 @@
 import Header from "../../Components/Header";
 import Nav from "../../Components/Nav";
-import BlogCard from "./BlogCard";
 import PaginationComponent from "./PaginationComponent";
 
 import * as S from "./style";
