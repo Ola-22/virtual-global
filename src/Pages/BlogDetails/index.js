@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
+import authService from "../Register/Auth";
 
 function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
   const { id } = useParams();
@@ -37,7 +38,6 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
     const config = {
       headers: {
         Accept: "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
         lang: localStorage.getItem("language"),
       },
     };
@@ -120,6 +120,17 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       })
       .catch((err) => console.log(err));
   }, [searchQuery]);
+
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = authService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -170,14 +181,13 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
 
               <div className="comments">
                 <h5 className="number-comments">
-                  {result?.post?.comments?.length}
+                  {result?.post?.comments?.length}{" "}
                   {settingsData?.items?.translation?.comments_count}
                 </h5>
                 {result?.post?.comments.length !== 0 &&
                   result?.post?.comments?.map((comment) => (
-                    <S.CommentsWrapper>
+                    <S.CommentsWrapper key={comment.id}>
                       <Comments
-                        key={comment.id}
                         name={comment?.user_name}
                         date={comment?.date}
                         comment={comment?.text}
@@ -225,51 +235,54 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                       }}
                     />
                   ))}
-                <div className="add-comment">
-                  <div className="box-comment">
-                    <img
-                      className="comment-user"
-                      src={profileInformation?.user?.image}
-                      alt=""
-                    />
-                    <input
-                      type="text"
-                      placeholder={
-                        settingsData?.items?.translation?.placeholder
-                      }
-                      value={textComment ?? ""}
-                      onChange={(e) => setTextComment(e.target.value)}
-                    />
+                {currentUser && (
+                  <div className="add-comment">
+                    <div className="box-comment">
+                      <img
+                        className="comment-user"
+                        src={profileInformation?.user?.image}
+                        alt=""
+                      />
+                      <input
+                        type="text"
+                        placeholder={
+                          settingsData?.items?.translation?.placeholder
+                        }
+                        value={textComment ?? ""}
+                        onChange={(e) => setTextComment(e.target.value)}
+                      />
+                    </div>
+
+                    {!loading && (
+                      <Button
+                        title={settingsData?.items?.translation?.btn_comment}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sendComment();
+                          handleClick();
+                        }}
+                      />
+                    )}
+
+                    {loading && (
+                      <Button
+                        className="disabled"
+                        title={settingsData?.items?.translation?.btn_comment}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sendComment();
+                          handleClick();
+                          window.reload();
+                        }}
+                      />
+                    )}
+                    <h5 style={{ visibility: "hidden" }}>
+                      {" "}
+                      {commentStatus?.message}
+                    </h5>
                   </div>
+                )}
 
-                  {!loading && (
-                    <Button
-                      title={settingsData?.items?.translation?.btn_comment}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        sendComment();
-                        handleClick();
-                      }}
-                    />
-                  )}
-
-                  {loading && (
-                    <Button
-                      className="disabled"
-                      title={settingsData?.items?.translation?.btn_comment}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        sendComment();
-                        handleClick();
-                        window.reload();
-                      }}
-                    />
-                  )}
-                  <h5 style={{ visibility: "hidden" }}>
-                    {" "}
-                    {commentStatus?.message}
-                  </h5>
-                </div>
                 <h5> {commentStatus?.message}</h5>
               </div>
             </>

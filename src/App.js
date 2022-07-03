@@ -88,7 +88,11 @@ function App() {
           setProfileInformation(res.data.items);
         }
       })
-      .catch((err) => console.log(err, "rrr"));
+      .catch((err) => {
+        if (currentUser) {
+          console.log(err, "rrr");
+        }
+      });
 
     return () => {
       setProfileInformation();
