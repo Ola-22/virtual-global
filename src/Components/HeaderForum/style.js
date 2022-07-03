@@ -92,12 +92,15 @@ export const Container = styled.div`
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 
   @media (max-width: 600px) {
     justify-content: center;
     padding-top: 3%;
     padding-bottom: 2%;
+  }
+
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
   }
   & .input-container {
     display: flex;
@@ -109,6 +112,10 @@ export const Container = styled.div`
     width: 100%;
     max-width: 320px;
     height: 40px;
+
+    @media (max-width: 600px) {
+      margin-inline-end: 10px;
+    }
   }
   & input {
     border: none;
@@ -117,5 +124,32 @@ export const Container = styled.div`
     width: 100%;
     font-size: 14px;
     text-transform: capitalize;
+  }
+`;
+
+export const ContainerBtn = styled.div`
+  display: flex;
+  align-items: center;
+
+  & a {
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    background: #fff;
+    color: #000000;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    &:last-of-type {
+      margin-inline-start: 15px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 10px;
   }
 `;

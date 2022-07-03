@@ -1,65 +1,3 @@
-// import styled from "styled-components";
-
-// export const DetailsMain = styled.div``;
-
-// export const BlogContainer = styled.div`
-//   background-color: #f8f8f8;
-//   min-height: 100vh;
-//   height: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   padding-bottom: 29px;
-//   width: 100%;
-
-//   & .box {
-//     width: 90%;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     border-radius: 10px;
-//     margin-top: 27px;
-//     min-height: 90vh;
-
-//     & .container {
-//       width: 100%;
-//     }
-
-//     & h1 {
-//       font-size: 22px;
-//       margin-top: 10px;
-//       width: 100%;
-//       margin-bottom: 22px;
-
-//       @media (max-width: 500px) {
-//         font-size: 20px;
-//       }
-//     }
-//   }
-
-//   @media (max-width: 400px) {
-//     background-color: #ffffff;
-//   }
-// `;
-
-// export const Main = styled.div`
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   & .box-virtual {
-//     max-width: 1170px;
-//     width: 100%;
-//   }
-//   & .right {
-//     max-width: 110px;
-//     width: 100%;
-//   }
-// `;
-
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -94,14 +32,19 @@ export const DetailsBox = styled.div`
   padding-top: 29px;
   padding-bottom: 20px;
 
+  @media (min-width: 800px) and (max-width: 1000px) {
+    width: 48%;
+  }
   @media (max-width: 700px) {
     width: 90%;
     margin: auto;
     margin-top: 5%;
   }
 
-  @media (min-width: 699px) and (max-width: 960px) {
-    width: 48%;
+  @media (min-width: 699px) and (max-width: 800px) {
+    width: 90%;
+    margin-inline-start: 0;
+    margin-top: 20px;
   }
   & h6 {
     font-size: 16px;
@@ -240,15 +183,13 @@ export const CardForum = styled.div`
   z-index: 4;
   padding-bottom: 20px;
   min-width: 367px;
+
   @media (max-width: 800px) {
     width: 90%;
     max-height: auto !important;
     height: auto;
     margin-inline-end: 0;
-  }
-
-  @media (min-width: 950px) and (max-width: 1050px) {
-    min-width: 200px;
+    min-width: 90%;
   }
 
   &:last-child {
@@ -341,6 +282,12 @@ export const Main = styled.div`
 
   & .nav-container {
     justify-content: space-between;
+  }
+
+  & .boxCard div:first-of-type {
+    @media (max-width: 800px) {
+      justify-content: flex-start !important;
+    }
   }
 `;
 
