@@ -5,7 +5,7 @@ import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
@@ -34,7 +34,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
     }, 1500);
   }
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     const config = {
       headers: {
         Accept: "application/json",
@@ -42,8 +42,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         lang: localStorage.getItem("language"),
       },
     };
-
-    axiosInstance
+    const response = axiosInstance
       .get(
         `/api/user/discussions/${id}`,
 
@@ -53,7 +52,13 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         setResult(res.data.items);
       })
       .catch((err) => console.log(err));
+
+    return response;
   }, [id]);
+
+  useEffect(() => {
+    fetchData();
+  }, [id, fetchData]);
 
   async function sendComment() {
     const data = {
@@ -70,6 +75,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       .post(`/api/user/discussions/save-comment/${id}`, data, config)
       .then((res) => {
         setCommentStatus(res.data);
+        fetchData();
       })
       .catch((err) => {
         console.log(err);
@@ -196,6 +202,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
               <h3>{result?.discussion?.title}</h3>
 
               <p
+                className="content-details"
                 dangerouslySetInnerHTML={{
                   __html: result?.discussion?.text,
                 }}
@@ -231,9 +238,8 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                 </h5>
                 {result?.discussion?.comments.length !== 0 &&
                   result?.discussion?.comments?.map((comment) => (
-                    <S.CommentsWrapper>
+                    <S.CommentsWrapper key={comment.id}>
                       <Comments
-                        key={comment.id}
                         name={comment?.user_name}
                         date={comment?.date}
                         comment={comment?.text}

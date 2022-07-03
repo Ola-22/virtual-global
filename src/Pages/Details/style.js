@@ -163,6 +163,14 @@ export const DetailsBox = styled.div`
       }
     }
   }
+
+  & .content-details {
+    & * {
+      @media (max-width: 500px) {
+        font-size: 12px !important;
+      }
+    }
+  }
 `;
 
 export const CardForum = styled.div`
