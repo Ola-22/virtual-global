@@ -97,7 +97,6 @@ function EditProfile({ settingsData, profileInformation }) {
 
   const [editProfile, setEditProfile] = useState();
 
-  console.log(gender);
   async function UpdateProfile() {
     const dataImg = new FormData();
     if (file !== "") {
