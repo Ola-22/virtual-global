@@ -16,6 +16,11 @@ export const DetailsContainer = styled.div`
   & a {
     color: #000;
   }
+  & .boxCard div:first-of-type {
+    @media (max-width: 800px) {
+      justify-content: flex-start !important;
+    }
+  }
 `;
 
 export const DetailsBox = styled.div`
