@@ -3,7 +3,7 @@ import axiosInstance from "../../helpers/axios";
 import * as S from "./PaginationStyle";
 import RenderData from "./RenderData";
 
-function PaginationComponent({ language, settingsData }) {
+function PaginationComponent({ language, settingsData, postsSearch }) {
   const [data, setData] = useState([]);
 
   const [currentPage, setcurrentPage] = useState(1);
@@ -90,6 +90,7 @@ function PaginationComponent({ language, settingsData }) {
           data={currentItems}
           language={language}
           settingsData={settingsData}
+          postsSearch={postsSearch}
         />
       }
       <S.PageNumber>
