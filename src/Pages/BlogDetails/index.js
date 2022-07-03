@@ -7,7 +7,7 @@ import Button from "../../Components/Button";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
-// import CardBox from "../../Components/CardForum/CardBox";
+import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 
 function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
@@ -22,7 +22,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
   const [lengthComment, setLengthComment] = useState(0);
   const [loadComment, setLoadComment] = useState();
   const [showComments, setShowComments] = useState(false);
-  //   const [discussionsSearch, setDiscussionsSearch] = useState();
+  const [postsSearch, setPostsSearch] = useState();
   const [searchQuery, setSearchQuery] = useState();
 
   function handleClick() {
@@ -53,8 +53,6 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       })
       .catch((err) => console.log(err));
   }, [id]);
-
-  console.log(result);
 
   async function sendComment() {
     const data = {
@@ -103,25 +101,25 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
     setLengthComment(result?.post?.comments.length);
   }, [result?.post?.comments.length]);
 
-  //   useEffect(() => {
-  //     const config = {
-  //       headers: {
-  //         Accept: "application/json",
-  //         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-  //         lang: localStorage.getItem("language"),
-  //       },
-  //     };
-  //     axiosInstance
-  //       .get(
-  //         `/api/user/discussions/all?title=${searchQuery}`,
+  useEffect(() => {
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+        lang: localStorage.getItem("language"),
+      },
+    };
+    axiosInstance
+      .get(
+        `/api/posts/all?title=${searchQuery}`,
 
-  //         config
-  //       )
-  //       .then((res) => {
-  //         setDiscussionsSearch(res.data.items.discussions);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }, [searchQuery]);
+        config
+      )
+      .then((res) => {
+        setPostsSearch(res.data.items.posts);
+      })
+      .catch((err) => console.log(err));
+  }, [searchQuery]);
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -134,32 +132,29 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       />
       <S.DetailsContainer>
         <S.CardForum>
-          {/* <h3>{settingsData?.items?.translation?.title_special}</h3> */}
           <h3>related posts</h3>
 
-          {/* {discussionsSearch?.length !== 0
-            ? discussionsSearch?.map((topic) => (
-                <S.LinkContainer to={`/post/${topic?.id}`}>
+          {postsSearch?.length !== 0
+            ? postsSearch?.map((post) => (
+                <S.LinkContainer to={`/blog/${post?.id}`} key={post.id}>
                   <CardBox
-                    paragraph={topic?.title}
-                    totalLikes={topic?.likes_count}
-                    totalComments={topic?.comments_count}
+                    paragraph={post?.title}
+                    totalComments={post?.comments_count}
                     id={id}
-                    discussionsSearch={discussionsSearch}
+                    postsSearch={postsSearch}
                   />
                 </S.LinkContainer>
               ))
-            : result?.related_topics?.map((topic) => (
-                <S.LinkContainer to={`/post/${topic?.id}`}>
+            : result?.related_posts?.map((post) => (
+                <S.LinkContainer to={`/blog/${post?.id}`} key={post.id}>
                   <CardBox
-                    paragraph={topic?.title}
-                    totalLikes={topic?.likes_count}
-                    totalComments={topic?.comments_count}
+                    paragraph={post?.title}
+                    totalComments={post?.comments_count}
                     id={id}
-                    discussionsSearch={discussionsSearch}
+                    postsSearch={postsSearch}
                   />
                 </S.LinkContainer>
-              ))} */}
+              ))}
         </S.CardForum>
 
         <S.DetailsBox>
@@ -217,7 +212,6 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                     load more comment
                   </button>
                 )}
-
                 {showComments &&
                   loadComment?.comments?.map((comment) => (
                     <Comments
@@ -231,7 +225,6 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                       }}
                     />
                   ))}
-
                 <div className="add-comment">
                   <div className="box-comment">
                     <img
@@ -241,7 +234,9 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                     />
                     <input
                       type="text"
-                      placeholder="write here"
+                      placeholder={
+                        settingsData?.items?.translation?.placeholder
+                      }
                       value={textComment ?? ""}
                       onChange={(e) => setTextComment(e.target.value)}
                     />
@@ -249,7 +244,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
 
                   {!loading && (
                     <Button
-                      title="comment"
+                      title={settingsData?.items?.translation?.btn_comment}
                       onClick={(e) => {
                         e.preventDefault();
                         sendComment();
@@ -261,7 +256,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
                   {loading && (
                     <Button
                       className="disabled"
-                      title="comment"
+                      title={settingsData?.items?.translation?.btn_comment}
                       onClick={(e) => {
                         e.preventDefault();
                         sendComment();

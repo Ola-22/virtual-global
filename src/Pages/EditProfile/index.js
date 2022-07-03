@@ -32,8 +32,6 @@ function EditProfile({ settingsData, profileInformation }) {
   const [categoryMajor, setCategoryMajor] = useState("");
   const [gender, setGender] = useState(profileInformation?.user.gender);
 
-  console.log(profileInformation?.user.gender, "F");
-
   const [state, setState] = useState({
     fname: profileInformation?.user.first_name,
     lname: profileInformation?.user?.last_name,
@@ -131,9 +129,8 @@ function EditProfile({ settingsData, profileInformation }) {
           navigate("/profile");
           window.location.reload();
         }
-        console.log(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   }
 
   useEffect(() => {

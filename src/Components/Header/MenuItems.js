@@ -30,41 +30,47 @@ const MenuItems = ({ items, depthLevel, setOpen }) => {
   };
 
   return (
-    <li
-      className="menu-items"
-      ref={ref}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {items?.sub_menu.length > 0 ? (
-        <>
-          <button
-            type="button"
-            aria-haspopup="menu"
-            aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown((prev) => !prev)}
+    <>
+      <li
+        className="menu-items"
+        ref={ref}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        {items?.sub_menu.length > 0 ? (
+          <>
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={dropdown ? "true" : "false"}
+              onClick={() => setDropdown((prev) => !prev)}
+            >
+              {items.title}{" "}
+              {depthLevel > 0 ? (
+                <span>&raquo;</span>
+              ) : (
+                <span className="arrow" />
+              )}
+            </button>
+            <Dropdown
+              depthLevel={depthLevel}
+              submenus={items.sub_menu}
+              dropdown={dropdown}
+              setOpen={setOpen}
+            />
+          </>
+        ) : (
+          <div
+            onClick={() => {
+              navigate(items.link);
+              setOpen(false);
+            }}
           >
-            {items.title}{" "}
-            {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
-          </button>
-          <Dropdown
-            depthLevel={depthLevel}
-            submenus={items.sub_menu}
-            dropdown={dropdown}
-            setOpen={setOpen}
-          />
-        </>
-      ) : (
-        <div
-          onClick={() => {
-            navigate(items.link);
-            setOpen(false);
-          }}
-        >
-          <NavLink to={items.link}>{items.title}</NavLink>
-        </div>
-      )}
-    </li>
+            <NavLink to={items?.link}>{items?.title}</NavLink>
+          </div>
+        )}
+      </li>
+    </>
   );
 };
 

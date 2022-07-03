@@ -80,7 +80,14 @@ cursor: pointer;
 width: 100%;
 min-height: 71px;
 text-transform: uppercase;
+
 }
+@media (max-width: 980px) {
+  .menu-items button{
+     min-height: 20px;
+        max-height: 30px;
+  }  
+  }
 
 .menu-items a,
 .menu-items button {

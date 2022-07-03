@@ -293,7 +293,9 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                     />
                     <input
                       type="text"
-                      placeholder="write here"
+                      placeholder={
+                        settingsData?.items?.translation?.placeholder
+                      }
                       value={textComment ?? ""}
                       onChange={(e) => setTextComment(e.target.value)}
                     />
@@ -301,7 +303,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
 
                   {!loading && (
                     <Button
-                      title="comment"
+                      title={settingsData?.items?.translation?.btn_comment}
                       onClick={(e) => {
                         e.preventDefault();
                         sendComment();
@@ -313,7 +315,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
                   {loading && (
                     <Button
                       className="disabled"
-                      title="comment"
+                      title={settingsData?.items?.translation?.btn_comment}
                       onClick={(e) => {
                         e.preventDefault();
                         sendComment();

@@ -85,7 +85,10 @@ function CardTabs({
           </div>
         </div>
         <S.JoinButton>
-          <Button onClick={() => sendJoin()} title="join Discussion" />
+          <Button
+            onClick={() => sendJoin()}
+            title={settingsData?.items?.translation?.join_discussion}
+          />
           <h4> {joinData?.message}</h4>
         </S.JoinButton>
       </div>
