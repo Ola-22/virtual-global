@@ -2,7 +2,12 @@ import CardTabs from "../../Components/CardTabs";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
 
-export default function RecentTopics({ settingsData, discussionsSearch }) {
+export default function RecentTopics({
+  settingsData,
+  discussionsSearch,
+  language,
+  searchQuery,
+}) {
   const [discussionVisit, setDiscussionVisit] = useState();
 
   useEffect(() => {
@@ -11,18 +16,18 @@ export default function RecentTopics({ settingsData, discussionsSearch }) {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
         setDiscussionVisit(res.data.items.discussions);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [language]);
 
   return (
     <div>
-      {discussionsSearch?.length !== 0
+      {searchQuery
         ? discussionsSearch?.map((disc) => (
             <CardTabs
               settingsData={settingsData}

@@ -62,6 +62,11 @@ export const AboutContainer = styled.div`
 
     & .container {
       width: 92%;
+      & * {
+        @media (max-width: 500px) {
+          font-size: 12px !important;
+        }
+      }
     }
   }
 

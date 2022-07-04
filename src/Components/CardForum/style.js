@@ -17,6 +17,9 @@ export const CardForum = styled.div`
     margin-bottom: 30.5px;
     margin-inline-start: 22px;
     width: 90%;
+    @media (max-width: 500px) {
+      font-size: 18px;
+    }
   }
 
   & .boxCard {
@@ -41,13 +44,23 @@ export const CardForum = styled.div`
       height: 58px;
       overflow: hidden;
       text-overflow: ellipsis;
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
     }
     & img {
       width: 23px;
+      @media (max-width: 500px) {
+        width: 18px;
+      }
     }
     & span {
       font-size: 18px;
       margin-inline-start: 14.6px;
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
     }
 
     & div {

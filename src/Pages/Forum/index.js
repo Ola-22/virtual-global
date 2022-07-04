@@ -37,7 +37,7 @@ function Forum({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
 
@@ -51,7 +51,7 @@ function Forum({
         setDiscussions(res.data.items.discussions);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [language]);
 
   const total = discussion.reduce(
     (total, currentItem) => (total = total + currentItem.comments_count),
@@ -64,7 +64,7 @@ function Forum({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     const source = axios.CancelToken.source();
@@ -80,7 +80,7 @@ function Forum({
       .catch((err) => console.log(err));
 
     return () => source.cancel();
-  }, [searchQuery]);
+  }, [searchQuery, language]);
 
   return (
     <S.Main>
@@ -148,6 +148,8 @@ function Forum({
                 <RecentTopics
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
+                  language={language}
+                  searchQuery={searchQuery}
                 />
               </Tab>
 
@@ -159,6 +161,8 @@ function Forum({
                 <MostReplies
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
+                  language={language}
+                  searchQuery={searchQuery}
                 />
               </Tab>
 
@@ -170,6 +174,8 @@ function Forum({
                 <RecentReplies
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
+                  language={language}
+                  searchQuery={searchQuery}
                 />
               </Tab>
 
@@ -181,6 +187,8 @@ function Forum({
                 <MostVisit
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
+                  language={language}
+                  searchQuery={searchQuery}
                 />
               </Tab>
 
@@ -192,6 +200,8 @@ function Forum({
                 <MostLikes
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
+                  language={language}
+                  searchQuery={searchQuery}
                 />
               </Tab>
             </>

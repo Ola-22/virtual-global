@@ -19,7 +19,7 @@ function PagesMain({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     axiosInstance
@@ -32,15 +32,11 @@ function PagesMain({
         setPostsSearch(res.data.items.posts);
       })
       .catch((err) => console.log(err));
-  }, [searchQuery]);
+  }, [searchQuery, language]);
 
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
-      {/* <Header
-        profileInformation={profileInformation}
-        settingsData={settingsData}
-      /> */}
 
       <HeaderForum
         profileInformation={profileInformation}
@@ -57,6 +53,7 @@ function PagesMain({
               settingsData={settingsData}
               language={language}
               postsSearch={postsSearch}
+              searchQuery={searchQuery}
             />
           </div>
         </div>

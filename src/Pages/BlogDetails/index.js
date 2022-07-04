@@ -4,14 +4,19 @@ import Footer from "../../Components/Footer";
 import * as S from "./style";
 import Comments from "../../Components/Comments";
 import Button from "../../Components/Button";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
 import authService from "../Register/Auth";
 
-function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
+function BlogDetails({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+  language,
+}) {
   const { id } = useParams();
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,6 +31,8 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
   const [postsSearch, setPostsSearch] = useState();
   const [searchQuery, setSearchQuery] = useState();
 
+  const navigate = useNavigate();
+
   function handleClick() {
     setLoading(true);
     setTextComment("");
@@ -38,7 +45,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     const response = axiosInstance
@@ -53,7 +60,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       .catch((err) => console.log(err));
 
     return response;
-  }, [id]);
+  }, [id, language]);
 
   useEffect(() => {
     fetchData();
@@ -90,7 +97,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/vnd.api+json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance
@@ -112,7 +119,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     axiosInstance
@@ -125,7 +132,7 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
         setPostsSearch(res.data.items.posts);
       })
       .catch((err) => console.log(err));
-  }, [searchQuery]);
+  }, [searchQuery, language]);
 
   const [currentUser, setCurrentUser] = useState(undefined);
 
@@ -146,32 +153,24 @@ function BlogDetails({ settingsData, profileInformation, handleSetLanguage }) {
         profileInformation={profileInformation}
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery || ""}
+        onSubmit={() => {
+          navigate("/blog");
+        }}
       />
       <S.DetailsContainer>
         <S.CardForum>
           <h3>{settingsData?.items?.translation?.related_posts}</h3>
 
-          {postsSearch?.length !== 0
-            ? postsSearch?.map((post) => (
-                <S.LinkContainer to={`/blog/${post?.id}`} key={post.id}>
-                  <CardBox
-                    paragraph={post?.title}
-                    totalComments={post?.comments_count}
-                    id={id}
-                    postsSearch={postsSearch}
-                  />
-                </S.LinkContainer>
-              ))
-            : result?.related_posts?.map((post) => (
-                <S.LinkContainer to={`/blog/${post?.id}`} key={post.id}>
-                  <CardBox
-                    paragraph={post?.title}
-                    totalComments={post?.comments_count}
-                    id={id}
-                    postsSearch={postsSearch}
-                  />
-                </S.LinkContainer>
-              ))}
+          {result?.related_posts?.map((post) => (
+            <S.LinkContainer to={`/blog/${post?.id}`} key={post.id}>
+              <CardBox
+                paragraph={post?.title}
+                totalComments={post?.comments_count}
+                id={id}
+                postsSearch={postsSearch}
+              />
+            </S.LinkContainer>
+          ))}
         </S.CardForum>
 
         <S.DetailsBox>

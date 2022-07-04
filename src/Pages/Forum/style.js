@@ -36,12 +36,18 @@ export const ForumContainer = styled.div`
       & p {
         font-size: 29px;
         margin-top: 16px;
+        @media (max-width: 500px) {
+          font-size: 20px;
+        }
       }
       &:first-of-type {
         & h2 {
           font-size: 16px;
           color: #2d98da;
           text-transform: capitalize;
+          @media (max-width: 500px) {
+            font-size: 14px;
+          }
         }
       }
 
@@ -55,6 +61,9 @@ export const ForumContainer = styled.div`
           font-size: 16px;
           color: #ff3a3a;
           text-transform: capitalize;
+          @media (max-width: 500px) {
+            font-size: 14px;
+          }
         }
 
         @media (max-width: 700px) {

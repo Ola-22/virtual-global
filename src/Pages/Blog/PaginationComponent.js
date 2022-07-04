@@ -3,7 +3,12 @@ import axiosInstance from "../../helpers/axios";
 import * as S from "./PaginationStyle";
 import RenderData from "./RenderData";
 
-function PaginationComponent({ language, settingsData, postsSearch }) {
+function PaginationComponent({
+  language,
+  settingsData,
+  postsSearch,
+  searchQuery,
+}) {
   const [data, setData] = useState([]);
 
   const [currentPage, setcurrentPage] = useState(1);
@@ -18,7 +23,7 @@ function PaginationComponent({ language, settingsData, postsSearch }) {
   };
 
   const pages = [];
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(data?.length / itemsPerPage); i++) {
     pages.push(i);
   }
 
@@ -74,7 +79,7 @@ function PaginationComponent({ language, settingsData, postsSearch }) {
   };
 
   let pageIncrementBtn = null;
-  if (pages.length > maxPageNumberLimit) {
+  if (pages?.length > maxPageNumberLimit) {
     pageIncrementBtn = <li onClick={handleNextbtn}> &hellip; </li>;
   }
 
@@ -91,30 +96,34 @@ function PaginationComponent({ language, settingsData, postsSearch }) {
           language={language}
           settingsData={settingsData}
           postsSearch={postsSearch}
+          searchQuery={searchQuery}
         />
       }
-      <S.PageNumber>
-        <li>
-          <button
-            onClick={handlePrevbtn}
-            disabled={currentPage === pages[0] ? true : false}
-          >
-            Prev
-          </button>
-        </li>
-        {pageDecrementBtn}
-        {renderPageNumbers}
-        {pageIncrementBtn}
 
-        <li>
-          <button
-            onClick={handleNextbtn}
-            disabled={currentPage === pages[pages.length - 1] ? true : false}
-          >
-            Next
-          </button>
-        </li>
-      </S.PageNumber>
+      {!searchQuery && (
+        <S.PageNumber>
+          <li>
+            <button
+              onClick={handlePrevbtn}
+              disabled={currentPage === pages[0] ? true : false}
+            >
+              Prev
+            </button>
+          </li>
+          {pageDecrementBtn}
+          {renderPageNumbers}
+          {pageIncrementBtn}
+
+          <li>
+            <button
+              onClick={handleNextbtn}
+              disabled={currentPage === pages[pages?.length - 1] ? true : false}
+            >
+              Next
+            </button>
+          </li>
+        </S.PageNumber>
+      )}
     </>
   );
 }

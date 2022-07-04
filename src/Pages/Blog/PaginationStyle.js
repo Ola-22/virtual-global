@@ -8,6 +8,7 @@ export const PageNumber = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+
   & li {
     padding: 10px;
     border: 1px solid #2395db;

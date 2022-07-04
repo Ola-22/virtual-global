@@ -9,8 +9,14 @@ import { useEffect, useState, useCallback } from "react";
 import axiosInstance from "../../helpers/axios";
 import CardBox from "../../Components/CardForum/CardBox";
 import ReplyComment from "../../Components/Comments/ReplyComment";
+import { useNavigate } from "react-router-dom";
 
-function Details({ settingsData, profileInformation, handleSetLanguage }) {
+function Details({
+  settingsData,
+  profileInformation,
+  handleSetLanguage,
+  language,
+}) {
   const { id } = useParams();
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,6 +31,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
   const [likeData, setLikeData] = useState();
   const [discussionsSearch, setDiscussionsSearch] = useState();
   const [searchQuery, setSearchQuery] = useState();
+  const navigate = useNavigate();
 
   function handleClick() {
     setLoading(true);
@@ -39,7 +46,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     const response = axiosInstance
@@ -54,7 +61,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       .catch((err) => console.log(err));
 
     return response;
-  }, [id]);
+  }, [id, language]);
 
   useEffect(() => {
     fetchData();
@@ -91,7 +98,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance
@@ -113,7 +120,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance
@@ -139,7 +146,7 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     axiosInstance
@@ -152,7 +159,8 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         setDiscussionsSearch(res.data.items.discussions);
       })
       .catch((err) => console.log(err));
-  }, [searchQuery]);
+  }, [searchQuery, language]);
+
   return (
     <S.Main>
       <Nav settingsData={settingsData} handleSetLanguage={handleSetLanguage} />
@@ -162,34 +170,23 @@ function Details({ settingsData, profileInformation, handleSetLanguage }) {
         profileInformation={profileInformation}
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery || ""}
+        onSubmit={() => navigate("/discussion")}
       />
       <S.DetailsContainer>
         <S.CardForum>
           <h3>{settingsData?.items?.translation?.title_special}</h3>
 
-          {discussionsSearch?.length !== 0
-            ? discussionsSearch?.map((topic) => (
-                <S.LinkContainer to={`/discussion/${topic?.id}`}>
-                  <CardBox
-                    paragraph={topic?.title}
-                    totalLikes={topic?.likes_count}
-                    totalComments={topic?.comments_count}
-                    id={id}
-                    discussionsSearch={discussionsSearch}
-                  />
-                </S.LinkContainer>
-              ))
-            : result?.related_topics?.map((topic) => (
-                <S.LinkContainer to={`/discussion/${topic?.id}`}>
-                  <CardBox
-                    paragraph={topic?.title}
-                    totalLikes={topic?.likes_count}
-                    totalComments={topic?.comments_count}
-                    id={id}
-                    discussionsSearch={discussionsSearch}
-                  />
-                </S.LinkContainer>
-              ))}
+          {result?.related_topics?.map((topic) => (
+            <S.LinkContainer to={`/discussion/${topic?.id}`} key={topic.id}>
+              <CardBox
+                paragraph={topic?.title}
+                totalLikes={topic?.likes_count}
+                totalComments={topic?.comments_count}
+                id={id}
+                discussionsSearch={discussionsSearch}
+              />
+            </S.LinkContainer>
+          ))}
         </S.CardForum>
 
         <S.DetailsBox>

@@ -116,6 +116,10 @@ export const BlogCard = styled.div`
       cursor: pointer;
       color: #2395db;
     }
+
+    @media (max-width: 500px) {
+      font-size: 16px !important;
+    }
   }
 
   & .card-header {
@@ -166,6 +170,9 @@ export const BlogCard = styled.div`
       max-width: 100%;
       font-size: 16px;
       font-weight: normal;
+      @media (max-width: 500px) {
+        font-size: 14px !important;
+      }
     }
   }
 
