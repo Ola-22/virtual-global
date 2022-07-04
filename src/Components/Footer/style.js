@@ -168,10 +168,10 @@ export const copyRight = styled.p`
   margin-top: 2.1%;
   margin-bottom: 24px;
 
-  /* @media (max-width: 800px) {
-    margin-top: 3%;
-    margin-bottom: 20px;
-  } */
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: 12px;
+  }
 `;
 
 export const boxMail = styled.div`
@@ -218,7 +218,11 @@ export const containerMail = styled.div`
     }
 
     @media (max-width: 500px) {
-      min-width: 100%;
+      min-width: auto;
+    }
+
+    @media (min-width: 220px) and (max-width: 375px) {
+      width: auto;
     }
   }
   & h3 {
@@ -270,7 +274,7 @@ export const AboutContainer = styled.div`
         font-weight: normal;
 
         @media (max-width: 500px) {
-          font-size: 12px;
+          font-size: 10px;
           width: 90%;
         }
       }
@@ -281,7 +285,7 @@ export const AboutContainer = styled.div`
         font-size: 11px;
 
         @media (max-width: 500px) {
-          font-size: 9px;
+          font-size: 8px;
         }
       }
 

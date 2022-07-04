@@ -170,7 +170,10 @@ function Details({
         profileInformation={profileInformation}
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery || ""}
-        onSubmit={() => navigate("/discussion")}
+        onSubmit={(e) => {
+          // e.preventDefault();
+          navigate("/discussion");
+        }}
       />
       <S.DetailsContainer>
         <S.CardForum>

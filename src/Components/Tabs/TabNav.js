@@ -4,7 +4,7 @@ export default function TabNav(props) {
   return (
     <S.MainTab>
       <S.TabsContainer className="main-tabs">
-        {props.tabs.map((tab, index) => {
+        {props?.tabs?.map((tab, index) => {
           const activeSelect = tab === props.selected ? "activeSelect" : "";
           return (
             <li className="nav-item" key={index}>

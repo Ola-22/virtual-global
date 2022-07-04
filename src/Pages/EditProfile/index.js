@@ -4,7 +4,7 @@ import * as S from "./style";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ settingsData, profileInformation }) {
+function EditProfile({ settingsData, profileInformation, language }) {
   const [file, setFile] = useState("");
 
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ function EditProfile({ settingsData, profileInformation }) {
     axiosInstance
       .get("/api/web-site/categories/academic_levels", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -78,13 +78,13 @@ function EditProfile({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/categories/specializations", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -93,7 +93,7 @@ function EditProfile({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   const [editProfile, setEditProfile] = useState();
 
@@ -116,7 +116,7 @@ function EditProfile({ settingsData, profileInformation }) {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
 
@@ -136,7 +136,7 @@ function EditProfile({ settingsData, profileInformation }) {
     axiosInstance
       .get("/api/web-site/categories/countries", {
         headers: {
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
@@ -145,7 +145,7 @@ function EditProfile({ settingsData, profileInformation }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [language]);
 
   return (
     <S.MainEdit>

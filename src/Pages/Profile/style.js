@@ -46,7 +46,7 @@ export const ProfileContainer = styled.div`
         margin-bottom: 37px;
         width: 94%;
         @media (max-width: 500px) {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
 

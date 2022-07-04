@@ -40,7 +40,7 @@ const Navbar = ({ settingsData, open, setOpen }) => {
             );
           })}
           {settingsData?.items?.menus_header &&
-            settingsData?.items?.menus_header.map((menu, index) => (
+            settingsData?.items?.menus_header?.map((menu, index) => (
               <div key={index.toString()}>
                 <MenuItems setOpen={setOpen} items={menu} />
               </div>

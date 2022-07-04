@@ -14,11 +14,14 @@ export const IDCardContainer = styled.div`
   border-radius: 9px;
   padding-bottom: 20px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     height: 300px;
     padding-bottom: 40px;
     min-height: auto;
     max-height: 638px;
+  }
+  @media (max-width: 280px) {
+    padding-top: 15px;
   }
 `;
 
@@ -40,15 +43,19 @@ export const IDCardBox = styled.div`
       font-size: 16px;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       font-size: 10px;
+    }
+
+    @media (min-width: 220px) and (max-width: 600px) {
+      font-size: 8px;
     }
   }
 
   & .img-flag {
     max-width: 175px;
     max-height: 103px;
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       max-width: 50px;
       max-height: 60px;
     }
@@ -62,7 +69,7 @@ export const IDCardBox = styled.div`
     position: absolute;
     top: calc(100% + 21.5px);
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       top: calc(100% + 7.5px);
     }
   }
@@ -70,13 +77,13 @@ export const IDCardBox = styled.div`
   & .union {
     align-self: center;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       width: 40px;
       height: 25px;
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     padding-top: 10%;
   }
 `;
@@ -96,15 +103,19 @@ export const VirtualID = styled.div`
     font-size: 21px;
     width: 100%;
     margin-top: 30px;
-    @media (min-width: 375px) and (max-width: 700px) {
+    @media (min-width: 220px) and (max-width: 700px) {
       font-size: 16px;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       margin-top: 18px;
       font-size: 10px;
       max-width: 401px;
       width: 100%;
+    }
+
+    @media (min-width: 220px) and (max-width: 600px) {
+      font-size: 8px;
     }
   }
 
@@ -120,7 +131,7 @@ export const VirtualID = styled.div`
       height: 100%;
       width: 100%;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       margin-top: 0px;
     }
     & > div:first-of-type {
@@ -129,11 +140,11 @@ export const VirtualID = styled.div`
         font-weight: normal;
         margin-top: 15px;
 
-        @media (min-width: 375px) and (max-width: 699px) {
+        @media (min-width: 220px) and (max-width: 699px) {
           font-size: 12px;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
           font-size: 9px;
           text-align: center;
         }
@@ -143,10 +154,9 @@ export const VirtualID = styled.div`
         font-size: 20px;
         font-weight: bold;
         margin-top: 15px;
-        @media (min-width: 375px) and (max-width: 699px) {
+        @media (min-width: 220px) and (max-width: 699px) {
           font-size: 8px;
           font-weight: normal;
-          /* margin-top: 15px; */
         }
       }
     }
@@ -168,7 +178,7 @@ export const VirtualID = styled.div`
         height: 50%;
       }
 
-      @media (max-width: 500px) {
+      @media (max-width: 600px) {
         max-width: 90px;
         height: 70px;
         object-fit: contain;
@@ -184,7 +194,7 @@ export const boxCard = styled.div`
   flex-direction: row;
   width: 76%;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     justify-content: flex-start;
   }
 
@@ -196,7 +206,7 @@ export const boxCard = styled.div`
     margin-inline-start: 20px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 60%;
     min-height: 183px;
   }
@@ -204,8 +214,12 @@ export const boxCard = styled.div`
   & h3 {
     font-size: 20px;
     font-weight: bold;
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       font-size: 10px;
+    }
+
+    @media (min-width: 220px) and (max-width: 600px) {
+      font-size: 8px;
     }
   }
 
@@ -214,16 +228,24 @@ export const boxCard = styled.div`
     font-weight: normal;
     color: rgba(0, 0, 0, 0.7);
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       font-size: 10px;
       width: 100%;
       min-width: 300px;
+    }
+
+    @media (min-width: 220px) and (max-width: 600px) {
+      width: 167px;
+    }
+
+    @media (max-width: 250px) {
+      width: 150px;
     }
   }
 
   & .box-data {
     margin-top: 7px;
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -232,7 +254,7 @@ export const boxCard = styled.div`
     }
 
     & div {
-      @media (max-width: 500px) {
+      @media (max-width: 600px) {
         margin-bottom: -10px;
       }
     }
@@ -243,7 +265,7 @@ export const boxCard = styled.div`
 
     &:last-of-type {
       & h4 {
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
           min-width: 125px;
         }
       }
@@ -266,7 +288,7 @@ export const QrCode = styled.img`
     height: 70px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 45px;
     height: 45px;
     padding: 3px;

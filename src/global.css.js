@@ -8,6 +8,14 @@ src: local("Montserrat"),
     font-display: fallback;
    }
 
+   @font-face {
+  font-family: "Cairo";
+  src: local("Cairo"),
+    url("./fonts/Cairo-VariableFont_wght.otf") format("truetype");
+    font-display: fallback;
+   }
+   
+
 *{
   margin: 0;
   padding: 0;

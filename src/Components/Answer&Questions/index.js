@@ -37,7 +37,7 @@ function AnswerQuestions({ homeData, settingsData, language }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance

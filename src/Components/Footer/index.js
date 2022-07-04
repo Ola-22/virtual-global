@@ -60,9 +60,9 @@ function Footer({ settingsData, language }) {
             <h6>{settingsData?.items?.translation?.quick_access_footer}</h6>
             <div className="box">
               <div>
-                {settingsData?.items?.footer_page.map((page, index) => (
-                  <Link to={page.link} key={index}>
-                    <li>{page.title}</li>
+                {settingsData?.items?.footer_page?.map((page, index) => (
+                  <Link to={page?.link} key={index}>
+                    <li>{page?.title}</li>
                   </Link>
                 ))}
               </div>

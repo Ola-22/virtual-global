@@ -31,7 +31,7 @@ function PaginationComponent({
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
-  const renderPageNumbers = pages.map((number) => {
+  const renderPageNumbers = pages?.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
         <li

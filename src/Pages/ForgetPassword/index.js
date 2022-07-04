@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 
-function ForgetPassword({ settingsData }) {
+function ForgetPassword({ settingsData, language }) {
   const [email, setEmail] = useState();
   const [forgetData, setForgetData] = useState();
 
@@ -26,7 +26,7 @@ function ForgetPassword({ settingsData }) {
     const config = {
       headers: {
         Accept: "application/json",
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance

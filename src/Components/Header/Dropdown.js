@@ -5,7 +5,7 @@ const Dropdown = ({ submenus, dropdown, depthLevel, setOpen }) => {
 
   return (
     <ul className={`dropdown ${dropdownClass} ${dropdown ? "show" : ""}`}>
-      {submenus.map((submenu, index) => (
+      {submenus?.map((submenu, index) => (
         <div onClick={() => setOpen(false)} key={index}>
           <MenuItems items={submenu} key={index} depthLevel={depthLevel} />
         </div>
