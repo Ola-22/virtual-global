@@ -16,12 +16,19 @@ export const CardMain = styled.div`
     font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
     font-weight: normal;
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
   }
   & h3 {
     font-size: 22px;
     margin: 12px 0 23px;
     color: #000000;
     font-weight: normal;
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
   }
   & p {
     font-size: 16px;
@@ -30,6 +37,9 @@ export const CardMain = styled.div`
     overflow: hidden;
     width: 90%;
     text-overflow: ellips;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
   }
 
   & .box {
@@ -48,6 +58,10 @@ export const CardMain = styled.div`
       & span {
         font-size: 18px;
         margin-inline-start: 14.5px;
+
+        @media (max-width: 500px) {
+          font-size: 14px;
+        }
       }
       & .chat {
         margin-inline-start: 42px;
@@ -59,9 +73,18 @@ export const CardMain = styled.div`
       /* width: 100%; */
       height: 45px;
 
-      @media (max-width: 450px) {
-        max-width: 149px;
-        width: 100%;
+      @media (max-width: 500px) {
+        width: 100px;
+        max-height: 30px;
+        font-size: 12px;
+        min-height: 40px;
+      }
+    }
+
+    & img {
+      @media (max-width: 500px) {
+        width: 20px;
+        height: 18px;
       }
     }
   }

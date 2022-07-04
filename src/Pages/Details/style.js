@@ -37,14 +37,14 @@ export const DetailsBox = styled.div`
   padding-top: 29px;
   padding-bottom: 20px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 90%;
-    margin: auto;
     margin-top: 5%;
+    margin-inline-start: 0;
   }
 
-  @media (min-width: 699px) and (max-width: 960px) {
-    width: 48%;
+  @media (min-width: 800px) and (max-width: 1050px) {
+    width: 50%;
   }
   & h6 {
     font-size: 16px;
@@ -60,6 +60,12 @@ export const DetailsBox = styled.div`
   & p {
     font-size: 16px;
     color: rgba(0, 0, 0, 0.6);
+
+    & * {
+      @media (min-width: 800px) {
+        font-size: 14px !important;
+      }
+    }
   }
   & .container {
     display: flex;
@@ -184,7 +190,6 @@ export const CardForum = styled.div`
   background-color: #ffffff;
   align-items: center;
   border-radius: 10px;
-  /* min-height: 549px; */
   height: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
   z-index: 4;
@@ -197,7 +202,7 @@ export const CardForum = styled.div`
     margin-inline-end: 0;
   }
 
-  @media (min-width: 950px) and (max-width: 1050px) {
+  @media (min-width: 800px) and (max-width: 1050px) {
     min-width: 200px;
   }
 

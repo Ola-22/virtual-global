@@ -102,6 +102,15 @@ export const Container = styled.div`
   @media (max-width: 500px) {
     flex-wrap: wrap;
   }
+
+  & form {
+    width: 100%;
+    max-width: 320px;
+
+    & img {
+      cursor: pointer;
+    }
+  }
   & .input-container {
     display: flex;
     align-items: center;
