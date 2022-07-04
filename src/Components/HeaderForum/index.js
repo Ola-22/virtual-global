@@ -3,7 +3,13 @@ import * as S from "./style";
 import { useState, useEffect } from "react";
 import authService from "../../Pages/Register/Auth";
 
-function HeaderForum({ profileInformation, settingsData, onChange, value }) {
+function HeaderForum({
+  profileInformation,
+  settingsData,
+  onChange,
+  value,
+  onSubmit,
+}) {
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -13,18 +19,26 @@ function HeaderForum({ profileInformation, settingsData, onChange, value }) {
       setCurrentUser(user);
     }
   }, []);
+
   return (
     <S.ForumContainer>
       <S.Container>
-        <div className="input-container">
-          <img src="./images/searchPage.png" alt="search of the page" />
-          <input
-            type="text"
-            placeholder={settingsData?.items?.translation?.placeholder_search}
-            onChange={onChange}
-            value={value}
-          />
-        </div>
+        <form onSubmit={onSubmit}>
+          <div className="input-container">
+            <img
+              onClick={onSubmit}
+              src="./images/searchPage.png"
+              alt="search of the page"
+            />
+            <input
+              type="text"
+              placeholder={settingsData?.items?.translation?.placeholder_search}
+              onChange={onChange}
+              value={value}
+            />
+          </div>
+        </form>
+
         {currentUser ? (
           <div className="profile-box">
             <Link to="/profile">

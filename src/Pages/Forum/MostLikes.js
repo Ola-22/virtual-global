@@ -2,7 +2,12 @@ import CardTabs from "../../Components/CardTabs";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../helpers/axios";
 
-export default function MostLikes({ settingsData, discussionsSearch }) {
+export default function MostLikes({
+  settingsData,
+  discussionsSearch,
+  language,
+  searchQuery,
+}) {
   const [discussionLikes, setDiscussionLikes] = useState();
 
   useEffect(() => {
@@ -11,18 +16,18 @@ export default function MostLikes({ settingsData, discussionsSearch }) {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-          lang: localStorage.getItem("language"),
+          lang: language,
         },
       })
       .then((res) => {
         setDiscussionLikes(res.data.items.discussions);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [language]);
 
   return (
     <div>
-      {discussionsSearch?.length !== 0
+      {searchQuery
         ? discussionsSearch?.map((disc) => (
             <CardTabs
               settingsData={settingsData}

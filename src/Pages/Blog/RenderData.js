@@ -1,10 +1,16 @@
 import React from "react";
 import BlogCard from "./BlogCard";
 
-function RenderData({ data, language, settingsData, postsSearch }) {
+function RenderData({
+  data,
+  language,
+  settingsData,
+  postsSearch,
+  searchQuery,
+}) {
   return (
     <ul>
-      {postsSearch?.length !== 0
+      {searchQuery
         ? postsSearch?.map((post) => (
             <BlogCard
               key={post.id}

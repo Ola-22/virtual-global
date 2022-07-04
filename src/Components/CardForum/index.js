@@ -9,6 +9,7 @@ function CardForum({
   title_Box,
   participated_discussions,
   special_discussions,
+  language,
 }) {
   const [special, setSpecial] = useState();
 
@@ -17,7 +18,7 @@ function CardForum({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
 
@@ -31,7 +32,7 @@ function CardForum({
         setSpecial(res.data.items);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [language]);
 
   return (
     <S.CardForum>
