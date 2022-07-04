@@ -7,9 +7,14 @@ function LikeTopic({
   commentText,
   comment,
   settingsData,
+  language,
 }) {
   return (
-    <S.topicContainer>
+    <S.topicContainer
+      style={{
+        direction: language === "ar" ? "rtl" : "ltr",
+      }}
+    >
       <h6>
         {settingsData?.items?.translation?.asked_Forum_Details}: {date}
       </h6>
