@@ -73,7 +73,7 @@ function App() {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
 
@@ -105,6 +105,8 @@ function App() {
         className="App"
         style={{
           direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+          fontFamily:
+            localStorage.getItem("language") === "ar" ? "Cairo" : "Verdana",
         }}
       >
         <Helmet>
@@ -221,7 +223,9 @@ function App() {
 
           <Route
             path="/reset-password/:token/:emailRequest"
-            element={<ResetPassword settingsData={settingsData} />}
+            element={
+              <ResetPassword settingsData={settingsData} language={language} />
+            }
           />
 
           <Route

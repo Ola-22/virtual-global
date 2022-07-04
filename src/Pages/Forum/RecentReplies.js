@@ -40,10 +40,12 @@ export default function RecentReplies({
               totalComment={disc?.commnets_count}
               is_join={disc?.is_join}
               is_like={disc?.is_like}
+              language={language}
             />
           ))
         : discussionVisit?.map((disc) => (
             <CardTabs
+              language={language}
               settingsData={settingsData}
               id={disc.id}
               key={disc?.id}

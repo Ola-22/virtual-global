@@ -153,7 +153,8 @@ function BlogDetails({
         profileInformation={profileInformation}
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery || ""}
-        onSubmit={() => {
+        onSubmit={(e) => {
+          e.preventDefault();
           navigate("/blog");
         }}
       />

@@ -40,6 +40,7 @@ export default function MostLikes({
               totalComment={disc?.commnets_count}
               is_join={disc?.is_join}
               is_like={disc?.is_like}
+              language={language}
             />
           ))
         : discussionLikes?.map((disc) => (
@@ -54,6 +55,7 @@ export default function MostLikes({
               totalComment={disc?.commnets_count}
               is_join={disc?.is_join}
               is_like={disc?.is_like}
+              language={language}
             />
           ))}
     </div>

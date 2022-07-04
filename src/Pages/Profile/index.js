@@ -55,7 +55,7 @@ function Profile({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
 
@@ -69,7 +69,7 @@ function Profile({
         setLastActivity(res.data.items);
       })
       .catch((err) => console.log(err));
-  }, [handleSetLanguage]);
+  }, [language]);
 
   return (
     <S.Main id="profile-main">

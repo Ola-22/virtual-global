@@ -22,7 +22,7 @@ function CardTabs({
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
-        lang: localStorage.getItem("language"),
+        lang: language,
       },
     };
     await axiosInstance

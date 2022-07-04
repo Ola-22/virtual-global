@@ -69,7 +69,7 @@ function Testimonials({ homeData, language, settingsData }) {
 
       <S.slideMain>
         <Slider {...settings}>
-          {homeData?.items?.testimonials.map((testimonial) => (
+          {homeData?.items?.testimonials?.map((testimonial) => (
             <div key={testimonial.id}>
               <TestimonialsCard
                 text={testimonial.text}
