@@ -166,6 +166,7 @@ function Profile({
                     selected ===
                     settingsData?.items?.translation?.like_discussions_tabs
                   }
+                  language={language}
                 >
                   {lastActivity?.last_likes_discussions?.map((activity) => (
                     <Link to={`/discussion/${activity.id}`} key={activity.id}>
@@ -174,6 +175,7 @@ function Profile({
                         date={activity?.created_at}
                         paragraph={activity?.title}
                         settingsData={settingsData}
+                        language={language}
                       />
                     </Link>
                   ))}
@@ -197,6 +199,7 @@ function Profile({
                         comment={activity.comment}
                         settingsData={settingsData}
                         commentText
+                        language={language}
                       />
                     </Link>
                   ))}

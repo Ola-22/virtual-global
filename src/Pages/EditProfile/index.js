@@ -147,6 +147,8 @@ function EditProfile({ settingsData, profileInformation, language }) {
       });
   }, [language]);
 
+  console.log(categoryCountry);
+
   return (
     <S.MainEdit>
       <div className="header">
@@ -301,14 +303,13 @@ function EditProfile({ settingsData, profileInformation, language }) {
                   onChange={(e) => setCategoryCountry(e.target.value)}
                 >
                   <option value="Select from here">
-                    {" "}
                     {settingsData?.items?.translation?.Select_from_here}
                   </option>
 
                   {country?.map((country) => (
                     <>
-                      <option key={country.id} value={country?.id}>
-                        {country?.name}
+                      <option key={country.name} value={country.id}>
+                        {country.name}
                       </option>
                     </>
                   ))}
