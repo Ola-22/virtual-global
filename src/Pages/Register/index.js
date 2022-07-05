@@ -7,7 +7,7 @@ import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
 import ReCAPTCHA from "react-google-recaptcha";
 
-export default function Register({ language, settingsData }) {
+export default function Register({ language, settingsData, fetchData }) {
   const [gender, setGender] = useState();
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -679,7 +679,7 @@ export default function Register({ language, settingsData }) {
                       onClick={() => {
                         navigate("/");
                         sendRequestMember();
-                        window.location.reload();
+                        fetchData();
                       }}
                       title={settingsData?.items?.translation?.btn_send}
                       img

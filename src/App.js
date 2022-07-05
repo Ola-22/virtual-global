@@ -6,7 +6,7 @@ import Details from "./Pages/Details";
 import Forum from "./Pages/Forum";
 import Profile from "./Pages/Profile";
 import axiosInstance from "./helpers/axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
@@ -68,7 +68,8 @@ function App() {
   }, [language]);
 
   const [profileInformation, setProfileInformation] = useState();
-  useEffect(() => {
+
+  const fetchData = useCallback(() => {
     const config = {
       headers: {
         Accept: "application/json",
@@ -76,8 +77,7 @@ function App() {
         lang: language,
       },
     };
-
-    axiosInstance
+    const response = axiosInstance
       .get(
         `/api/user/profile/edit`,
 
@@ -94,10 +94,12 @@ function App() {
         }
       });
 
-    return () => {
-      setProfileInformation();
-    };
-  }, [language, currentUser]);
+    return response;
+  }, [currentUser, language]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <Router>
@@ -133,13 +135,23 @@ function App() {
           <Route
             path="/register"
             element={
-              <Register language={language} settingsData={settingsData} />
+              <Register
+                language={language}
+                settingsData={settingsData}
+                fetchData={fetchData}
+              />
             }
           />
 
           <Route
             path="/login"
-            element={<Login language={language} settingsData={settingsData} />}
+            element={
+              <Login
+                language={language}
+                settingsData={settingsData}
+                fetchData={fetchData}
+              />
+            }
           />
           <Route
             path="/discussion"
@@ -211,6 +223,7 @@ function App() {
                 language={language}
                 settingsData={settingsData}
                 profileInformation={profileInformation}
+                fetchData={fetchData}
               />
             }
           />

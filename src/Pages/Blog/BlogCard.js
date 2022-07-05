@@ -20,7 +20,11 @@ function BlogCard({
       }}
     >
       <div className="card-body">
-        <h3>{title}</h3>
+        <h3
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        />
         <div className="card-header">
           <div>
             <BiUser />
@@ -35,7 +39,11 @@ function BlogCard({
             <span>{category}</span>
           </div>
         </div>
-        <p>{content}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: content,
+          }}
+        />
 
         <Link to={`/blog/${id}`}>
           <Button title={settingsData?.items?.translation?.button_who_we} />

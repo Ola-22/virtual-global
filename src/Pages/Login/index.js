@@ -4,7 +4,7 @@ import Button from "../../Components/Button";
 import { useState } from "react";
 import authService from "../Register/Auth";
 
-function Login({ settingsData }) {
+function Login({ settingsData, fetchData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,7 +18,7 @@ function Login({ settingsData }) {
         (response) => {
           if (response.status === true) {
             navigate("/");
-            window.location.reload();
+            fetchData();
           }
           setDataLogin(response);
 
@@ -34,8 +34,6 @@ function Login({ settingsData }) {
       console.log(err);
     }
   };
-
-  console.log(error);
 
   return (
     <S.loginContainer>

@@ -16,7 +16,11 @@ function IDCard({
 }) {
   return (
     <S.IDCardContainer ref={ref} id="Canvas">
-      <S.IDCardBox>
+      <S.IDCardBox
+        style={{
+          paddingTop: localStorage.getItem("language") === "ar" ? "3px" : "",
+        }}
+      >
         <img className="img-flag" src="./images/LogoImg.png" alt="" />
         <h1>{settingsData?.items?.translation?.virtual_global_card}</h1>
         <img
@@ -39,18 +43,33 @@ function IDCard({
 
           <S.boxCard>
             <div className="box-data">
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.Surname_Nom}</h4>
 
                 <h3>{lname}</h3>
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.Given_Names}</h4>
                 <h3>{fname}</h3>
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.Gender}</h4>
                 {localStorage.getItem("language") === "ar" ? (
                   <h3>{gender === "female" ? "أنثى" : "ذكر"}</h3>
@@ -59,26 +78,51 @@ function IDCard({
                 )}
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.virtual_nationality}</h4>
                 <h3 className="national">{national}</h3>
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.date_birth}</h4>
                 <h3>{date}</h3>
               </div>
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.place_birth}</h4>
                 <h3>{country}</h3>
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.date_register}</h4>
                 <h3>{data_register}</h3>
               </div>
 
-              <div>
+              <div
+                style={{
+                  marginBottom:
+                    localStorage.getItem("language") !== "ar" ? "0" : "-10px",
+                }}
+              >
                 <h4>{settingsData?.items?.translation?.date_of_expiration}</h4>
                 <h3>{end_register}</h3>
               </div>

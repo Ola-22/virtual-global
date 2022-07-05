@@ -4,7 +4,12 @@ import * as S from "./style";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditProfile({ settingsData, profileInformation, language }) {
+function EditProfile({
+  settingsData,
+  profileInformation,
+  language,
+  fetchData,
+}) {
   const [file, setFile] = useState("");
 
   const navigate = useNavigate();
@@ -126,7 +131,7 @@ function EditProfile({ settingsData, profileInformation, language }) {
         setEditProfile(res.data);
         if (res.data.status === true) {
           navigate("/profile");
-          window.location.reload();
+          fetchData();
         }
       })
       .catch((err) => err);
@@ -146,9 +151,6 @@ function EditProfile({ settingsData, profileInformation, language }) {
         console.log(err);
       });
   }, [language]);
-
-  console.log(categoryCountry);
-
   return (
     <S.MainEdit>
       <div className="header">
@@ -308,7 +310,7 @@ function EditProfile({ settingsData, profileInformation, language }) {
 
                   {country?.map((country) => (
                     <>
-                      <option key={country.name} value={country.id}>
+                      <option key={country.id} value={country.id}>
                         {country.name}
                       </option>
                     </>
