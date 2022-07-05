@@ -4,10 +4,6 @@ export const Container = styled.div`
   position: relative;
   padding-top: 70px;
   padding-bottom: 121px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
 
   & h1 {
     font-size: 36px;
@@ -16,7 +12,7 @@ export const Container = styled.div`
     position: relative;
     margin-bottom: 89px;
     @media (max-width: 500px) {
-      font-size: 20px;
+      font-size: 16px;
     }
 
     &::after {

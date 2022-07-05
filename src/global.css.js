@@ -10,8 +10,8 @@ src: local("Montserrat"),
 
    @font-face {
   font-family: "Cairo";
-  src: local("Cairo"),
-    url("./fonts/Cairo-VariableFont_wght.otf") format("truetype");
+src: local("Cairo"),
+    url("./fonts/Cairo-Regular.ttf") format("truetype");
     font-display: fallback;
    }
    

@@ -24,7 +24,7 @@ export const CardContainer = styled.div`
       margin-bottom: 2%;
       height: 50px;
       @media (max-width: 500px) {
-        font-size: 18px;
+        font-size: 14px;
       }
     }
     & p {
@@ -34,7 +34,7 @@ export const CardContainer = styled.div`
       height: 98px;
       overflow: hidden;
       @media (max-width: 500px) {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
 

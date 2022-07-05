@@ -264,7 +264,7 @@ export const Main = styled.div`
     font-size: 34px;
 
     @media (max-width: 500px) {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 `;

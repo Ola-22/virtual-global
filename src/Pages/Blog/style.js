@@ -118,7 +118,7 @@ export const BlogCard = styled.div`
     }
 
     @media (max-width: 500px) {
-      font-size: 16px !important;
+      font-size: 14px !important;
     }
   }
 
@@ -150,7 +150,7 @@ export const BlogCard = styled.div`
       text-transform: capitalize;
 
       @media (max-width: 500px) {
-        font-size: 12px;
+        font-size: 10px;
       }
     }
   }
@@ -162,6 +162,12 @@ export const BlogCard = styled.div`
       max-width: 150px;
       min-height: 40px;
       margin-top: 10px;
+
+      @media (max-width: 500px) {
+        font-size: 10px !important;
+        max-width: 100px;
+        min-height: 30px;
+      }
     }
 
     & p {
@@ -171,7 +177,7 @@ export const BlogCard = styled.div`
       font-size: 16px;
       font-weight: normal;
       @media (max-width: 500px) {
-        font-size: 14px !important;
+        font-size: 12px !important;
       }
     }
   }

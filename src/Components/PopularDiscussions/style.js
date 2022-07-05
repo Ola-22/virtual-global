@@ -35,7 +35,7 @@ export const PopularContainer = styled.div`
     }
 
     @media (max-width: 500px) {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 `;

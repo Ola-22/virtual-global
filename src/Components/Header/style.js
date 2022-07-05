@@ -46,6 +46,10 @@ export const HeaderContainer = styled.div`
         @media (min-width: 980px) and (max-width: 1200px) {
           width: 70px;
         }
+        @media (max-width: 500px) {
+          width: 90px;
+          font-size: 12px;
+        }
       }
 
       @media (min-width: 980px) and (max-width: 1200px) {
@@ -81,6 +85,12 @@ export const HeaderContainer = styled.div`
       }
     }
 
+    & .logout {
+      @media (max-width: 500px) {
+        width: 90px;
+        font-size: 12px;
+      }
+    }
     & .logout,
     .forum {
       @media (max-width: 450px) {

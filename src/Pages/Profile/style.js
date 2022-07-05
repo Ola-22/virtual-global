@@ -100,6 +100,10 @@ export const ProfileContainer = styled.div`
         font-size: 14px;
         text-transform: capitalize;
         width: 90%;
+
+        @media (max-width: 500px) {
+          font-size: 12px;
+        }
       }
       & input {
         border: none;
@@ -122,6 +126,13 @@ export const ProfileContainer = styled.div`
         font-size: 12px;
         transition: 0.5s ease-in-out;
 
+        @media (max-width: 500px) {
+          font-size: 10px;
+          width: 100%;
+          padding-inline-end: 7px;
+          padding-inline-start: 7px;
+        }
+
         &:hover {
           background-color: #2d98da;
           color: #fff;
@@ -138,7 +149,7 @@ export const ProfileContainer = styled.div`
         width: 90%;
 
         @media (max-width: 500px) {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
 
@@ -181,6 +192,9 @@ export const profileInformation = styled.div`
 
   & h4 {
     opacity: 0.6;
+    @media (max-width: 500px) {
+      font-size: 10px;
+    }
   }
 `;
 
@@ -212,7 +226,7 @@ export const lastActivity = styled.div`
     text-transform: capitalize;
     border-radius: 10px;
     @media (max-width: 500px) {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;

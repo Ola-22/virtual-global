@@ -57,11 +57,19 @@ export const MainEdit = styled.div`
       border-radius: 8px;
       border: 1px solid #dfdfdf;
       padding-inline-start: 24px;
+      @media (max-width: 500px) {
+        font-size: 10px;
+        padding-inline-start: 10px;
+      }
     }
     & label {
       font-size: 13px;
       text-transform: capitalize;
       margin-bottom: 7px;
+
+      @media (max-width: 500px) {
+        font-size: 10px;
+      }
     }
   }
 `;
