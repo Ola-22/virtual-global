@@ -12,6 +12,7 @@ function BlogCard({
   category,
   language,
   settingsData,
+  author_image,
 }) {
   return (
     <S.BlogCard
@@ -27,7 +28,12 @@ function BlogCard({
         />
         <div className="card-header">
           <div>
-            <BiUser />
+            {author_image?.length !== 0 ? (
+              <img className="img-author" src={author_image} alt="" />
+            ) : (
+              <BiUser />
+            )}
+
             <span>{author}</span>
           </div>
           <div>

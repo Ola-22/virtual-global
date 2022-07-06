@@ -264,7 +264,7 @@ function Details({
                     </S.CommentsWrapper>
                   ))}
 
-                {lengthComment >= 5 && (
+                {lengthComment > 5 && (
                   <button
                     className="load-comment"
                     onClick={() => {

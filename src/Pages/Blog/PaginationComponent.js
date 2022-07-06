@@ -52,7 +52,7 @@ function PaginationComponent({
     axiosInstance
       .get("/api/posts/all", {
         headers: {
-          language: language,
+          lang: language,
         },
       })
       .then((response) => {
