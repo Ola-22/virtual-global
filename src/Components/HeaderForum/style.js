@@ -16,6 +16,11 @@ export const ForumContainer = styled.div`
     justify-content: flex-end;
     width: 40%;
 
+    @media (max-width: 500px) {
+      width: 100%;
+      justify-content: center;
+    }
+
     & div {
       display: flex;
       flex-direction: column;

@@ -135,8 +135,9 @@ export const BlogCard = styled.div`
       align-items: center;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 850px) {
       width: 100%;
+      flex-wrap: wrap;
     }
 
     & svg {
@@ -184,5 +185,12 @@ export const BlogCard = styled.div`
 
   &:not(:first-of-type) {
     margin-top: 20px;
+  }
+
+  & .img-author {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-inline-end: 10px;
   }
 `;

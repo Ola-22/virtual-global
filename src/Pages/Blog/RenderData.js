@@ -22,6 +22,7 @@ function RenderData({
               id={post.id}
               language={language}
               settingsData={settingsData}
+              author_image={post.author_image}
             />
           ))
         : data?.map((post) => (
@@ -35,6 +36,7 @@ function RenderData({
               id={post.id}
               language={language}
               settingsData={settingsData}
+              author_image={post.author_image}
             />
           ))}
     </ul>

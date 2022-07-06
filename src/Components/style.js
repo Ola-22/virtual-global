@@ -156,8 +156,7 @@ export const VirtualID = styled.div`
         font-weight: bold;
         margin-top: 15px;
         @media (min-width: 220px) and (max-width: 699px) {
-          font-size: 8px;
-          font-weight: normal;
+          font-size: 10px;
         }
       }
     }

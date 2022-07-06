@@ -63,7 +63,7 @@ const MenuItems = ({ items, depthLevel, setOpen }) => {
           <div
             onClick={() => {
               navigate(items.link);
-              setOpen(false);
+              // setOpen(false);
             }}
           >
             <NavLink to={items?.link}>{items?.title}</NavLink>
