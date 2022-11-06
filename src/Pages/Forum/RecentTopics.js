@@ -7,6 +7,7 @@ export default function RecentTopics({
   discussionsSearch,
   language,
   searchQuery,
+  rtlLang,
 }) {
   const [discussionVisit, setDiscussionVisit] = useState();
 
@@ -41,6 +42,7 @@ export default function RecentTopics({
               is_join={disc?.is_join}
               is_like={disc?.is_like}
               language={language}
+              rtlLang={rtlLang}
             />
           ))
         : discussionVisit?.map((disc) => (
@@ -56,6 +58,7 @@ export default function RecentTopics({
               is_join={disc?.is_join}
               is_like={disc?.is_like}
               language={language}
+              rtlLang={rtlLang}
             />
           ))}
     </div>

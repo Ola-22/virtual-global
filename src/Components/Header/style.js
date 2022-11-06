@@ -31,20 +31,22 @@ export const HeaderContainer = styled.div`
       background-color: inherit;
       border-radius: 5px;
       border: 1px solid #ffffff;
-      font-size: 14px;
+      font-size: 12px;
       color: #ffffff;
       margin-inline-end: 9px;
       &:first-of-type {
         width: 113px;
         background-color: white;
         color: black;
+        font-size: 12px;
 
         & img {
           margin-inline-end: 8px;
+          width: 20px;
         }
 
         @media (min-width: 980px) and (max-width: 1200px) {
-          width: 70px;
+          /* width: 70px; */
         }
         @media (max-width: 500px) {
           width: 90px;
@@ -65,7 +67,7 @@ export const HeaderContainer = styled.div`
       background: #fff;
       color: #000000;
       text-transform: capitalize;
-
+      font-size: 12px !important;
       /* @media (max-width: 768px) {
         width: 70px;
       } */
@@ -146,8 +148,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Nav = styled.nav`
-  height: 100%;
-  min-height: 71px;
+  /* height: 100%;
+  min-height: 71px; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -162,8 +164,7 @@ export const Nav = styled.nav`
     max-height: 71px;
   }
   & .menus {
-    height: 100%;
-    max-height: 71px;
+    height: 69px;
     display: flex;
     align-items: center;
     @media (max-width: 980px) {
@@ -171,13 +172,12 @@ export const Nav = styled.nav`
       padding-top: 21 !important;
       align-items: center;
       padding: 0;
-      max-height: 100vh;
+      min-height: 100vh;
+      height: 100%;
       overflow: scroll;
     }
     & > li {
       max-height: 71px;
-      /* height: 72px; */
-      /* height: 100%; */
     }
     & .dropdown {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 5%);
@@ -364,8 +364,6 @@ export const profileInformation = styled.div`
   align-items: center;
   justify-content: center;
   margin-inline-end: 10px;
-  /* max-width: 103px;
-  word-break: break-all; */
   & img {
     width: 41px;
     height: 41px;

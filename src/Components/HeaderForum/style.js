@@ -114,6 +114,7 @@ export const Container = styled.div`
 
     & img {
       cursor: pointer;
+      width: 16px;
     }
   }
   & .input-container {
@@ -158,8 +159,10 @@ export const ContainerBtn = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: 12px;
     &:last-of-type {
       margin-inline-start: 15px;
+      font-size: 12px;
     }
   }
 

@@ -29,6 +29,8 @@ function HeaderForum({
               onClick={onSubmit}
               src="./images/searchPage.png"
               alt="search of the page"
+              width="16"
+              height="16"
             />
             <input
               type="text"

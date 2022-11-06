@@ -1,7 +1,7 @@
 import * as S from "./style";
-import Button from "../../Components/Button";
 import { Link } from "react-router-dom";
 import { BiTimeFive, BiUser, BiFile } from "react-icons/bi";
+import Button from "../../Components/Button";
 
 function BlogCard({
   title,
@@ -13,11 +13,12 @@ function BlogCard({
   language,
   settingsData,
   author_image,
+  rtlLang,
 }) {
   return (
     <S.BlogCard
       style={{
-        direction: language === "ar" ? "rtl" : "ltr",
+        direction: rtlLang === 1 ? "rtl" : "ltr",
       }}
     >
       <div className="card-body">

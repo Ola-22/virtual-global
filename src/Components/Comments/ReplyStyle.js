@@ -33,7 +33,7 @@ export const replyComments = styled.div`
     border-radius: 10px;
     display: flex;
     height: auto;
-    word-break: break-all;
+    word-break: break-word;
     margin-top: 17px;
     margin-bottom: 17.5px;
     padding-top: 2%;

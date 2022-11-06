@@ -77,6 +77,8 @@ export const IDCardBox = styled.div`
 
   & .union {
     align-self: center;
+    width: 66px;
+    height: 44px;
 
     @media (max-width: 600px) {
       width: 40px;

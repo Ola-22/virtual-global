@@ -65,6 +65,8 @@ export const loginContainer = styled.div`
     & img {
       margin-inline-start: 30px;
       margin-bottom: 10px;
+      width: 23px;
+      height: 24px;
     }
 
     & a {

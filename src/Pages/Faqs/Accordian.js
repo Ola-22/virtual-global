@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as F from "../../Components/Answer&Questions/style";
 
-function Accordian({ data, language }) {
+function Accordian({ data, rtlLang }) {
   const [show, setShow] = useState(-1);
 
   function handleToggle(index) {
@@ -29,8 +29,10 @@ function Accordian({ data, language }) {
                   src="./images/Accordion.png"
                   alt="Accordion"
                   style={{
-                    transform: language === "ar" ? "rotate(180deg)" : "",
+                    transform: rtlLang === 1 ? "rotate(180deg)" : "",
                   }}
+                  width={19}
+                  height={20}
                 />
               </div>
             </F.AccordianContainer>

@@ -72,7 +72,7 @@ export const CardContainer = styled.div`
     & h3 {
       font-size: 20px;
       @media (max-width: 500px) {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
 
@@ -83,10 +83,12 @@ export const CardContainer = styled.div`
       font-weight: normal;
       max-width: 100%;
       width: 100%;
-      word-break: break-all;
+      word-break: break-word;
 
-      @media (max-width: 500px) {
-        font-size: 14px;
+      & > * {
+        @media (max-width: 500px) {
+          font-size: 12px !important;
+        }
       }
     }
   }

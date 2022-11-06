@@ -15,7 +15,7 @@ import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fas, faVolumeLow, faVolumeMute, faFontAwesome);
 
-export default function SliderComponent({ homeData, settingsData, language }) {
+export default function SliderComponent({ settingsData, language }) {
   const [playing, setPlaying] = useState(true);
   const [playingStop, setPlayingStop] = useState(true);
 
@@ -61,6 +61,7 @@ export default function SliderComponent({ homeData, settingsData, language }) {
     <S.sliderMain>
       {language === "en" ? (
         <video
+          typeof="video/mp4"
           ref={(video) => {
             videoRef.current = video;
             videoStopRef.current = video;

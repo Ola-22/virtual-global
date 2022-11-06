@@ -1,7 +1,6 @@
-import React from "react";
-import TestimonialsCard from "./TestimonialsCard";
 import * as S from "./style";
 import Slider from "react-slick";
+import TestimonialsCard from "./TestimonialsCard";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -21,7 +20,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-function Testimonials({ homeData, language, settingsData }) {
+function Testimonials({ homeData, language, settingsData, rtlLang }) {
   const settings = {
     dots: true,
     infinite: false,
@@ -29,7 +28,7 @@ function Testimonials({ homeData, language, settingsData }) {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    rtl: language === "ar" && true,
+    rtl: rtlLang === 1 && true,
 
     responsive: [
       {
@@ -77,6 +76,7 @@ function Testimonials({ homeData, language, settingsData }) {
                 name={testimonial.name}
                 img={testimonial.image}
                 language={language}
+                rtlLang={rtlLang}
               />
             </div>
           ))}

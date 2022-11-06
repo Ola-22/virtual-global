@@ -2,9 +2,9 @@ import * as S from "./style";
 import Social from "../Social";
 import axiosInstance from "../../helpers/axios";
 import { useState } from "react";
-import { FaSpinner } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+import { FaSpinner } from "react-icons/fa";
 function Footer({ settingsData, language }) {
   const [email, setEmail] = useState("");
   const [mailingData, setMailingData] = useState("");
@@ -46,7 +46,12 @@ function Footer({ settingsData, language }) {
             <h6>{settingsData?.items?.translation?.about_footer}</h6>
             <div className="box-logo">
               <div>
-                <img src="./images/logo-footer.png" alt="logo" />
+                <img
+                  src="./images/logo-footer.png"
+                  width={54}
+                  height={54}
+                  alt="logo"
+                />
                 <div className="vgs">
                   <h2>{settingsData?.items?.title} (VGS)</h2>
                   <p>{settingsData?.items?.translation?.website_info}</p>

@@ -5,7 +5,7 @@ import * as S from "./style";
 
 import axiosInstance from "../../helpers/axios";
 
-function ResetPassword({ settingsData, language }) {
+function ResetPassword({ settingsData, rtlLang }) {
   const [password, setPassword] = useState();
   const [password_confirmation, setPasswordConfirmation] = useState();
 
@@ -54,10 +54,7 @@ function ResetPassword({ settingsData, language }) {
         <div onClick={() => navigate(-1)}>
           <img
             style={{
-              transform:
-                localStorage.getItem("language") === "ar"
-                  ? "rotate(180deg)"
-                  : "",
+              transform: rtlLang === 1 ? "rotate(180deg)" : "",
             }}
             src="./images/Back.png"
             alt="back pages"

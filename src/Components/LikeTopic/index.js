@@ -3,16 +3,15 @@ import * as S from "./style";
 function LikeTopic({
   date,
   paragraph,
-
   commentText,
   comment,
   settingsData,
-  language,
+  rtlLang,
 }) {
   return (
     <S.topicContainer
       style={{
-        direction: language === "ar" ? "rtl" : "ltr",
+        direction: rtlLang === 1 ? "rtl" : "ltr",
       }}
     >
       <h6>

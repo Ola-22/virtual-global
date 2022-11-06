@@ -2,13 +2,13 @@ import React from "react";
 import Rating from "./Rating";
 import * as S from "./style";
 
-function TestimonialsCard({ text, rating, name, img, language }) {
+function TestimonialsCard({ text, rating, name, img, language, rtlLang }) {
   return (
     <S.CardContainer>
       <div
         className="card-box"
         style={{
-          direction: language === "ar" ? "rtl" : "ltr",
+          direction: rtlLang === 1 ? "rtl" : "ltr",
         }}
       >
         <img src={img} alt="user rating" />

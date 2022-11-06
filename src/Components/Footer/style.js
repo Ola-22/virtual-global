@@ -182,7 +182,11 @@ export const boxMail = styled.div`
   border-radius: 25px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  @media (max-width: 375px) {
+    min-width: 68px;
+  }
   & svg {
     fill: white;
     padding-inline-end: 5px;
@@ -214,7 +218,8 @@ export const containerMail = styled.div`
     & img {
       position: relative;
       z-index: 22;
-      margin-inline-start: 20px;
+      width: 20px;
+      height: 20px;
     }
 
     @media (max-width: 500px) {
@@ -262,6 +267,8 @@ export const AboutContainer = styled.div`
 
       & img {
         align-self: flex-start;
+        width: 54px;
+        height: 54px;
       }
       & .vgs {
         margin-inline-start: 9px;

@@ -9,6 +9,8 @@ export const FaqsContainer = styled.div`
   flex-wrap: wrap;
   padding-bottom: 29px;
   width: 100%;
+  justify-content: space-between;
+  height: 100%;
 
   & .box {
     width: 70%;

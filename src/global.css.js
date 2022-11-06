@@ -30,6 +30,10 @@ align-items: center;
 flex-direction: column;
 overflow: hidden;
 width: 100%;
+& img{
+  width: 100%;
+  max-width: 100%;
+}
 }
 
 a{

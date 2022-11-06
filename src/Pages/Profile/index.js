@@ -16,6 +16,7 @@ function Profile({
   profileInformation,
   handleSetLanguage,
   language,
+  rtlLang,
 }) {
   const componentRef = createRef();
 
@@ -113,6 +114,7 @@ function Profile({
                       src="./images/edit.png"
                       alt="edit your profile"
                       onClick={() => navigate("/edit-profile")}
+                      width="31"
                     />
                   </S.profileInformation>
                 </>
@@ -126,6 +128,7 @@ function Profile({
                     className="profile-img"
                     src={profileInformation?.user?.image}
                     alt="user img"
+                    width={82}
                   />
                   <S.boxInformation className="email">
                     <label>{settingsData?.items?.translation?.email}</label>
@@ -159,6 +162,7 @@ function Profile({
               ]}
               selected={selected}
               SelectTab={SelectTab}
+              rtlLang={rtlLang}
             >
               <>
                 <Tab
@@ -176,6 +180,7 @@ function Profile({
                         paragraph={activity?.title}
                         settingsData={settingsData}
                         language={language}
+                        rtlLang={rtlLang}
                       />
                     </Link>
                   ))}
@@ -200,6 +205,7 @@ function Profile({
                         settingsData={settingsData}
                         commentText
                         language={language}
+                        rtlLang={rtlLang}
                       />
                     </Link>
                   ))}

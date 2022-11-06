@@ -212,12 +212,16 @@ function Details({
                 <div>
                   {likeData?.items?.is_like === false ? (
                     <img
+                      width={24}
+                      height={23}
                       src="./images/like.png"
                       alt="likes of the content"
                       onClick={() => sendLike()}
                     />
                   ) : (
                     <img
+                      width={24}
+                      height={23}
                       src="./images/unlike.png"
                       alt="likes of the content"
                       onClick={() => sendLike()}
@@ -264,7 +268,7 @@ function Details({
                     </S.CommentsWrapper>
                   ))}
 
-                {lengthComment > 5 && (
+                {lengthComment >= 5 && (
                   <button
                     className="load-comment"
                     onClick={() => {

@@ -38,6 +38,11 @@ export const RegisterContainer = styled.div`
         max-width: 60%;
         text-align: center;
         font-size: 20px;
+        @media (max-width: 1200px) {
+          text-align: center;
+          max-width: 100%;
+          font-size: 16px;
+        }
       }
       & .container {
         display: flex;
@@ -45,10 +50,14 @@ export const RegisterContainer = styled.div`
         align-items: center;
         width: 55%;
         margin-top: 5%;
+
+        @media (max-width: 650px) {
+          width: 80%;
+        }
         & button {
           max-width: 112px;
           width: 100%;
-          max-height: 50px;
+          min-height: 50px;
           height: 100%;
           background-color: rgba(35, 149, 219, 0.15);
           border-radius: 28px;
@@ -59,6 +68,14 @@ export const RegisterContainer = styled.div`
           text-transform: capitalize;
           font-weight: bold;
           margin-top: 0;
+
+          @media (max-width: 650px) {
+            max-width: 100px;
+          }
+
+          &:last-of-type {
+            margin-inline-start: 10px;
+          }
         }
       }
       & .answer {
@@ -87,8 +104,12 @@ export const RegisterContainer = styled.div`
 
         & > svg {
           fill: white;
-          margin-inline-start: 15%;
+          margin-inline-start: 22%;
           position: absolute;
+
+          @media (max-width: 420px) {
+            margin-inline-start: 37%;
+          }
         }
         &:hover {
           & > svg {
@@ -101,6 +122,11 @@ export const RegisterContainer = styled.div`
   & .activeBtn {
     background: linear-gradient(to top right, #2395db, #5abbf8) #2395db;
     color: #fff !important;
+  }
+
+  & .img-council {
+    width: 112px;
+    height: 112px;
   }
 `;
 
@@ -136,9 +162,6 @@ export const RegisterBox = styled.div`
     border: 1px solid #dfdfdf;
     padding-inline-start: 24px;
 
-    @media (max-width: 600px) {
-      padding-inline-start: 10px;
-    }
     &[type="email"] {
       max-width: 739px;
       width: 90%;
@@ -146,6 +169,9 @@ export const RegisterBox = styled.div`
 
     &::placeholder {
       color: rgba(0, 0, 0, 0.3);
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -195,7 +221,10 @@ export const RegisterContent = styled.div`
     padding: 0.75rem;
     position: relative;
     width: 100%;
-
+    text-align: left;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
     &::-webkit-calendar-picker-indicator {
       bottom: 0;
       cursor: pointer;
@@ -218,8 +247,15 @@ export const RegisterContent = styled.div`
   & select {
     background: #fff url("./images/arrow.png") 97% 50% no-repeat;
     color: rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     & option {
       color: rgba(0, 0, 0);
+    }
+    @media (max-width: 500px) {
+      font-size: 12px;
+      background-size: 10px 8px;
     }
   }
 
@@ -330,4 +366,66 @@ export const Main = styled.div`
 
 export const Captcha = styled.div`
   margin-top: 21px;
+`;
+
+export const LoginHome = styled.div`
+  width: 50%;
+  display: none;
+  justify-content: center;
+  position: fixed;
+  bottom: 40%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  @media (max-width: 750px) {
+    width: 80%;
+    max-width: 70%;
+  }
+
+  & .modal-wrapper {
+    height: 25%;
+    position: relative;
+
+    @media (max-width: 1000px) {
+      width: 80%;
+    }
+
+    & .container {
+      width: 90% !important;
+    }
+
+    & .council {
+      height: 40%;
+    }
+
+    & h3 {
+      font-size: 14px;
+      word-break: break-word;
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
+    }
+  }
+`;
+
+export const ContainerCouncil = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 14%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: none;
+  & .modal-wrapper {
+    position: relative;
+  }
+  @media (max-width: 750px) {
+    width: 80%;
+  }
 `;

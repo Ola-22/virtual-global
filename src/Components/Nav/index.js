@@ -19,21 +19,23 @@ function Nav({ settingsData, language, handleSetLanguage }) {
         </div>
       </Link>
 
-      <div className="right">
-        <img src="./images/language.png" alt="language" />
+      {settingsData?.items?.languages.length > 1 && (
+        <div className="right">
+          <img src="./images/language.png" alt="language" />
 
-        <select
-          className="custom-select"
-          value={language}
-          onChange={(e) => handleSetLanguage(e.target.value)}
-        >
-          {settingsData?.items?.languages?.map((lang, index) => (
-            <option key={index} value={lang?.lang}>
-              {lang?.lang}
-            </option>
-          ))}
-        </select>
-      </div>
+          <select
+            className="custom-select"
+            value={language}
+            onChange={(e) => handleSetLanguage(e.target.value)}
+          >
+            {settingsData?.items?.languages?.map((lang, index) => (
+              <option key={index} value={lang?.lang}>
+                {lang?.lang}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
     </S.NavContainer>
   );
 }

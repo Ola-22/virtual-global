@@ -11,11 +11,15 @@ export const BlogContainer = styled.div`
   padding-bottom: 29px;
   width: 100%;
 
+  justify-content: center;
+  height: 100%;
+
   & .box {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     border-radius: 10px;
     margin-top: 27px;
     min-height: 90vh;

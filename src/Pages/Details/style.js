@@ -200,6 +200,7 @@ export const CardForum = styled.div`
     max-height: auto !important;
     height: auto;
     margin-inline-end: 0;
+    min-width: 90%;
   }
 
   @media (min-width: 800px) and (max-width: 1050px) {

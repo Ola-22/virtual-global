@@ -7,6 +7,7 @@ export default function MostReplies({
   discussionsSearch,
   language,
   searchQuery,
+  rtlLang,
 }) {
   const [discussionReplies, setDiscussionReplies] = useState();
 
@@ -41,6 +42,7 @@ export default function MostReplies({
               is_join={disc?.is_join}
               is_like={disc?.is_like}
               language={language}
+              rtlLang={rtlLang}
             />
           ))
         : discussionReplies?.map((disc) => (
@@ -56,6 +58,7 @@ export default function MostReplies({
               totalComment={disc?.commnets_count}
               is_join={disc?.is_join}
               is_like={disc?.is_like}
+              rtlLang={rtlLang}
             />
           ))}
     </div>

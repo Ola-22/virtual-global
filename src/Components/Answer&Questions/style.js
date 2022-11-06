@@ -163,6 +163,8 @@ export const AnswerContainer = styled.div`
         & img {
           position: absolute;
           right: 21.5px;
+          width: 20px;
+          height: 20px;
         }
 
         & svg {

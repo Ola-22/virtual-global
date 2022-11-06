@@ -18,11 +18,10 @@ export const CardContainer = styled.div`
     padding: 42px;
     width: 100%;
     max-width: 80%;
+    row-gap: 29px;
     & h3 {
       font-size: 22px;
       text-transform: capitalize;
-      margin-bottom: 2%;
-      height: 50px;
       @media (max-width: 500px) {
         font-size: 14px;
       }
@@ -59,7 +58,6 @@ export const LikeCard = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 29px;
 
   & div {
     display: flex;
@@ -80,6 +78,8 @@ export const LikeCard = styled.div`
   }
 
   & a > img {
+    width: 53px;
+    height: 53px;
     @media (max-width: 500px) {
       width: 35px;
       height: 35px;

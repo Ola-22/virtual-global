@@ -35,3 +35,91 @@ export const HomeContainer = styled.div`
   background-size: contain;
   background-repeat: round;
 `;
+
+export const NewsBar = styled.div`
+  border-top: 1px solid #2d98da;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  height: 50px;
+  cursor: pointer;
+
+  & .news-wrapper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+    height: 100%;
+    width: 100%;
+  }
+  & div {
+    display: flex;
+    /* flex: 10; */
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    & h2 {
+      font-size: 12px;
+    }
+    & svg {
+      cursor: pointer;
+      z-index: 2;
+      fill: black;
+    }
+  }
+
+  .movetxtRtl {
+    position: relative;
+    animation: movingRtl 20s infinite;
+    white-space: nowrap;
+    color: black;
+    font-size: 14px;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
+  }
+
+  @keyframes movingRtl {
+    from {
+      right: 0px;
+    }
+    to {
+      right: 200px;
+    }
+  }
+
+  .movetxt {
+    position: relative;
+    animation: moving 20s infinite;
+    white-space: nowrap;
+    font-size: 14px;
+    color: black;
+    flex: 12;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
+  }
+
+  @keyframes moving {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 200px;
+    }
+  }
+`;
+
+export const TitleNew = styled.span`
+  flex: 2;
+  color: #fff;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0 20px;
+`;

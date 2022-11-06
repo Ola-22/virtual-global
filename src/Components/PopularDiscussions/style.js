@@ -52,6 +52,11 @@ export const PrevArrow = styled.div`
   @media (max-width: 550px) {
     display: none;
   }
+
+  & img {
+    width: 20px;
+    height: 33px;
+  }
 `;
 
 export const NextArrow = styled.div`
@@ -66,6 +71,10 @@ export const NextArrow = styled.div`
 
   @media (max-width: 550px) {
     display: none;
+  }
+  & img {
+    width: 20px;
+    height: 33px;
   }
 `;
 

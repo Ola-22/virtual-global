@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../../helpers/axios";
+import * as S from "./style";
 import Nav from "../Nav";
 import Header from "../Header";
-import * as S from "./style";
 
 function PagesMain({
   settingsData,

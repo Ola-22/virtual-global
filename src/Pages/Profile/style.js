@@ -176,6 +176,11 @@ export const profileInformation = styled.div`
     margin-top: 30px;
   }
 
+  & .edit {
+    width: 31px;
+    height: 31px;
+  }
+
   & .changePass {
     width: 130%;
     max-width: 300px;
@@ -199,7 +204,7 @@ export const profileInformation = styled.div`
 `;
 
 export const imgUser = styled.img`
-  width: 82px;
+  width: 82px !important;
   height: 84px;
   object-fit: cover;
   border-radius: 50%;

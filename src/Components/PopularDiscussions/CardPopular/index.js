@@ -10,7 +10,7 @@ function CardPolular({
   likesCount,
   commentCount,
   key,
-  language,
+  rtlLang,
 }) {
   const [currentUser, setCurrentUser] = useState(undefined);
 
@@ -26,7 +26,7 @@ function CardPolular({
       <div
         className="card-box"
         style={{
-          direction: language === "ar" ? "rtl" : "ltr",
+          direction: rtlLang === 1 ? "rtl" : "ltr",
         }}
       >
         <h3>{title}</h3>
@@ -38,11 +38,21 @@ function CardPolular({
         <S.LikeCard>
           <div>
             <div>
-              <img src="./images/like.png" alt="like the popular discussions" />
+              <img
+                width={24}
+                height={23}
+                src="./images/like.png"
+                alt="like the popular discussions"
+              />
               <h6>{likesCount}</h6>
             </div>
             <div>
-              <img src="./images/chat.png" alt="like the popular discussions" />
+              <img
+                width={24}
+                height={23}
+                src="./images/chat.png"
+                alt="like the popular discussions"
+              />
               <h6>{commentCount}</h6>
             </div>
           </div>

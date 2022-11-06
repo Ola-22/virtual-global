@@ -1,6 +1,6 @@
+import * as S from "./style";
 import Slider from "react-slick";
 import CardPolular from "./CardPopular";
-import * as S from "./style";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -24,6 +24,7 @@ export default function PopularDiscussions({
   homeData,
   settingsData,
   language,
+  rtlLang,
 }) {
   const settings = {
     dots: false,
@@ -32,7 +33,7 @@ export default function PopularDiscussions({
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    rtl: language === "ar" && true,
+    rtl: rtlLang === 1 && true,
 
     responsive: [
       {
@@ -80,6 +81,7 @@ export default function PopularDiscussions({
               commentCount={data?.comments_count}
               link={data.id}
               language={language}
+              rtlLang={rtlLang}
             />
           ))}
         </Slider>

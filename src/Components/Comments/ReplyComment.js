@@ -14,7 +14,12 @@ function ReplyComment({ name, time, comment, likes_count, src }) {
         <p>{comment}</p>
       </div>
       <div className="likeComment">
-        <img src="./images/like.png" alt="likes of the content" />
+        <img
+          width={24}
+          height={23}
+          src="./images/like.png"
+          alt="likes of the content"
+        />
         <span>{likes_count}</span>
       </div>
     </S.replyComments>

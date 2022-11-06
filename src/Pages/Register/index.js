@@ -1,15 +1,23 @@
 import * as S from "./style";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Modal } from "../../Components/Modal";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import authService from "./Auth";
 import ReCAPTCHA from "react-google-recaptcha";
+import { GiPartyPopper } from "react-icons/gi";
 
-export default function Register({ language, settingsData, fetchData }) {
+export default function Register({
+  language,
+  settingsData,
+  fetchData,
+  profileInformation,
+  rtlLang,
+}) {
   const [gender, setGender] = useState();
   const [showTerms, setShowTerms] = useState(false);
+  const [showLoginHome, setShowLoginHome] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showVirtualConstitution, setShowVirtualConstitution] = useState(false);
   const [showCouncil, setShowCouncil] = useState(false);
@@ -46,6 +54,8 @@ export default function Register({ language, settingsData, fetchData }) {
 
   const closeModalCouncil = () => setShowCouncil(false);
 
+  const closeModalLoginHome = () => setShowLoginHome(false);
+
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/pages/terms", {
@@ -61,8 +71,8 @@ export default function Register({ language, settingsData, fetchData }) {
       });
   }, [language]);
 
-  useEffect(() => {
-    axiosInstance
+  const getPrivacyPolicy = useCallback(() => {
+    const response = axiosInstance
       .get("/api/web-site/pages/privacy_policy", {
         headers: {
           lang: language,
@@ -74,10 +84,16 @@ export default function Register({ language, settingsData, fetchData }) {
       .catch((err) => {
         console.log(err);
       });
+
+    return response;
   }, [language]);
 
   useEffect(() => {
-    axiosInstance
+    getPrivacyPolicy();
+  }, [getPrivacyPolicy]);
+
+  const getConstitutionTerms = useCallback(() => {
+    const response = axiosInstance
       .get("/api/web-site/pages/constitution_terms", {
         headers: {
           lang: language,
@@ -89,13 +105,20 @@ export default function Register({ language, settingsData, fetchData }) {
       .catch((err) => {
         console.log(err);
       });
+
+    return response;
   }, [language]);
+
+  useEffect(() => {
+    getConstitutionTerms();
+  }, [getConstitutionTerms]);
 
   useEffect(() => {
     axiosInstance
       .get("/api/web-site/categories/academic_levels", {
         headers: {
           lang: language,
+          CacheStorage: false,
         },
       })
       .then((res) => {
@@ -106,11 +129,12 @@ export default function Register({ language, settingsData, fetchData }) {
       });
   }, [language]);
 
-  useEffect(() => {
-    axiosInstance
+  const getSpecializations = useCallback(() => {
+    const response = axiosInstance
       .get("/api/web-site/categories/specializations", {
         headers: {
           lang: language,
+          CacheStorage: false,
         },
       })
       .then((res) => {
@@ -119,13 +143,20 @@ export default function Register({ language, settingsData, fetchData }) {
       .catch((err) => {
         console.log(err);
       });
+
+    return response;
   }, [language]);
 
   useEffect(() => {
-    axiosInstance
+    getSpecializations();
+  }, [getSpecializations]);
+
+  const getCountries = useCallback(() => {
+    const response = axiosInstance
       .get("/api/web-site/categories/countries", {
         headers: {
           lang: language,
+          CacheStorage: false,
         },
       })
       .then((res) => {
@@ -134,16 +165,17 @@ export default function Register({ language, settingsData, fetchData }) {
       .catch((err) => {
         console.log(err);
       });
+
+    return response;
   }, [language]);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    getCountries();
+  }, [getCountries]);
 
   const [registerData, setRegisterData] = useState();
-  // const captchaRef = useRef(null);
 
   const [token, setToken] = useState(null);
-
-  // const token = captchaRef.current;
 
   const [error, setError] = useState();
 
@@ -226,8 +258,12 @@ export default function Register({ language, settingsData, fetchData }) {
       });
   }
 
-  const onChange = (value) => {
-    setToken(value);
+  const onChange = async (captchaCode) => {
+    if (!captchaCode) {
+      return;
+    }
+
+    setToken(captchaCode);
   };
 
   return (
@@ -236,13 +272,12 @@ export default function Register({ language, settingsData, fetchData }) {
         <Link to="/">
           <img
             style={{
-              transform:
-                localStorage.getItem("language") === "ar"
-                  ? "rotate(180deg)"
-                  : "",
+              transform: rtlLang === 1 ? "rotate(180deg)" : "",
             }}
             src="./images/Back.png"
             alt="back pages"
+            width={23}
+            height={24}
           />
         </Link>
       </S.HeaderRegister>
@@ -252,6 +287,7 @@ export default function Register({ language, settingsData, fetchData }) {
             <Link to="/">
               <h2>{settingsData?.items?.translation?.title_register}</h2>
             </Link>
+
             <S.RegisterContent>
               <div>
                 <label>{settingsData?.items?.translation?.first_name}</label>
@@ -396,6 +432,9 @@ export default function Register({ language, settingsData, fetchData }) {
                   name="country"
                   value={categoryCountry}
                   onChange={(e) => setCategoryCountry(e.target.value)}
+                  style={{
+                    color: categoryCountry !== "" ? "rgba(0,0,0)" : "",
+                  }}
                 >
                   <option
                     value={settingsData?.items?.translation?.Select_from_here}
@@ -466,6 +505,9 @@ export default function Register({ language, settingsData, fetchData }) {
                   name="degree"
                   value={categoryDegree}
                   onChange={(e) => setCategoryDegree(e.target.value)}
+                  style={{
+                    color: categoryDegree !== "" ? "rgba(0,0,0)" : "",
+                  }}
                 >
                   <option
                     value={settingsData?.items?.translation?.Select_from_here}
@@ -501,6 +543,9 @@ export default function Register({ language, settingsData, fetchData }) {
                   name="major"
                   value={categoryMajor}
                   onChange={(e) => setCategoryMajor(e.target.value)}
+                  style={{
+                    color: categoryMajor !== "" ? "rgba(0,0,0)" : "",
+                  }}
                 >
                   <option
                     value={settingsData?.items?.translation?.Select_from_here}
@@ -604,6 +649,7 @@ export default function Register({ language, settingsData, fetchData }) {
               onClick={(e) => {
                 e.preventDefault();
                 handleSignup();
+                fetchData();
               }}
               title={settingsData?.items?.translation?.button_join}
             />
@@ -615,81 +661,98 @@ export default function Register({ language, settingsData, fetchData }) {
             {showCouncil ? (
               <div onClick={closeModalCouncil} className="back-drop"></div>
             ) : null}
-
-            <Modal
-              content={
-                <>
-                  <div className="modal-header close">
-                    <span
-                      onClick={closeModalCouncil}
-                      className="close-modal-btn"
-                    >
-                      <img src="./images/close.png" alt="close the Modal" />
-                    </span>
-                  </div>
-
-                  <div className="modal-body council">
-                    <img width="112" src="./images/council.png" alt="council" />
-                    <p>{settingsData?.items?.translation?.question}</p>
-                    <div className="container">
-                      <button
-                        className={val === "yes" ? "activeBtn" : ""}
-                        onClick={() => {
-                          setVal("yes");
-                          setClickYes(!clickYes);
-                        }}
+            <S.ContainerCouncil
+              style={{
+                display: showCouncil === true ? "flex" : "",
+              }}
+            >
+              <Modal
+                style={{ position: "fixed", top: "20%" }}
+                content={
+                  <>
+                    <div className="modal-header close">
+                      <span
+                        onClick={closeModalCouncil}
+                        className="close-modal-btn"
                       >
-                        {settingsData?.items?.translation?.btn_yes}
-                      </button>
-                      <button
-                        className={val === "no" ? "activeBtn" : ""}
-                        onClick={() => {
-                          setVal("no");
-                          navigate("/");
-                          setClickYes(false);
-                        }}
-                      >
-                        {settingsData?.items?.translation?.btn_no}
-                      </button>
-                    </div>
-                    {clickYes && (
-                      <div className="answer">
-                        <label htmlFor="answer">
-                          {
-                            settingsData?.items?.translation
-                              ?.answer_council_wise
-                          }
-                          ?
-                        </label>
-
-                        <textarea
-                          id="w3review"
-                          name="answer"
-                          placeholder={
-                            settingsData?.items?.translation
-                              ?.placeholder_council_wise
-                          }
-                          onChange={(e) => setTextReason(e.target.value)}
+                        <img
+                          width={25}
+                          height={25}
+                          src="./images/close.png"
+                          alt="close the Modal"
                         />
-                      </div>
-                    )}
+                      </span>
+                    </div>
 
-                    <Button
-                      className="send"
-                      onClick={() => {
-                        navigate("/");
-                        sendRequestMember();
-                        fetchData();
-                      }}
-                      title={settingsData?.items?.translation?.btn_send}
-                      img
-                    />
-                  </div>
-                </>
-              }
-              show={showCouncil}
-              close={closeModalCouncil}
-            />
+                    <div className="modal-body council">
+                      <img
+                        width="112"
+                        className="img-council"
+                        src="./images/council.png"
+                        alt="council"
+                      />
+                      <p>{settingsData?.items?.translation?.question}</p>
+                      <div className="container">
+                        <button
+                          className={val === "yes" ? "activeBtn" : ""}
+                          onClick={() => {
+                            setVal("yes");
+                            setClickYes(!clickYes);
+                          }}
+                        >
+                          {settingsData?.items?.translation?.btn_yes}
+                        </button>
+                        <button
+                          className={val === "no" ? "activeBtn" : ""}
+                          onClick={() => {
+                            setVal("no");
+                            setClickYes(false);
+                          }}
+                        >
+                          {settingsData?.items?.translation?.btn_no}
+                        </button>
+                      </div>
+                      {clickYes && (
+                        <div className="answer">
+                          <label htmlFor="answer">
+                            {
+                              settingsData?.items?.translation
+                                ?.answer_council_wise
+                            }
+                            ?
+                          </label>
+
+                          <textarea
+                            id="w3review"
+                            name="answer"
+                            placeholder={
+                              settingsData?.items?.translation
+                                ?.placeholder_council_wise
+                            }
+                            onChange={(e) => setTextReason(e.target.value)}
+                          />
+                        </div>
+                      )}
+
+                      <Button
+                        className="send"
+                        onClick={() => {
+                          // navigate("/");
+                          sendRequestMember();
+                          fetchData();
+                          setShowLoginHome(true);
+                          setShowCouncil(false);
+                        }}
+                        title={settingsData?.items?.translation?.btn_send}
+                        img
+                      />
+                    </div>
+                  </>
+                }
+                show={showCouncil}
+                close={closeModalCouncil}
+              />
+            </S.ContainerCouncil>
 
             <S.loginAccount>
               {settingsData?.items?.translation?.already_have_citizenship} {""}
@@ -708,7 +771,12 @@ export default function Register({ language, settingsData, fetchData }) {
               <div className="modal-header">
                 <p>{dataTerms?.items?.title}</p>
                 <span onClick={closeModalTerms} className="close-modal-btn">
-                  <img src="./images/close.png" alt="close the Modal" />
+                  <img
+                    width={25}
+                    height={25}
+                    src="./images/close.png"
+                    alt="close the Modal"
+                  />
                 </span>
               </div>
 
@@ -722,6 +790,58 @@ export default function Register({ language, settingsData, fetchData }) {
           close={closeModalTerms}
         />
 
+        {showLoginHome ? (
+          <div onClick={closeModalLoginHome} className="back-drop"></div>
+        ) : null}
+        <S.LoginHome
+          style={{
+            display: showLoginHome === true ? "flex" : "none",
+          }}
+        >
+          <Modal
+            style={{
+              position: showLoginHome === true ? "fixed" : "",
+              bottom: showLoginHome === true ? "30%" : "",
+            }}
+            content={
+              <>
+                <div className="modal-header close">
+                  <span
+                    onClick={closeModalLoginHome}
+                    className="close-modal-btn"
+                  >
+                    <img
+                      width={25}
+                      height={25}
+                      src="./images/close.png"
+                      alt="close the Modal"
+                    />
+                  </span>
+                </div>
+
+                <div className="modal-body council">
+                  <p>
+                    {settingsData?.items?.translation?.special_welcome}{" "}
+                    <Link to="/">{profileInformation?.user?.first_name}</Link>
+                  </p>
+                  <div className="container">
+                    <h3>
+                      <GiPartyPopper />{" "}
+                      {settingsData?.items?.translation?.congratulations},{" "}
+                      {
+                        settingsData?.items?.translation
+                          ?.successfully_registered
+                      }
+                    </h3>
+                  </div>
+                </div>
+              </>
+            }
+            show={showLoginHome}
+            close={closeModalLoginHome}
+          />
+        </S.LoginHome>
+
         {showPrivacyPolicy ? (
           <div onClick={closeModalPrivacy} className="back-drop"></div>
         ) : null}
@@ -732,7 +852,12 @@ export default function Register({ language, settingsData, fetchData }) {
               <div className="modal-header">
                 <p>{dataPrivacy?.items?.title}</p>
                 <span onClick={closeModalPrivacy} className="close-modal-btn">
-                  <img src="./images/close.png" alt="close the Modal" />
+                  <img
+                    width={25}
+                    height={25}
+                    src="./images/close.png"
+                    alt="close the Modal"
+                  />
                 </span>
               </div>
 
@@ -759,7 +884,12 @@ export default function Register({ language, settingsData, fetchData }) {
                 <p>{constitutionTerms?.items?.title}</p>
 
                 <span onClick={closeModalVirtual} className="close-modal-btn">
-                  <img src="./images/close.png" alt="close the Modal" />
+                  <img
+                    width={25}
+                    height={25}
+                    src="./images/close.png"
+                    alt="close the Modal"
+                  />
                 </span>
               </div>
 

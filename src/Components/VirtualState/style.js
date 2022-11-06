@@ -21,6 +21,8 @@ export const VirtualState = styled.div`
       margin-top: 5%;
       z-index: 22;
       position: relative;
+      max-width: 100%;
+      width: 100%;
       @media (max-width: 600px) {
         max-width: 343px;
         width: 100%;

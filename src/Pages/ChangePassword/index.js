@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
+import Button from "../../Components/Button";
 
-function ChangePassword({ settingsData, language }) {
+function ChangePassword({ settingsData, language, rtlLang }) {
   const [currentPassword, setCurrentPassword] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setCofirmPassword] = useState();
@@ -56,10 +56,7 @@ function ChangePassword({ settingsData, language }) {
         <div onClick={() => navigate(-1)}>
           <img
             style={{
-              transform:
-                localStorage.getItem("language") === "ar"
-                  ? "rotate(180deg)"
-                  : "",
+              transform: rtlLang === 1 ? "rotate(180deg)" : "",
             }}
             src="./images/Back.png"
             alt="back pages"

@@ -7,6 +7,7 @@ export default function MostLikes({
   discussionsSearch,
   language,
   searchQuery,
+  rtlLang,
 }) {
   const [discussionLikes, setDiscussionLikes] = useState();
 
@@ -41,6 +42,7 @@ export default function MostLikes({
               is_join={disc?.is_join}
               is_like={disc?.is_like}
               language={language}
+              rtlLang={rtlLang}
             />
           ))
         : discussionLikes?.map((disc) => (
@@ -56,6 +58,7 @@ export default function MostLikes({
               is_join={disc?.is_join}
               is_like={disc?.is_like}
               language={language}
+              rtlLang={rtlLang}
             />
           ))}
     </div>

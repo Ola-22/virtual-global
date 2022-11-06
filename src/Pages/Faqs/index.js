@@ -8,6 +8,7 @@ function Faqs({
   profileInformation,
   handleSetLanguage,
   language,
+  rtlLang,
 }) {
   return (
     <S.Main>
@@ -21,7 +22,7 @@ function Faqs({
         settingsData={settingsData}
       />
       <S.FaqsContainer>
-        <PaginationComponent language={language} />
+        <PaginationComponent language={language} rtlLang={rtlLang} />
       </S.FaqsContainer>
     </S.Main>
   );

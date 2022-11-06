@@ -7,6 +7,7 @@ function RenderData({
   settingsData,
   postsSearch,
   searchQuery,
+  rtlLang,
 }) {
   return (
     <ul>
@@ -23,6 +24,7 @@ function RenderData({
               language={language}
               settingsData={settingsData}
               author_image={post.author_image}
+              rtlLang={rtlLang}
             />
           ))
         : data?.map((post) => (
@@ -37,6 +39,7 @@ function RenderData({
               language={language}
               settingsData={settingsData}
               author_image={post.author_image}
+              rtlLang={rtlLang}
             />
           ))}
     </ul>

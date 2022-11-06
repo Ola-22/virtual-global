@@ -38,7 +38,8 @@ export const NavContainer = styled.div`
     & img {
       border-inline-start: 1px solid rgba(128, 128, 128, 0.16);
       padding-inline-start: 20px;
-
+      width: 41px;
+      height: 21px;
       @media (max-width: 450px) {
         display: none;
       }

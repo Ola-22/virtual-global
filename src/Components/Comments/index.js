@@ -30,7 +30,12 @@ function Comments({
       {likeComment && (
         <div className="likeComment">
           <div>
-            <img src="./images/like.png" alt="likes of the content" />
+            <img
+              width={24}
+              height={23}
+              src="./images/like.png"
+              alt="likes of the content"
+            />
             <span>{likes_count}</span>
           </div>
           <div>
@@ -38,6 +43,8 @@ function Comments({
               onClick={onClick}
               src="./images/chat.png"
               alt="likes of the content"
+              width={24}
+              height={23}
             />
             <span>{comments_count}</span>
           </div>

@@ -3,11 +3,11 @@ import axiosInstance from "../../helpers/axios";
 import * as S from "../../Pages/Blog/PaginationStyle";
 import Accordian from "../../Pages/Faqs/Accordian";
 
-function PaginationComponent({ language }) {
+function PaginationComponent({ language, rtlLang }) {
   const [data, setData] = useState([]);
 
+  const [totalPages, setTotalPages] = useState();
   const [currentPage, setcurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
 
   const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
@@ -18,16 +18,12 @@ function PaginationComponent({ language }) {
   };
 
   const pages = [];
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
   const renderPageNumbers = pages?.map((number) => {
-    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+    if (number <= totalPages) {
       return (
         <li
           key={number}
@@ -45,18 +41,19 @@ function PaginationComponent({ language }) {
 
   useEffect(() => {
     axiosInstance
-      .get("/api/web-site/faqs", {
+      .get(`/api/web-site/faqs?page_number=${currentPage}`, {
         headers: {
           lang: language,
         },
       })
       .then((res) => {
         setData(res.data.items.faqs);
+        setTotalPages(res.data.items.total_pages);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [language]);
+  }, [language, currentPage]);
 
   const handleNextbtn = () => {
     setcurrentPage(currentPage + 1);
@@ -88,7 +85,7 @@ function PaginationComponent({ language }) {
 
   return (
     <>
-      {<Accordian data={currentItems} language={language} />}
+      {<Accordian data={data} language={language} rtlLang={rtlLang} />}
       <S.PageNumber>
         <li>
           <button

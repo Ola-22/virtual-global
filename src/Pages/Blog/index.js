@@ -1,15 +1,16 @@
-import HeaderForum from "../../Components/HeaderForum";
-import Nav from "../../Components/Nav";
-import PaginationComponent from "./PaginationComponent";
 import { useState, useEffect } from "react";
 import * as S from "./style";
 import axiosInstance from "../../helpers/axios";
+import HeaderForum from "../../Components/HeaderForum";
+import Nav from "../../Components/Nav";
+import PaginationComponent from "./PaginationComponent";
 
-function PagesMain({
+function Blog({
   settingsData,
   handleSetLanguage,
   profileInformation,
   language,
+  rtlLang,
 }) {
   const [searchQuery, setSearchQuery] = useState();
   const [postsSearch, setPostsSearch] = useState();
@@ -54,6 +55,7 @@ function PagesMain({
               language={language}
               postsSearch={postsSearch}
               searchQuery={searchQuery}
+              rtlLang={rtlLang}
             />
           </div>
         </div>
@@ -62,4 +64,4 @@ function PagesMain({
   );
 }
 
-export default PagesMain;
+export default Blog;

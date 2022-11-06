@@ -141,7 +141,6 @@ export const DetailsBox = styled.div`
         overflow: scroll;
         padding-inline-end: 3%;
         word-wrap: break-word;
-        word-break: break-all;
         hyphens: auto;
 
         &:placeholder-shown {

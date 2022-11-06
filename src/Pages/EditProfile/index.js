@@ -1,14 +1,15 @@
-import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../Components/Button";
 
 function EditProfile({
   settingsData,
   profileInformation,
   language,
   fetchData,
+  rtlLang,
 }) {
   const [file, setFile] = useState("");
 
@@ -157,10 +158,7 @@ function EditProfile({
         <div onClick={() => navigate(-1)}>
           <img
             style={{
-              transform:
-                localStorage.getItem("language") === "ar"
-                  ? "rotate(180deg)"
-                  : "",
+              transform: rtlLang === 1 ? "rotate(180deg)" : "",
             }}
             src="./images/Back.png"
             alt="back pages"

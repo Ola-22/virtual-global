@@ -8,11 +8,12 @@ function PaginationComponent({
   settingsData,
   postsSearch,
   searchQuery,
+  rtlLang,
 }) {
   const [data, setData] = useState([]);
 
+  const [totalPages, setTotalPages] = useState();
   const [currentPage, setcurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
 
   const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
@@ -23,16 +24,12 @@ function PaginationComponent({
   };
 
   const pages = [];
-  for (let i = 1; i <= Math.ceil(data?.length / itemsPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
   const renderPageNumbers = pages?.map((number) => {
-    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+    if (number <= totalPages) {
       return (
         <li
           key={number}
@@ -50,15 +47,16 @@ function PaginationComponent({
 
   useEffect(() => {
     axiosInstance
-      .get("/api/posts/all", {
+      .get(`/api/posts/all?page_number=${currentPage}`, {
         headers: {
           lang: language,
         },
       })
       .then((response) => {
         setData(response.data.items.posts);
+        setTotalPages(response.data.items.total_pages);
       });
-  }, [language]);
+  }, [language, currentPage]);
 
   const handleNextbtn = () => {
     setcurrentPage(currentPage + 1);
@@ -90,40 +88,45 @@ function PaginationComponent({
 
   return (
     <>
-      {
-        <RenderData
-          data={currentItems}
-          language={language}
-          settingsData={settingsData}
-          postsSearch={postsSearch}
-          searchQuery={searchQuery}
-        />
-      }
+      <S.paginationContainer>
+        {
+          <RenderData
+            data={data}
+            language={language}
+            settingsData={settingsData}
+            postsSearch={postsSearch}
+            searchQuery={searchQuery}
+            rtlLang={rtlLang}
+          />
+        }
 
-      {!searchQuery && (
-        <S.PageNumber>
-          <li>
-            <button
-              onClick={handlePrevbtn}
-              disabled={currentPage === pages[0] ? true : false}
-            >
-              Prev
-            </button>
-          </li>
-          {pageDecrementBtn}
-          {renderPageNumbers}
-          {pageIncrementBtn}
+        {!searchQuery && (
+          <S.PageNumber>
+            <li>
+              <button
+                onClick={handlePrevbtn}
+                disabled={currentPage === pages[0] ? true : false}
+              >
+                Prev
+              </button>
+            </li>
+            {pageDecrementBtn}
+            {renderPageNumbers}
+            {pageIncrementBtn}
 
-          <li>
-            <button
-              onClick={handleNextbtn}
-              disabled={currentPage === pages[pages?.length - 1] ? true : false}
-            >
-              Next
-            </button>
-          </li>
-        </S.PageNumber>
-      )}
+            <li>
+              <button
+                onClick={handleNextbtn}
+                disabled={
+                  currentPage === pages[pages?.length - 1] ? true : false
+                }
+              >
+                Next
+              </button>
+            </li>
+          </S.PageNumber>
+        )}
+      </S.paginationContainer>
     </>
   );
 }

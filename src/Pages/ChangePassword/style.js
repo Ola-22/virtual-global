@@ -46,12 +46,18 @@ export const ForgetContainer = styled.div`
         text-transform: uppercase;
         text-align: center;
         font-size: 24px;
+        @media (max-width: 550px) {
+          font-size: 16px;
+        }
       }
       & p {
         width: 90%;
         text-align: center;
         font-size: 16px;
         opacity: 0.62;
+        @media (max-width: 550px) {
+          font-size: 14px;
+        }
       }
 
       & button {
@@ -81,6 +87,9 @@ export const InputBox = styled.div`
   & label {
     font-weight: bold;
     text-transform: capitalize;
+    @media (max-width: 550px) {
+      font-size: 14px;
+    }
   }
   & input {
     height: 50px;
@@ -94,6 +103,9 @@ export const InputBox = styled.div`
       color: #000000;
       opacity: 0.3;
       font-size: 14px;
+      @media (max-width: 550px) {
+        font-size: 12px;
+      }
     }
   }
 

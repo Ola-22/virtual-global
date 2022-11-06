@@ -14,6 +14,7 @@ function CardTabs({
   is_like,
   language,
   settingsData,
+  rtlLang,
 }) {
   const [joinData, setJoinData] = useState();
 
@@ -48,7 +49,7 @@ function CardTabs({
       <Link
         to={`/discussion/${id}`}
         style={{
-          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+          direction: rtlLang === 1 ? "rtl" : "ltr",
         }}
       >
         <h6>
@@ -67,15 +68,25 @@ function CardTabs({
       <div
         className="box"
         style={{
-          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
+          direction: rtlLang === 1 ? "rtl" : "ltr",
         }}
       >
         <div>
           <div>
             {is_like === true ? (
-              <img src="./images/unlike.png" alt="likes of the content" />
+              <img
+                width={24}
+                height={23}
+                src="./images/unlike.png"
+                alt="likes of the content"
+              />
             ) : (
-              <img src="./images/like.png" alt="likes of the content" />
+              <img
+                width={24}
+                height={23}
+                src="./images/like.png"
+                alt="likes of the content"
+              />
             )}
             <span>{totalLikes}</span>
           </div>

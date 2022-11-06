@@ -56,6 +56,7 @@ function BlogDetails({
       )
       .then((res) => {
         setResult(res.data.items);
+        console.log(res, "blog");
       })
       .catch((err) => console.log(err));
 
@@ -217,7 +218,7 @@ function BlogDetails({
                     </S.CommentsWrapper>
                   ))}
 
-                {lengthComment > 5 && (
+                {lengthComment >= 5 && (
                   <button
                     className="load-comment"
                     onClick={() => {

@@ -20,6 +20,7 @@ function Forum({
   profileInformation,
   language,
   handleSetLanguage,
+  rtlLang,
 }) {
   const [selected, setSelected] = useState(
     settingsData?.items?.translation?.recent_topics || "Recent Topics"
@@ -144,12 +145,14 @@ function Forum({
                 isSelected={
                   selected === settingsData?.items?.translation?.recent_topics
                 }
+                rtlLang={rtlLang}
               >
                 <RecentTopics
                   settingsData={settingsData}
                   discussionsSearch={discussionsSearch}
                   language={language}
                   searchQuery={searchQuery}
+                  rtlLang={rtlLang}
                 />
               </Tab>
 
@@ -163,6 +166,7 @@ function Forum({
                   discussionsSearch={discussionsSearch}
                   language={language}
                   searchQuery={searchQuery}
+                  rtlLang={rtlLang}
                 />
               </Tab>
 
@@ -176,6 +180,7 @@ function Forum({
                   discussionsSearch={discussionsSearch}
                   language={language}
                   searchQuery={searchQuery}
+                  rtlLang={rtlLang}
                 />
               </Tab>
 
@@ -189,6 +194,7 @@ function Forum({
                   discussionsSearch={discussionsSearch}
                   language={language}
                   searchQuery={searchQuery}
+                  rtlLang={rtlLang}
                 />
               </Tab>
 
@@ -202,6 +208,7 @@ function Forum({
                   discussionsSearch={discussionsSearch}
                   language={language}
                   searchQuery={searchQuery}
+                  rtlLang={rtlLang}
                 />
               </Tab>
             </>

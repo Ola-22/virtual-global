@@ -1,28 +1,31 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Details from "./Pages/Details";
 import Forum from "./Pages/Forum";
 import Profile from "./Pages/Profile";
 import axiosInstance from "./helpers/axios";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useTransition } from "react";
+
+import Helmet from "react-helmet";
+import BlogDetails from "./Pages/BlogDetails";
+import authService from "./Pages/Register/Auth";
+import Home from "./Pages/Home";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import ChangePassword from "./Pages/ChangePassword";
 import Faqs from "./Pages/Faqs";
-import Helmet from "react-helmet";
 import PagesMain from "./Components/PagesMain";
 import Blog from "./Pages/Blog";
-import BlogDetails from "./Pages/BlogDetails";
-import authService from "./Pages/Register/Auth";
+import NewsDetails from "./Pages/NewsDetails";
 
 function App() {
   const [settingsData, setSettingsData] = useState();
   const [homeData, setHomeData] = useState();
-
   const [currentUser, setCurrentUser] = useState(undefined);
+
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     const user = authService.getCurrentUser();
@@ -32,10 +35,24 @@ function App() {
     }
   }, []);
 
+  const [langDefault, setLangDefault] = useState();
+
+  useEffect(() => {
+    settingsData?.items?.languages.map((lang) =>
+      lang.is_default === 1 ? setLangDefault(lang.lang) : ""
+    );
+  }, [settingsData?.items?.languages]);
+
   let languageStoredInLocalStorage = localStorage.getItem("language");
   let [language, setLanguage] = useState(
-    languageStoredInLocalStorage ? languageStoredInLocalStorage : "en"
+    languageStoredInLocalStorage ? languageStoredInLocalStorage : langDefault
   );
+
+  useEffect(() => {
+    setLanguage(langDefault);
+  }, [langDefault]);
+
+  const [rtlLang, setRtlLang] = useState();
 
   useEffect(() => {
     axiosInstance
@@ -53,19 +70,33 @@ function App() {
   }, [language]);
 
   useEffect(() => {
-    axiosInstance
+    settingsData?.items?.languages.map(
+      (lang) => language === lang.lang && setRtlLang(lang.is_rtl)
+    );
+  }, [settingsData?.items?.languages, language]);
+
+  const fetchHomeData = useCallback(() => {
+    const response = axiosInstance
       .get("/api/web-site/home-page", {
         headers: {
           lang: language,
         },
       })
       .then((res) => {
-        setHomeData(res.data);
+        startTransition(() => {
+          setHomeData(res.data);
+        });
       })
       .catch((err) => {
         console.log(err);
       });
+
+    return response;
   }, [language]);
+
+  useEffect(() => {
+    fetchHomeData();
+  }, [fetchHomeData]);
 
   const [profileInformation, setProfileInformation] = useState();
 
@@ -84,9 +115,11 @@ function App() {
         config
       )
       .then((res) => {
-        if (currentUser) {
-          setProfileInformation(res.data.items);
-        }
+        startTransition(() => {
+          if (res.status !== 401) {
+            setProfileInformation(res.data.items);
+          }
+        });
       })
       .catch((err) => {
         if (currentUser) {
@@ -106,15 +139,15 @@ function App() {
       <div
         className="App"
         style={{
-          direction: localStorage.getItem("language") === "ar" ? "rtl" : "ltr",
-          fontFamily:
-            localStorage.getItem("language") === "ar" ? "Cairo" : "Verdana",
+          direction: rtlLang === 1 ? "rtl" : "ltr",
+          fontFamily: rtlLang === 1 ? "Cairo" : "Verdana",
         }}
       >
         <Helmet>
           <title>{settingsData?.items?.title}</title>
           <link rel="icon" href="./images/logo-footer.png" />
         </Helmet>
+
         <Routes>
           <Route
             path="/"
@@ -129,6 +162,8 @@ function App() {
                 settingsData={settingsData}
                 homeData={homeData}
                 profileInformation={profileInformation}
+                isPending={isPending}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -139,6 +174,8 @@ function App() {
                 language={language}
                 settingsData={settingsData}
                 fetchData={fetchData}
+                profileInformation={profileInformation}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -164,6 +201,7 @@ function App() {
                   setLanguage(language);
                   storeLanguageInLocalStorage(language);
                 }}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -208,6 +246,7 @@ function App() {
                   setLanguage(language);
                   storeLanguageInLocalStorage(language);
                 }}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -224,27 +263,40 @@ function App() {
                 settingsData={settingsData}
                 profileInformation={profileInformation}
                 fetchData={fetchData}
+                rtlLang={rtlLang}
               />
             }
           />
           <Route
             path="/forget-password"
             element={
-              <ForgetPassword language={language} settingsData={settingsData} />
+              <ForgetPassword
+                language={language}
+                settingsData={settingsData}
+                rtlLang={rtlLang}
+              />
             }
           />
 
           <Route
             path="/reset-password/:token/:emailRequest"
             element={
-              <ResetPassword settingsData={settingsData} language={language} />
+              <ResetPassword
+                settingsData={settingsData}
+                language={language}
+                rtlLang={rtlLang}
+              />
             }
           />
 
           <Route
             path="/change-password"
             element={
-              <ChangePassword settingsData={settingsData} language={language} />
+              <ChangePassword
+                settingsData={settingsData}
+                language={language}
+                rtlLang={rtlLang}
+              />
             }
           />
 
@@ -259,6 +311,7 @@ function App() {
                   setLanguage(language);
                   storeLanguageInLocalStorage(language);
                 }}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -274,6 +327,7 @@ function App() {
                 }}
                 profileInformation={profileInformation}
                 language={language}
+                rtlLang={rtlLang}
               />
             }
           />
@@ -282,6 +336,21 @@ function App() {
             path="/blog/:id"
             element={
               <BlogDetails
+                settingsData={settingsData}
+                handleSetLanguage={(language) => {
+                  setLanguage(language);
+                  storeLanguageInLocalStorage(language);
+                }}
+                profileInformation={profileInformation}
+                language={language}
+              />
+            }
+          />
+
+          <Route
+            path="/news"
+            element={
+              <NewsDetails
                 settingsData={settingsData}
                 handleSetLanguage={(language) => {
                   setLanguage(language);

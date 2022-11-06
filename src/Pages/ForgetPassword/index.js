@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../Components/Button";
 import axiosInstance from "../../helpers/axios";
 import * as S from "./style";
+import Button from "../../Components/Button";
 
-function ForgetPassword({ settingsData, language }) {
+function ForgetPassword({ settingsData, language, rtlLang }) {
   const [email, setEmail] = useState();
   const [forgetData, setForgetData] = useState();
 
@@ -45,10 +45,7 @@ function ForgetPassword({ settingsData, language }) {
         <div onClick={() => navigate(-1)}>
           <img
             style={{
-              transform:
-                localStorage.getItem("language") === "ar"
-                  ? "rotate(180deg)"
-                  : "",
+              transform: rtlLang === 1 ? "rotate(180deg)" : "",
             }}
             src="./images/Back.png"
             alt="back pages"

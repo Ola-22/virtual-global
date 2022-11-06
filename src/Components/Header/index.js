@@ -5,7 +5,7 @@ import * as S from "./style";
 import Menu from "./Munu";
 import { Modal } from "../Modal";
 
-function Header({ settingsData, profileInformation }) {
+function Header({ settingsData, profileInformation, isPending, rtlLang }) {
   const [currentUser, setCurrentUser] = useState(undefined);
   const navigate = useNavigate();
 
@@ -48,11 +48,17 @@ function Header({ settingsData, profileInformation }) {
             <>
               <S.profileInformation>
                 <Link to="/profile">
-                  <img src={profileInformation?.user.image} alt="" />
+                  {isPending && <div>LOADING...</div>}
+                  {!isPending && (
+                    <img src={profileInformation?.user.image} alt="" />
+                  )}
                 </Link>
                 <div>
                   <p>{settingsData?.items?.translation?.special_welcome}</p>
-                  <h6>{profileInformation?.user.first_name}</h6>
+                  <Link to="/profile">
+                    {" "}
+                    <h6>{profileInformation?.user.first_name}</h6>
+                  </Link>
                 </div>
               </S.profileInformation>
 
@@ -88,10 +94,7 @@ function Header({ settingsData, profileInformation }) {
                 <div
                   className="modal-header"
                   style={{
-                    justifyContent:
-                      localStorage.getItem("language") === "ar"
-                        ? "flex-start"
-                        : "",
+                    justifyContent: rtlLang === 1 ? "flex-start" : "",
                   }}
                 >
                   <span onClick={closeModalTerms} className="close-modal-btn">
